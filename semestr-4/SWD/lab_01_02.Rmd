@@ -1,0 +1,103 @@
+---
+title: "Statystyczne Metody Wspomagania Decyzji - Zestaw zadań nr 1, zadanie 2"
+output: html_notebook
+---
+
+W pliku samochody.csv (UBI) zamieszczono dane dotyczące parametrów samochodów kilku wybranych marek.
+
+a) Wczytaj dane z pliku do ramki danych - funkcja `read.csv2()`. Podaj rozmiar ramki danych (liczba obserwacji i liczba
+zmiennych) - funkcja `dim()`.
+
+```{r}
+auta = read.csv2('samochody.csv')
+dim(auta) # liczba wierszy, liczba kolumn
+# View(auta)
+```
+
+b) Jakiego typu danymi w R są poszczególne zmienne? Czy zmienna jakościowa `producent` jest czynnikiem w R? Jeśli nie,
+zamień jej typ na czynnik - funkcja `factor()`.
+
+```{r}
+auta = read.csv2('samochody.csv')
+# summary(auta) # przedstaw podsumowanie dla każdej kolumny ramki danych
+# sapply(auta, typeof) # wykonaj funkcję typeof na każdym elemencie ramki danych
+# is.factor(auta$producent) # czy jest czynnikiem? (kategorią danych, nie daną liczbową)
+# levels(auta$producent)
+auta$producent = factor(auta$producent)
+# is.factor(auta$producent)
+# summary(auta)
+levels(auta$producent) = c('USA', 'Europe', 'Japan')
+auta = subset(auta, select=-legenda)
+summary(auta)
+View(auta)
+```
+
+
+c) Usuń braki danych w utworzonej ramce danych - funkcja `na.omit()`.
+
+```{r}
+auta = na.omit(auta)
+```
+
+
+d) Zmienna mpg opisuje zużycie paliwa w liczbie mil przejechanych na 1 galonie. Utwórz zmienną zp opisującą zużycie paliwa mierzone w litrach na 100 kilometrów.
+
+Wskazówka:
+- 1 mila = 1609 m
+- 1 galon (amerykański) = 3,785 l
+
+```{r}
+liters_per_galon = 3.785
+meters_per_mile = 1609 
+auta$zp = liters_per_galon  * 1000 * 100 / meters_per_mile / auta$mpg
+
+View(auta)
+```
+
+e) Utwórz histogram dla zmiennej zp - funkcja `hist()`. Jak zmienia się kształt histogramu przy różnych liczbach klas
+(parametr `breaks`)?
+
+```{r}
+par(mfrow=c(2,2))
+hist(auta$zp, col=5, labels=TRUE, main="Histogram 1")
+hist(auta$zp, col=2, breaks=5, labels=TRUE, main="Histogram 2")
+hist(auta$zp, col=4, breaks=20, labels=TRUE, main="Histogram 3")
+hist(auta$zp, col=3, breaks=3, labels=TRUE, main="Histogram 4")
+```
+f) Utwórz wykres łodygowo-liściowy - funkcja `stem()`.
+
+```{r}
+stem(auta$zp)
+```
+
+
+g) Oblicz i zinterpretuj podstawowe statystyki próbkowe dla danych opisujących zużycie paliwa (takie jak: średnia,
+mediana, kwartyle, 10. i 90. percentyl, wartości ekstremalne, wariancja, odchylenie standardowe, rozstęp, rozstęp międzykwartylowy, współczynnik asymetrii, kurtoza, współczynnik zmienności) - np. funkcje `mean()`, `median()`,
+`quantile()`, `min()`, `max()`, `range()`, `var()`, `sd()`, `IQR()`, `skewness()`, `kurtosis()`.
+
+```{r}
+zp = auta$zp
+mean(zp)
+median(zp)
+quantile(zp)
+min(zp)
+max(zp)
+range(zp)
+var(zp)
+sd(zp)
+IQR(zp)
+
+#install.packages('e1071')
+library(e1071)
+skewness(zp)
+kurtosis(zp)
+```
+
+
+h) Utwórz wykres skrzynkowy (ramkowy, pudełkowy) dla zmiennej opisującej zużycie paliwa - funkcja `boxplot()`.
+
+```{r}
+zp = auta$zp
+boxplot(zp, horizontal=TRUE)
+```
+

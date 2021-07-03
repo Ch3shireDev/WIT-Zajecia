@@ -1,0 +1,27 @@
+Zadania do wykonania na laboratorium 4:
+
+1. Podziel program kalkulator na kilka plików w którym będą zapisane osobne funkcje/programy  osobnych plikach do tego celu możesz wykorzystać napisany wcześniej program kalkulator w którym  zdefiniowałeś 6 dowolnych działań (np. dodawanie, odejmowanie, mnożenie, dzielnie, potęgowanie,  logarytmowanie) w postaci funkcji.
+
+2. Wykonaj polecenie/zadanie ze slajdu nr 12
+
+3. Napisz program który będzie: 
+3a. podawał/przeliczał czas z godziny, minut, sekund na sekundy.
+3b. podawał/przeliczał czas z godziny i minut na minuty.
+
+4. Przy wykorzystaniu tablicy napisz program obliczający średnią z ilości ocen: 
+4a. stałej ustalonej ilości ocen podawanych przez użytkowania
+4b. dowolnej ilości podanej przez użytkownika
+4c. zmodyfikuj program tak aby zapisywał średnią wraz z podawanymi liczbami do pliku
+
+5. Napisz program:
+5a. losujący liczby z przedziału od 30 do 60.
+5b. losujący 10 liczb ze wskazanego przedziału przez użytkownika.
+5c. losujący x liczb ze wskazanego przedziału przez użytkownika.
+
+Dodatkowe:
+6. Napisz prostą grę, która ma działać następująco: 
+a) Program losuje liczbę z przedziału od 50 do 200. 
+b) Użytkownik zgaduje liczbę, która została wylosowana. 
+c) Jeżeli podana liczba jest za duża (za mała) gra wypisuje stosowny komunikat i powraca do kroku b. 
+d) Jeżeli osoba trafi liczbę wylosowaną to program kończy działanie, wypisując na ekran wylosowaną  liczbę oraz liczbę 'strzałów', które oddał gracz. 
+Gra ma być zabezpieczona przed możliwością wprowadzenia błędnych wartości liczbowych.

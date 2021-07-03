@@ -1,0 +1,7 @@
+Kolokwium składało się z 3 części, dwie pierwsze abcd obliczeniowe i pytania dotyczące komend, trzecia część poniżej.
+
+1. Dany jest plik tekstowy. Napisz skrypt który pozwoli wybrać wiersze zawierające określoną liczbę znaków podaną w wywołaniu skryptu.
+2. Napisz skrypt który co n sekund (n podane w wierszu wywołania) będzie sprawdzał, czy w systemie pracuje określony użytkownik (również podany w wierszu wywołania) jeśli tak skrypt ma wysłać maila do użytkownika , który uruchomił skrypt. w temacie listu ma być podana nazwa użytkownika, którego sprawdzaliśmy.
+3. Napisz skrypt, który wyświetli listę plików, które zostały zmodyfikowane w dniu wskazanym przez argument.
+
+wszystkie pliki należy upakować w pliku o nazwie nazwisko.tar.gz i skopiować do podkatalogu nazwa_grupy w katalogu domowym użytkownika wso na komputerze unix (blade-runner)

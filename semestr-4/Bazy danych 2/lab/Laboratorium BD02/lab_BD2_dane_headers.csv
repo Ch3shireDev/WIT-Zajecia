@@ -1,0 +1,839 @@
+nr_zawodow,nr_zawodnika,imie,nazwisko,plec,rok_urodzenia,nr_klubu,klub,kategoria,pkt_generalna,pkt_kategorie
+1,1,'Krystyna','Sawicka','K',1956,62,'Warszawa-Mokotów','K-V',11,47
+1,3,'Anna','Jasek','K',1985,222,'AZS Politechnika Warszawska','K-II',45,48
+1,4,'Ewa','Tkaczyk','K',1968,3,'KB Gymnasion Warszawa','K-III',5,40
+2,4,'Ewa','Tkaczyk','K',1968,3,'KB Gymnasion Warszawa','K-III',23,46
+4,4,'Ewa','Tkaczyk','K',1968,3,'KB Gymnasion Warszawa','K-III',30,44
+2,6,'Wanda','Misiaczek','K',1959,217,'Konstancin','K-IV',21,44
+3,6,'Wanda','Misiaczek','K',1959,217,'Konstancin','K-IV',19,43
+1,7,'Anna','Kolarska','K',1968,105,'UNTS Warszawa','K-III',46,49
+1,8,'Maria','Stańczak','K',1964,3,'KB Gymnasion Warszawa','K-IV',12,44
+3,8,'Maria','Stańczak','K',1964,3,'KB Gymnasion Warszawa','K-IV',29,45
+1,9,'Agnieszka','Teichert','K',1974,3,'KB Gymnasion Warszawa','K-III',10,41
+3,9,'Agnieszka','Teichert','K',1974,3,'KB Gymnasion Warszawa','K-III',20,43
+4,9,'Agnieszka','Teichert','K',1974,3,'KB Gymnasion Warszawa','K-III',27,42
+1,10,'Aneta','Chmielowiec','K',1984,42,'Warszawa','K-II',28,42
+2,10,'Aneta','Chmielowiec','K',1984,42,'Warszawa','K-II',29,46
+3,10,'Aneta','Chmielowiec','K',1984,42,'Warszawa','K-II',36,44
+1,11,'Anna','Gołąbek','K',1975,196,'KB GALERIA Warszawa','K-III',35,48
+3,11,'Anna','Gołąbek','K',1975,196,'KB GALERIA Warszawa','K-III',45,49
+4,11,'Anna','Gołąbek','K',1975,196,'KB GALERIA Warszawa','K-III',43,48
+1,12,'Justyna','Kaczmarczyk','K',1982,3,'KB Gymnasion Warszawa','K-II',25,40
+1,13,'Jolanta','Sidorska','K',1982,196,'KB GALERIA Warszawa','K-II',42,46
+1,14,'Magdalena','Kasprzyk','K',1984,1,'Allianz Warszawa','K-II',38,45
+1,16,'Barbara','Gliwińska','K',1960,3,'KB Gymnasion Warszawa','K-IV',4,43
+3,16,'Barbara','Gliwińska','K',1960,3,'KB Gymnasion Warszawa','K-IV',18,42
+4,16,'Barbara','Gliwińska','K',1960,3,'KB Gymnasion Warszawa','K-IV',19,47
+1,17,'Katarzyna','Polak','K',1978,3,'KB Gymnasion Warszawa','K-II',,36
+1,18,'Katarzyna','Kasprzak','K',1978,3,'KB Gymnasion Warszawa','K-II',2,37
+2,18,'Katarzyna','Kasprzak','K',1978,3,'KB Gymnasion Warszawa','K-II',25,44
+3,18,'Katarzyna','Kasprzak','K',1978,3,'KB Gymnasion Warszawa','K-II',22,43
+4,18,'Katarzyna','Kasprzak','K',1978,3,'KB Gymnasion Warszawa','K-II',24,44
+1,19,'Teresa','Osińska','K',1951,3,'KB Gymnasion Warszawa','K-V',3,44
+2,19,'Teresa','Osińska','K',1951,3,'KB Gymnasion Warszawa','K-V',24,46
+3,19,'Teresa','Osińska','K',1951,3,'KB Gymnasion Warszawa','K-V',21,47
+4,19,'Teresa','Osińska','K',1951,3,'KB Gymnasion Warszawa','K-V',23,46
+1,21,'Zuzanna','Polak','K',1988,59,'Warszawa-Bemowo','K-I',23,46
+1,22,'Marta','Łodyga','K',1987,3,'KB Gymnasion Warszawa','K-I',14,43
+1,23,'Małgorzata','Piotrowska','K',1987,3,'KB Gymnasion Warszawa','K-I',15,44
+1,24,'Aleksandra','Rawska','K',1955,3,'KB Gymnasion Warszawa','K-V',19,48
+2,24,'Aleksandra','Rawska','K',1955,3,'KB Gymnasion Warszawa','K-V',34,48
+3,24,'Aleksandra','Rawska','K',1955,3,'KB Gymnasion Warszawa','K-V',34,49
+4,24,'Aleksandra','Rawska','K',1955,3,'KB Gymnasion Warszawa','K-V',39,49
+2,25,'Elżbieta','Gliniewicz','K',1950,3,'KB Gymnasion Warszawa','K-V',22,45
+3,25,'Elżbieta','Gliniewicz','K',1950,3,'KB Gymnasion Warszawa','K-V',17,46
+4,25,'Elżbieta','Gliniewicz','K',1950,3,'KB Gymnasion Warszawa','K-V',17,45
+1,26,'Anna','Wazowicz','K',1957,3,'KB Gymnasion Warszawa','K-IV',1,42
+2,26,'Anna','Wazowicz','K',1957,3,'KB Gymnasion Warszawa','K-IV',20,43
+1,27,'Maria','Zielińska','K',1985,42,'Warszawa','K-II',18,39
+1,30,'Magdalena','Zielona','K',1984,3,'KB Gymnasion Warszawa','K-II',6,38
+1,31,'Monika','Gajda','K',1990,105,'UNTS Warszawa','K-I',30,47
+2,31,'Monika','Gajda','K',1990,105,'UNTS Warszawa','K-I',47,49
+1,33,'Anna','Kamińska','K',1989,403,'Przyszłość Włochy','K-I',8,42
+2,33,'Anna','Kamińska','K',1989,403,'Przyszłość Włochy','K-I',32,47
+1,34,'Anna','Dusza','K',1977,348,'ENTRE.PL Team','K-II',26,41
+2,34,'Anna','Dusza','K',1977,348,'ENTRE.PL Team','K-II',41,48
+3,34,'Anna','Dusza','K',1977,348,'ENTRE.PL Team','K-II',41,47
+4,34,'Anna','Dusza','K',1977,348,'ENTRE.PL Team','K-II',35,46
+1,37,'Elżbieta','Dobosz','K',1960,3,'KB Gymnasion Warszawa','K-IV',41,50
+3,37,'Elżbieta','Dobosz','K',1960,3,'KB Gymnasion Warszawa','K-IV',31,47
+1,38,'Ela','Hirska','K',1958,3,'KB Gymnasion Warszawa','K-IV',33,47
+2,38,'Ela','Hirska','K',1958,3,'KB Gymnasion Warszawa','K-IV',37,46
+1,39,'Karolina','Muzyka','K',1983,19,'Warszawianka','K-II',,35
+1,40,'Barbara','Markowska','K',1970,426,'Kopytko','K-III',16,43
+2,40,'Barbara','Markowska','K',1970,426,'Kopytko','K-III',27,48
+3,40,'Barbara','Markowska','K',1970,426,'Kopytko','K-III',32,46
+4,40,'Barbara','Markowska','K',1970,426,'Kopytko','K-III',42,47
+1,41,'Teresa','Bieda','K',1956,317,'Art Profi Warszawa','K-V',36,50
+2,41,'Teresa','Bieda','K',1956,317,'Art Profi Warszawa','K-V',40,50
+3,41,'Teresa','Bieda','K',1956,317,'Art Profi Warszawa','K-V',39,50
+4,41,'Teresa','Bieda','K',1956,317,'Art Profi Warszawa','K-V',40,50
+1,42,'Ewa','Jasińska','K',1983,3,'KB Gymnasion Warszawa','K-II',29,43
+2,42,'Ewa','Jasińska','K',1983,3,'KB Gymnasion Warszawa','K-II',38,47
+3,42,'Ewa','Jasińska','K',1983,3,'KB Gymnasion Warszawa','K-II',37,45
+4,42,'Ewa','Jasińska','K',1983,3,'KB Gymnasion Warszawa','K-II',38,47
+1,43,'Ewa','Lajska','K',1975,42,'Warszawa','K-III',34,47
+4,43,'Ewa','Lajska','K',1975,42,'Warszawa','K-III',44,49
+1,44,'Dorota','Iwasińska','K',1984,16,'Gwardia Warszawa','K-II',47,49
+1,45,'Bożena','Witek','K',1954,179,'OTK Rzeźnik Gliwice','K-V',24,49
+2,45,'Bożena','Witek','K',1954,179,'OTK Rzeźnik Gliwice','K-V',35,49
+4,45,'Bożena','Witek','K',1954,179,'OTK Rzeźnik Gliwice','K-V',32,48
+1,47,'Olga','Paczkowska','K',1975,136,'Warszawa-Saska Kępa','K-III',22,45
+2,47,'Olga','Paczkowska','K',1975,136,'Warszawa-Saska Kępa','K-III',26,47
+4,47,'Olga','Paczkowska','K',1975,136,'Warszawa-Saska Kępa','K-III',20,38
+1,48,'Aleksandra','Kosińska','K',1986,16,'Gwardia Warszawa','K-II',31,44
+1,49,'Ewa','Babenko','K',1957,217,'Konstancin','K-IV',37,48
+2,49,'Ewa','Babenko','K',1957,217,'Konstancin','K-IV',46,49
+2,51,'Olena','Babinicz','K',1960,62,'Warszawa-Mokotów','K-IV',48,50
+3,51,'Olena','Babinicz','K',1960,62,'Warszawa-Mokotów','K-IV',48,50
+1,52,'Marzena','Otto','K',1963,3,'KB Gymnasion Warszawa','K-IV',40,49
+2,52,'Marzena','Otto','K',1963,3,'KB Gymnasion Warszawa','K-IV',42,48
+3,52,'Marzena','Otto','K',1963,3,'KB Gymnasion Warszawa','K-IV',44,49
+4,52,'Marzena','Otto','K',1963,3,'KB Gymnasion Warszawa','K-IV',45,50
+1,53,'Teresa','Opowicz','K',1947,1,'Allianz Warszawa','K-V',7,45
+3,53,'Teresa','Opowicz','K',1947,1,'Allianz Warszawa','K-V',23,48
+1,54,'Anna','Andres','K',1992,1,'Allianz Warszawa','K-I',21,45
+2,54,'Anna','Andres','K',1992,1,'Allianz Warszawa','K-I',31,46
+1,59,'Katarzyna','Chamera','K',1968,355,'World Class','K-III',27,46
+1,60,'Beata','Polańska','K',1975,348,'ENTRE.PL Team','K-III',50,50
+2,60,'Beata','Polańska','K',1975,348,'ENTRE.PL Team','K-III',50,50
+3,60,'Beata','Polańska','K',1975,348,'ENTRE.PL Team','K-III',50,50
+4,60,'Beata','Polańska','K',1975,348,'ENTRE.PL Team','K-III',48,50
+1,61,'Katarzyna','Biała','K',1988,179,'OTK Rzeźnik Gliwice','K-I',43,49
+1,62,'Ewa','Molenda','K',1956,3,'KB Gymnasion Warszawa','K-V',9,46
+4,65,'Renata ','Warecka','K',1978,19,'Warszawianka','K-II',50,50
+2,66,'Małgorzata ','Darowa','K',1982,348,'ENTRE.PL Team','K-II',28,45
+4,67,'Małgorzata','Wieteska','K',1966,196,'KB GALERIA Warszawa','K-IV',28,48
+3,71,'Emilia','Butkiewicz','K',1980,317,'Art Profi Warszawa','K-II',38,46
+2,72,'Iza ','Tarska','K',1964,42,'Warszawa','K-IV',39,47
+2,73,'Ewa','Tarnowska','K',1986,110,'Mysiadło','K-II',44,50
+3,73,'Ewa','Tarnowska','K',1986,110,'Mysiadło','K-II',46,49
+1,75,'Jolanta','Karłowicz','K',1959,348,'ENTRE.PL Team','K-IV',17,45
+3,75,'Jolanta','Karłowicz','K',1959,348,'ENTRE.PL Team','K-IV',30,46
+4,75,'Jolanta','Karłowicz','K',1959,348,'ENTRE.PL Team','K-IV',37,49
+2,77,'Anna','Pawłowska','K',1953,42,'Warszawa','K-V',33,47
+4,77,'Anna','Pawłowska','K',1953,42,'Warszawa','K-V',31,47
+4,84,'Katarzyna','Sobiech','K',1980,453,'NTT System','K-II',49,49
+4,85,'Monika','Gawęda','K',1978,3,'KB Gymnasion Warszawa','K-II',33,45
+3,91,'Katarzyna','Dawidzka','K',1999,62,'Warszawa-Mokotów','K-I',24,47
+3,92,'Magda','Walenczak','K',1976,62,'Warszawa-Mokotów','K-III',28,45
+1,93,'Renata','Madziarska','K',1961,348,'ENTRE.PL Team','K-IV',32,46
+2,93,'Renata','Madziarska','K',1961,348,'ENTRE.PL Team','K-IV',36,45
+3,93,'Renata','Madziarska','K',1961,348,'ENTRE.PL Team','K-IV',35,48
+1,97,'Joanna','Mroczek','K',1969,3,'KB Gymnasion Warszawa','K-III',13,42
+4,97,'Joanna','Mroczek','K',1969,3,'KB Gymnasion Warszawa','K-III',26,41
+1,98,'Magdalena','Lewicka','K',1988,85,'Siedlce','K-I',39,48
+2,98,'Magdalena','Lewicka','K',1988,85,'Siedlce','K-I',45,48
+3,98,'Magdalena','Lewicka','K',1988,85,'Siedlce','K-I',43,49
+4,101,'Dorota','Markiewicz','K',1973,42,'Warszawa','K-III',22,39
+4,102,'Monika','Banczyk','K',1970,141,'Warszawa-Żoliborz','K-III',29,43
+4,103,'Irena','Słowik','K',1961,62,'Warszawa-Mokotów','K-IV',18,46
+1,104,'Matylda','Komowska','K',1980,328,'Kabacka Grupa Biegowa','K-II',44,47
+2,118,'Marta','Smolińska','K',1977,348,'ENTRE.PL Team','K-II',43,49
+3,129,'Barbara','Smolnik','K',1980,179,'OTK Rzeźnik Gliwice','K-II',49,50
+4,131,'Justyna','Kowalczyk','K',1970,196,'KB GALERIA Warszawa','K-III',36,45
+3,137,'Karolina','Karłowicz','K',1990,86,'KB Huragan Wołomin','K-I',27,48
+4,137,'Karolina','Karłowicz','K',1990,86,'KB Huragan Wołomin','K-I',21,48
+3,140,'Anna','Janko','K',1973,3,'KB Gymnasion Warszawa','K-III',40,48
+4,140,'Anna','Janko','K',1973,3,'KB Gymnasion Warszawa','K-III',41,46
+3,141,'Anna','Darska','K',1966,153,'ACTION Warszawa','K-IV',16,41
+3,142,'Ewa','Kabzińska','K',1966,428,'Warszawa Kabaty','K-IV',25,44
+3,143,'Emilia','Domżał','K',1974,82,'Łódź','K-III',26,44
+1,145,'Ilona','Zawada','K',1980,196,'KB GALERIA Warszawa','K-II',48,50
+3,145,'Ilona','Zawada','K',1980,196,'KB GALERIA Warszawa','K-II',42,48
+4,145,'Ilona','Zawada','K',1980,196,'KB GALERIA Warszawa','K-II',46,48
+4,163,'Marta','Banaszek','K',1991,343,'Wiązowna','K-I',34,49
+1,173,'Paulina','Stachurska','K',1989,380,'UKS Bielany','K-I',49,50
+2,173,'Paulina','Stachurska','K',1989,380,'UKS Bielany','K-I',49,50
+3,173,'Paulina','Stachurska','K',1989,380,'UKS Bielany','K-I',47,50
+4,173,'Paulina','Stachurska','K',1989,380,'UKS Bielany','K-I',47,50
+1,182,'Aleksandra','Dobrowolska','K',1975,348,'ENTRE.PL Team','K-III',20,44
+2,182,'Aleksandra','Dobrowolska','K',1975,348,'ENTRE.PL Team','K-III',30,49
+3,182,'Aleksandra','Dobrowolska','K',1975,348,'ENTRE.PL Team','K-III',33,47
+4,182,'Aleksandra','Dobrowolska','K',1975,348,'ENTRE.PL Team','K-III',25,40
+1,202,'Stefan','Karpisz','M',1947,67,'Warszawa-Praga Południe','V',,21
+1,203,'Grzegorz','Stańczyk','M',1955,41,'Warszawa-Ursynów','V',,23
+1,204,'Andrzej','Gromko','M',1957,50,'Warszawa-Śródmieście','IV',,22
+1,205,'Dawid','Żywek','M',1985,400,'OKS Start Otwock','II',48,48
+1,206,'Piotr','Wereda','M',1971,85,'Siedlce','III',,3
+3,206,'Piotr','Wereda','M',1971,85,'Siedlce','III',,17
+1,207,'Antoni','Wojciechowski','M',1971,42,'Warszawa','III',,16
+1,208,'Jan','Pawiński','M',1945,47,'Otwock','VI',,38
+1,209,'Dariusz','Mieszkowski','M',1961,141,'Warszawa-Żoliborz','IV',,15
+3,209,'Dariusz','Mieszkowski','M',1961,141,'Warszawa-Żoliborz','IV',,23
+4,209,'Dariusz','Mieszkowski','M',1961,141,'Warszawa-Żoliborz','IV',,24
+1,210,'Cezary','Kolak','M',1965,42,'Warszawa','IV',,38
+1,211,'Rafał','Szymańczak','M',1980,344,'Nadarzyn','II',,21
+1,212,'Zbigniew','Szymańczak','M',1955,344,'Nadarzyn','V',,22
+1,213,'Robert','Kowalski','M',1966,401,'AKS Płyń pod Prąd','IV',,20
+3,214,'Adam','Senatorski','M',1970,453,'NTT System','III',37,46
+4,214,'Adam','Senatorski','M',1970,453,'NTT System','III',32,44
+1,215,'Adam','Poterek','M',1985,402,'Żelechów','II',26,39
+1,217,'Bartosz','Szewczyk','M',1972,3,'KB Gymnasion Warszawa','III',,4
+2,217,'Bartosz','Szewczyk','M',1972,3,'KB Gymnasion Warszawa','III',,17
+4,217,'Bartosz','Szewczyk','M',1972,3,'KB Gymnasion Warszawa','III',,25
+1,218,'Jakub','Sztelmach','M',1982,173,'UWKS WAT Warszawa','II',,31
+2,218,'Jakub','Sztelmach','M',1982,173,'UWKS WAT Warszawa','II',24,40
+3,218,'Jakub','Sztelmach','M',1982,173,'UWKS WAT Warszawa','II',30,43
+4,218,'Jakub','Sztelmach','M',1982,173,'UWKS WAT Warszawa','II',7,36
+1,219,'Błażej','Miller','M',1988,42,'Warszawa','I',,47
+1,220,'Dariusz','Lasek','M',1988,42,'Warszawa','I',,41
+1,221,'Andrzej','Karczewski','M',1973,306,'Łomżyński Klub Biegowy','III',30,45
+2,221,'Andrzej','Karczewski','M',1973,306,'Łomżyński Klub Biegowy','III',33,46
+3,221,'Andrzej','Karczewski','M',1973,306,'Łomżyński Klub Biegowy','III',26,42
+4,221,'Andrzej','Karczewski','M',1973,306,'Łomżyński Klub Biegowy','III',21,38
+1,222,'Sylwester','Skalski','M',1959,348,'ENTRE.PL Team','IV',34,48
+2,222,'Sylwester','Skalski','M',1959,348,'ENTRE.PL Team','IV',22,45
+3,222,'Sylwester','Skalski','M',1959,348,'ENTRE.PL Team','IV',33,47
+4,222,'Sylwester','Skalski','M',1959,348,'ENTRE.PL Team','IV',22,46
+1,224,'Przemysław','Bobrowski','M',1983,306,'Łomżyński Klub Biegowy','II',49,49
+2,224,'Przemysław','Bobrowski','M',1983,306,'Łomżyński Klub Biegowy','II',50,50
+3,224,'Przemysław','Bobrowski','M',1983,306,'Łomżyński Klub Biegowy','II',47,49
+4,224,'Przemysław','Bobrowski','M',1983,306,'Łomżyński Klub Biegowy','II',48,48
+1,225,'Jarosław','Popowski','M',1965,403,'Przyszłość Włochy','IV',,26
+2,225,'Jarosław','Popowski','M',1965,403,'Przyszłość Włochy','IV',,32
+1,226,'Mateusz','Kuczkowski','M',1991,403,'Przyszłość Włochy','I',,44
+1,227,'Jerzy','Dąbrowski','M',1968,105,'UNTS Warszawa','III',,2
+2,227,'Jerzy','Dąbrowski','M',1968,105,'UNTS Warszawa','III',,22
+1,228,'Tadeusz','Resztik','M',1953,3,'KB Gymnasion Warszawa','V',,17
+3,228,'Tadeusz','Resztik','M',1953,3,'KB Gymnasion Warszawa','V',,23
+1,229,'Cezary','Antonowicz','M',1971,104,'Piaseczno','III',,23
+4,229,'Cezary','Antonowicz','M',1971,104,'Piaseczno','III',,
+1,230,'Adam','Jujka','M',1977,42,'Warszawa','II',,12
+1,231,'Tomasz','Lenuszyński','M',1968,42,'Warszawa','III',,
+1,233,'Jerzy','Wojtyński','M',1946,41,'Warszawa-Ursynów','VI',,42
+1,234,'Wojciech','Dąbrowski','M',1983,306,'Łomżyński Klub Biegowy','II',42,44
+1,235,'Krzysztof','Protas','M',1977,305,'SBBP.PL','II',15,35
+2,235,'Krzysztof','Protas','M',1977,305,'SBBP.PL','II',28,42
+4,235,'Krzysztof','Protas','M',1977,305,'SBBP.PL','II',33,43
+1,236,'Michał','Jakowicz','M',1979,42,'Warszawa','II',,10
+1,237,'Jakub','Augustyniak','M',1981,42,'Warszawa','II',,14
+4,237,'Jakub','Augustyniak','M',1981,42,'Warszawa','II',15,39
+1,238,'Bartłomiej','Zajkowski','M',1978,42,'Warszawa','II',,5
+1,239,'Bartosz','Bednarczyk','M',1976,42,'Warszawa','III',1,33
+4,239,'Bartosz','Bednarczyk','M',1976,42,'Warszawa','III',17,35
+1,240,'Jerzy','Kuczkowski','M',1956,245,'Ożarów Mazowiecki','V',,41
+2,240,'Jerzy','Kuczkowski','M',1956,245,'Ożarów Mazowiecki','V',,43
+3,240,'Jerzy','Kuczkowski','M',1956,245,'Ożarów Mazowiecki','V',2,43
+1,241,'Michał','Anc','M',1987,245,'Ożarów Mazowiecki','I',,45
+2,241,'Michał','Anc','M',1987,245,'Ożarów Mazowiecki','I',,47
+3,241,'Michał','Anc','M',1987,245,'Ożarów Mazowiecki','I',,49
+4,241,'Michał','Anc','M',1987,245,'Ożarów Mazowiecki','I',,44
+1,242,'Marek','Cieślak','M',1971,328,'Kabacka Grupa Biegowa','III',,17
+2,242,'Marek','Cieślak','M',1971,328,'Kabacka Grupa Biegowa','III',,19
+1,243,'Piotr','Strzałkowski','M',1967,348,'ENTRE.PL Team','III',6,35
+2,243,'Piotr','Strzałkowski','M',1967,348,'ENTRE.PL Team','III',7,40
+1,244,'Piotr','Kowalski','M',1981,396,'FBB Ryn','II',,29
+2,244,'Piotr','Kowalski','M',1981,396,'FBB Ryn','II',,35
+2,245,'Grzegorz','Grabowski','M',1965,288,'Filipides Trzemeszno','IV',,27
+1,247,'Mikołaj','Celiński','M',1978,397,'Nieprzemakalni Warszawa','II',,18
+3,247,'Mikołaj','Celiński','M',1978,397,'Nieprzemakalni Warszawa','II',,36
+1,248,'Tomasz','Grzana','M',1975,397,'Nieprzemakalni Warszawa','III',,6
+2,248,'Tomasz','Grzana','M',1975,397,'Nieprzemakalni Warszawa','III',,16
+3,248,'Tomasz','Grzana','M',1975,397,'Nieprzemakalni Warszawa','III',,28
+4,248,'Tomasz','Grzana','M',1975,397,'Nieprzemakalni Warszawa','III',,23
+1,249,'Jakub','Radomski','M',1987,35,'KB Lechici Zielonka','I',,43
+1,252,'Aleksander','Kowalczyk','M',1984,357,'KB Byledobiec Anin','II',,26
+2,252,'Aleksander','Kowalczyk','M',1984,357,'KB Byledobiec Anin','II',3,36
+1,253,'Tadeusz','Gołębiewski','M',1953,86,'KB Huragan Wołomin','V',,44
+2,253,'Tadeusz','Gołębiewski','M',1953,86,'KB Huragan Wołomin','V',,40
+3,253,'Tadeusz','Gołębiewski','M',1953,86,'KB Huragan Wołomin','V',11,45
+4,253,'Tadeusz','Gołębiewski','M',1953,86,'KB Huragan Wołomin','V',,46
+1,254,'Jan','Tymiński','M',1951,86,'KB Huragan Wołomin','V',,35
+2,254,'Jan','Tymiński','M',1951,86,'KB Huragan Wołomin','V',,31
+3,254,'Jan','Tymiński','M',1951,86,'KB Huragan Wołomin','V',,38
+4,254,'Jan','Tymiński','M',1951,86,'KB Huragan Wołomin','V',,40
+1,256,'Petter','Johann','M',1948,357,'KB Byledobiec Anin','V',,14
+1,257,'Leszek','Kosakowski','M',1962,357,'KB Byledobiec Anin','IV',,31
+1,258,'Rafał','Starzyński','M',1970,325,'Józefosław','III',,13
+1,260,'Wojciech','Jędrzejewski','M',1971,348,'ENTRE.PL Team','III',32,46
+2,260,'Wojciech','Jędrzejewski','M',1971,348,'ENTRE.PL Team','III',42,49
+3,260,'Wojciech','Jędrzejewski','M',1971,348,'ENTRE.PL Team','III',43,49
+4,260,'Wojciech','Jędrzejewski','M',1971,348,'ENTRE.PL Team','III',43,49
+1,261,'Tomasz','Cygler','M',1992,325,'Józefosław','I',,40
+3,261,'Tomasz','Cygler','M',1992,325,'Józefosław','I',,48
+4,261,'Tomasz','Cygler','M',1992,325,'Józefosław','I',,45
+1,262,'Jarosław','Parfienowicz','M',1980,179,'OTK Rzeźnik Gliwice','II',38,41
+3,262,'Jarosław','Parfienowicz','M',1980,179,'OTK Rzeźnik Gliwice','II',44,46
+1,263,'Mirosław','Baranowski','M',1975,179,'OTK Rzeźnik Gliwice','III',20,40
+3,263,'Mirosław','Baranowski','M',1975,179,'OTK Rzeźnik Gliwice','III',34,44
+4,263,'Mirosław','Baranowski','M',1975,179,'OTK Rzeźnik Gliwice','III',37,46
+1,264,'Jakub','Sobczak','M',1977,19,'Warszawianka','II',50,50
+4,264,'Jakub','Sobczak','M',1977,19,'Warszawianka','II',47,47
+1,265,'Wiesław','Piątek','M',1966,328,'Kabacka Grupa Biegowa','IV',,37
+2,265,'Wiesław','Piątek','M',1966,328,'Kabacka Grupa Biegowa','IV',,34
+3,265,'Wiesław','Piątek','M',1966,328,'Kabacka Grupa Biegowa','IV',,35
+4,265,'Wiesław','Piątek','M',1966,328,'Kabacka Grupa Biegowa','IV',,35
+1,266,'Paweł','Bieniecki','M',1970,50,'Warszawa-Śródmieście','III',,
+1,267,'Tomasz','Parfienowicz','M',1979,328,'Kabacka Grupa Biegowa','II',,
+3,267,'Tomasz','Bieniecki','M',1979,328,'Kabacka Grupa Biegowa','II',,23
+1,268,'Damian','Czarnecki','M',1980,62,'Warszawa-Mokotów','II',,4
+2,269,'Jan','Sitnik','M',1946,7,'KB Pułaski Strong Warka','VI',,49
+1,270,'Andrzej','Nowak','M',1953,41,'Warszawa-Ursynów','V',,12
+1,272,'Piotr','Kuna','M',1960,62,'Warszawa-Mokotów','IV',,17
+2,272,'Piotr','Kuna','M',1960,62,'Warszawa-Mokotów','IV',,22
+4,272,'Piotr','Kuna','M',1960,62,'Warszawa-Mokotów','IV',,22
+1,274,'Michał','Zach','M',1976,378,'Gazeta Wyborcza','III',,12
+4,274,'Michał','Zach','M',1976,378,'Gazeta Wyborcza','III',,21
+1,275,'Paweł','Skiwut','M',1968,348,'ENTRE.PL Team','III',41,49
+4,275,'Paweł','Skiwut','M',1968,348,'ENTRE.PL Team','III',42,48
+1,276,'Robert','Pardela','M',1971,398,'R-Soft Warszawa','III',,28
+1,278,'Paweł','Brodowski','M',1975,275,'Winnica','III',10,36
+1,279,'Jakub','Wiśniewski','M',1980,399,'Maraton Warszawski','II',,
+2,280,'Jacek','Krawczyński','M',1947,18,'Bielański Klub Biegacza','V',,17
+1,282,'Daniel','Błaszczyk','M',1972,104,'Piaseczno','III',,
+1,283,'Tomasz','Rożnowski','M',1972,41,'Warszawa-Ursynów','III',,1
+3,283,'Tomasz','Rożnowski','M',1972,41,'Warszawa-Ursynów','III',,16
+1,284,'Rafał','Bartoszek','M',1980,62,'Warszawa-Mokotów','II',,9
+1,285,'Krzysztof','Rybak','M',1973,41,'Warszawa-Ursynów','III',,
+3,285,'Krzysztof','Rybak','M',1973,41,'Warszawa-Ursynów','III',,18
+1,286,'Gerard','Kurpiewski','M',1979,87,'Warszawa-Wola','II',,8
+1,289,'Marcin','Zalewski','M',1952,42,'Warszawa','V',,28
+2,289,'Marcin','Zalewski','M',1952,42,'Warszawa','V',,39
+3,289,'Marcin','Zalewski','M',1952,42,'Warszawa','V',,41
+4,289,'Marcin','Zalewski','M',1952,42,'Warszawa','V',,44
+1,290,'Dariusz','Łazicki','M',1970,317,'Art Profi Warszawa','III',25,43
+2,290,'Dariusz','Łazicki','M',1970,317,'Art Profi Warszawa','III',,37
+4,290,'Dariusz','Łazicki','M',1970,317,'Art Profi Warszawa','III',20,37
+1,291,'Paweł','Zalewski','M',1984,42,'Warszawa','II',,6
+3,291,'Paweł','Zalewski','M',1984,42,'Warszawa','II',,27
+1,293,'Kamil','Rokicki','M',1984,42,'Warszawa','II',,7
+3,293,'Kamil','Rokicki','M',1984,42,'Warszawa','II',,26
+1,295,'Krzysztof','Bieniek','M',1969,4,'Legia Warszawa','III',27,44
+2,295,'Krzysztof','Bieniek','M',1969,4,'Legia Warszawa','III',1,38
+3,295,'Krzysztof','Bieniek','M',1969,4,'Legia Warszawa','III',25,41
+4,295,'Krzysztof','Bieniek','M',1969,4,'Legia Warszawa','III',28,42
+1,297,'Maciej','Przybysz','M',1975,42,'Warszawa','III',,5
+2,297,'Maciej','Przybysz','M',1975,42,'Warszawa','III',,14
+1,298,'Szymon','Drawski','M',1960,62,'Warszawa-Mokotów','IV',37,49
+2,298,'Szymon','Drawski','M',1960,62,'Warszawa-Mokotów','IV',44,49
+3,298,'Szymon','Drawski','M',1960,62,'Warszawa-Mokotów','IV',42,49
+4,298,'Szymon','Drawski','M',1960,62,'Warszawa-Mokotów','IV',34,48
+2,299,'Dariusz','Bobrowski','M',1964,7,'KB Pułaski Strong Warka','IV',,35
+1,300,'Jakub','Bieniek','M',1981,42,'Warszawa','II',,
+1,301,'Tomasz','Woskowski','M',1984,3,'KB Gymnasion Warszawa','II',,16
+1,302,'Jacek','Kapuściński','M',1956,3,'KB Gymnasion Warszawa','V',,29
+3,302,'Jacek','Kapuściński','M',1956,3,'KB Gymnasion Warszawa','V',,35
+4,302,'Jacek','Kapuściński','M',1956,3,'KB Gymnasion Warszawa','V',,35
+1,303,'Paweł','Szynal','M',1973,86,'KB Huragan Wołomin','III',33,47
+2,303,'Paweł','Szynal','M',1973,86,'KB Huragan Wołomin','III',30,45
+1,304,'Marek','Jasiński','M',1960,317,'Art Profi Warszawa','IV',,40
+2,304,'Marek','Jasiński','M',1960,317,'Art Profi Warszawa','IV',14,42
+3,304,'Marek','Jasiński','M',1960,317,'Art Profi Warszawa','IV',,38
+4,304,'Marek','Jasiński','M',1960,317,'Art Profi Warszawa','IV',,38
+1,305,'Dariusz','Król','M',1964,86,'KB Huragan Wołomin','IV',31,47
+4,305,'Dariusz','Król','M',1964,86,'KB Huragan Wołomin','IV',38,49
+4,306,'Marcin','Michna','M',1975,41,'Warszawa-Ursynów','III',,28
+1,309,'Sławomir','Kamiński','M',1961,86,'KB Huragan Wołomin','IV',4,43
+2,309,'Sławomir','Kamiński','M',1961,86,'KB Huragan Wołomin','IV',13,41
+3,309,'Sławomir','Kamiński','M',1961,86,'KB Huragan Wołomin','IV',3,39
+4,309,'Sławomir','Kamiński','M',1961,86,'KB Huragan Wołomin','IV',,41
+1,310,'Krzysztof','Szwedzik','M',1961,42,'Warszawa','IV',,35
+1,311,'Jacek','Gawryszewski','M',1950,42,'Warszawa','V',,13
+2,311,'Jacek','Gawryszewski','M',1950,42,'Warszawa','V',,15
+1,312,'Andrzej','Hibsz','M',1954,42,'Warszawa','V',,11
+1,313,'Robert','Czechowski','M',1964,42,'Warszawa','IV',,27
+4,313,'Robert','Czechowski','M',1964,42,'Warszawa','IV',,36
+1,315,'Mariusz','Ślęzak','M',1978,348,'ENTRE.PL Team','II',47,47
+1,316,'Aleksander','Rygsen','M',1956,42,'Warszawa','V',,7
+3,316,'Aleksander','Rygsen','M',1956,42,'Warszawa','V',,24
+1,317,'Sebastian','Kasprzak','M',1978,3,'KB Gymnasion Warszawa','II',,
+1,318,'Dariusz','Janaszek','M',1967,378,'Gazeta Wyborcza','III',,14
+2,318,'Dariusz','Janaszek','M',1967,378,'Gazeta Wyborcza','III',,13
+1,319,'Jan','Goleń','M',1969,196,'KB GALERIA Warszawa','III',,25
+2,319,'Jan','Goleń','M',1969,196,'KB GALERIA Warszawa','III',,23
+3,319,'Jan','Goleń','M',1969,196,'KB GALERIA Warszawa','III',,27
+1,322,'Zygmunt','Mazepus','M',1950,42,'Warszawa','V',,8
+1,326,'Tomasz','Jadłowski','M',1955,54,'Warszawa-Wilanów','V',,24
+2,326,'Tomasz','Jadłowski','M',1955,54,'Warszawa-Wilanów','V',,41
+3,326,'Tomasz','Jadłowski','M',1955,54,'Warszawa-Wilanów','V',17,48
+1,328,'Janusz','Banowski','M',1967,42,'Warszawa','III',,20
+1,329,'Marcin','Smaga','M',1973,305,'SBBP.PL','III',,9
+1,330,'Paweł','Osica','M',1981,42,'Warszawa','II',,24
+2,330,'Paweł','Osica','M',1981,42,'Warszawa','II',,26
+4,330,'Paweł','Osica','M',1981,42,'Warszawa','II',,32
+1,331,'Marek','Kaczmarski','M',1980,42,'Warszawa','II',,15
+2,331,'Marek','Kaczmarski','M',1980,42,'Warszawa','II',,27
+1,332,'Piotr','Polański','M',1965,1,'Allianz Warszawa','IV',19,45
+2,332,'Piotr','Polański','M',1965,1,'Allianz Warszawa','IV',35,47
+3,332,'Piotr','Polański','M',1965,1,'Allianz Warszawa','IV',36,48
+4,332,'Piotr','Polański','M',1965,1,'Allianz Warszawa','IV',29,47
+1,333,'Jacek','Gardener','M',1966,306,'Łomżyński Klub Biegowy','IV',46,50
+2,333,'Jacek','Gardener','M',1966,306,'Łomżyński Klub Biegowy','IV',47,50
+3,333,'Jacek','Gardener','M',1966,306,'Łomżyński Klub Biegowy','IV',49,50
+4,333,'Jacek','Gardener','M',1966,306,'Łomżyński Klub Biegowy','IV',45,50
+1,334,'Radosław','Gozdek','M',1973,3,'KB Gymnasion Warszawa','III',,7
+1,335,'Piotr','Kałużny','M',1978,3,'KB Gymnasion Warszawa','II',,2
+2,335,'Piotr','Kałużny','M',1978,3,'KB Gymnasion Warszawa','II',,19
+4,335,'Piotr','Kałużny','M',1978,3,'KB Gymnasion Warszawa','II',,23
+1,336,'Sławomir','Fitzgibbon','M',1990,403,'Przyszłość Włochy','I',,46
+2,336,'Sławomir','Fitzgibbon','M',1990,403,'Przyszłość Włochy','I',8,48
+1,337,'Jerzy','Tomaszuk','M',1959,42,'Warszawa','IV',,16
+1,338,'Sebastian','Karaś','M',1980,3,'KB Gymnasion Warszawa','II',14,34
+2,338,'Sebastian','Karaś','M',1980,3,'KB Gymnasion Warszawa','II',46,48
+3,338,'Sebastian','Karaś','M',1980,3,'KB Gymnasion Warszawa','II',41,45
+4,338,'Sebastian','Karaś','M',1980,3,'KB Gymnasion Warszawa','II',40,45
+1,339,'Damian','Polak','M',1983,406,'AZS SWPS Warszawa','II',,22
+1,341,'Paweł','Różycki','M',1990,42,'Warszawa','I',,42
+1,342,'Paweł','Jusiński','M',1983,42,'Warszawa','II',,19
+1,344,'Tomasz','Jarosiewicz','M',1987,42,'Warszawa','I',,39
+3,344,'Tomasz','Jarosiewicz','M',1987,42,'Warszawa','I',,46
+1,345,'Bartosz','Chorążewicz','M',1990,42,'Warszawa','I',,38
+2,346,'Piotr','Dąbrowski','M',1968,426,'Kopytko','III',,10
+1,347,'Grzegorz','Rosłon','M',1965,42,'Warszawa','IV',,18
+2,347,'Grzegorz','Rosłon','M',1965,42,'Warszawa','IV',,26
+1,348,'Paweł','Bielobradek','M',1964,305,'SBBP.PL','IV',,19
+4,348,'Paweł','Bielobradek','M',1964,305,'SBBP.PL','IV',,29
+2,349,'Paweł','Łuba','M',1980,328,'Kabacka Grupa Biegowa','II',,32
+2,355,'Jan','Putz','M',1986,16,'Gwardia Warszawa','II',,34
+3,355,'Jan','Putz','M',1986,16,'Gwardia Warszawa','II',12,41
+4,355,'Jan','Putz','M',1986,16,'Gwardia Warszawa','II',1,34
+1,357,'Paweł','Święcki','M',1956,3,'KB Gymnasion Warszawa','V',,39
+1,358,'Marek','Pytkowski','M',1956,35,'KB Lechici Zielonka','V',,32
+2,359,'Jerzy ','Padowski','M',1952,2,'KB Orientuz Warszawa','V',20,47
+3,359,'Jerzy ','Padowski','M',1952,2,'KB Orientuz Warszawa','V',21,49
+4,359,'Jerzy ','Padowski','M',1952,2,'KB Orientuz Warszawa','V',10,47
+2,363,'Czesław','Nocuń','M',1953,7,'KB Pułaski Strong Warka','V',,33
+1,365,'Grzegorz','Kurek','M',1971,86,'KB Huragan Wołomin','III',12,37
+2,366,'Grzegorz ','Górski','M',1955,41,'Warszawa-Ursynów','V',,37
+3,366,'Grzegorz ','Górski','M',1955,41,'Warszawa-Ursynów','V',,39
+4,366,'Grzegorz ','Górski','M',1955,41,'Warszawa-Ursynów','V',,38
+1,371,'Konrad','Różycki','M',1962,35,'KB Lechici Zielonka','IV',,41
+2,371,'Konrad','Różycki','M',1962,35,'KB Lechici Zielonka','IV',18,44
+4,371,'Konrad','Różycki','M',1962,35,'KB Lechici Zielonka','IV',8,43
+3,372,'Maciej ','Wroński','M',1981,411,'Niezrzeszony','II',,29
+4,372,'Maciej ','Wroński','M',1981,411,'Niezrzeszony','II',,24
+2,373,'Wojciech','Michalik','M',1956,196,'KB GALERIA Warszawa','V',,16
+3,373,'Wojciech','Michalik','M',1956,196,'KB GALERIA Warszawa','V',,21
+4,373,'Wojciech','Michalik','M',1956,196,'KB GALERIA Warszawa','V',,26
+3,374,'Michał','Garbowski','M',1981,411,'Niezrzeszony','II',,24
+4,374,'Michał','Garbowski','M',1981,411,'Niezrzeszony','II',,20
+3,375,'Mieczysław','Śmigielski','M',1952,411,'Niezrzeszony','V',,31
+4,375,'Mieczysław','Śmigielski','M',1952,411,'Niezrzeszony','V',,36
+2,376,'Józef','Maślanka','M',1961,141,'Warszawa-Żoliborz','IV',,25
+3,376,'Józef','Maślanka','M',1961,141,'Warszawa-Żoliborz','IV',,31
+2,377,'Damian','Faryniarz','M',1983,3,'KB Gymnasion Warszawa','II',,25
+4,377,'Damian','Faryniarz','M',1983,3,'KB Gymnasion Warszawa','II',,21
+2,379,'Andrzej','Wojtkowski','M',1984,357,'KB Byledobiec Anin','II',,21
+1,381,'Mariusz','Piątkowski','M',1962,86,'KB Huragan Wołomin','IV',,32
+2,381,'Mariusz','Piątkowski','M',1962,86,'KB Huragan Wołomin','IV',,36
+3,381,'Mariusz','Piątkowski','M',1962,86,'KB Huragan Wołomin','IV',18,40
+4,381,'Mariusz','Piątkowski','M',1962,86,'KB Huragan Wołomin','IV',6,42
+2,386,'Henryk','Szczepaniak','M',1966,411,'Niezrzeszony','IV',,37
+2,389,'Piotr','Frączyk','M',1975,412,'Nowa Iwiczna','III',,36
+2,392,'Konrad','Alabrudziński','M',1975,62,'Warszawa-Mokotów','III',6,39
+1,394,'Mariusz','Wośka','M',1958,306,'Łomżyński Klub Biegowy','IV',8,44
+2,394,'Mariusz','Wośka','M',1958,306,'Łomżyński Klub Biegowy','IV',31,46
+3,394,'Mariusz','Wośka','M',1958,306,'Łomżyński Klub Biegowy','IV',29,45
+4,394,'Mariusz','Wośka','M',1958,306,'Łomżyński Klub Biegowy','IV',,40
+1,395,'Dariusz','Piątek','M',1954,1,'Allianz Warszawa','V',,30
+4,395,'Dariusz','Piątek','M',1954,1,'Allianz Warszawa','V',,43
+1,396,'Bogdan','Pracki','M',1953,35,'KB Lechici Zielonka','V',9,48
+2,398,'Józef','Niziński','M',1951,2,'KB Orientuz Warszawa','V',9,45
+1,400,'Tomasz','Słowik','M',1972,42,'Warszawa','III',,15
+1,401,'Koji','Ishikawa','M',1960,404,'Japonia','IV',,13
+1,403,'Jerzy','Natkański','M',1954,348,'ENTRE.PL Team','V',,42
+1,404,'Bartek','Kaźmierczak','M',1976,42,'Warszawa','III',,
+1,405,'Tadeusz','Kacprowski','M',1951,46,'Warszawa-Stegny','V',,34
+4,405,'Tadeusz','Kacprowski','M',1951,46,'Warszawa-Stegny','V',,41
+1,406,'Wiesław','Rumin','M',1953,1,'Allianz Warszawa','V',,19
+2,406,'Wiesław','Rumin','M',1953,1,'Allianz Warszawa','V',,20
+3,406,'Wiesław','Rumin','M',1953,1,'Allianz Warszawa','V',,26
+2,407,'Jan','Pomianowski','M',1953,3,'KB Gymnasion Warszawa','V',,19
+1,408,'Karol','Świętochowski','M',1987,86,'KB Huragan Wołomin','I',28,50
+1,409,'Adam','Bieda','M',1979,405,'Pabianice','II',,3
+2,410,'Marcin','Bielik','M',1971,305,'SBBP.PL','III',,24
+1,412,'Andrzej','Adach','M',1953,164,'SBM WARDOM Warszawa','V',5,47
+1,413,'Robert','Balcerzak','M',1973,328,'Kabacka Grupa Biegowa','III',,32
+2,413,'Robert','Balcerzak','M',1973,328,'Kabacka Grupa Biegowa','III',16,42
+3,413,'Robert','Balcerzak','M',1973,328,'Kabacka Grupa Biegowa','III',32,43
+4,413,'Robert','Balcerzak','M',1973,328,'Kabacka Grupa Biegowa','III',,26
+1,414,'Maciej','Musala','M',1985,42,'Warszawa','II',,20
+2,414,'Maciej','Musala','M',1985,42,'Warszawa','II',,28
+1,415,'Włodzimierz','Syran','M',1947,42,'Warszawa','V',,10
+1,416,'Paweł','Banaszkiewicz','M',1986,3,'KB Gymnasion Warszawa','II',,17
+2,416,'Paweł','Banaszkiewicz','M',1986,3,'KB Gymnasion Warszawa','II',,30
+3,416,'Paweł','Banaszkiewicz','M',1986,3,'KB Gymnasion Warszawa','II',,33
+4,416,'Paweł','Banaszkiewicz','M',1986,3,'KB Gymnasion Warszawa','II',,26
+1,418,'Adam','Kudowicz','M',1940,42,'Warszawa','VI',,40
+1,419,'Michał','Borowiec','M',1975,42,'Warszawa','III',,19
+1,420,'Krzysztof','Mazurkiewicz','M',1974,41,'Warszawa-Ursynów','III',,24
+2,420,'Krzysztof','Mazurkiewicz','M',1974,41,'Warszawa-Ursynów','III',,34
+3,420,'Krzysztof','Mazurkiewicz','M',1974,41,'Warszawa-Ursynów','III',9,37
+4,420,'Krzysztof','Mazurkiewicz','M',1974,41,'Warszawa-Ursynów','III',,16
+1,421,'Krzysztof','Prędota','M',1955,42,'Warszawa','V',,25
+2,421,'Krzysztof','Prędota','M',1955,42,'Warszawa','V',,27
+3,421,'Krzysztof','Prędota','M',1955,42,'Warszawa','V',,32
+1,422,'Michał','Mieszko','M',1972,42,'Warszawa','III',,
+2,422,'Michał','Mieszko','M',1972,42,'Warszawa','III',,9
+3,422,'Michał','Mieszko','M',1972,42,'Warszawa','III',,14
+1,423,'Tadeusz','Pietrusiewicz','M',1951,2,'KB Orientuz Warszawa','V',,46
+2,423,'Tadeusz','Pietrusiewicz','M',1951,2,'KB Orientuz Warszawa','V',26,49
+3,423,'Tadeusz','Pietrusiewicz','M',1951,2,'KB Orientuz Warszawa','V',13,46
+4,423,'Tadeusz','Pietrusiewicz','M',1951,2,'KB Orientuz Warszawa','V',12,48
+1,424,'Norbert','Prusiński','M',1967,1,'Allianz Warszawa','III',13,38
+1,425,'Jacek','Kozłowski','M',1957,42,'Warszawa','IV',,14
+2,425,'Jacek','Kozłowski','M',1957,42,'Warszawa','IV',,21
+1,426,'Karol','Maciuszek','M',1986,10,'AZS Uniwersytet Warszawski','II',,30
+2,426,'Karol','Maciuszek','M',1986,10,'AZS Uniwersytet Warszawski','II',21,39
+4,426,'Karol','Maciuszek','M',1986,10,'AZS Uniwersytet Warszawski','II',26,41
+1,427,'Zbigniew','Mazurczyk','M',1956,42,'Warszawa','V',,31
+2,427,'Zbigniew','Mazurczyk','M',1956,42,'Warszawa','V',,42
+2,428,'Waldemar','Arnold','M',1953,3,'KB Gymnasion Warszawa','V',,29
+1,429,'Tomasz','Mroczek','M',1963,85,'Siedlce','IV',,25
+2,429,'Tomasz','Mroczek','M',1963,85,'Siedlce','IV',,29
+2,430,'Jacenty','Łapanowski','M',1950,2,'KB Orientuz Warszawa','V',,26
+1,432,'Krzysztof','Sztniewski','M',1952,42,'Warszawa','V',,16
+1,433,'Szymon','Pawluk','M',1969,56,'Warszawa-Bielany','III',,
+1,434,'Leszek','Nowocień','M',1957,132,'Podkowa Leśna','IV',,24
+1,435,'Dawid','Galicz','M',1983,42,'Warszawa','II',,1
+4,440,'Jarema','Dubiecki','M',1969,62,'Warszawa-Mokotów','III',,30
+1,446,'Leszek','Połaski','M',1947,56,'Warszawa-Bielany','V',,40
+2,446,'Leszek','Połaski','M',1947,56,'Warszawa-Bielany','V',,38
+3,450,'Robert','Stykowski','M',1977,317,'Art Profi Warszawa','II',,39
+3,451,'Jarosław','Skrzypczak','M',1967,3,'KB Gymnasion Warszawa','III',,25
+4,451,'Jarosław','Skrzypczak','M',1967,3,'KB Gymnasion Warszawa','III',,12
+2,452,'Henryk','Bartkowiak','M',1946,243,'GIBnO Warszawa','VI',,39
+1,455,'Adam','Flisak','M',1946,317,'Art Profi Warszawa','VI',,47
+2,455,'Adam','Flisak','M',1946,317,'Art Profi Warszawa','VI',,45
+3,455,'Adam','Flisak','M',1946,317,'Art Profi Warszawa','VI',,45
+4,455,'Adam','Flisak','M',1946,317,'Art Profi Warszawa','VI',,48
+2,458,'Marcin','Jankowski','M',1977,357,'KB Byledobiec Anin','II',,33
+1,460,'Adam','Postek','M',1981,179,'OTK Rzeźnik Gliwice','II',17,36
+4,460,'Adam','Postek','M',1981,179,'OTK Rzeźnik Gliwice','II',11,37
+4,461,'Wojciech','Knap','M',1960,3,'KB Gymnasion Warszawa','IV',,28
+2,463,'Marcin','Pacurkowski','M',1978,305,'SBBP.PL','II',12,38
+3,463,'Marcin','Pacurkowski','M',1978,305,'SBBP.PL','II',38,44
+3,467,'Andrzej','Wiśniewski','M',1957,318,'KB PLL LOT','IV',,30
+4,467,'Andrzej','Wiśniewski','M',1957,318,'KB PLL LOT','IV',,30
+1,469,'Edmund','Wałęga','M',1943,3,'KB Gymnasion Warszawa','VI',,49
+2,469,'Edmund','Wałęga','M',1943,3,'KB Gymnasion Warszawa','VI',,50
+3,469,'Edmund','Wałęga','M',1943,3,'KB Gymnasion Warszawa','VI',,49
+3,470,'Paul','Vandersander','M',1970,355,'World Class','III',,32
+1,471,'Wiesław','Łuksza','M',1941,3,'KB Gymnasion Warszawa','VI',,39
+2,471,'Wiesław','Łuksza','M',1941,3,'KB Gymnasion Warszawa','VI',,40
+3,471,'Wiesław','Łuksza','M',1941,3,'KB Gymnasion Warszawa','VI',,43
+4,471,'Wiesław','Łuksza','M',1941,3,'KB Gymnasion Warszawa','VI',,47
+1,478,'Marian','Nowicki','M',1944,25,'TKKF Piaski Warszawa','VI',,50
+3,478,'Marian','Nowicki','M',1944,25,'TKKF Piaski Warszawa','VI',,50
+2,485,'Alek','Werthein','M',1949,196,'KB GALERIA Warszawa','V',,21
+3,485,'Alek','Werthein','M',1949,196,'KB GALERIA Warszawa','V',,27
+1,488,'Jerzy','Fido','M',1939,35,'KB Lechici Zielonka','VI',,44
+2,488,'Jerzy','Fido','M',1939,35,'KB Lechici Zielonka','VI',,44
+1,489,'Zbigniew','Duszyński','M',1939,1,'Allianz Warszawa','VI',,41
+2,489,'Zbigniew','Duszyński','M',1939,1,'Allianz Warszawa','VI',,47
+3,489,'Zbigniew','Duszyński','M',1939,1,'Allianz Warszawa','VI',,47
+4,489,'Zbigniew','Duszyński','M',1939,1,'Allianz Warszawa','VI',,50
+1,490,'Andrzej','Pawełczak','M',1938,85,'Siedlce','VI',,46
+2,491,'Dariusz','Bydłos','M',1965,305,'SBBP.PL','IV',,24
+1,496,'Tadeusz','Andrzejewski','M',1933,56,'Warszawa-Bielany','VII',,49
+1,498,'Tomasz','Piasecki','M',1980,179,'OTK Rzeźnik Gliwice','II',,27
+2,498,'Tomasz','Piasecki','M',1980,179,'OTK Rzeźnik Gliwice','II',,31
+2,499,'Otton','Kotowicz','M',1931,62,'Warszawa-Mokotów','VIII',,50
+1,503,'Zbigniew','Błaszczak','M',1934,1,'Allianz Warszawa','VII',,48
+2,503,'Zbigniew','Błaszczak','M',1934,1,'Allianz Warszawa','VII',,50
+4,503,'Zbigniew','Błaszczak','M',1934,1,'Allianz Warszawa','VII',,50
+2,505,'Rafał','Petynka','M',1977,364,'10 Wpsam','II',,29
+1,521,'Krzysztof','Dołęgowski','M',1979,41,'Warszawa-Ursynów','II',,28
+4,530,'Jarosław','Magielski','M',1974,344,'Nadarzyn','III',,6
+1,531,'Daniel','Marciniak','M',1977,348,'ENTRE.PL Team','II',39,42
+2,531,'Daniel','Marciniak','M',1977,348,'ENTRE.PL Team','II',43,46
+2,535,'Danilo','Ferraris','M',1956,317,'Art Profi Warszawa','V',,23
+3,535,'Danilo','Ferraris','M',1956,317,'Art Profi Warszawa','V',,28
+1,536,'Janusz','Wawrowski','M',1954,153,'ACTION Warszawa','V',,37
+2,536,'Janusz','Wawrowski','M',1954,153,'ACTION Warszawa','V',,32
+3,536,'Janusz','Wawrowski','M',1954,153,'ACTION Warszawa','V',,37
+1,538,'Krzysztof','Dobrowolski','M',1951,50,'Warszawa-Śródmieście','V',,27
+2,538,'Krzysztof','Dobrowolski','M',1951,50,'Warszawa-Śródmieście','V',,34
+3,538,'Krzysztof','Dobrowolski','M',1951,50,'Warszawa-Śródmieście','V',,36
+1,541,'Andrzej','Czub','M',1967,217,'Konstancin','III',3,34
+1,542,'Ryszard','Szymczak','M',1943,1,'Allianz Warszawa','VI',,45
+2,542,'Ryszard','Szymczak','M',1943,1,'Allianz Warszawa','VI',,43
+3,542,'Ryszard','Szymczak','M',1943,1,'Allianz Warszawa','VI',,44
+4,542,'Ryszard','Szymczak','M',1943,1,'Allianz Warszawa','VI',,49
+3,544,'Wojciech','Szota','M',1974,317,'Art Profi Warszawa','III',,21
+4,544,'Wojciech','Szota','M',1974,317,'Art Profi Warszawa','III',,15
+2,553,'Krzysztof','Sawicki','M',1959,418,'M 42 195 Łódź','IV',,23
+1,557,'Daniel','Pazera','M',1980,111,'Warszawa-Praga Północ','II',,25
+3,570,'Marcin','Staszewski','M',1973,436,'Łebski Klub Żeglarski','III',1,33
+3,572,'Jarosław','Szota','M',1977,317,'Art Profi Warszawa','II',,34
+1,577,'Bogdan','Barewski','M',1954,179,'OTK Rzeźnik Gliwice','V',36,50
+2,577,'Bogdan','Barewski','M',1954,179,'OTK Rzeźnik Gliwice','V',41,50
+4,577,'Bogdan','Barewski','M',1954,179,'OTK Rzeźnik Gliwice','V',39,50
+1,584,'Jerzy','Bucholc','M',1933,3,'KB Gymnasion Warszawa','VII',,50
+1,585,'Krzysztof','Szewczyk','M',1961,139,'KB Droga Warszawa','IV',,29
+4,588,'Filip','Wróblewski','M',1975,41,'Warszawa-Ursynów','III',27,41
+2,589,'Wojciech','Hokusz','M',1967,378,'Gazeta Wyborcza','III',36,47
+4,589,'Wojciech','Hokusz','M',1967,378,'Gazeta Wyborcza','III',30,43
+1,596,'Andrzej','Madziar','M',1942,11,'KB Amator Mińsk Mazowiecki','VI',,48
+2,596,'Andrzej','Madziar','M',1942,11,'KB Amator Mińsk Mazowiecki','VI',,46
+3,596,'Andrzej','Madziar','M',1942,11,'KB Amator Mińsk Mazowiecki','VI',,46
+4,597,'Janusz','Przewódzki','M',1956,335,'Ciechanów','V',,39
+1,598,'Jan','Krypa','M',1954,88,'Warszawa-Białołęka','V',,45
+2,598,'Jan','Krypa','M',1954,88,'Warszawa-Białołęka','V',10,46
+3,598,'Jan','Krypa','M',1954,88,'Warszawa-Białołęka','V',16,47
+4,598,'Jan','Krypa','M',1954,88,'Warszawa-Białołęka','V',,45
+1,601,'Paweł','Czerwiński','M',1979,87,'Warszawa-Wola','II',,11
+4,603,'Tomasz','Czarnecki','M',1974,317,'Art Profi Warszawa','III',,2
+4,604,'Bartłomiej','Szklar','M',1978,430,'Olsztyn','II',,25
+3,605,'Wojciech','Roszkowski','M',1960,41,'Warszawa-Ursynów','IV',,32
+4,605,'Wojciech','Roszkowski','M',1960,41,'Warszawa-Ursynów','IV',,33
+3,606,'Arkadiusz','Kotecki','M',1980,67,'Warszawa-Praga Południe','II',,32
+3,608,'Jarosław','Dąbrowski','M',1966,331,'Ząbki','IV',,25
+3,609,'Adam','Łaganowski','M',1978,41,'Warszawa-Ursynów','II',,25
+3,611,'Łukasz','Bezulski','M',1985,441,'Gomunice','II',,38
+3,612,'Krzysztof','Kalbarczyk','M',1981,3,'KB Gymnasion Warszawa','II',,35
+3,614,'Marek','Pokorski','M',1971,442,'Nokia','III',4,34
+1,616,'Marcin','Olek','M',1976,1,'Allianz Warszawa','III',43,50
+2,616,'Marcin','Olek','M',1976,1,'Allianz Warszawa','III',48,50
+3,616,'Marcin','Olek','M',1976,1,'Allianz Warszawa','III',50,50
+4,616,'Marcin','Olek','M',1976,1,'Allianz Warszawa','III',44,50
+3,618,'Michał','Reszke','M',1980,42,'Warszawa','II',,30
+4,618,'Michał','Reszke','M',1980,42,'Warszawa','II',,29
+3,619,'Paweł','Kącki','M',1975,54,'Warszawa-Wilanów','III',,31
+4,619,'Paweł','Kącki','M',1975,54,'Warszawa-Wilanów','III',,24
+3,620,'Rafał','Muzyszyn','M',1972,62,'Warszawa-Mokotów','III',,15
+1,621,'Piotr','Wójcik','M',1965,1,'Allianz Warszawa','IV',,34
+2,621,'Piotr','Wójcik','M',1965,1,'Allianz Warszawa','IV',,30
+3,621,'Piotr','Wójcik','M',1965,1,'Allianz Warszawa','IV',,33
+4,621,'Piotr','Wójcik','M',1965,1,'Allianz Warszawa','IV',,32
+1,622,'Grzegorz','Radomski','M',1963,35,'KB Lechici Zielonka','IV',,36
+3,623,'Adam','Peda','M',1978,399,'Maraton Warszawski','II',6,40
+3,624,'Maciej','Krzak','M',1957,42,'Warszawa','IV',,22
+4,624,'Maciej','Krzak','M',1957,42,'Warszawa','IV',,23
+3,627,'Jacek','Ziółkowski','M',1966,317,'Art Profi Warszawa','IV',20,42
+1,636,'Adam','Lusawa','M',1980,20,'KB Lotos Jabłonna','II',7,33
+3,637,'Krzysztof','Gawin','M',1983,41,'Warszawa-Ursynów','II',,28
+4,637,'Krzysztof','Gawin','M',1983,41,'Warszawa-Ursynów','II',,19
+4,640,'Sławomir','Stykowski','M',1978,317,'Art Profi Warszawa','II',,31
+4,642,'Marcin','Jankowski','M',1977,357,'KB Byledobiec Anin','II',13,38
+1,643,'Janusz','Kwiatkowski','M',1959,111,'Warszawa-Praga Północ','IV',,23
+4,644,'Marcin','Kufel','M',1979,348,'ENTRE.PL Team','II',50,50
+1,645,'Tadeusz','Szymczakowski','M',1954,31,'KB Trucht Skierniewice','V',11,49
+2,645,'Tadeusz','Szymczakowski','M',1954,31,'KB Trucht Skierniewice','V',23,48
+3,645,'Tadeusz','Szymczakowski','M',1954,31,'KB Trucht Skierniewice','V',23,50
+4,645,'Tadeusz','Szymczakowski','M',1954,31,'KB Trucht Skierniewice','V',18,49
+3,647,'Leszek','Smoter','M',1975,355,'World Class','III',,30
+4,647,'Leszek','Smoter','M',1975,355,'World Class','III',,17
+1,648,'Andrzej','Mazurkiewicz','M',1953,3,'KB Gymnasion Warszawa','V',,18
+2,648,'Andrzej','Mazurkiewicz','M',1953,3,'KB Gymnasion Warszawa','V',,25
+3,648,'Andrzej','Mazurkiewicz','M',1953,3,'KB Gymnasion Warszawa','V',,30
+4,648,'Andrzej','Mazurkiewicz','M',1953,3,'KB Gymnasion Warszawa','V',,34
+1,651,'Tadeusz','Makowski','M',1952,62,'Warszawa-Mokotów','V',,26
+3,651,'Tadeusz','Makowski','M',1952,62,'Warszawa-Mokotów','V',,33
+2,652,'Olgierd','Głębski','M',1969,378,'Gazeta Wyborcza','III',,32
+1,655,'Daniel','Kwiatkowski','M',1976,305,'SBBP.PL','III',,31
+2,655,'Daniel','Kwiatkowski','M',1976,305,'SBBP.PL','III',,30
+4,655,'Daniel','Kwiatkowski','M',1976,305,'SBBP.PL','III',25,40
+1,656,'Zdzisław','Głowacki','M',1950,355,'World Class','V',,20
+3,656,'Zdzisław','Głowacki','M',1950,355,'World Class','V',,19
+1,660,'Bartek','Jarosiewicz','M',1990,36,'RKS Skra Warszawa','I',,48
+2,660,'Bartek','Kowalski','M',1990,36,'RKS Skra Warszawa','I',19,49
+4,660,'Bartek','Kowalski','M',1990,36,'RKS Skra Warszawa','I',,47
+1,663,'Andrzej','Pietrzak','M',1963,42,'Warszawa','IV',24,46
+2,663,'Andrzej','Pietrzak','M',1963,42,'Warszawa','IV',37,48
+3,663,'Andrzej','Pietrzak','M',1963,42,'Warszawa','IV',31,46
+4,663,'Andrzej','Pietrzak','M',1963,42,'Warszawa','IV',14,45
+1,664,'Jarosław','Szostakowski','M',1967,365,'biegajznami.pl','III',,11
+1,668,'Zygmunt','Berdychowski','M',1960,346,'Nowy Sącz','IV',,33
+2,668,'Zygmunt','Berdychowski','M',1960,346,'Nowy Sącz','IV',,38
+3,668,'Zygmunt','Berdychowski','M',1960,346,'Nowy Sącz','IV',19,41
+4,668,'Zygmunt','Berdychowski','M',1960,346,'Nowy Sącz','IV',,37
+1,671,'Kriss','Nowicki','M',1944,42,'Warszawa','VI',,43
+2,671,'Kriss','Nowicki','M',1944,42,'Warszawa','VI',,41
+4,676,'Bogdan','Krawczyk','M',1947,452,'Synoptyk Wieloletni','V',,23
+4,677,'Mariusz','Goliński','M',1972,395,'Kraśnik','III',,11
+4,678,'Adam','Olewiecki','M',1982,365,'biegajznami.pl','II',,28
+4,680,'Janusz','Olędzki','M',1956,42,'Warszawa','V',,29
+1,681,'Leszek','Marzęcki','M',1957,3,'KB Gymnasion Warszawa','IV',,30
+2,681,'Leszek','Marzęcki','M',1957,3,'KB Gymnasion Warszawa','IV',,28
+3,681,'Leszek','Marzęcki','M',1957,3,'KB Gymnasion Warszawa','IV',,36
+4,681,'Leszek','Marzęcki','M',1957,3,'KB Gymnasion Warszawa','IV',,39
+3,682,'Olgierd','Kasparek','M',1975,397,'Nieprzemakalni Warszawa','III',,24
+4,682,'Olgierd','Kasparek','M',1975,397,'Nieprzemakalni Warszawa','III',,5
+3,684,'Piotr','Jankowski','M',1988,50,'Warszawa-Śródmieście','I',,47
+3,687,'Piotr','Czerkawski','M',1973,104,'Piaseczno','III',,19
+3,688,'Jacek','Sobkowski','M',1964,443,'King Max','IV',,27
+3,689,'Sean','Hsy','M',1975,444,'MSZ','III',,13
+3,690,'Kazimierz','Lasecki','M',1957,153,'ACTION Warszawa','IV',24,43
+3,691,'Piotr','Bieliński','M',1967,153,'ACTION Warszawa','III',22,40
+3,693,'Marcin','Bieliński','M',1993,153,'ACTION Warszawa','I',,45
+3,694,'Paweł','Januszewski','M',1972,445,'Pedros','III',,23
+3,695,'Michał','Schwann','M',1981,41,'Warszawa-Ursynów','II',,37
+4,697,'Paweł','Anczewski','M',1969,67,'Warszawa-Praga Południe','III',,
+2,699,'Marek','Mościcki','M',1968,3,'KB Gymnasion Warszawa','III',,20
+1,700,'Przemek','Babiarz','M',1963,3,'KB Gymnasion Warszawa','IV',,28
+3,700,'Przemek','Babiarz','M',1963,3,'KB Gymnasion Warszawa','IV',,24
+4,700,'Przemek','Babiarz','M',1963,3,'KB Gymnasion Warszawa','IV',,27
+4,701,'Kazimierz','Adamczyk','M',1954,453,'NTT System','V',,32
+1,702,'Andrzej','Figat','M',1977,86,'KB Huragan Wołomin','II',,32
+2,702,'Andrzej','Figat','M',1977,86,'KB Huragan Wołomin','II',25,41
+4,704,'Andrzej','Kurek','M',1955,453,'NTT System','V',,30
+4,705,'Janusz','Kęcik','M',1951,454,'Team Herbalife','V',,33
+4,706,'Jan','Olek','M',1951,454,'Team Herbalife','V',,27
+4,707,'Leszek','Rosiak','M',1974,41,'Warszawa-Ursynów','III',,14
+4,708,'Jarosław','Socha','M',1970,41,'Warszawa-Ursynów','III',,1
+4,709,'Piotr','Skalski','M',1967,50,'Warszawa-Śródmieście','III',,20
+4,710,'Marcin','Karasiński','M',1975,41,'Warszawa-Ursynów','III',,3
+4,711,'Marcin','Kutniak','M',1976,42,'Warszawa','III',,22
+4,712,'Andrzej','Kulesza','M',1988,53,'Warszawa-Sadyba','I',,48
+4,713,'Marek','Czechowski','M',1987,64,'Warszawa-Gocław','I',,46
+4,714,'Paweł','Gajewicz','M',1963,397,'Nieprzemakalni Warszawa','IV',,26
+4,715,'Tomasz','Kudelski','M',1969,217,'Konstancin','III',,
+1,716,'Marcin','Kęciek','M',1985,348,'ENTRE.PL Team','II',22,38
+2,716,'Marcin','Kęciek','M',1985,348,'ENTRE.PL Team','II',39,45
+3,716,'Marcin','Kęciek','M',1985,348,'ENTRE.PL Team','II',27,42
+4,716,'Marcin','Kęciek','M',1985,348,'ENTRE.PL Team','II',36,44
+4,717,'Marcin','Badziak','M',1982,46,'Warszawa-Stegny','II',,22
+4,718,'Waldemar','Szklar','M',1950,455,'Kętrzyn','V',,24
+4,721,'Maciek','Szklar','M',1989,455,'Kętrzyn','I',,43
+4,722,'Jakub','Kumoch','M',1975,112,'Warszawa-Służew','III',,19
+1,724,'Robert','Radzik','M',1979,357,'KB Byledobiec Anin','II',18,37
+2,724,'Robert','Radzik','M',1979,357,'KB Byledobiec Anin','II',32,43
+4,724,'Robert','Radzik','M',1979,357,'KB Byledobiec Anin','II',31,42
+1,726,'Radosław','Tronina','M',1975,42,'Warszawa','III',,30
+2,726,'Radosław','Tronina','M',1975,42,'Warszawa','III',,25
+3,726,'Radosław','Tronina','M',1975,42,'Warszawa','III',10,38
+4,726,'Radosław','Tronina','M',1975,42,'Warszawa','III',,27
+1,727,'Krzysztof','Łubian','M',1973,348,'ENTRE.PL Team','III',35,48
+2,727,'Krzysztof','Łubian','M',1973,348,'ENTRE.PL Team','III',27,43
+3,727,'Krzysztof','Łubian','M',1973,348,'ENTRE.PL Team','III',39,47
+4,727,'Krzysztof','Łubian','M',1973,348,'ENTRE.PL Team','III',35,45
+1,728,'Romuald','Błaździewicz','M',1949,62,'Warszawa-Mokotów','V',,43
+2,728,'Romuald','Błaździewicz','M',1949,62,'Warszawa-Mokotów','V',2,44
+3,728,'Romuald','Błaździewicz','M',1949,62,'Warszawa-Mokotów','V',5,44
+4,728,'Romuald','Błaździewicz','M',1949,62,'Warszawa-Mokotów','V',,37
+1,733,'Michał','Rajzer','M',1975,358,'Blockers Garwolin','III',,18
+3,733,'Michał','Rajzer','M',1975,358,'Blockers Garwolin','III',,26
+4,733,'Michał','Rajzer','M',1975,358,'Blockers Garwolin','III',,
+4,738,'Robert','Witek','M',1976,358,'Blockers Garwolin','III',,
+3,740,'Robert','Celiński','M',1983,19,'Warszawianka','II',48,50
+3,741,'Marcin','Stachura','M',1974,3,'KB Gymnasion Warszawa','III',7,35
+1,742,'Piotr','Szrajner','M',1974,368,'Marysin','III',,29
+2,742,'Piotr','Szrajner','M',1974,368,'Marysin','III',,35
+3,745,'Tomasz','Kłoszewski','M',1960,328,'Kabacka Grupa Biegowa','IV',,34
+3,746,'Paweł','Gąsiorowski','M',1974,328,'Kabacka Grupa Biegowa','III',,20
+4,746,'Paweł','Gąsiorowski','M',1974,328,'Kabacka Grupa Biegowa','III',,4
+1,751,'Dominik','Wasilewski','M',1978,348,'ENTRE.PL Team','II',40,43
+2,751,'Dominik','Wasilewski','M',1978,348,'ENTRE.PL Team','II',45,47
+1,752,'Konrad','Małeta','M',1974,348,'ENTRE.PL Team','III',23,42
+2,752,'Konrad','Małeta','M',1974,348,'ENTRE.PL Team','III',,33
+2,757,'Piotr','Nużyński','M',1978,306,'Łomżyński Klub Biegowy','II',34,44
+4,762,'Paweł','Borkowski','M',1974,248,'Piotrków Trybunalski','III',5,33
+2,763,'Andrzej','Bielski','M',1975,364,'10 Wpsam','III',,21
+3,763,'Andrzej','Bielski','M',1975,364,'10 Wpsam','III',,29
+2,765,'Adam','Krzesak','M',1974,365,'biegajznami.pl','III',,11
+4,768,'Piotr','Kusto','M',1974,447,'Flora','III',,
+2,775,'Wojciech','Grabowski','M',1938,356,'Pasmo Warszawa','VI',,42
+3,775,'Wojciech','Grabowski','M',1938,356,'Pasmo Warszawa','VI',,42
+1,776,'Jerzy','Grzesiak','M',1959,3,'KB Gymnasion Warszawa','IV',,21
+2,776,'Jerzy','Grzesiak','M',1959,3,'KB Gymnasion Warszawa','IV',,33
+3,776,'Jerzy','Grzesiak','M',1959,3,'KB Gymnasion Warszawa','IV',,28
+4,776,'Jerzy','Grzesiak','M',1959,3,'KB Gymnasion Warszawa','IV',,31
+1,780,'Marek','Szabłowski','M',1948,67,'Warszawa-Praga Południe','V',,15
+3,780,'Marek','Szabłowski','M',1948,67,'Warszawa-Praga Południe','V',,20
+4,780,'Marek','Szabłowski','M',1948,67,'Warszawa-Praga Południe','V',,25
+1,788,'Dariusz','Burnos','M',1980,42,'Warszawa','II',44,45
+3,788,'Dariusz','Burnos','M',1980,42,'Warszawa','II',45,47
+4,788,'Dariusz','Burnos','M',1980,42,'Warszawa','II',46,46
+4,789,'Mariusz','Mazurek','M',1970,42,'Warszawa','III',41,47
+1,794,'Marek','Jankowski','M',1963,86,'KB Huragan Wołomin','IV',,42
+2,794,'Marek','Jankowski','M',1963,86,'KB Huragan Wołomin','IV',17,43
+4,794,'Marek','Jankowski','M',1963,86,'KB Huragan Wołomin','IV',9,44
+1,802,'Andrzej','Sawczenko','M',1959,86,'KB Huragan Wołomin','IV',,39
+3,802,'Andrzej','Sawczenko','M',1959,86,'KB Huragan Wołomin','IV',,37
+3,805,'Grzegorz','Pałasiewicz','M',1954,41,'Warszawa-Ursynów','V',,29
+1,806,'Łukasz','Dobrowolski','M',1983,104,'Piaseczno','II',29,40
+1,808,'Zbigniew','Chruśliński','M',1949,86,'KB Huragan Wołomin','V',,36
+2,808,'Zbigniew','Chruśliński','M',1949,86,'KB Huragan Wołomin','V',,30
+3,810,'Krzysztof','Rydel','M',1951,3,'KB Gymnasion Warszawa','V',,34
+4,810,'Krzysztof','Rydel','M',1951,3,'KB Gymnasion Warszawa','V',,31
+3,822,'Dariusz','Stefański','M',1961,68,'Warszawa-Ochota','IV',,26
+1,827,'Karol','Zalewski','M',1987,86,'KB Huragan Wołomin','I',2,49
+3,827,'Karol','Zalewski','M',1987,86,'KB Huragan Wołomin','I',14,50
+4,827,'Karol','Zalewski','M',1987,86,'KB Huragan Wołomin','I',,49
+1,828,'Adam','Banaszek','M',1972,86,'KB Huragan Wołomin','III',16,39
+4,828,'Adam','Banaszek','M',1972,86,'KB Huragan Wołomin','III',19,36
+1,840,'Emil','Kamiński','M',1986,380,'UKS Bielany','II',45,46
+2,840,'Emil','Kamiński','M',1986,380,'UKS Bielany','II',49,49
+3,840,'Emil','Kamiński','M',1986,380,'UKS Bielany','II',46,48
+4,840,'Emil','Kamiński','M',1986,380,'UKS Bielany','II',49,49
+4,843,'Sławomir','Szustak','M',1960,62,'Warszawa-Mokotów','IV',,34
+1,844,'Michał','Kurek','M',1986,3,'KB Gymnasion Warszawa','II',,23
+2,844,'Michał','Kurek','M',1986,3,'KB Gymnasion Warszawa','II',,22
+3,844,'Michał','Kurek','M',1986,3,'KB Gymnasion Warszawa','II',,31
+4,844,'Michał','Kurek','M',1986,3,'KB Gymnasion Warszawa','II',,30
+1,845,'Włodzimierz','Kwaśniewski','M',1952,196,'KB GALERIA Warszawa','V',,38
+2,845,'Włodzimierz','Kwaśniewski','M',1952,196,'KB GALERIA Warszawa','V',,35
+3,845,'Włodzimierz','Kwaśniewski','M',1952,196,'KB GALERIA Warszawa','V',,40
+4,845,'Włodzimierz','Kwaśniewski','M',1952,196,'KB GALERIA Warszawa','V',,42
+4,846,'Grzegorz','Urban','M',1977,449,'AP Warszawa','II',,27
+4,847,'Piotr','Ziąbrowski','M',1989,41,'Warszawa-Ursynów','I',,50
+4,848,'Igor','Szwedziński','M',1972,41,'Warszawa-Ursynów','III',,
+4,849,'Chrystian','Nazar','M',1981,318,'KB PLL LOT','II',2,35
+4,850,'Andrzej','Ernst','M',1975,426,'Kopytko','III',,
+4,851,'Michał','Muzyka','M',1971,426,'Kopytko','III',,
+4,853,'Sławomir','Buzuk','M',1979,88,'Warszawa-Białołęka','II',,18
+4,855,'Adam','Koniuszewski','M',1971,450,'RushTeam Switzerland','III',,10
+4,856,'Jerzy','Motyka','M',1977,451,'Tarnobrzeg','II',,33
+4,857,'Krzysztof','Mróz','M',1973,10,'AZS Uniwersytet Warszawski','III',,18
+1,858,'Grzegorz','Szempliński','M',1975,3,'KB Gymnasion Warszawa','III',,10
+2,858,'Grzegorz','Szempliński','M',1975,3,'KB Gymnasion Warszawa','III',,15
+4,858,'Grzegorz','Szempliński','M',1975,3,'KB Gymnasion Warszawa','III',,9
+4,859,'Jarosław','Nizak','M',1970,10,'AZS Uniwersytet Warszawski','III',4,32
+1,862,'Paweł','Wazowicz','M',1972,41,'Warszawa-Ursynów','III',,8
+2,862,'Paweł','Wazowicz','M',1972,41,'Warszawa-Ursynów','III',,12
+3,862,'Paweł','Wazowicz','M',1972,41,'Warszawa-Ursynów','III',,22
+4,862,'Paweł','Wazowicz','M',1972,41,'Warszawa-Ursynów','III',,8
+3,870,'Andrzej','Karlak','M',1966,196,'KB GALERIA Warszawa','IV',,29
+4,870,'Andrzej','Karlak','M',1966,196,'KB GALERIA Warszawa','IV',,25
+1,871,'Waldemar','Staniszewski','M',1948,83,'Warszawa-Tarchomin','V',,33
+3,871,'Waldemar','Staniszewski','M',1948,83,'Warszawa-Tarchomin','V',,42
+1,874,'Grzegorz','Cisek','M',1968,377,'TCP VELMAR','III',,27
+1,881,'Mirosław','Rybkowski','M',1972,196,'KB GALERIA Warszawa','III',,22
+2,881,'Mirosław','Rybkowski','M',1972,196,'KB GALERIA Warszawa','III',15,41
+4,881,'Mirosław','Rybkowski','M',1972,196,'KB GALERIA Warszawa','III',3,31
+1,886,'Andrzej','Jankowski','M',1978,41,'Warszawa-Ursynów','II',,13
+1,889,'Andrzej','Babicz','M',1972,372,'UKA.PL','III',,21
+2,889,'Andrzej','Babicz','M',1972,372,'UKA.PL','III',,31
+4,889,'Andrzej','Babicz','M',1972,372,'UKA.PL','III',,29
+2,899,'Andrzej','Babicz','M',1975,42,'Warszawa','III',,27
+3,899,'Andrzej','Babicz','M',1975,42,'Warszawa','III',,13
+2,902,'Tadeusz','Kieszek','M',1956,416,'KS Ożarowianka','V',,36
+2,911,'Jerzy','Wowosielski','M',1970,421,'Drukoba','III',29,44
+2,914,'Edward','Budkiewicz','M',1957,42,'Warszawa','IV',,20
+2,917,'Piotr','Mądrach','M',1983,365,'biegajznami.pl','II',4,37
+4,917,'Piotr','Mądrach','M',1983,365,'biegajznami.pl','II',23,40
+2,918,'Łukasz','Marek','M',1982,67,'Warszawa-Praga Południe','II',,24
+2,919,'Henryk','Marek','M',1947,424,'Gdański Klub Morsów','V',,28
+1,920,'Krzysztof','Setniewski','M',1952,42,'Warszawa','V',,9
+2,920,'Krzysztof','Setniewski','M',1952,42,'Warszawa','V',,18
+3,920,'Krzysztof','Setniewski','M',1952,42,'Warszawa','V',,25
+4,920,'Krzysztof','Setniewski','M',1952,42,'Warszawa','V',,28
+2,924,'Henryk','Kuciejczyk','M',1959,422,'SP Szydłowo','IV',11,40
+3,924,'Henryk','Kuciejczyk','M',1959,422,'SP Szydłowo','IV',28,44
+2,925,'Adam','Tkaczyk','M',1990,105,'UNTS Warszawa','I',38,50
+2,926,'Zbigniew','Burnos','M',1975,306,'Łomżyński Klub Biegowy','III',,26
+2,927,'Jacek','Nowakowski','M',1966,423,'Augustowskie Tow. Pływackie','IV',5,39
+3,928,'Sebastian','Cybula','M',1974,317,'Art Profi Warszawa','III',40,48
+2,930,'Mirosław','Komor','M',1951,134,'Piastów','V',,24
+3,930,'Mirosław','Komor','M',1951,134,'Piastów','V',,22
+2,931,'Salomon','Cymerman','M',1949,196,'KB GALERIA Warszawa','V',,22
+2,933,'Wojciech','Chmielewski','M',1959,54,'Warszawa-Wilanów','IV',,31
+2,934,'Maciej','Górzyński','M',1970,365,'biegajznami.pl','III',,29
+3,934,'Maciej','Górzyński','M',1970,365,'biegajznami.pl','III',15,39
+4,934,'Maciej','Górzyński','M',1970,365,'biegajznami.pl','III',16,34
+1,936,'Sławomir','Gawin','M',1976,87,'Warszawa-Wola','III',,26
+2,936,'Sławomir','Gawin','M',1976,87,'Warszawa-Wola','III',,28
+3,936,'Sławomir','Gawin','M',1976,87,'Warszawa-Wola','III',8,36
+4,936,'Sławomir','Gawin','M',1976,87,'Warszawa-Wola','III',,7
+2,950,'Stanisław','Tokarzewski','M',1946,75,'Komorów','VI',,48
+3,950,'Stanisław','Tokarzewski','M',1946,75,'Komorów','VI',,48
+2,951,'Maciej','Pogorzelski','M',1982,425,'AZS Warszawa','II',,23
+2,960,'Piotr','Bieda','M',1981,41,'Warszawa-Ursynów','II',,20
+2,961,'Jakub','Wende','M',1968,141,'Warszawa-Żoliborz','III',,8
+2,963,'Krzysztok','Nigot','M',1973,42,'Warszawa','III',,18
+1,969,'Piotr','Sawicki','M',1974,328,'Kabacka Grupa Biegowa','III',21,41
+2,969,'Piotr','Sawicki','M',1974,328,'Kabacka Grupa Biegowa','III',40,48
+3,969,'Piotr','Sawicki','M',1974,328,'Kabacka Grupa Biegowa','III',35,45
+4,969,'Piotr','Sawicki','M',1974,328,'Kabacka Grupa Biegowa','III',24,39

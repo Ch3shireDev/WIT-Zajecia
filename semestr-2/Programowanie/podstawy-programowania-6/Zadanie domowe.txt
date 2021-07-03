@@ -1,0 +1,8 @@
+Zadanie
+Przeanalizuj film o dynamicznych strukturach danych w c++ : stos, kolejka, drzewo, lista:
+https://www.youtube.com/watch?v=_V7a1Gwuj5k&list=PLOYHgt8dIdoxx0Y5wzs7CFpmBzb40PaDo&index=17
+a) Napisz program w c++ na zastosowanie stosu mające zastosowanie w praktyce
+b) Napisz program w c++ na zastosowanie kolejki mające zastosowanie w praktyce
+c) Napisz program w c++ na zastosowanie drzewa mające zastosowanie w praktyce
+d) Napisz program w c++ na zastosowanie listy mające zastosowanie w praktyce
+Bardzo dokładnie opisz kod (dodaj komentarze) w 4 napisanych programach.

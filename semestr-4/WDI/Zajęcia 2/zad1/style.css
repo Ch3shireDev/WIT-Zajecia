@@ -1,0 +1,167 @@
+#main{
+	/* display: flex; */
+	/* flex-direction: row-reverse; */
+}
+
+nav {
+	margin: 0.3rem 0 1rem;
+}
+
+nav > ul {
+	padding: 0;
+	padding-bottom: 0.1rem;
+	display: flex;
+	margin: 0;
+}
+
+nav > ul > li {
+	display: inline;
+	border: 2px solid #333;
+	margin-right: 0.5rem;
+	padding: 0.5rem;
+	background: #92cd00;
+}
+
+body {
+	line-height: 1.2;
+	padding: 1rem 40px;
+	margin: 0 auto;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	display: flex;
+	flex-direction: column;
+	color: #333;
+}
+
+header {
+	text-align: center;
+	/* align-items: center; */
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	background: #2c6700;
+	color: whitesmoke;
+	padding: 0.1rem;
+	margin: 0.5rem 0 1rem;
+}
+
+header > h1,
+h2 {
+	margin: 0.3rem;
+	font-weight: 500;
+	font-size: 1.2rem;
+	letter-spacing: 2px;
+}
+
+nav > ul > li:hover {
+	background: #ffcf99;
+}
+
+nav > ul > li > a {
+	text-decoration: none;
+	color: black;
+}
+
+article > ul {
+	padding-left: 1.5rem;
+}
+
+article > ul > li {
+	list-style-image: url('lista.png');
+	line-height: 1.2rem;
+	/* vertical-align: top; */
+}
+
+article {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 12px;
+	background: #e5e4d7;
+	padding: 0.8rem;
+	margin-bottom: 1rem;
+	display: block;
+	overflow: auto;
+}
+
+footer {
+	background: #ffcf99;
+	text-align: center;
+	font-size: 12px;
+	padding: 0.5rem;
+}
+
+.float-left {
+	float: left;
+	margin-right: 10px;
+}
+
+.float-right {
+	float: right;
+	margin-left: 10px;
+}
+
+.img-container {
+	padding: 2px;
+	border: 2px solid rgb(116, 190, 116);
+	margin-top: 0;
+	display: inline-block;
+	height: auto;
+	line-height: 0;
+	width: auto;
+}
+
+img {
+	width: 200px;
+}
+
+p {
+	text-align: justify;
+	margin-top: 0;
+}
+
+tr,
+td,
+th {
+	padding: 10px;
+}
+
+td {
+	text-align: center;
+	vertical-align: middle;
+	margin: none;
+	border-bottom: #92cd00 dotted;
+	align-content: center;
+	align-items: center;
+}
+
+th {
+	text-align: center;
+	background: #92cd00;
+}
+
+table {
+	margin: 1rem auto;
+	border-spacing: 0;
+	border-collapse: collapse;
+	max-width: 100%;
+	align-content: center;
+}
+
+table tbody {
+	max-width: 100%;
+	margin: auto;
+}
+
+td > .img-container {
+	max-width: 100%;
+	display: inline-block;
+	overflow: hidden;
+}
+
+td > .img-container > a {
+	max-width: 100%;
+	display: inline-block;
+}
+
+a > img {
+	/* width: 100%; */
+	height: 200px;
+	object-fit: cover;
+	display: inline-block;
+}

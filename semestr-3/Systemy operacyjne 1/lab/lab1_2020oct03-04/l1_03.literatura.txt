@@ -1,0 +1,34 @@
+Krotka lista źródeł przydatnych do laboratorium Sys. Op. 1, zima 2020-2021
+Lista nie jest wyczerpująca ani obowiązkowa.
+Piotr Koperski, 2020-10.
+
+# Polecenie systemowe: man, dostępne na każdej maszynie lnuksowej/uniksowej.
+
+# Polecenie systemowe: info, dostępne w każdym linuksie;
+
+# Uzupełniająca dokumentacja w lokalnym katalogu: /usr/share/doc
+
+# Książka: "Ćwiczenia z systemu Linux", Leszek Madeja, wyd. Mikom, 1999: nie
+ nowa, ale wystarczająca do nauki podstaw, dostępna w bibliotece WIT;
+
+# Książka: "Unix, narzędzia do programowania powłok, Dawid Medinets", wyd. PLJ,
+1999: prezentuje szczegółowo techniki programowania w shellu bash, a także
+w języku perl i w języku Tcl, solidna i wiele wyjaśnia, ale to pozycja raczej 
+dla lubiących zgłebiać tajemnice; powinna być w uczelnianej bibliotece.
+
+# Książka: "Administracja i eksploatacja systemow komputerowych...", część 2,
+z serii podręcznik do nauki zawodu Technik Informatyk, wydawnictwo WSiP :
+wypatrzyłem zupełnie niedawno taką pozycję- zawiera popdstawy linuksa + administracji systemem linuksowym (jak widać linuks skutecznie trafił "pod strzechy").
+
+# Portale internetowe (kilka spośród wielu) prezentujące artykuły "użytkowe":
+- https://www.thegeekstuff.com
+- Tecmint
+- LinuxTechi
+
+# Najnowsze informacje o dystrybucjach linuksa (pomocne m.in. przy wyborze tego,
+co zainstalować): https://distrowatch.com
+
+# Artykuł wprowadzający (NIE wyczerpujący tematu!) z przykładami użycia poleceń:
+https://www.linuxjournal.com/content/linux-command-line-interface-introduction-guide
+
+# ... (i tak dalej)

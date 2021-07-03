@@ -1,0 +1,8 @@
+523 12 39 64, mozart , wolfgang amadeus
+657228198, von GOETHE, johann Wolfgang
+910375523 , de Cervantes SAAVEDRA, MIGUEL
+123-45-67-89, CHOPIN , frederic francois
+836 287-556 , picasso, Pablo RUIZ
+
+33 31 23 555,van der waals,johannes DIDERIK
+563 - 765 - 230 , de la tour,georges

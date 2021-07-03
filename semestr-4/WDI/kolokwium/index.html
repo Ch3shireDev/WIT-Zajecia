@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li id="link-1"><a href="https://ubi2.wit.edu.pl/">Link 1</a></li>
+        <li id="link-2"><a href="https://www.wit.edu.pl/">Link 2</a></li>
+        <li id="link-3"><a href="https://www.google.com">Link 3</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div>
+        <div>
+          <article>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+              auctor tellus et condimentum iaculis. Sed lorem augue, pharetra
+              sed tristique nec, blandit eget dui. Donec ultrices lacinia nisl,
+              a dictum arcu vulputate vel. Donec sem tortor, varius quis
+              elementum ut, molestie a enim. Nulla sollicitudin sapien at massa
+              feugiat mollis. In ac auctor nibh, et luctus ante. Donec at
+              lacinia lacus. Praesent sagittis nibh ut augue maximus dignissim.
+              Nunc a sem finibus, luctus erat eu, rhoncus arcu. Maecenas
+              scelerisque urna vel est pulvinar suscipit. Vivamus efficitur,
+              tellus semper ultrices fringilla, felis orci finibus libero, at
+              ullamcorper lectus purus non nulla.
+            </p>
+            <p id="srodek">
+              In eu purus at dui aliquet viverra. Fusce dictum id nibh eu
+              ullamcorper. Phasellus sed dapibus neque. Duis sagittis nisl
+              lectus, et sagittis magna sollicitudin a. Morbi ac placerat magna,
+              non rutrum erat. Vestibulum viverra lectus dapibus elit vestibulum
+              placerat. Duis pulvinar auctor finibus. Integer et leo efficitur,
+              imperdiet tellus quis, tristique massa. Ut nunc nisi, ornare at
+              ligula ac, blandit interdum lectus. Donec risus justo, convallis
+              at convallis eget, hendrerit et felis. Aliquam ac erat ac elit
+              posuere bibendum quis ac dolor. Curabitur vel tellus ac est varius
+              sagittis quis sit amet mauris. Integer eget molestie nisi, quis
+              laoreet ligula. In tellus dolor, vulputate vel ligula sit amet,
+              congue suscipit quam.
+            </p>
+
+            <p>
+              In non semper justo. Praesent et bibendum quam. Etiam at mauris at
+              ex lacinia lacinia eu ac magna. Cras sodales, tellus ut convallis
+              mattis, dui justo bibendum ligula, nec maximus tellus ligula a
+              urna. Suspendisse quis neque congue, porttitor eros et, luctus
+              dolor. Phasellus nec scelerisque ex. Aenean ultricies lorem sit
+              amet libero rutrum, at dictum justo finibus. Phasellus ornare,
+              velit eget laoreet vehicula, elit ante dignissim lacus, venenatis
+              volutpat nisi felis ac dolor. Donec turpis nunc, convallis et
+              pretium eu, suscipit nec elit.
+            </p>
+          </article>
+        </div>
+        <aside>
+          <div id="image-parent">
+            <img src="zdjecie.jpg" width="100%" id="image" />
+          </div>
+          <table>
+            <tr class="form-element">
+              <td class="form-label">
+                <label>kolor tła:</label>
+              </td>
+              <td class="form-input">
+                <select id="select-color" onchange="changeColor()">
+                  <option value="#CEE6FE">#CEE6FE</option>
+                  <option value="#FEB6D1">#FEB6D1</option>
+                  <option value="#FFC8A9">#FFC8A9</option>
+                </select>
+              </td>
+            </tr>
+            <tr class="form-element">
+              <td class="form-label">
+                <label>dodaj kolor tła:</label>
+              </td>
+              <td class="form-input">
+                <input type="text" id="add-color" />
+                <br />
+                <button onclick="addColor()">Dodaj kolor</button>
+              </td>
+            </tr>
+            <tr class="form-element">
+              <td class="form-label">
+                <label>rozmiar czcionki:</label>
+              </td>
+              <td class="form-input">
+                <div id="font-size">13 px</div>
+                <button onclick="increaseFont()">zwiększ</button>
+                <button onclick="decreaseFont()">zmniejsz</button>
+              </td>
+            </tr>
+            <tr class="form-element">
+              <td class="form-label">
+                <label>obraz:</label>
+              </td>
+              <td class="form-input">
+                <input type="text" id="image-url" />
+                <br />
+                <button onclick="setImage()">ustaw obraz</button>
+              </td>
+            </tr>
+          </table>
+        </aside>
+      </div>
+      <footer>Igor Nowicki, IZ04P03</footer>
+    </main>
+  </body>
+</html>

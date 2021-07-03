@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="left-hand" />
+    <select id="operation">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input id="right-hand" />
+    =
+    <input id="wynik" />
+    <button id="calc">Licz</button>
+    <br />
+    <div id="history"></div>
+
+    <script>
+      function calc() {
+        let val1 = parseFloat(document.getElementById("left-hand").value);
+        let val2 = parseFloat(document.getElementById("right-hand").value);
+        let e = document.getElementById("operation");
+        let operation = e.options[e.selectedIndex].value;
+        if (isNaN(val1) || isNaN(val2)) {
+          alert("Niepoprawne wartości!");
+          return;
+        }
+
+        let wynik = 0;
+
+        switch (operation) {
+          case "+":
+            wynik = val1 + val2;
+            break;
+          case "-":
+            wynik = val1 - val2;
+            break;
+          case "*":
+            wynik = val1 * val2;
+            break;
+          case "/":
+            wynik = val1 / val2;
+            break;
+          case "%":
+            wynik = val1 % val2;
+            break;
+          default:
+            alert("Niepoprawna operacja!");
+            return;
+        }
+
+        document.getElementById("wynik").value = wynik;
+
+        var tag = document.createElement("p");
+        var text = document.createTextNode(`${val1} ${operation} ${val2} = ${wynik}`);
+        tag.appendChild(text);
+
+        document.getElementById("history").appendChild(tag);
+      }
+
+      document.getElementById("calc").onclick = calc;
+    </script>
+  </body>
+</html>

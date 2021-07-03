@@ -1,0 +1,8 @@
+1. utworzyć w katalogu domowym podkatalog "tymczasowy" a w nim podkatalog "1"
+2. przejsc, ZA POMOCĄ JEDNEGO POLECENIA, do katalogu "xz" w katalogu "share/doc"
+ ktory znajduje się w podkatalogu "usr" katalogu głownego
+3. podac sekwencję polecen, ktore BEZ UZYCIA PEŁEJ ŚCIEZKI DOSTĘPU:
+- wyswietla zawartość utworzonego katalogu "tymczasowy"
+- przemieszczą użytkownika do podkatalogu "1"
+4. usunąć podkatalog "tymczasowy"
+

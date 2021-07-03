@@ -1,0 +1,1 @@
+Napisz program w c++ który wyświetli Twoje dane z legitymacji studenckiej na ekranie możliwie wiernie oddając ich układ (położenie).

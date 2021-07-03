@@ -1,0 +1,228 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+STATYSTYCZNE METODY WSPOMAGANIA DECYZJI
+
+Regresja - Lab 6
+
+1. W zamieszczonej poniżej tabeli podano wysokość rocznego dochodu i wartość posiadanego domu dziewięciu rodzin
+wybranych w sposób losowy spośród mieszkańców pewnego okręgu:
+
+a) Wyznacz prostą regresji wartości domu (Y) względem dochodu (X).
+
+```{r}
+roczny_dochod = c(36,64,49,21,28,47,58,19,32) # Roczny dochód (w tys. $)
+wartosc_domu = c(129,310,260,92,126,242,288,81,134) # Wartość domu (w tys. $)
+
+
+# y - zmienna zależna
+# x - zmienna niezależna
+
+# patrzymy jak Y zależy od X.
+
+x = roczny_dochod
+y = wartosc_domu
+
+plot(x,y, pch=20, xlab='dochod', ylab='wartosc domu')
+
+# Widoczna jest zależność liniowa dodatnia, raczej silna, bo punkty są bardzo blisko prostej.
+
+# Korelacja Pearsona
+
+r = cor(x,y)
+# Wynik: 0.980419 - bardzo silna zależność dodatnia
+
+# Korelacja to miara zależności liniowej. Jeśli punkty nie układają się na prostej, to nie powinno się jej w ogóle interpretować.
+
+# H0 - y i x są niezależne.
+# H1 - x i y są zależne.
+
+# jeśli p < 5% to H1.
+cor.test(x,y)
+
+# Pearson's product-moment correlation
+# 
+# data:  x and y
+# t = 13.172, df = 7, p-value = 3.394e-06
+# alternative hypothesis: true correlation is not equal to 0
+# 95 percent confidence interval:
+#  0.9066015 0.9960167
+# sample estimates:
+#      cor 
+# 0.980419 
+
+# Zatem Y jest zależne od X.
+
+# Wyznaczanie prostej regresji y = a + b*x >>> MNK (metoda najmniejszych kwadratów)
+
+# Wyznaczamy zależność liniową y = a + b*x
+lm(y~x)
+
+# Call:
+# lm(formula = y ~ x)
+# 
+# Coefficients:
+# (Intercept)            x  
+#     -30.344        5.466  
+
+# Zatem wynik: y = -30.344 + 5.466*x
+
+# Dorysowanie prostej liniowej w kolorze col=2 oraz grubości linii lwd=2
+abline(lm(y~x), col=2, lwd=2) 
+text(50,200, 'y= -30.344 + 5.466*x', col=2)
+
+segments(x, lm(y~x)$fitted, x,y) # rysunki reszt
+
+# b) Przeanalizuj dopasowanie modelu.
+
+# X oraz Y są dla całej populacji, x i y - dla próbki
+# Analizujemy model regresji prostej liniowej: Y = a + b*X + epsilon
+# Przyjmujemy, że wyznaczone a i b są takie same jak dla próbki.
+
+a = -30.344
+b = 5.466
+
+
+
+# Czy można przyjąć powyższe równanie jako model?
+
+# 1) Czy istnieje zależność pomiędzy Y a X?
+# H0 - b  = 0 (NIE)
+# H1 - b != 0 (TAK)
+
+# 2) Czy wyraz wolny jest istotny w modelu?
+# H0: a  = 0 (NIE)
+# H1: a != 0 (TAK)
+
+
+
+model = lm(y~x)
+summary(model)
+
+# Call:
+# lm(formula = y ~ x)
+# 
+# Residuals:
+#     Min      1Q  Median      3Q     Max 
+# -37.445  -9.504   3.286   7.550  22.492 
+# 
+# Coefficients:
+#             Estimate Std. Error t value Pr(>|t|)    
+# (Intercept)  -30.344     17.484  -1.736    0.126    
+# x              5.466      0.415  13.172 3.39e-06 ***
+# ---
+# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 18.8 on 7 degrees of freedom
+# Multiple R-squared:  0.9612,	Adjusted R-squared:  0.9557 
+# F-statistic: 173.5 on 1 and 7 DF,  p-value: 3.394e-06
+
+# Zatem b jest istotny (bo x ma p-value 3.39e-06) natomiast a nie jest istotny (p-value 0.126)
+
+# możemy zatem usunąć wyraz wolny
+
+# Y = b*X
+
+model2 = lm(y~x+0) # Y = b*X + epsilon
+summary(model2)
+
+# Call:
+# lm(formula = y ~ x + 0)
+# 
+# Residuals:
+#     Min      1Q  Median      3Q     Max 
+# -43.584 -10.086  -8.232   9.948  25.094 
+# 
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)    
+# x   4.7940     0.1664   28.81 2.28e-09 ***
+# ---
+# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 21.03 on 8 degrees of freedom
+# Multiple R-squared:  0.9905,	Adjusted R-squared:  0.9893 
+# F-statistic: 830.2 on 1 and 8 DF,  p-value: 2.278e-09
+
+
+# Nasz nowy (aktualny) model: Y = 4.7940*X + epsilon
+
+plot(x,y)
+abline(model, col=2, lwd=2) # najlepsze dopasowanie dla 9 punktów
+abline(model2, col=4, lwd=2) # najlepsze dopasowanie dla całej populacji
+
+# 3) Współczynnik determinacji R^2 in [0,1]
+# 0.6 - 1 >>> wtedy model jest użyteczny
+
+# Miara w jakim stopniu model wyjaśnia Y na podstawie X.
+
+summary(model2)
+
+# Call:
+# lm(formula = y ~ x + 0)
+# 
+# Residuals:
+#     Min      1Q  Median      3Q     Max 
+# -43.584 -10.086  -8.232   9.948  25.094 
+# 
+# Coefficients:
+#   Estimate Std. Error t value Pr(>|t|)    
+# x   4.7940     0.1664   28.81 2.28e-09 ***
+# ---
+# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# 
+# Residual standard error: 21.03 on 8 degrees of freedom
+# Multiple R-squared:  0.9905,	Adjusted R-squared:  0.9893 
+# F-statistic: 830.2 on 1 and 8 DF,  p-value: 2.278e-09
+
+# Mamy R-squared 0.9905 - bardzo dobry model.
+
+# Model w bardzo dużym stopniu wyjaśnia Y na podstawie X.
+# model jest bardzo dobrze dopasowany do danych.
+
+# 4) Analiza reszt (sprawdzenie założenia o normalności reszt, o wartości średniej reszt i o losowości reszt).
+
+reszty =  model2$residuals
+reszty
+
+# czy reszty pochodzą z rozkładu normalnego?
+
+# H0: reszty mają rozkład normalny
+# H1: reszty nie mają rozkładu normalnego
+
+shapiro.test(reszty)
+# p-value = 0.8283 - założenie spełnione, nie udało się odrzucić H0 - zatem przyjmujemy, że reszty mają rozkład normalny.
+
+# H0: mu_eps = 0
+# H1: mu_eps != 0
+
+t.test(reszty, mu=0)
+# p-value = 0.5862 - założenie spełnione - średnia nie różni się w sposób istotny od 0
+
+plot(reszty)
+abline(h=0, lty=2)
+# widoczna chmura punktów, czyli przyjmujemy że reszty są losowe i nieskorelowany, czyli jest OK
+
+# c) Oszacuj wartość domu rodziny, której roczny dochód wynosi $40000.
+# d) Wyznacz 95% przedział ufności dla szacowanej wartości domu tej rodziny.
+
+# Y = 4.7940 * X + epsilon
+wartosc = 4.7940*40
+wartosc
+
+points(40, wartosc, pch=18,col=2,cex=2)
+
+predict(model2, list(x=40), level=0.95, interval='p')
+# prognoza y dla rodziny z x = 40 (tyś $) - 95% pewności że rodzina ma wartość pomiędzy 140 a 242
+
+
+predict(model2, list(x=40), level=0.95, interval='c')
+# prognoza EY dla x=40 (uśrednionego Y) - prognozujemy średnią wartość domu dla rodzin.
+
+#        fit      lwr      upr
+# 1 191.7601 140.8946 242.6257
+
+# Dopasowanie 
+
+```

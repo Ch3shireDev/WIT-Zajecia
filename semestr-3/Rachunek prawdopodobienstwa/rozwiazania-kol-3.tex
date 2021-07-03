@@ -1,0 +1,504 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{paralist}
+\usepackage{verbatim}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{pdfpages}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[linguistics]{forest}
+\usetikzlibrary{shapes,backgrounds}
+\usepackage[margin=1in]{geometry}
+\setlength\parindent{0pt}
+\theoremstyle{definition}
+\newtheorem{zadanie}{Zadanie}
+\renewcommand*{\proofname}{Rozwiązanie}
+\maxdeadcycles=1000
+\newcommand{\Var}{\text{Var}}
+\newcommand{\Cov}{\text{Cov}}
+\extrafloats{1000}
+\title{Rachunek prawdopodobieństwa i statystyka}
+\author{Igor Nowicki}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Trzecie kolokwium}
+\subsection{Ściąga}
+
+\subsection{Dwuwymiarowa zmienna dyskretna}
+
+\begin{zadanie}
+    1. Rozkład łączny zmiennej losowej (X; Y) jest następujący:
+
+    \begin{table}[ht]
+        \begin{tabular}{|c|c|c|}
+            \hline
+            $P(X = x_i; Y = y_k)$ & $x_1 = 0$ & $x_2 = 1$ \\
+
+            \hline
+            $y_1 = 0$             & 0.5       & 0.2       \\
+            $y_2 = 1$             & 0.2       & 0.1       \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{zadanie}
+\begin{proof}
+    \begin{enumerate}[a)]
+        \item Wyznacz rozkłady brzegowe zmiennych $X$ i $Y$.
+
+              Definicja rozkładu brzegowego:
+
+              $$P(X_i) = p_{x,i} = \sum_j Y_jP(X_i,Y_j)$$
+              $$P(Y_j) = p_{y,j}= \sum_i X_iP(X_i,Y_j)$$
+
+        \item Oblicz wartości oczekiwane zmiennych $X$ i $Y$.
+
+              $$EX = \sum_i X_ip_{x,i}$$
+              $$EY = \sum_j X_jp_{y,j}$$
+
+        \item Oblicz wariancje i odchylenia standardowe zmiennych $X$ i $Y$.
+
+              Wariancja X:
+
+              $$\Var X = \sigma_X^2  =EX^2 - (EX)^2$$
+              $$EX^2 = \sum_i X_i^2p_{x_i}$$
+
+              Odchylenie standardowe X:
+              $$\sigma_x = \sqrt{\Var X}$$
+
+              Wariancja Y:
+
+              $$\Var Y = \sigma_Y^2  =EY^2 - (EY)^2$$
+              $$EY^2 = \sum_i Y_i^2p_{y_i}$$
+
+              Odchylenie standardowe Y:
+
+              $$\sigma_y = \sqrt{\Var Y}$$
+
+        \item Sprawdź, czy zmienne $X$ i $Y$ są niezależne.
+
+              Test na niezależność zmiennych - powinno być spełnione równanie:
+
+              $$P(X_i)\cdot P(Y_j) = P(X_i,Y_j),$$
+
+              dla wszystkich $X_i$ oraz $Y_j$.
+
+        \item Sprawdź, czy zmienne $X$ i $Y$ są skorelowane. Jeśli tak, to w jakim stopniu?
+
+              Kowariancja $\Cov(X,Y)$ jest wyznaczana według wzoru:
+
+              $$EXY = \sum_{i,j} X_iY_jP(X_i,Y_j),$$
+              $$\Cov(X,Y) = EXY - EX\cdot EY.$$
+
+              Korelacja następuje wtedy, gdy $\Cov(X,Y)\neq 0$.
+
+              Współczynnik korelacji:
+
+              $$\rho(X,Y) = \frac{\Cov(X,Y)}{\sigma_X\sigma_Y}.$$
+
+        \item Wyznacz rozkład zmiennej $Z = X + Y$.
+
+              Sprawdzamy wszystkie możliwe wyniki sumowania wartości $X$ oraz $Y$. Jeśli jakiś wynik powtarza się dla kilku kombinacji, dodajemy do siebie prawdopodobieństwa $P(X,Y)$.
+              W przeciwnym wypadku wartością $P(Z_k)$ jest odpowiadająca wartość $P(X_i,Y_j)$, dla $Z_k= X_i+Y_j$.
+
+        \item Wyznacz wartość średnią i wariancję zmiennej $X + 2Y$.
+
+              Wartość średnia zmiennej wyliczana jest poprzez wzór:
+
+              $$E(X+2Y) = E(X) + 2E(Y)$$
+
+              Wariancja:
+
+              $$\Var(X+2Y) = E(X+2Y)^2 - (E(X+2Y))^2 = \Var(X) + 2^2\Var(Y) + 2\cdot 2\Cov(X,Y).$$
+
+        \item Wyznacz funkcję prawdopodobieństwa $W = XY$.
+
+              Należy znaleźć wszystkie możliwe wartości $W_k= X_i\cdot Y_j$ oraz wyliczyć:
+              $$P(W_k) = \sum_{i,j:W_k = X_i+Y_k}P(X_i,Y_j).$$
+
+    \end{enumerate}
+\end{proof}
+
+\begin{zadanie}
+    2. Wektor losowy $(X, Y)$ ma następujący rozkład prawdopodobieństwa:
+
+    \begin{table}[ht]
+        \begin{tabular}{|c|c|c|}
+            \hline
+
+            $P(X = x_i; Y = y_k)$ & $x_1 = -1$ & $x_2 = 0$ \\
+            \hline
+            $y_1 =-2$             & $1/8$      & $0$       \\
+            $y_2 = 0$             & $1/4$      & $3/8$     \\
+            $y_3 = 1$             & $0$        & $1/4$     \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \begin{enumerate}[a)]
+        \item Wyznacz rozkłady brzegowe wektora $(X, Y)$ i zbadaj niezależność zmiennych losowych $X$, $Y$.
+        \item Wyznacz kowariancję $Cov(X, Y)$ oraz współczynnik korelacji $\rho(X; Y )$ zmiennych losowych $X$, $Y$ .
+        \item Niech $Z = X - 2Y - 1$. Oblicz $E(Z)$ i $Var(Z)$.
+    \end{enumerate}
+\end{zadanie}
+
+\begin{proof}
+
+    \begin{enumerate}[a)]
+        \item Wyznacz rozkłady brzegowe wektora $(X, Y)$ i zbadaj niezależność zmiennych losowych $X$, $Y$.
+
+              Rozkładem brzegowym będzie zobaczenie jak zachowuje się $X$ niezależnie od $Y$ i na odwrót - jak zachowuje się $Y$ niezależnie od $X$.
+
+              Wiemy, że $X$ przyjmuje wartości $-1$ oraz $0$. Prawdopodobieństwem dla każdej ze zmiennych losowych będzie (w przypadku dyskretnym) suma prawdopodobieństw dla danego $x_i$ po wszystkich wartościach pozostałych zmiennych. W przypadku ciągłym sumę zastąpilibyśmy całką po gęstości prawdopodobieństwa.
+
+
+              Rozkład brzegowy $X$:
+              \begin{table}[ht]
+                  \begin{tabular}{|c|c|c|}
+                      \hline
+
+                      $X_i$            & -1    & 0     \\
+                      \hline
+                      $P(X=X_i) = p_i$ & $3/8$ & $5/8$ \\
+                      \hline
+                  \end{tabular}
+              \end{table}
+
+              Rozkład brzegowy $Y$:
+              \begin{table}[ht]
+                  \begin{tabular}{|c|c|c|c|}
+                      \hline
+                      $y_i$            & -2    & 0     & 1     \\
+                      \hline
+                      $P(Y=y_i) = p_i$ & $1/8$ & $5/8$ & $1/4$ \\
+                      \hline
+                  \end{tabular}
+              \end{table}
+
+              Badanie niezależności zdarzeń polega na sprawdzeniu, czy dla każdej pary $(x_i,y_j)$ spełnione jest równanie:
+
+              $$P(X=x_i,Y=y_j) = P(X=x_i)\cdot P(Y=y_j).$$
+
+              Jeśli równość jest spełniona dla wszystkich par, oznacza to że zmienne są niezależne.
+
+              Dla pary $x_1=-1, y_1=-2$ mamy iloczyn prawdopodobieństw $3/8\cdot1/8=3/64$, natomiast wspólne prawdopodobieństwo było równe $1/8$. Oznacza to, że zmienne nie są niezależne (są zależne).
+
+        \item Wyznacz kowariancję $Cov(X, Y)$ oraz współczynnik korelacji $\rho(X; Y)$ zmiennych losowych $X$, $Y$.
+
+              Potrzeba nam wyliczyć wartości średnie $(EX, EY)$ i wariancje $Var X, Var Y$ dla obydwu zmiennych.
+
+              \begin{align*}
+                  EX    & =\sum_ix_ip_i = (-1)\cdot\frac38+0\cdot\frac58=-\frac38,      \\
+                  EX^2  & =\sum_ix_i^2p_i = (-1)^2\cdot\frac38+0^2\cdot\frac58=\frac38, \\
+                  Var X & =EX^2 - (EX)^2 =\frac38-\frac{9}{64} =\frac{15}{64}.
+              \end{align*}
+
+              \begin{align*}
+                  EY    & =\sum_iy_ip_i = (-2)\cdot\frac18+0\cdot\frac58+(1)\cdot\frac14=0,               \\
+                  EY^2  & =\sum_iy_i^2p_i = (-2)^2\cdot\frac18+0^2\cdot\frac58+(1)^2\cdot\frac14=\frac34, \\
+                  Var X & =EX^2 - (EX)^2 =\frac34-0 =\frac{3}{4}.
+              \end{align*}
+
+        \item Niech $Z = X - 2Y - 1$. Oblicz $E(Z)$ i $Var(Z)$.
+
+              $$E(Z) = E(X-2Y-1) = E(X) - 2E(Y) - E(1),$$
+              $$\Var(Z) = \Var(X-2Y-1) = \Var(X) + 2^2\Var(Y) - 2\cdot2\Cov(X,Y).$$
+
+    \end{enumerate}
+\end{proof}
+
+\begin{zadanie} Niech X i Y opisują liczby awarii sprzętu w dwóch pracowanich komputerowych w danym miesiącu. Łączny rozkład
+    zmiennej (X; Y ) jest następujący:
+
+    \begin{table}[ht]
+        \begin{tabular}{|l|l|l|l|}
+            \hline
+
+            $P(X = x_i, Y = y_k)$ & $x_1 = 0$ & $x_2 = 1$ & $x_3 = 2$ \\
+            \hline
+            $y_1 = 0$             & 0.52      & 0.20      & 0.04      \\
+            $y_2 = 1$             & 0.14      & 0.02      & 0.01      \\
+            $y_3 = 2$             & 0.06      & 0.01      & 0         \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \begin{enumerate}[a)]
+        \item Oblicz prawdopodobieństwo wystąpienia przynajmniej jednej awarii sprzętu w miesiącu.
+        \item Czy zmienne X i Y są niezależne? Odpowiedź uzasadnij.
+    \end{enumerate}
+\end{zadanie}
+\begin{proof}
+
+\end{proof}
+
+\begin{zadanie}
+    Pewien student informatyki otrzymuje stypendium naukowe w wysokości 700 zł miesięcznie. Dodatkowo zarabia na zleceniach, w miesiącu wykonuje średnio 3 strony internetowe i udziela przeciętnie 10 godzin korepetycji, z odchyleniami standardowymi, odpowiednio, 1 i 4. Za stronę otrzymuje 1000 zł, a za godzinę korepetycji 40 zł. Współczynnik
+    korelacji między liczbą wykonanych stron a liczbą godzin udzielonych korepetycji wynosi $\rho = -0.6$. Oblicz średni miesięczny dochód studenta oraz odchylenie standardowe dochodu.
+\end{zadanie}
+\begin{proof}
+    Dane są dwie zmienne losowe - niech $X$ będzie liczbą zrobionych stron internetowych, a $Y$ - liczbą godzin korepetycji. Współczynnik korelacji $\rho(X,Y)=-0.6$. Zmienne losowe $P(X) = N(3,1)$ oraz $P(Y) = N(10, 4)$. Poszukujemy wartości dochodu:
+    $$D = 700 + 1000\cdot X+40\cdot Y.$$
+
+    Wiemy, że wartość średnia ma własność liniowości:
+
+    $$E(D) = 700+1000\cdot E(X) + 40\cdot E(Y).$$
+
+    Zatem $E(D) = 4100$. W przypadku odchylenia standardowego $\sigma_D = \sqrt{\text{Var}(D)}$:
+
+    \begin{align*}
+        \Var(D) & = \Var(700+1000X+40Y),                                                                   \\
+                & = 1000^2\Var X+40^2 \Var Y+2\cdot 1000\cdot 40\cdot \Cov(X,Y),                           \\
+                & = 1000^2\cdot 1^2+40^2 4^2+2\cdot 1000\cdot 40\cdot \rho(X,Y)\cdot\sigma_X\cdot\sigma_Y, \\
+                & = 1000^2+40^2 \cdot 16+2\cdot 1000\cdot 40\cdot (-0.6)\cdot1\cdot4,                      \\
+                & =1025595.2.
+    \end{align*}
+
+    Zatem odchylenie standardowe wartości dochodu, $\sigma_D = \sqrt{\Var(D)} = \sqrt{1025595.2} = 1013$.
+
+\end{proof}
+
+\subsection{Centralne twierdzenia graniczne Moivre'a-Laplace'a i Lindeberga-Levy'ego}
+
+\begin{zadanie}
+    Załóżmy, że interesująca nas cecha $X$ ma rozkład ciągły o wartości oczekiwanej 0 i wariancji $1/6$. Niech $X_1,X_2, \dots, X_n$
+    będą niezależnymi zmiennymi losowymi o takim samym rozkładzie jak $X$ oraz niech
+    $S_n = \sum_{i=1}^n X_i$.
+
+    Korzystając z Centralnego Twierdzenia Granicznego oszacuj prawdopodobieństwo $P(15 < S_{1350} \leq 45)$.
+\end{zadanie}
+
+\begin{proof}
+
+    Ponieważ zmienne $X_i$ mają ten sam rozkład co cecha $X$, to:
+
+    $$\text E(X_i) = \text E(X) = 0$$
+    $$\text{Var}(X_i) = \text{Var}(X) = 1/6$$
+
+    Poszukujemy wartości $S_n = \sum_{i=1}^nX_i$ dla $n=1350$. Na podstawie Centralnego Twierdzenia Granicznego wiemy, że:
+
+    $$\lim_{n \to \infty}\frac{S_n-n\mu}{\sigma\sqrt{n}} = N(0, 1),$$
+
+    czyli, że $S_n$ zbiega do rozkładu normalnego o wartości średniej $n\mu$ oraz odchyleniu standardowym $\sqrt n \sigma$, gdzie $\mu, \sigma$ są parametrami rozkładu cechy $X$.
+
+    Zatem prawdopodobieństwo że suma $S_{1350}$ wypadnie pomiędzy $15$ a $45$, tj:
+
+    $$P(15<S_{1350}\leq 45),$$
+
+    można obliczyć z tablicy dystrybuanty rozkładu normalnego. Wpierw należy zestandaryzować wielkości w nierówności:
+
+    \begin{align*}
+        P\Bigg(15<S_{1350}\leq 45\Bigg) & = P\Bigg(15< N(n\mu,\sigma\sqrt{n})\leq 45\Bigg),                                                                                 \\
+                                        & = P\Bigg(\frac{15-1350\cdot0}{\sqrt{1/6}\cdot\sqrt{1350}}< \mathcal Z \leq\frac{45-1350\cdot0}{\sqrt{1/6}\cdot\sqrt{1350}}\Bigg), \\
+                                        & = P\Bigg(\frac{15-1350\cdot0}{15}<  \mathcal Z  \leq\frac{45-1350\cdot0}{15}\Bigg),                                               \\
+                                        & = P\Bigg(1<  \mathcal Z \leq3\Bigg),                                                                                              \\
+                                        & = \Phi(3) - \Phi(1).
+    \end{align*}
+
+    % Używając CTG możemy dokonać przybliżenia:
+
+    % $$P(15<S_{1350}\leq45) \approx P()$$
+
+    Doprowadzamy $S_{1350}$ do standardowej formy, aby móc użyć jej z tablic.
+
+    $$S_n\approx N(n\mu,\sigma\sqrt{n})$$
+
+    Wartości $\Phi(3), \Phi(1)$ wynoszą, odpowiednio, $0.9987$ oraz $0.8413$, co oznacza, że szukane prawdopodobieństwo wynosi $0.16$.
+
+\end{proof}
+
+\begin{zadanie}
+    Przeciętny zeskanowany obraz zajmuje 0.6 MB pamięci z odchyleniem standardowym 0.4 MB. Planujesz opublikować
+    80 obrazów na swojej stronie. Jakie jest prawdopodobienśtwo, że ich łączny rozmiar wyniesie od 47 do 50 MB?
+\end{zadanie}
+\begin{proof}
+    Wartości $EX=\mu=0.6$, $\sigma=\sqrt{\text{Var}(X)} = 0.4\text{ MB}$. Wartość $n=80$, dla sumy $S_{80}=\sigma_{i=1}^{80}X_i$ poszukujemy prawdopodobieństwa:
+
+    \begin{align*}
+        P\Bigg(47<S_{80}\leq 50\Bigg) & = P\Bigg(47 <N(80\cdot\mu, \sqrt{80}\cdot\sigma)\leq 50\Bigg),                                                                           \\
+                                      & = P\Bigg(\frac{47-n\cdot\mu}{\sqrt{n}\cdot\sigma} <N(n\cdot\mu, \sqrt{n}\cdot\sigma)\leq \frac{50-n\cdot\mu}{\sqrt{n}\cdot\sigma}\Bigg), \\
+                                      & = P\Bigg(\frac{47-80\cdot0.6}{\sqrt{80}\cdot0.4} <N(0,1)\leq \frac{50-80\cdot0.6}{\sqrt{80}\cdot0.4}\Bigg),                              \\
+                                      & = P\Bigg(-0.28<N(0,1)\leq 0.56\Bigg),                                                                                                    \\
+                                      & =\Phi(0.56) - \Phi(-0.28),                                                                                                               \\
+                                      & = 0.712 - (1-\Phi(0.28)),                                                                                                                \\
+                                      & = 0.712 - (1 - 0.61),                                                                                                                    \\
+                                      & = 0.712 - (1 - 0.61),                                                                                                                    \\
+                                      & = 0.322.
+    \end{align*}
+
+\end{proof}
+
+\begin{zadanie}
+    Dla zmiennej losowej X o wartości oczekiwanej $\mu$ i odchyleniu standardowym $\sigma$:
+
+    \begin{enumerate}[a)]
+        \item oszacuj prawdopodobieństwo $P(|X - \mu| \geq 3\sigma)$,
+        \item znajdź to prawdopodobieństwo, gdy wiadomo, że zmienna pochodzi z rozkładu normalnego $N(0, 1)$.
+    \end{enumerate}
+\end{zadanie}
+\begin{proof}
+
+    \begin{enumerate}[a)]
+        \item oszacuj prawdopodobieństwo $P(|X - \mu| \geq 3\sigma)$,
+
+              Skorzystamy z nierówności Czebyszewa:
+
+              $$P(|X-\mu| \geq k\sigma) < \frac\sigma{k^2},$$
+
+              co w tym wypadku pozwala nam oszacować, że szansa na wystąpienie zdarzenia będzie mniejsza niż $\frac\sigma9$.
+
+        \item znajdź to prawdopodobieństwo, gdy wiadomo, że zmienna pochodzi z rozkładu normalnego $N(0, 1)$.
+
+              \begin{align*}
+                  P(|X - \mu| \geq 3\sigma) & =       1 - P(|X-\mu|<3\sigma),              \\
+                                            & =       1 - P(-3\sigma<X-\mu<3\sigma),       \\
+                                            & =       1 - P(-3\sigma<N(0,\sigma)<3\sigma), \\
+                                            & =       1 - P(-3<N(0,1)<3),                  \\
+                                            & =       1 - \Bigg(\Phi(3)-\Phi(-3)\Bigg),    \\
+                                            & =       1 - \Bigg(\Phi(3)-(1-\Phi(3))\Bigg), \\
+                                            & =       2 - 2\Phi(3),                        \\
+                                            & =       2- 2\cdot0.9987,                     \\
+                                            & =       0.0026.
+              \end{align*}
+    \end{enumerate}
+\end{proof}
+
+\newpage
+\begin{zadanie}
+    Aktualizacja pewnego pakietu oprogramowania wymaga instalacji 68 nowych plików. Pliki są instalowane kolejno.
+    Czas instalacji jest zmienną losową o średniej $15 s$ i wariancji $11 s^2$.
+    \begin{enumerate}[a)]
+        \item Jakie jest prawdopodobieństwo, że cały pakiet zostanie zaktualizowany w mniej niż 12 minut?
+        \item Wydano nową wersję pakietu, która wymaga zainstalowania tylko N nowych plików. Ponadto podano, że z prawdopodobieństwem 95\% czas aktualizacji nie zajmie więcej niż 10 minut. Oblicz N.
+    \end{enumerate}
+\end{zadanie}
+\begin{proof}
+
+    \begin{enumerate}[a)]
+
+        \item     $n = 68$. Wiemy, że $EX=\mu=15 s$ oraz $\Var X =\sigma^2= 11\text{ s}^2$. Poszukujemy wartości $S_{68}$ i prawdopodobieństwa:
+
+    \begin{align*}
+        P(S_{68}< 12\cdot60) & = P(\frac{S_{68}-n\cdot\mu}{\sqrt{n}\sigma} < \frac{12\cdot60-n\cdot\mu}{\sqrt{n}\sigma}), \\
+                             & = P(Z < \frac{12\cdot60-68\cdot15}{\sqrt{68\cdot 11}}),                                    \\
+    \end{align*}
+
+\item $n=?$, 
+
+\begin{align*}
+P\Bigg(S_n < 10\cdot60\Bigg) &= 0.95,\\
+P\Bigg( \frac{S_n-n\cdot 15}{\sqrt{11\cdot n}}  <  \frac{10\cdot60-n\cdot 15}{\sqrt{11\cdot n}} \Bigg) &= \Phi(1.64),\\
+P\Bigg(\mathcal Z < \frac{10\cdot60-n\cdot 15}{\sqrt{11\cdot n}} \Bigg) &= \Phi(1.64),\\
+\frac{10\cdot60-n\cdot 15}{\sqrt{11\cdot n}} &= 1.64
+\end{align*}
+
+Prowadzi nas to do równania kwadratowego:
+
+\begin{align*}
+10\cdot60 - n\cdot 15 &= 1.64\cdot\sqrt{11n},
+\end{align*}
+
+które możemy rozwiązać poprzez podstawienie $t=\sqrt n$.
+
+\begin{align*}
+    10\cdot60 - t^2\cdot 15 &= 1.64\cdot\sqrt{11}t,\\
+    t^2\cdot 15+1.64\cdot\sqrt{11}t - 10\cdot60 &=0,
+    \end{align*}
+    
+Co ma dwa rozwiązania: $t = -6.5$ lub $t=6.14582$. Bierzemy tylko dodatnie rozwiązanie, ponieważ $t= \sqrt n$. Zatem $n=t^2 = 37.78\approx 38$.
+\end{enumerate}
+\end{proof}
+
+\begin{zadanie}
+    Prawdopodobieństwo znalezienia wybrakowanego towaru wynosi $\rho$. Kontrola sprawdza liczbę braków spośród n losowo wybranych sztuk towaru. Wyznacz wzór ogólny na rozkład prawdopodobieństwa tej zmiennej losowej.
+    \begin{enumerate}[a)]
+        \item Jeśli $p = 0.1$, a $n = 10$, jakie jest prawdopodobieństwo, że kontrola napotka co najwyżej 1 brak?
+        \item Jeśli $p = 0.1$, a $n = 1000$, oszacuj prawdopodobieństwo (z CTG), że kontrola napotka od 50 do 100 braków.
+        \item Jeśli $p$ wynosi zaledwie $0.001$, a $n = 5000$, oszacuj prawdopodobieństwo (z tw. Poissona), że kontrola napotka co najmniej dwa braki.
+    \end{enumerate}
+\end{zadanie}
+\begin{proof}
+    Rozkład prawdopodobieństwa będzie opisywany funkcją $Bin(n,\rho)$. Dla dużych $n$ można przybliżać funkcję rozkładem normalnym $N(np,\sqrt{npq})$.
+    \begin{enumerate}[a)]
+        \item Jeśli $p = 0.1$, a $n = 10$, jakie jest prawdopodobieństwo, że kontrola napotka co najwyżej 1 brak?
+
+              Szansa na napotkanie co najwyżej jednego braku wynosi:
+
+              $$P(S_{10}\leq 1) = P(S_{10}=0) + P(S_{10}=1) = \binom{10}{0}0.1^0\cdot0.9^{10}+\binom{10}{1}0.1^1\cdot0.9^9.$$
+
+        \item Jeśli $p = 0.1$, a $n = 1000$, oszacuj prawdopodobieństwo (z CTG), że kontrola napotka od 50 do 100 braków.
+
+              Tutaj musimy już przyjąć przybliżenie z CTG. Poszukujemy:
+
+              $$P(50\leq S_{1000}\leq 100)$$
+
+        \item Jeśli $p$ wynosi zaledwie $0.001$, a $n = 5000$, oszacuj prawdopodobieństwo (z tw. Poissona), że kontrola napotka co najmniej dwa braki.
+
+              Rozkład Poissona:
+
+              $$p(k,\lambda=np) = \frac{\lambda^ke^-\lambda}{k!}.$$
+
+              Szukane prawdopodobieństwo to:
+
+              $$P(S\geq 2) = 1 - P(S=0) - P(S=1) = 1- (Pois(k=0,\lambda)+Pois(k=1,\lambda))$$
+
+
+    \end{enumerate}
+\end{proof}
+
+
+\begin{zadanie}
+    W hotelu jest 100 pokoi. Właściciel hotelu polecił przyjmować rezerwacje na więcej niż 100 pokoi, ponieważ z doświadczenia wie, że jedynie 90\% dokonywanych wcześniej rezerwacji jest później wykorzystywanych. Jakie jest prawdopodobieństwo, że przy przyjęciu 104 rezerwacji w hotelu zabraknie wolnych miejsc?
+\end{zadanie}
+
+\begin{proof}
+    $n = 104, p=90\%, \sigma = \sqrt{pq}=0.3, \mu=0.9$. Poszukujemy prawdopodobieństwa:
+
+    \begin{align*}P(S_{104} > 100) &= P\Bigg( \frac{S_{104} - n\mu}{\sigma\sqrt n} > \frac{100 - n\mu}{\sigma\sqrt n}\Bigg),\\
+        &= P\Bigg(\mathcal Z > \frac{100 - 104\cdot0.9}{0.3\cdot\sqrt{104}}\Bigg),\\ 
+        &= P\Bigg(\mathcal Z > 2.09\Bigg),\\ 
+        &= 1- \Phi(2.09),\\
+        &= 1 - 0.981691,\\
+        &= 0.0183.
+    \end{align*}
+\end{proof}
+
+\begin{zadanie}
+    Instalacja pewnego oprogramowania wymaga pobrania 82 plików. Średnio pobieranie pliku trwa 15 sekund z wariancją $16 s^2$. Jakie jest prawdopodobienśtwo, że oprogramowanie zostanie zainstalowane w mniej niż 20 minut?
+\end{zadanie}
+\begin{proof}
+    $n=82$, $\mu=15\text{ s}$, $\sigma^2 = 16\text{ s}^2$. Poszukujemy:
+
+    \begin{align*}
+        P(S_{82}<20\cdot60) & = P( Z < \frac{1200-82\cdot15}{\sqrt{82}\cdot\sqrt{16}}), \\
+                            & = P Z < \frac{1200-82\cdot15}{\sqrt{82}\cdot\sqrt{16}}),  \\
+                            & = \Phi(-0.83),                                            \\
+                            & = 1 - 0.796,                                              \\
+                            & = 0.204.
+    \end{align*}
+\end{proof}
+
+\begin{zadanie}
+    Określony wirus komputerowy może uszkodzić dowolny plik z prawdopodobieństwem 35\%, niezależnie od innych plików. Załóżmy, że wirus ten dostaje się do folderu zawierającego 2400 plików. Oblicz prawdopodobieństwo, że uszkodzonych zostanie od 800 do 850 plików.
+\end{zadanie}
+\begin{proof}
+    Rozkład $S_{2400} \approx Bin(n,p)$, gdzie $n=2400$, natomiast $p=35\%$. Dopełnienie $p$, $q=65\%$. Moglibyśmy zostać przy rozkładzie dwumianowym $Bin$, jednak obliczenia tutaj są skomplikowane. Znacznie lepiej będzie skorzystać z przybliżenia rozkładu normalnego dla $\mu=p=0.35$ oraz $\sigma=\sqrt{pq}=0.477$.
+
+    \begin{align*}
+        P(800<S_{2400}<850) & = P(800<N(n\mu,n\sigma)<850),                                                                                  \\
+                            & = P(\frac{800-n\mu}{\sqrt{n}\sigma} < \frac{S_{2400}-n\mu}{\sqrt{n}\sigma} < \frac{850-n\mu}{\sqrt{n}\sigma}), \\
+                            & = P(-1.71 < N(0,1) < 0.428),                                                                                  \\
+                            & = \Phi(0.43) - \Phi(-1.71),                                                                                    \\
+                            & = 0.664 - (1 - 0.956),                                                                                         \\
+                            & = 0.622.
+    \end{align*}
+\end{proof}
+\end{document}

@@ -1,0 +1,54 @@
+---
+title: "Statystyczne Metody Wspomagania Decyzji - Zestaw zadań nr 1, zadanie 3"
+output: html_notebook
+---
+
+Na podstawie zmiennej zp z zadania 2:
+
+a) utwórz zmienną jakościową `zp_kat` opisującą zużycie paliwa przez trzy następujące kategorie: 
+
+    (1) mało, gdy `zp <= 7`, 
+    (2) średnio, gdy `7 < zp <= 10, 
+    (3) dużo, gdy `zp > 10`,
+    
+```{r}
+
+auta = read.csv2('samochody.csv')
+auta = na.omit(auta)
+liters_per_galon = 3.785
+meters_per_mile = 1609 
+auta$zp = liters_per_galon  * 1000 * 100 / meters_per_mile / auta$mpg
+
+auta$zp_kat[auta$zp <= 7] = 'mało'
+auta$zp_kat[7 < auta$zp & auta$zp <= 10] = 'średnio'
+auta$zp_kat[auta$zp > 10] = 'dużo'
+
+auta$producent = factor(auta$producent)
+levels(auta$producent) = c('USA', 'Europe', 'Japan')
+
+auta$zp_kat = factor(auta$zp_kat, ordered=TRUE, levels=c('mało','średnio','dużo'))
+```
+    
+b) oblicz jaki procent badanych samochodów należy do każdej z kategorii – funkcje `table()` i `prop.table()`,
+
+```{r}
+table(auta$zp_kat)
+prop.table(table(auta$zp_kat))*100
+```
+
+
+c) dla zmiennej `zp_kat` utwórz wykres słupkowy – `barplot()` i kołowy – `pie()`.
+
+```{r}
+par(mfrow=c(1,2))
+barplot(table(auta$zp_kat),col=2:4)
+pie(table(auta$zp_kat), col=3:5)
+```
+
+```{r}
+tapply(auta$zp, auta$producent, mean)
+tapply(auta$zp, auta$producent, mean)
+
+boxplot(auta$zp ~ auta$producent, col=2:4)
+```
+

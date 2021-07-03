@@ -1,0 +1,83 @@
+# * norm -rozklad normalny  
+# * t - rozklad studenta
+# * chisq - rozklad 
+# * f - rozklad
+ks.test(x,"pexp",0.25)ks.test(x,"pexp",0.25)ks.test(x,"pexp",0.25)
+# dnorm(x) - wartosc gestosci
+# pnorm(x) - wartosc dystrybuanty F(x)
+# qnorm(p) - wartosc kwantylx=xa rzedu p
+# rnorm(n) - wygenerowanie n liczb pseudo losowych
+#sigma=4.75
+#n=50
+#alpha=0.05
+#srednia=28.4
+
+
+wsp.a=function(sigma,alpha,srednia,n){
+	alpha=0.05
+	kwantyl=qnorm(1-alpha/2)
+	a=srednia+c(-1,1)*kwantyl*sigma/sqrt(n)
+	list(a=a)
+}
+# test studenta
+wsp.a1=function(alpha,x){
+
+	kwantyl=qt(1-alpha/2,length(x)-1))
+	a=mean(x)+c(-1,1)*kwantyl*sd(x)/sqrt(length(x))
+	list(a=a)
+}
+# albo
+# t.test(x,conf.level=0.95)$conf.int
+	alpha=0.05
+	kwantyl1=qchisq(1-alpha/2,length(x)-1)
+	kwantyl2=qchisq(alpha/2,length(x)-1)
+	sqrt(length(x)-1)+var(x)/kwantyl1
+	sqrt(length(x)-1)+var(x)/kwantyl2
+
+
+	alpha=0.05
+	p=578/1014
+	n=1014
+	kwantyl=qnorm(1-alpha/2)
+	p+c(-1,1)*kwantyl*sqrt(p*(1-p)/n)
+	# albo prop.test(578,1014,conf.level=0.95,correct=F)$conf.int
+
+	d=0.025
+	p=0.5
+	ceiling( p*(1-p)*(kwantyl/d)^2)
+
+
+#replicate(ile , co zrobic)
+
+	m=10000 # liczba prób
+	n=10    # licznosc grób
+	alpga=0.05
+	kwantyl=qt(1-alph/2,n-1)
+	czy.wpada=replicate(m,
+	{
+		x=rnorm(n)
+		sr=mean(x)
+		s=sd(x)
+		(sr-kwantyl*s/sqrt(n)<0) & (sr+kwantyl*s/sqrt(n)>0)
+	}
+	)
+
+#zestaw 4
+#zad 1
+y=c(1.36, 1.14, 1.27, 1.15, 1.20, 1.29, 1.27, 1.18, 1.23, 1.36,1.38, 1.37, 1.30, 1.21, 1.33, 1.28, 1.32, 1.29, 1.33, 1.25)
+
+alpha=0.04
+statystyka=(mean(y)-1.2)*sqrt(20)/0.07
+kwantyl=qnorm(1-alpha)
+
+pwartosc=1-pnorm(statystyka)
+
+#zad 2
+alpha=0.05
+x=c(142, 151, 148, 151, 145, 150, 141)
+statystyka=(mean(x)-150)*sqrt(length(x))/sd(x)
+kwantyl=qt(1-alpha,length(x)-1)
+pwartosc=1-pt(statystyka)
+
+t.test(x,mu=150)
+

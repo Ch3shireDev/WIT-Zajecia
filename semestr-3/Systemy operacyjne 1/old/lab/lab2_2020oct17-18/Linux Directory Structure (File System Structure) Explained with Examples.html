@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/css.css" media="screen, projection">
+<title>Linux Directory Structure (File System Structure) Explained with Examples</title>
+<meta name="description" content="Have you wondered why certain programs are located under /bin, or /sbin, or /usr/bin, or /usr/sbin? For example, less command is located under /usr/bin dir">
+<meta name="robots" content="noodp, noydir">
+<link rel="canonical" href="https://www.thegeekstuff.com/2010/09/linux-file-system-structure/">
+<link rel="alternate" type="application/rss+xml" title="The Geek Stuff feed" href="https://www.thegeekstuff.com/feed/">
+<link rel="pingback" href="https://www.thegeekstuff.com/xmlrpc.php">
+
+<!-- All in One SEO Pack 2.2.6.2 by Michael Torbert of Semper Fi Web Design[296,376] -->
+<meta name="description" content="Have you wondered why certain programs are located under /bin, or /sbin, or /usr/bin, or /usr/sbin? For example, less command is located under /usr/bin">
+
+<link rel="canonical" href="https://www.thegeekstuff.com/2010/09/linux-file-system-structure/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="The Geek Stuff » Linux Directory Structure (File System Structure) Explained with Examples Comments Feed" href="https://www.thegeekstuff.com/2010/09/linux-file-system-structure/feed/">
+<link rel="https://api.w.org/" href="https://www.thegeekstuff.com/wp-json/">
+<link rel="alternate" type="application/json+oembed" href="https://www.thegeekstuff.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.thegeekstuff.com%2F2010%2F09%2Flinux-file-system-structure%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.thegeekstuff.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.thegeekstuff.com%2F2010%2F09%2Flinux-file-system-structure%2F&amp;format=xml">
+<link rel="shortcut icon" href="https://static.thegeekstuff.com/wp-content/uploads/2015/05/favicon.ico.gzip">
+<script src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/cbgapi.loaded_1" async=""></script><script src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/cbgapi.loaded_0" async=""></script><script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/a"></script><script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/inputtools.js"></script><script charset="utf-8" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/button.js"></script></head>
+<body class="template-single">
+<script type="text/javascript" async="" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/ga.js"></script><script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-5302569-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<div class="container">
+	<div id="header" class="header">
+		<p id="logo"><a href="https://www.thegeekstuff.com/"><img src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/thegeekstuff.gif" alt="The Geek Stuff"></a>
+</p><div id="header_ad"><div id="header_ad1">
+<script async="" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/adsbygoogle.js"></script>
+<!-- TGS Logo Header -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8090601437064582" data-ad-slot="4708993701"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+	</div>
+	<span class="menu_control">≡ Menu</span>
+<ul id="menu-tgs-menu" class="menu"><li id="menu-item-15798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-15798"><a href="https://www.thegeekstuff.com/">Home</a></li>
+<li id="menu-item-15797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15797"><a href="https://www.thegeekstuff.com/linux-101-hacks-ebook/">Free eBook</a></li>
+<li id="menu-item-15805" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15805"><a href="https://www.thegeekstuff.com/best-of-the-blog/">Start Here</a></li>
+<li id="menu-item-15800" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15800"><a href="https://www.thegeekstuff.com/contact/">Contact</a></li>
+<li id="menu-item-15802" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15802"><a href="https://www.thegeekstuff.com/about/">About</a></li>
+</ul>
+	<div class="columns">
+		<div class="content">
+			<div id="post-5920" class="post_box grt top" itemscope="" itemtype="http://schema.org/Article">
+				<div class="headline_area">
+					<h1 class="headline" itemprop="name">Linux Directory Structure (File System Structure) Explained with Examples</h1>
+					<div class="byline small">
+						<span class="post_author_intro">by</span> <span class="post_author" itemprop="author">Ramesh Natarajan</span>
+						<meta itemprop="datePublished" content="2010-09-08">
+						<meta itemprop="dateModified" content="2010-10-03">
+						<span class="post_date_intro">on</span> <span class="post_date" title="2010-09-08">September 8, 2010</span>
+					</div>
+				</div>
+				<div class="post_content" itemprop="articleBody">
+<div style="margin:7px 0px 6px 0px; padding:5px;">
+
+<div style="float:left; width=95px">
+<div style="position: absolute; width: 450px; left: -10000px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" id="I0_1569279313652" name="I0_1569279313652" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/fastbutton.html" data-gapiattached="true" width="100%" frameborder="0"></iframe></div><g:plusone size="medium" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone>
+</div>
+
+<div style="float:left; padding:2px; width:90px"><iframe src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/like_002.html" scrolling="no" style="border:none; overflow:hidden; width:450px; height:21px;" allowtransparency="true" frameborder="0"></iframe>
+</div>
+
+<div style="width=95px">
+<iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 65px; height: 20px;" title="Twitter Tweet Button" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/tweet_button.html" frameborder="0"></iframe><script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/widgets.js"></script>
+</div>
+
+</div>
+<p>Have you wondered why certain programs are located under /bin, or /sbin, or /usr/bin, or /usr/sbin?</p>
+<p>For example, less command is located under /usr/bin directory. Why 
+not /bin, or /sbin, or /usr/sbin? What is the different between all 
+these directories?</p>
+<p>In this article, let us review the Linux filesystem structures and understand the meaning of individual high-level directories.<br>
+<span id="more-5920"></span><br>
+<img src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/filesystem-structure.png" alt="" title="Linux File System Structure" class="aligncenter size-full wp-image-5925" srcset="https://static.thegeekstuff.com/wp-content/uploads/2010/11/filesystem-structure.png 558w, https://www.thegeekstuff.com/wp-content/uploads/2010/11/filesystem-structure-205x300.png 205w" sizes="(max-width: 558px) 100vw, 558px" width="558" height="813"></p>
+<h3>1. / – Root</h3>
+<ul>
+<li>Every single file and directory starts from the root directory.</li>
+<li>Only root user has write privilege under this directory.</li>
+<li>Please note that /root is root user’s home directory, which is not same as /.</li>
+</ul>
+<h3>2. /bin – User Binaries</h3>
+<ul>
+<li>Contains binary executables.</li>
+<li>Common linux commands you need to use in single-user modes are located under this directory.</li>
+<li>Commands used by all the users of the system are located here.</li>
+<li>For example: ps, ls, ping, grep, cp.</li>
+</ul>
+<h3>3. /sbin – System Binaries</h3>
+<ul>
+<li>Just like /bin, /sbin also contains binary executables.</li>
+<li>But, the linux commands located under this directory are used typically by system aministrator, for system maintenance purpose.</li>
+<li>For example: iptables, reboot, fdisk, ifconfig, swapon</li>
+</ul>
+<h3>4. /etc – Configuration Files</h3>
+<ul>
+<li>Contains configuration files required by all programs.</li>
+<li>This also contains startup and shutdown shell scripts used to start/stop individual programs.</li>
+<li>For example: /etc/resolv.conf, /etc/logrotate.conf</li>
+</ul>
+<h3>5. /dev – Device Files</h3>
+<ul>
+<li>Contains device files.</li>
+<li>These include terminal devices, usb, or any device attached to the system.</li>
+<li>For example: /dev/tty1, /dev/usbmon0</li>
+</ul>
+<h3>6. /proc – Process Information</h3>
+<ul>
+<li>Contains information about system process.</li>
+<li>This is a pseudo filesystem contains information about running 
+process. For example: /proc/{pid} directory contains information about 
+the process with that particular pid.</li>
+<li>This is a virtual filesystem with text information about system resources. For example: /proc/uptime</li>
+</ul>
+<h3>7. /var – Variable Files</h3>
+<ul>
+<li>var stands for variable files.</li>
+<li>Content of the files that are expected to grow can be found under this directory.</li>
+<li>This includes — system log files (/var/log); packages and database 
+files (/var/lib); emails (/var/mail);  print queues (/var/spool); lock 
+files (/var/lock); temp files needed across reboots (/var/tmp);</li>
+</ul>
+<h3>8. /tmp – Temporary Files</h3>
+<ul>
+<li>Directory that contains temporary files created by system and users.</li>
+<li>Files under this directory are deleted when system is rebooted.</li>
+</ul>
+<h3>9. /usr – User Programs</h3>
+<ul>
+<li>Contains binaries, libraries, documentation, and source-code for second level programs.</li>
+<li>/usr/bin contains binary files for user programs. If you can’t find a
+ user binary under /bin, look under /usr/bin. For example: at, awk, cc, 
+less, scp</li>
+<li>/usr/sbin contains binary files for system administrators. If you 
+can’t find a system binary under /sbin, look under /usr/sbin. For 
+example: atd, cron, sshd, useradd, userdel</li>
+<li>/usr/lib contains libraries for /usr/bin and /usr/sbin</li>
+<li>/usr/local contains users programs that you install from source. For
+ example, when you install apache from source, it goes under 
+/usr/local/apache2</li>
+</ul>
+<h3>10. /home – Home Directories</h3>
+<ul>
+<li>Home directories for all users to store their personal files.</li>
+<li>For example: /home/john, /home/nikita</li>
+</ul>
+<h3>11. /boot – Boot Loader Files</h3>
+<ul>
+<li>Contains boot loader related files.</li>
+<li>Kernel initrd, vmlinux, grub files are located under /boot</li>
+<li>For example: initrd.img-2.6.32-24-generic, vmlinuz-2.6.32-24-generic</li>
+</ul>
+<h3>12. /lib – System Libraries</h3>
+<ul>
+<li>Contains library files that supports the binaries located under /bin and /sbin</li>
+<li>Library filenames are either ld* or lib*.so.*</li>
+<li>For example: ld-2.11.1.so, libncurses.so.5.7</li>
+</ul>
+<h3>13. /opt – Optional add-on Applications</h3>
+<ul>
+<li>opt stands for optional.</li>
+<li>Contains add-on applications from individual vendors.</li>
+<li>add-on applications should be installed under either /opt/ or /opt/ sub-directory.</li>
+</ul>
+<h3>14. /mnt – Mount Directory</h3>
+<ul>
+<li>Temporary mount directory where sysadmins can mount filesystems.</li>
+</ul>
+<h3>15. /media – Removable Media Devices</h3>
+<ul>
+<li>Temporary mount directory for removable devices.</li>
+<li>For examples, /media/cdrom for CD-ROM; /media/floppy for floppy drives; /media/cdrecorder for CD writer</li>
+</ul>
+<h3>16. /srv – Service Data</h3>
+<ul>
+<li>srv stands for service.</li>
+<li>Contains server specific services related data.</li>
+<li>For example, /srv/cvs contains CVS related data.</li>
+</ul>
+    <center>
+      <div style="margin-left:2px; margin-top:10px; margin-bottom:10px; ">
+
+        <!-- AD BLOCK -->
+		
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8090601437064582";
+/* TGS After Content */
+google_ad_slot = "2706948310";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/show_ads.js">
+</script>
+
+        <!-- END AD BLOCK -->
+
+	  </div>
+    </center>
+
+<div style="margin:7px 0px 3px 0px; padding:5px; background:#F2F0E8">
+
+<div style="float:left; width=95px">
+<div style="position: absolute; width: 450px; left: -10000px;" id="___plusone_1"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" id="I1_1569279313665" name="I1_1569279313665" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/fastbutton_002.html" data-gapiattached="true" width="100%" frameborder="0"></iframe></div><g:plusone size="medium" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone>
+</div>
+
+<div style="float:left; width=95px">
+<iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 65px; height: 20px;" title="Twitter Tweet Button" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/tweet_button_002.html" frameborder="0"></iframe><script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/widgets.js"></script>
+</div>
+
+<div style="float:left; padding:2px; width:90px"><iframe src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/like_002.html" scrolling="no" style="border:none; overflow:hidden; width:450px; height:21px;" allowtransparency="true" frameborder="0"></iframe>
+</div>
+
+<div style="padding:1px">
+&gt;&nbsp;<a href="#commentform" rel="nofollow">Add your comment</a>
+</div>
+
+</div>
+<h3>If you enjoyed this article, you might also like..</h3>
+<table>
+<tbody><tr>
+<td valign="top">
+<ol>
+<li><a href="https://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/">50 Linux Sysadmin Tutorials</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/11/50-linux-commands/">50 Most Frequently Used Linux Commands (With Examples)</a></li>
+<li><a href="https://www.thegeekstuff.com/2011/12/linux-performance-monitoring-tools/">Top 25 Best Linux Performance Monitoring and Debugging Tools</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/">Mommy, I found it! – 15 Practical Linux Find Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/linux-101-hacks-ebook/">Linux 101 Hacks 2nd Edition eBook</a>&nbsp;<img title="Linux 101 Hacks Book" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/free-small.png" alt="Linux 101 Hacks Book"></li>
+</ol>
+</td>
+<td>
+<ul>
+<li><a href="https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/">Awk Introduction – 7 Awk Print Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/">Advanced Sed Substitution Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/8-essential-vim-editor-navigation-fundamentals/">8 Essential Vim Editor Navigation Fundamentals</a></li>
+<li><a href="https://www.thegeekstuff.com/2011/06/iptables-rules-examples/">25 Most Frequently Used Linux IPTables Rules Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/">Turbocharge PuTTY with 12 Powerful Add-Ons</a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<br>
+<center>
+<table id="booktable">
+<tbody><tr>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/bash-101-hacks-ebook/"><img title="Bash 101 Hacks Book" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/bash-132.png" alt="Bash 101 Hacks Book"></a>
+</td>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/sed-awk-101-hacks-ebook/"><img title="Sed and Awk 101 Hacks Book" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/sed-and-awk-132.png" alt="Sed and Awk 101 Hacks Book"></a>
+</td>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/nagios-core-ebook/"><img title="Nagios Core 3 Book" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/nagios-core-132.png" alt="Nagios Core 3 Book"></a>
+</td>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/vim-101-hacks-ebook/"><img title="Vim 101 Hacks Book" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/vim-101-hacks-132.png" alt="Vim 101 Hacks Book"></a>
+</td>
+</tr>
+</tbody></table>
+</center>
+<br>
+				</div>
+			</div>
+			<div id="comments">
+				<p class="comments_intro"><span class="bracket">{</span> <span class="num_comments">98</span> comments… <a href="#commentform" rel="nofollow">add one</a> <span class="bracket">}</span></p>
+				<ul class="comment_list">
+					<li class="comment even thread-even depth-1" id="comment-62436">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">vagvaf</span>
+							<span class="comment_date">September 8, 2010, 2:51 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62436"><p>perfect!!! it was about time for someone to do that!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62436" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-62438">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Felix Frank</span>
+							<span class="comment_date">September 8, 2010, 3:12 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62438"><p>It’s a 
+common misconception, but /usr has in fact nothing to do with the word 
+“user”, but instead is an acronym for “UNIX special routines”. No, it 
+doesn’t matter 😉</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62438" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-62445">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://jaydeepwagh.blogspot.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://jaydeepwagh.blogspot.com/" rel="external nofollow" class="url">Jaydeep</a></span>
+							<span class="comment_date">September 8, 2010, 3:41 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62445"><p>nice explanation…!</p>
+<p>but should have been little more elaborative…!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62445" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-62453">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Feronera</span>
+							<span class="comment_date">September 8, 2010, 4:46 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62453"><p>Great!!!.<br>
+Almost user has never known.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62453" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-62476">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Anonymous</span>
+							<span class="comment_date">September 8, 2010, 8:34 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62476"><p>hmmm… still why ‘/usr/bin/’, or ‘/usr/local/bin/’ is missing.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62476" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-62480">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">SG</span>
+							<span class="comment_date">September 8, 2010, 8:55 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62480"><p>Thanks 
+for putting this together – I have at times wondered what some of the 
+directories like /srv &amp; /opt meant since im not in them too often.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62480" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-62482">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">BalaC</span>
+							<span class="comment_date">September 8, 2010, 9:18 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62482"><p>Some system has /src folder which holds the kernel source code</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62482" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-62490">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">prakash.p</span>
+							<span class="comment_date">September 8, 2010, 10:39 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62490"><p>Great! Simple and Clear.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62490" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-62493">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Srikanth</span>
+							<span class="comment_date">September 8, 2010, 11:38 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62493"><p>Thanks.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62493" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-62504">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ronald</span>
+							<span class="comment_date">September 8, 2010, 1:45 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62504"><p>@Felix Frank:<br>
+<a href="http://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html" rel="nofollow">http://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html</a><br>
+And I quote:<br>
+“In the original Unix implementations, /usr was where the home 
+directories of the users were placed (that is to say, /usr/someone was 
+then the directory now known as /home/someone). In current Unices, /usr 
+is where user-land programs and data (as opposed to ‘system land’ 
+programs and data) are. *snap* As such, some people may now refer to 
+this directory as meaning ‘User System Resources’ and not ‘user’ as was 
+originally intended.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62504" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-62510">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Shanil</span>
+							<span class="comment_date">September 8, 2010, 2:54 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62510"><p>Thanks mate, Just in time lol..Thanks again</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62510" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-62513">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Øsse</span>
+							<span class="comment_date">September 8, 2010, 4:15 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62513"><p>I’m still
+ unsure on what /usr/sbin contains. System binaries for user-land 
+applications? Does that make sense? From the description above it seems a
+ bit willy nilly if a binary is located in /sbin or /usr/sbin.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62513" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-62517">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">hulk</span>
+							<span class="comment_date">September 8, 2010, 5:08 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62517"><p>Thanks!!!!!! This is great!<br>
+Why is my /srv dir empty?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62517" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-62638">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ronald</span>
+							<span class="comment_date">September 9, 2010, 9:38 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62638"><p>@Ronald<br>
+I see – thanks for clearing that up.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62638" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-62698">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">dj</span>
+							<span class="comment_date">September 9, 2010, 7:40 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62698"><p>Another source:<br>
+Linux Filesystem Hierarchy Standard (fhs): <a href="http://www.pathname.com/fhs/" rel="nofollow">http://www.pathname.com/fhs/</a></p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62698" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-62858">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">ABCD</span>
+							<span class="comment_date">September 10, 2010, 11:51 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62858"><p>@ Øsse:</p>
+<p>On some systems, /usr is on a separate partition (possibly on the 
+network) from /.  As such, anything that was absolutely required in 
+single-user mode would have to be in /bin, /lib, /etc, or /sbin. 
+/usr/sbin is for system administration tools that don’t need to be used 
+at that point. (Also, programs in /bin and /sbin need to have their 
+shared libraries in /lib so that they are available before /usr is 
+mounted — and / can be very small in such a setup).</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62858" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-62914">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro Kasear</span>
+							<span class="comment_date">September 11, 2010, 12:20 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62914"><p>I love the Filesystem Hierarchy Standard. Love it.</p>
+<p>A lot of people new to Linux think it’s directory structure is a horrible gaggle of directories and very disorganized.</p>
+<p>They are incorrect and its because they don’t understand it. The FHS 
+spec file has a much more detailed explanation of how a POSIX filesystem
+ is meant to look like. But it’s extremely exhaustive and can even be 
+confusing.</p>
+<p>A good way to explain POSIX’s FHS is to say, “everything is in its place, and there is a place for everything.”</p>
+<p>The FHS makes it also easy for me to figure out where something is 
+likely to be, be it a configuration file or an asset for a program I use
+ that I want to fiddle with. Prediction really is important for a 
+filesystem hierarchy. And even a lot of Linux software counts on the FHS
+ being obeyed, though if you’re building from a source from a system not
+ very compliant you can use the configure script’s arguments to make the
+ changes to how the program builds so it’ll look in the right places.</p>
+<p>I do have some criticisms, there are some flaws in the FHS. I find 
+/opt to be a horrible thing, a directory to encourage a completely 
+disorganized mess for some developers to just dump everything they’ve 
+made instead of trying to make the FHS work. Navigating /opt for assets 
+or configuration is a horrible nightmare, and if I were to be making a 
+tutorial on making a program, I would tell people to avoid /opt 
+completely and instead scatter their files into the better places where 
+they’ll be better cared for: /usr, /etc, whatever else. /opt is evil.</p>
+<p>I also find /mnt to be completely unused in favor of /media today. 
+Even for local filesystems not in removable media: HAL and udev 
+completely ignore /mnt. I think the FHS should deprecate it.</p>
+<p>/usr/local I also find to be unneeded, especially since it doesn’t 
+serve any real purpose that /usr itself can’t. It’s a relic from the 
+thin-cient days where /usr itself isn’t on the system, but /usr/local 
+is. I don’t have to tell you, even in server-client systems ths isn’t 
+even needed anymore. /usr/local should also be deprecated since the base
+ /usr structure already covers all the bases.</p>
+<p>Now, I wish to point out that /dev itself is also treated like a 
+pseudo filesystem. When Linux is not running, there is actually only 
+about 3-4 static files in there, and that at runtine, udev populates 
+/dev as the system boots, usually in the space between when the 
+initramfs is mounted and when the permanent initscripts hit the modprobe
+ phase. This is because harware, like processes, can change in a system 
+and it needs to be prepared to change with the hardware. It’s also 
+because in the REALLY old UNIX days, there WAS no real hardware 
+autodetection method as we know them today: No udev or HAL. You added 
+some hardware, you had to make sure a few things:</p>
+<p>1. You have the driver. Chances are in those days the kernel you were
+ working with was 100% monolithic, none of those newfangled loadable 
+kernel modules. Thus you ran a gamble of two outcomes with your UNIX 
+implementation: Your kernel had the driver for your software built right
+ in, not unlike if you build a driver right into the Linux kernel 
+instead of as a module. OR. You had to provide a userspace driver 
+specifically written for your kernel… somehow. This is part of why in 
+the early days UNIX-toting IT departments in a company had their own 
+programmers and designers. This was made hard in those days because most
+ UNIX was still proprietary.</p>
+<p>2. You understand how it all works: The driver, the hardware, and the
+ kernel. At least enough to know how to set it up so that the driver can
+ interface with the kernel and, in turn, interface with the hardware.</p>
+<p>3. You know exactly WHAT device file to create. Take a look in /dev 
+sometime. Notice the file nomenclature. You had to be sure the filename 
+is correct so that the driver and the programs using the hardware 
+actually can talk to each other by means of raw data.</p>
+<p>Now, even in those days a lot of hackers had shell scripts to help 
+them, but they were pretty much on their own. They didn’t have thiongs 
+liek udev or HAL probing the entire system for hardware, and they 
+certainly didn’t have kernel modules to make sure their hardware, and 
+only their hardware, was being fussed over by the kernel.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62914" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-62918">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">ABCD</span>
+							<span class="comment_date">September 11, 2010, 2:17 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62918"><p>@Yaro:<br>
+The main reason nowadays for the split between /usr and /usr/local is 
+that / and /usr are generally maintained by your package manager, where 
+/usr/local is for the local sysadmin.  If you start changing things in 
+/usr without going through the package manager, you are on your own 
+(things may suddenly break on updates); if you just install into 
+/usr/local, then you maintain independence from the PM without the 
+breakage that would be caused by overwriting files that the package 
+manager thinks it owns.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62918" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-62920">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro Kasear</span>
+							<span class="comment_date">September 11, 2010, 2:36 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-62920"><p>@ABCD – I
+ stand corrected. I suppose that makes sense, though in my experience 
+/usr/local isn’t as reliable as it could be in PATH (I’ve even had to 
+explicitly tell some configure scripts to do /usr instead to work.)</p>
+<p>I like how Arch does it. They strongly recommend making a PKGBUILD so
+ your package manager can keep an eye on it. It’s probably the best way 
+to do source builds of something. That and you can submit that PKGBUILD 
+to the AUR and share the fruits of your labor: Figuring out how to build
+ and install something.</p>
+<p>Still, my opinion on /opt stands, it seems unneeded and a royal pain to navigate if you want something from there.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-62920" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-63043">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Øsse</span>
+							<span class="comment_date">September 12, 2010, 2:28 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-63043"><p>Thanks for the explanation on /usr/sbin, ABCD 🙂</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-63043" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-63500">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://www.fubar.si/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://www.fubar.si/" rel="external nofollow" class="url">Domen Kožar</a></span>
+							<span class="comment_date">September 16, 2010, 10:12 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-63500"><p>/srv/ info is not correct.</p>
+<p>It should contain data, *served* by this Linux box. There is no standard yet although, how should the data be structured.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-63500" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-63892">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Gabriel Menini</span>
+							<span class="comment_date">September 21, 2010, 7:34 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-63892"><p>usr stands for Unix System Resource</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-63892" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-64268">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Satya</span>
+							<span class="comment_date">September 24, 2010, 12:12 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-64268"><p>Thanks for this great article. It’s brief and easy to read.<br>
+Btw, there is a typo in /medica/cdrom (an extra c in media)</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-64268" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-64551">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ron</span>
+							<span class="comment_date">September 27, 2010, 2:43 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-64551"><p>I really enjoy your blog. Keep up the good stuff!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-64551" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-65720">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">SurrealWombat</span>
+							<span class="comment_date">October 11, 2010, 5:06 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-65720"><p>IIRC sbin
+ are actually static binaries, i.e. they statically link their library 
+dependencies and so do not depend on any library files (i.e. /lib, 
+/usr/lib, /usr/loca/lib, et al).</p>
+<p>Originally there was a small boot partition on the disc (smaller the 
+partition the less likely to have a disk error). This boot partition had
+ /etc, /sbin and /boot. This is sufficient to be able to boot the OS and
+ load the remaining partitions.</p>
+<p>HTH.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-65720" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-65738">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">yaro@marupa.net</span>
+							<span class="comment_date">October 11, 2010, 7:08 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-65738"><p>@SurrealWombat
+ – No, things in sbin can be dynamically linked to their libraries. The 
+“s” in sbin doesn’t mean “static” it means “system.”</p>
+<p>sbin is different from bin in that it’s usually just utilities system
+ administrators would need to use, and typically will need root 
+permissions to work (Think fdisk or dd or fsck.), whereas bin is general
+ purpose “everyday use” binaries (sh or ls or cp).</p>
+<p>Same applies for the same subdirectories in /usr and /usr/local.</p>
+<p>Also, what is found in the “root” sbin/bin is primarily stuff you 
+absolutely WILL need in the event you can only mount / and no other 
+filesystems. The FHS is pretty clear on that one. stuff in /usr and 
+/usr/lib cannot be planned on in single user mode or in emergencies, 
+since they can and often are on separate filesystems.</p>
+<p>Now, that’s not to say there are not system binaries that are 
+statically linked. But typically you’ll find static binaries are only 
+used in early userspace (As in, when you are running the initramfs, 
+before permanent / is available to the system.)</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-65738" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-68441">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ashish</span>
+							<span class="comment_date">November 2, 2010, 4:49 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-68441"><p>Champ , that was amazingingly AWESOME article………..<br>
+Such article makes you FALL IN LOVE with LINUX all again………</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-68441" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-71440">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">failurehappening</span>
+							<span class="comment_date">December 1, 2010, 3:31 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-71440"><p>Nice work intenets, a very informative comments section… 9.5/10</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-71440" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-71896">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">sxazer</span>
+							<span class="comment_date">December 5, 2010, 4:43 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-71896"><p>i still 
+don’t get what is the differece between all these bin directories for 
+single user like me,why not just one dir to avoid the hassle?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-71896" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-71920">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro Kasear</span>
+							<span class="comment_date">December 5, 2010, 8:55 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-71920"><p>@sxaxer –
+ Because the different bin and sbin directories actually serve a 
+different purpose overall. Yes, they hole executable binaries, but /bin 
+and /usr/bin hold very different priority executables. It’s not a matter
+ of how many users you have, it’s a matter of keeping things organized. 
+Chucking everything in one huge binary directory is going to make 
+looking for the binaries that much harder.</p>
+<p>/bin and /sbin are for binaries needed just in case you need to go 
+into single user mode, which is used purely for recovery/maintenance 
+purposes, and only really should contain software needed to make sure 
+the system WORKS without additional services running or filesystems 
+mounted. /bin being the absolute most common command every user is 
+likely to use no matter what (ls, cp, ps, etc.) whereas /sbin is all 
+about system administration like fsck, init, or fdisk.</p>
+<p>/usr/bin and /usr/sbin are basically the non-critical programs on 
+your system. The system doesn’t technically need them to boot at least 
+to a barebones recovery mode, though stuff in both those being removed 
+is likely to keep the FULL system from working, as things like X or your
+ actual normal applications are to end up in /usr/bin or /usr/sbin.</p>
+<p>/opt is special. It’s basically there for the sake of programs that 
+make no attempts to follow the FHS at all, typically proprietary 
+applications. Though sometimes some big extras can be placed there, like
+ a 32-bit chroot environment or multilib. But most your normal apps will
+ be /usr/bin, and anything more than basic system commands for 
+maintenance that an administrator might use in NORMAL system runtime 
+situations (As in, not trying to fix something broken.) will be in 
+/usr/sbin.</p>
+<p>/etc will frequently have some scripts within, but mostly there to 
+support the system during runlevel changes, such as running daemons or 
+for bootup, reboot, or shutdown. These are called the bootscripts, the 
+reason they are in /etc and not /sbin is that init counts on them being 
+part of and treated as part of system configuration (As modifying these 
+scripts is changing how your system behaves at low levels, ergo, the 
+scripts are still configuration, just an unusual kind.)</p>
+<p>The FHS is very well organized. If you know how it works you’ll be 
+able to quickly and easily find just about any file in Linux or UNIX 
+that you might want to find.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-71920" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-71921">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro Kasear</span>
+							<span class="comment_date">December 5, 2010, 8:59 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-71921"><p>@sxaxer- 
+Also, the FHS is designed so that there can be pretty much one universal
+ PATH environment variable that ALWAYS works. It’s so you won’t really 
+HAVE to hunt down the executables, you can just USE them. The FHS 
+approach is oodles better than Windows’ approach, for sure.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-71921" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-72001">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">sxazer</span>
+							<span class="comment_date">December 6, 2010, 9:37 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-72001"><p>@Yaro Kasear<br>
+Thank you very much.<br>
+But one last question: when i want to compile something that i want to 
+go to /usr/bin and /usr/lib ,what should i type after ./configure?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-72001" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-72024">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro Kasear</span>
+							<span class="comment_date">December 6, 2010, 1:28 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-72024"><p>That would be ./configure –prefix=/usr</p>
+<p>NOTE: Not all packages go by GNU’s autotools standards. If the source
+ package uses cmake you’re likely to find you need to do it differently.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-72024" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-73478">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Aleve Sicofance</span>
+							<span class="comment_date">December 16, 2010, 7:35 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-73478"><p>Maybe 
+this makes sense for server administrators, but the FHS is a complete 
+mess for a desktop system. OS X and Gobolinux have all the arguments 
+about it, so I won’t repeat them here.</p>
+<p>No ordinary human being can find any logic in this “organization”. 
+Only people who have spent years getting to know this thing can say that
+ it is “organized”.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-73478" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-76001">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaroukh</span>
+							<span class="comment_date">December 29, 2010, 3:31 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-76001"><p>@Aleve Sicofance: +1</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-76001" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-78294">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Les Garwood</span>
+							<span class="comment_date">January 9, 2011, 10:01 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-78294"><p>Damn, this is one helpful site.  THANKS!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-78294" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-103281">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ramesh Kutumbaka</span>
+							<span class="comment_date">May 12, 2011, 5:50 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-103281"><p>Very Nice Explanation.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-103281" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-114103">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">robinatw</span>
+							<span class="comment_date">June 23, 2011, 3:39 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-114103"><p>well, thanks a million.. continue keep up upate…</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-114103" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-117586">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">ramesh</span>
+							<span class="comment_date">July 14, 2011, 6:19 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-117586"><p>Nice article with clear and precise information! Thanks a lot!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-117586" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-120291">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Baldev Singh</span>
+							<span class="comment_date">August 1, 2011, 5:29 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-120291"><p>how to install the plugins in the ubuntu………….<br>
+my MEdiaPlayer is not gives the output in linux but working in Windows….<br>
+how to listen the music in the Ubuntu??????</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-120291" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-121309">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">CHiLi.HH</span>
+							<span class="comment_date">August 8, 2011, 9:14 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-121309"><p>One major mistake: /usr is NOT “User Programs” – these are located in “/opt”.</p>
+<p>“/usr” stand for “UNIX System Resources” and contains ONLY system related files.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-121309" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-121389">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro Kasear</span>
+							<span class="comment_date">August 8, 2011, 10:07 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-121389"><p>@CHiLi.HH
+ – Reread the FHS, and try again. According to the FHS, which is the 
+sole true authority on how things like /usr is used: “/usr is the second
+ major section of the filesystem. /usr is shareable, read-only data. 
+That means that /usr should be shareable between various FHS-compliant 
+hosts and must not be written to. Any information that is host-specific 
+or varies with time is stored elsewhere.”</p>
+<p>Nowhere does it say /usr should be used only for system files. In 
+fact, it even goes on to outline EXACTLY HOW user software should be 
+installed inside: <a href="http://www.pathname.com/fhs/pub/fhs-2.3.html#THEUSRHIERARCHY" rel="nofollow">http://www.pathname.com/fhs/pub/fhs-2.3.html#THEUSRHIERARCHY</a></p>
+<p>In fact, the FHS explicitly states that NOTHING THE SYSTEM NEEDS 
+SHOULD BE IN /usr. That pretty much EXCLUDES essential system files, in 
+several places it even points out where it wants the actual essentials, 
+and they’re nowhere near /usr: </p>
+<p>“/bin : Essential user command binaries (for use by all users)”<br>
+“/etc : Host-specific system configuration”<br>
+“/lib : Essential shared libraries and kernel modules”<br>
+“/sbin : System binaries”</p>
+<p>That pretty much covers your “system files.” Note how none of these are in /usr.</p>
+<p>Now, /opt can and is used for “user software.” But so is /usr, and in
+ fact, /opt is generally only used in Linux or UNIX these days to handle
+ software that won’t conform to the FHS or won’t easily be configured to
+ apply to it.</p>
+<p>Almost all this, I should note, is explicitly stated by the FHS, 
+except for how /opt is used in real life. All the standard says is “/opt
+ is for add-on software” but it also goes on to outline usage of /usr 
+you incorrectly claim it’s not supposed to be used for.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-121389" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-121390">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro Kasear</span>
+							<span class="comment_date">August 8, 2011, 10:12 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-121390"><p>I forgot
+ to mention: /usr is frequently placed in a seperate partition because 
+it’s treated as an “extension” of the normal hierarchy. And the FHS also
+ says that anything needed in maintaining the system should be on the 
+root counterparts of directories in /usr: /bin, /sbin, /include, /lib, 
+and /etc.</p>
+<p>/boot actually can and often is recommended to be used on a seperate 
+fileystem. As it turns out, you can completely LEAVE OUT the /boot 
+partition from being mounted by the OS in question. Once the system is 
+up and running in an initramfs, /boot really is completely unneeded by 
+the system. Still, it’s easier to configure bootloader settings if /boot
+ is readily available and mounted and most distributions will end up 
+mounting it anyway for “completeness.”</p>
+<p>Let me sum up: No, /usr is not for system files. /bin, /sbin, /etc, /include and /lib are.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-121390" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-128325">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://www.fernstudium.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://www.fernstudium.com/" rel="external nofollow" class="url">M.Sch</a></span>
+							<span class="comment_date">September 21, 2011, 4:17 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-128325"><p>Exactly 
+11 years ago I started with Linux. Then so would be a brilliant 
+representation of the root directory have been more than great. We then 
+have the list yet drawn with ASCII characters;-)<br>
+11 years later I love Linux still is – but now on a much higher level</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-128325" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-130281">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Perumal</span>
+							<span class="comment_date">October 5, 2011, 4:50 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-130281"><p>Thanks!!!!!! This is great!<br>
+ Why is my /srv dir empty?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-130281" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-130314">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro Kasear</span>
+							<span class="comment_date">October 5, 2011, 11:37 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-130314"><p>@Perumal
+ – Are you running any servers? Are they configured to treat /srv as 
+their home directory? A lot of servers actually use /home.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-130314" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-155934">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Rizwan</span>
+							<span class="comment_date">December 15, 2011, 1:23 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-155934"><p>simple and pretty straight forward explanation.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-155934" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-157588">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">mahi</span>
+							<span class="comment_date">December 18, 2011, 11:31 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-157588"><p>thanks it help a lot !!!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-157588" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-182328">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://www.gmail.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://www.gmail.com/" rel="external nofollow" class="url">pravin</a></span>
+							<span class="comment_date">January 22, 2012, 12:46 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-182328"><p>Nice……………. It is helpful for me…</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-182328" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-183786">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">adrian</span>
+							<span class="comment_date">January 24, 2012, 10:20 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-183786"><p>thanks a lot.  this website is a great find for me.  big help! 🙂</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-183786" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-184508">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://digitalkamera-test.de/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://digitalkamera-test.de/" rel="external nofollow" class="url">Jens</a></span>
+							<span class="comment_date">January 25, 2012, 2:14 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-184508"><p>Found this one and have to say thx! I made a printout and pluged it on the wall, cause i am more on beginner level. 😉</p>
+<p>Cheers, Jens</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-184508" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-197652">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ranar Gomes</span>
+							<span class="comment_date">February 13, 2012, 10:29 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-197652"><p>thnx a million….</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-197652" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-210029">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">André</span>
+							<span class="comment_date">March 17, 2012, 9:20 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-210029"><p>/sys 
+directory is missing. Since kernel 2.6 it provides device and driver 
+info and an API. It also makes things in /proc depricated, e.g., ACPI, 
+more info: <a href="http://en.wikipedia.org/wiki/Sysfs" rel="nofollow">http://en.wikipedia.org/wiki/Sysfs</a></p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-210029" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-210175">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Steven Webb</span>
+							<span class="comment_date">March 17, 2012, 6:17 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-210175"><p>Actually
+ /sbin is for statically-linked binaries that dont require any dynamic 
+libraries in case /lib goes away for some reason, I believe.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-210175" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-210284">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://cmthornton.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://cmthornton.com/" rel="external nofollow" class="url">cmthornton</a></span>
+							<span class="comment_date">March 18, 2012, 2:45 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-210284"><p>This reference is missing /sys and /run.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-210284" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-210454">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">PM</span>
+							<span class="comment_date">March 18, 2012, 1:26 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-210454"><p>When you
+ say “/usr/local contains users programs that you install from source”, 
+what do you mean by source? Do you mean pcakages from CDROMs and DVDs?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-210454" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-226895">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Roger Gilmartin</span>
+							<span class="comment_date">April 25, 2012, 4:14 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-226895"><p>Good, clear explanation.  Thanks.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-226895" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-231885">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://none/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://none/" rel="external nofollow" class="url">benhank</a></span>
+							<span class="comment_date">May 9, 2012, 12:47 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-231885"><p>This is absolutely AWESOME!     do you have any stuff for centos?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-231885" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-233037">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Maddy</span>
+							<span class="comment_date">May 12, 2012, 3:00 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-233037"><p>ya its good explanation, but i want to know about Kernel, Bash Shell, IP address  etc..<br>
+how can i learn more about it????</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-233037" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-233833">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ashok</span>
+							<span class="comment_date">May 14, 2012, 11:27 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-233833"><p>please give me a SAN-NAS details  thanks..</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-233833" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-246242">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Rakesh</span>
+							<span class="comment_date">June 6, 2012, 3:25 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-246242"><p>Is this really required to know about the directories, to get good command in linux</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-246242" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-252310">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ivaylo</span>
+							<span class="comment_date">June 14, 2012, 11:50 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-252310"><p>WOW,<br>
+This is really really useful for a Microsoft guy like me.<br>
+Thank You</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-252310" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-271883">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">rama</span>
+							<span class="comment_date">July 18, 2012, 10:30 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-271883"><p>thanks i realy  like this</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-271883" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-320937">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Igor</span>
+							<span class="comment_date">September 28, 2012, 10:55 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-320937"><p>Fantastic article, very clear and concise.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-320937" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-492984">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Joep</span>
+							<span class="comment_date">January 14, 2013, 3:53 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-492984"><p>Ramesh,<br>
+               I’ve been after this kind of info for a long time. 
+Surprised it’s not more commonly available. Thanks and keep it up.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-492984" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-543011">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Pooja Narang</span>
+							<span class="comment_date">February 16, 2013, 7:24 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-543011"><p>Thank you.. Such a ellaborated file structure…</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-543011" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-688270">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">souban</span>
+							<span class="comment_date">April 20, 2013, 1:09 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-688270"><p>Thanks for this, useful for my exam revision!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-688270" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-705672">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ashwin</span>
+							<span class="comment_date">April 23, 2013, 11:48 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-705672"><p>A very helpful tutorial, thanks.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-705672" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-746404">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Shrikant Panchal</span>
+							<span class="comment_date">May 14, 2013, 9:32 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-746404"><p>very help</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-746404" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-746612">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://www.yektapardaz.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://www.yektapardaz.com/" rel="external nofollow" class="url">hosein</a></span>
+							<span class="comment_date">May 15, 2013, 1:55 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-746612"><p>Great job.</p>
+<p>Thanks, clear and simple explanation. Linux file system was horrible for me, but not now !</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-746612" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-961265">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Rupan Roy</span>
+							<span class="comment_date">October 3, 2013, 2:10 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-961265"><p>Thanks dear,<br>
+Is this really required to know about the directories, to get good command in linux</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-961265" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1030554">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Visitor</span>
+							<span class="comment_date">November 11, 2013, 7:35 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1030554"><p>This is a great summary and the illustration is great!  </p>
+<p>Thanks of sharing 🙂</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1030554" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1099048">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">wante</span>
+							<span class="comment_date">December 9, 2013, 6:45 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1099048"><p>Hi .. Ramesh<br>
+clear explanation, but may be you forget to tell about /lost+found directory and it’s purpose.<br>
+after linux crash or power failure, fsck will go through the system and 
+try to recover any corrupt files that it finds. The result will be 
+placed in this directory.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1099048" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1100642">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro</span>
+							<span class="comment_date">December 9, 2013, 5:34 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1100642"><p>Wante, 
+lost+found is actually a filesystem feature of ext2/3/4. Linux 
+installers don’t create it, the formatting utilities of those 
+filesystems do. If you don’t believe me, install your favorite distro on
+ a filesystem like reiserfs and notice that lost+found doesn’t exist. Or
+ put /home on a different partition as ext4 and notice another instance 
+of lost+found there. </p>
+<p>L+F is not part of the filesystem hierarchy standard and is not 
+actually a standard directory for Linux setups, just a directory the 
+filesystem creates for recovery.</p>
+<p>Further, not all filesystem recovery will result in files being 
+chucked into lost+found. If there’s no data that needs recovery (Very 
+likely in ext3/4) then it’ll almost always be lucky. </p>
+<p>Lost+found is viewed by many as a “legacy” feature in ext4, a feature that isn’t necessary anymore.</p>
+<p>Now, I know this article is old (More than three years.) but if 
+there’s a directory now that needs to be addressed, it would be /run.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1100642" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1101163">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://cisco-journey.blogspot.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://cisco-journey.blogspot.com/" rel="external nofollow" class="url">wante</a></span>
+							<span class="comment_date">December 9, 2013, 9:29 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1101163"><p>@yaro<br>
+you are right.<br>
+i use jfs and xfs on my slackware machine 🙂 , so the lost+found doesn’t exist.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1101163" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1155829">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">himani</span>
+							<span class="comment_date">December 29, 2013, 9:44 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1155829"><p>Super cool, tk</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1155829" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1203163">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">amaldev ks</span>
+							<span class="comment_date">January 16, 2014, 4:07 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1203163"><p>great !!!!!!!!!!!!!!!!!!1</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1203163" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1239013">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">himani</span>
+							<span class="comment_date">January 29, 2014, 3:30 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1239013"><p>Perfect, explained well</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1239013" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1248792">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">viplove</span>
+							<span class="comment_date">February 3, 2014, 12:10 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1248792"><p>can u please provide info abt apache2 web server,in which directory it is stored,how to really make use of it,its daemon etc.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1248792" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1693184">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">dini</span>
+							<span class="comment_date">May 13, 2014, 11:09 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1693184"><p>well explanation thanks</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1693184" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-2014881">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">A</span>
+							<span class="comment_date">July 31, 2014, 9:34 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-2014881"><p>How can I identify which programmes are in which directories.</p>
+<p>For example, I have Libre Office.</p>
+<p>Where is writer, calc and imopress stored. How would I know (asume I don’t know)?</p>
+<p>Wheer is Document Viewer Installed? </p>
+<p>Where is firefox installed?</p>
+<p>How can I investigate any porgramme and determine its folders</p>
+<p>Thanks</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-2014881" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-2133659">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">KEM</span>
+							<span class="comment_date">August 26, 2014, 6:28 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-2133659"><p>A</p>
+<p>If the file is in your path, then use which<br>
+“which ls”</p>
+<p>If not, use locate and use regex or grep to help cut down the output</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-2133659" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-2210563">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">A</span>
+							<span class="comment_date">September 8, 2014, 7:57 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-2210563"><p>Do you have any tips for locating useful commands. For example, I can use ‘which is’, but only if I know it exists.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-2210563" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3690257">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Gowtham</span>
+							<span class="comment_date">January 29, 2015, 2:51 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3690257"><p>Very well put. Thanks!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3690257" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-3743719">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">M N Srinivas</span>
+							<span class="comment_date">February 5, 2015, 2:12 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3743719"><p>Thank you very much, for this grate resource……</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3743719" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3811975">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">factgasm</span>
+							<span class="comment_date">February 19, 2015, 3:30 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3811975"><p>Thanks 
+for the post but what intrigues me even more is why no-one (to my 
+knowledge) has produced some sort of overlay so that as the user uses 
+Linux the abrvtns (abbreviations) are replaced with their full names – 
+making everything more human readable and understandable. If I remember 
+rightly Microsoft did this with Windows twenty years ago.</p>
+<p>Or, in Linux speak:</p>
+<p>Tnks fr th ps ut wt intrg me evmr is wy non (kneldge) hs prdd ss ovly
+ usr use Lx the abrv (abrvtns ) re repced wh th fl nam – mak eving mr 
+hmn read and undstdle If I rmber rigly Great Satan of Seattle do wh 
+Windows 20 yago.</p>
+<p>The reason that abbreviations were so ubiquitous throughout the 
+computing industry is because memory was expensive but nowadays you have
+ more computing power in your smart-phone than was used to send Man to 
+the moon so for Linux still to be using abbreviations everywhere is 
+completely criminal.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3811975" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-3995307">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Omprakash</span>
+							<span class="comment_date">April 4, 2015, 10:24 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3995307"><p>sir could you please explain the difference between BASE_DIRECTORY And HOME_DIRECTORY.<br>
+I’m getting confused in the switches (-b,-d and -m)of “useradd” command .</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3995307" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4283020">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Harigopal A</span>
+							<span class="comment_date">June 26, 2015, 12:49 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4283020"><p>Hi Ramesh,</p>
+<p>I am very happy to contact with you, Have read your “Linux 101 hacks”
+ book. Its pretty much interesting and very useful to learn the Linux in
+ a easy way, I would like to thank you to provide us a such kind of 
+great book. To learn Linux, have invested more than 10k in so many 
+institutes, they didnt teach me as expected. Mostly in linux have 
+learned through your book only. Once again thank you very much ramesh. 
+will keep read your blogs and articals. I would like to learn Oracle 
+DBA. Please suggest me some useful tips to learn in a easy way.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4283020" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-4616987">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Charlie</span>
+							<span class="comment_date">November 20, 2015, 11:07 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4616987"><p>Very 
+useful in 2015. Thanks for the heads up! This informative blog style is 
+more attractive than scouring the documentation from each distribution! 
+;-D<br>
+Cheers from Florida, -Carlos.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4616987" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4622245">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">shaloo</span>
+							<span class="comment_date">November 26, 2015, 3:12 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4622245"><p>Great …….. good for newbies</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4622245" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-4664684">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Kashinath</span>
+							<span class="comment_date">January 7, 2016, 6:36 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4664684"><p>Thanks for that…short and sweet 🙂</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4664684" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4681461">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yogesh</span>
+							<span class="comment_date">January 24, 2016, 2:01 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4681461"><p>Thanks Mate 🙂</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4681461" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-4771069">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">matt</span>
+							<span class="comment_date">April 2, 2016, 9:53 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4771069"><p>Missing is /root. There’s a difference between the / directory and the /root 🙂</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4771069" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4810936">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">rdee</span>
+							<span class="comment_date">May 20, 2016, 10:52 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4810936"><p>hello ramesh!</p>
+<p>Thank you for the nice work its really helpful!!!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4810936" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-4830410">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yaro</span>
+							<span class="comment_date">June 17, 2016, 4:59 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4830410"><p>This is
+ actually pretty outdated now, not that this is the most accurate 
+description. I strongly recommend looking at this instead, as this 
+article doesn’t take into account changes like /run <a href="http://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.html" rel="nofollow">http://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.html</a></p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4830410" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4896451">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">murthi</span>
+							<span class="comment_date">December 20, 2016, 3:38 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4896451"><p>super awesom</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4896451" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-4896870">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">arara</span>
+							<span class="comment_date">December 20, 2016, 11:12 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4896870"><p>greate, use for newbies</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4896870" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4896882">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Anonymous</span>
+							<span class="comment_date">December 20, 2016, 11:33 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4896882"><p>vah super presentation</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4896882" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+				</ul>
+				<form id="commentform" method="post" action="https://www.thegeekstuff.com/wp-comments-post.php">
+					<a rel="nofollow" id="cancel-comment-reply-link" href="https://www.thegeekstuff.com/2010/09/linux-file-system-structure/#respond" style="display:none;">Cancel reply</a>
+					<p class="comment_form_title">Leave a Comment</p>
+					<p id="comment_form_name">
+						<label for="author">Name</label>
+						<input id="author" class="input_text" name="author" tabindex="1" type="text">
+					</p>
+					<p id="comment_form_email">
+						<label for="email">Email</label>
+						<input id="email" class="input_text" name="email" tabindex="2" type="text">
+					</p>
+					<p id="comment_form_url">
+						<label for="url">Website</label>
+						<input id="url" class="input_text" name="url" tabindex="3" type="text">
+					</p>
+					<p id="comment_form_comment">
+						<label for="comment">Comment</label>
+						<textarea name="comment" id="comment" class="input_text" tabindex="4" rows="6"></textarea>
+					</p>
+					<p id="comment_form_submit">
+						<input id="submit" class="input_submit" name="submit" tabindex="5" value="Submit" type="submit">
+					</p>
+<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="bf33296b37" type="hidden"></p>
+
+	<p style="clear: both;" class="subscribe-to-comments">
+	<input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" type="checkbox">
+	<label for="subscribe">Notify me of followup comments via e-mail</label>
+	</p>
+
+
+<p style="display: none;"></p><input name="comment_post_ID" value="5920" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+				<input id="ak_js" name="ak_js" value="1569279313684" type="hidden"></form>
+			</div>
+			<div class="prev_next">
+				<p class="next_post">Next post: <a href="https://www.thegeekstuff.com/2010/09/rsync-command-examples/" rel="next">How to Backup Linux? 15 rsync Command Examples</a></p>
+				<p class="previous_post">Previous post: <a href="https://www.thegeekstuff.com/2010/09/squid-control-internet-access/" rel="prev">How To Use Squid Proxy Cache Server To Control Internet Access</a></p>
+			</div>
+		</div>
+		<div class="sidebar">
+<div class="widget widget_text" id="text-21">			<div class="textwidget"><a title="Subscribe via RSS" href="https://www.thegeekstuff.com/feed" rel="nofollow">RSS</a>&nbsp; | &nbsp;<a title="Subscribe via Email" href="https://feedburner.google.com/fb/a/mailverify?uri=TheGeekStuff&amp;loc=en_US" rel="nofollow">Email</a>&nbsp; | &nbsp;<a title="Follow us on Twitter" href="https://twitter.com/thegeekstuff" rel="nofollow">Twitter</a>&nbsp; | &nbsp;<a title="Become a fan" href="https://www.facebook.com/thegeekstuff" rel="nofollow">Facebook</a>&nbsp; | &nbsp;<a title="Follow us on Google+" href="https://plus.google.com/112493711428194838421/posts">Google+</a>
+<br><br>
+<form action="https://www.thegeekstuff.com/search" id="cse-search-box">
+  <div>
+    <input name="cx" value="005666763606120661560:zkmegbt_djm" type="hidden">
+    <input name="cof" value="FORID:10" type="hidden">
+    <input name="ie" value="UTF-8" type="hidden">
+    <input style="background: rgb(255, 255, 255) url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) no-repeat scroll left center; text-indent: 48px;" name="q" size="30" placeholder="Custom Search" type="text">
+    <input style="border-color:#CCCCCC #999999 #999999 #CCCCCC; border-style:double; border-width:1px; overflow:visible;" name="sa" value="Search" type="submit">
+  </div>
+<input name="siteurl" value="www.thegeekstuff.com/2010/09/linux-file-system-structure/" type="hidden"><input name="ref" value="www.thegeekstuff.com/category/linux/" type="hidden"><input name="ss" type="hidden"></form>
+<script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script><script src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/a_002" type="text/javascript"></script><link href="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/transliteration.css" type="text/css" rel="stylesheet"><script src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/transliteration.js" type="text/javascript"></script>
+<script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/t13n"></script>
+<script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/brand"></script>
+<br></div>
+		</div><div class="widget widget_text" id="text-3">			<div class="textwidget"><script async="" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/adsbygoogle.js"></script>
+<!-- TGS Side Bar -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-8090601437064582" data-ad-slot="9054077260"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br></div>
+		</div><div class="widget widget_text" id="text-4"><p class="widget_title">EBOOKS</p>			<div class="textwidget"><ul>
+<li><img title="Linux 101 Hacks Book" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/free-small.png" alt="Linux 101 Hacks Book">&nbsp;<a href="https://www.thegeekstuff.com/linux-101-hacks-ebook/">Linux 101 Hacks 2nd Edition eBook</a> - Practical Examples to Build a Strong Foundation in Linux</li>
+<li><a href="https://www.thegeekstuff.com/bash-101-hacks-ebook/">Bash 101 Hacks eBook</a> - Take Control of Your Bash Command Line and Shell Scripting</li>
+<li><a href="https://www.thegeekstuff.com/sed-awk-101-hacks-ebook/">Sed and Awk 101 Hacks eBook</a> - Enhance Your UNIX / Linux Life with Sed and Awk</li>
+<li><a href="https://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 Hacks eBook</a> - Practical Examples for Becoming Fast and Productive in Vim Editor</li>
+<li><a href="https://www.thegeekstuff.com/nagios-core-ebook/">Nagios Core 3 eBook</a> - Monitor Everything, Be Proactive, and Sleep Well</li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-22">			<div class="textwidget"><iframe src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/likebox.html" scrolling="no" style="border:none; overflow:hidden; height:258px;" allowtransparency="true" frameborder="0"></iframe></div>
+		</div><div class="widget widget_text" id="text-17"><p class="widget_title">POPULAR POSTS</p>			<div class="textwidget"><ul>
+<li><a href="https://www.thegeekstuff.com/dslr-accessories/">15 Essential Accessories for Your Nikon or Canon DSLR Camera</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/01/12-amazing-and-essential-linux-books-to-enrich-your-brain-and-library/">12 Amazing and Essential Linux Books To Enrich Your Brain and Library</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/">50 UNIX / Linux Sysadmin Tutorials</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/11/50-linux-commands/">50 Most Frequently Used UNIX / Linux Commands (With Examples)</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/gtd-getting-things-done/">How To Be Productive and Get Things Done Using GTD</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/03/30-things-to-do-when-you-are-bored-and-have-a-computer/">30 Things To Do When you are Bored and have a Computer</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/09/linux-file-system-structure/">Linux Directory Structure (File System Structure) Explained with Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/">Linux Crontab: 15 Awesome Cron Job Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/">Get a Grip on the Grep! – 15 Practical Grep Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/">Unix LS Command: 15 Practical Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/">15 Examples To Master Linux Command Line History</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/bug-tracking-system/">Top 10 Open Source Bug Tracking System</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/">Vi and Vim Macro Tutorial: How To Record and Play</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/">Mommy, I found it! -- 15 Practical Linux Find Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/07/best-gmail-tips-and-tricks/">15 Awesome Gmail Tips and Tricks</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/expertise-in-google-search/">15 Awesome Google Search Tips and Tricks</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/raid-levels-tutorial/">RAID 0, RAID 1, RAID 5, RAID 10 Explained with Diagrams</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/01/15-practical-unix-linux-top-command-examples/">Can You Top This? 15 Practical Linux Top Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/09/top-5-best-network-monitoring-tools/">Top 5 Best System Monitoring Tools</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/top-5-best-linux-os-distributions/">Top 5 Best Linux OS Distributions</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/06/how-to-monitor-remote-linux-host-using-nagios-30/">How To Monitor Remote Linux Host using Nagios 3.0</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/">Awk Introduction Tutorial – 7 Awk Print Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/09/rsync-command-examples/">How to Backup Linux? 15 rsync Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples/">The Ultimate Wget Download Guide With 15 Awesome Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/07/top-5-best-linux-text-editors/">Top 5 Best Linux Text Editors</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/tcpdump-command-examples/">Packet Analyzer: 15 TCPDUMP Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/06/bash-array-tutorial/">The Ultimate Bash Array Tutorial with 15 Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/">3 Steps to Perform SSH Login Without Password Using ssh-keygen &amp; ssh-copy-id</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/">Unix Sed Tutorial: Advanced Sed Substitution Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/03/netstat-command-examples/">UNIX / Linux: 10 Netstat Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/06/the-ultimate-guide-for-creating-strong-passwords/">The Ultimate Guide for Creating Strong Passwords</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/6-steps-to-secure-your-home-wireless-network/">6 Steps to Secure Your Home Wireless Network</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/">Turbocharge PuTTY with 12 Powerful Add-Ons</a></li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-19"><p class="widget_title">CATEGORIES</p>			<div class="textwidget"><ul>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/linux/">Linux Tutorials</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/vim-2/">Vim Editor</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/sed/">Sed Scripting</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/awk/">Awk Scripting</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/bash-2/">Bash Shell Scripting</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/nagios-2/">Nagios Monitoring</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/openssh-2/">OpenSSH</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/iptables/">IPTables Firewall</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/apache/">Apache Web Server</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/mysql/">MySQL Database</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/perl/">Perl Programming</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/google/">Google Tutorials</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/ubuntu/">Ubuntu Tutorials</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/postgresql/">PostgreSQL DB</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/hello-world/">Hello World Examples</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/c-programming/">C Programming</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/c-plus-plus/">C++ Programming</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/dell-2/">DELL Server Tutorials</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/oracle/">Oracle Database</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/vmware/">VMware Tutorials</a></li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-20">			<div class="textwidget"><div style="position: absolute; width: 450px; left: -10000px;" id="___person_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" id="I2_1569279313675" name="I2_1569279313675" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/person.html" data-gapiattached="true" width="100%" frameborder="0"></iframe></div><g:person href="https://plus.google.com/112493711428194838421" data-rel="author" layout="landscape" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:person></div>
+		</div>		</div>
+	</div>
+	<div class="footer">
+<div id="footer_widgets" class="columns_3">
+	<div class="one-third sidebar first">
+<div class="widget widget_text" id="text-7"><h4 class="widget_title">About The Geek Stuff</h4>			<div class="textwidget"><br>
+<img class="float" title="Ramesh Natarajan" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/ramesh-small.gif" alt="Linux 101 Hacks Book">
+My name is <strong>Ramesh Natarajan</strong>. I will be posting 
+instruction guides, how-to, troubleshooting tips and tricks on Linux, 
+database, hardware, security and web. My focus is to write articles that
+ will either teach you or help you resolve a problem. Read more about <a href="https://www.thegeekstuff.com/about/">Ramesh Natarajan</a> and the blog.</div>
+		</div>	</div>
+	<div class="one-third sidebar">
+<div class="widget widget_text" id="text-9"><h4 class="widget_title">Contact Us</h4>			<div class="textwidget"><br>
+<strong>Email Me :</strong>
+Use this <a href="https://www.thegeekstuff.com/contact" rel="nofollow">Contact Form</a>
+ to get in touch me with your comments, questions or suggestions about 
+this site. You can also simply drop me a line to say hello!.
+<br><br>
+<a title="Follow us on Google+" href="https://plus.google.com/112493711428194838421/posts">Follow us on Google+</a>
+<br><br>
+<a title="Follow us on Twitter" href="https://twitter.com/thegeekstuff" rel="nofollow">Follow us on Twitter</a>
+<br><br>
+<a href="https://www.facebook.com/thegeekstuff" rel="nofollow">Become a fan on Facebook</a>&nbsp;&nbsp;</div>
+		</div>	</div>
+	<div class="one-third sidebar last">
+<div class="widget widget_text" id="text-8"><h4 class="widget_title">Support Us</h4>			<div class="textwidget"><br>
+Support this blog by purchasing one of my ebooks.
+<br><br>
+<a rel="nofollow" href="https://www.thegeekstuff.com/bash-101-hacks-ebook/">Bash 101 Hacks eBook</a>
+<br><br>
+<a rel="nofollow" href="https://www.thegeekstuff.com/sed-awk-101-hacks-ebook/">Sed and Awk 101 Hacks eBook</a>
+<br><br>
+<a rel="nofollow" href="https://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 Hacks eBook</a>
+<br><br>
+<a rel="nofollow" href="https://www.thegeekstuff.com/nagios-core-ebook/">Nagios Core 3 eBook</a></div>
+		</div>	</div>
+	<div style="clear:both;"></div>
+</div>
+		<p class="attribution">Copyright © 2008–2018 Ramesh Natarajan. All rights reserved  | <a href="https://www.thegeekstuff.com/copyright">Terms of Service</a></p>
+	</div>
+</div>
+<script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/comment-reply.gzip"></script>
+<script async="async" type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/form.gzip"></script>
+<script type="text/javascript">
+(function(){
+	var classes = document.getElementsByClassName('menu_control');
+	for (i = 0; i < classes.length; i++) {
+		classes[i].onclick = function() {
+			var menu = this.nextElementSibling;
+			if (/show_menu/.test(menu.className))
+				menu.className = menu.className.replace('show_menu', '').trim();
+			else
+				menu.className += ' show_menu';
+		};
+	}
+})();
+</script>
+<noscript><style type="text/css" scoped>.menu { display: block; }</style></noscript>
+<script type="text/javascript" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/plusone.js" gapi_processed="true"></script><iframe name="oauth2relay1352195157" id="oauth2relay1352195157" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/postmessageRelay.html" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe>
+
+
+
+<iframe scrolling="no" allowtransparency="true" src="Linux%20Directory%20Structure%20(File%20System%20Structure)%20Explained%20with%20Examples_pliki/widget_iframe.html" title="Twitter settings iframe" style="display: none;" frameborder="0"></iframe><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Content Delivery Network via Amazon Web Services: CloudFront: static.thegeekstuff.com
+
+ Served from: www.thegeekstuff.com @ 2019-09-23 16:15:31 by W3 Total Cache -->

@@ -1,0 +1,292 @@
+w ogóle nawet nie wiedzieli że będą mieli coś wprowadzić i stąd namową mogły niestety postać takie sytuacje że niektóre osoby po prostu w czasie nie mogą Ja rozumiem czy dziekanat będzie musiał to rozwiązać A tak przy okazji chciałem się spytać czy nie wiem czy inne osoby mnie czy byłaby możliwość wprowadzenia takich zajęć na przykład 
+tygodniach bo wieczorem na przykład czy bo jak widziałem plan zajęć na sobotę i niedzielę to on jest taki bardzo ubity Natomiast w tej chwili nie ma problemu sal bo w poprzednich latach No to był problem sald żeby sale były niedostępne wyposażone a w tej chwili tego problemu by nie było tak tutaj Szukając rozwiązania 
+może znalazłyby się inne terminy w których odpowiednie wykładowcy By się znaleźli którzy pomogli 
+te zajęcia poprowadzić ale to na pewno dziekanat dziekanat będzie się powiedzieli ze mną komunikował tej sprawie i dzieli wykładowcami żeby ten brak uzupełnić 
+Dziękuję prędkość 
+zapraszam państwa na kolejny wykład włączę nagrywanie A nagrywanie już jest widzę włączone dobrze słyszał mnie państwo tak 
+tak tak dobrze kolejna część wykładów systemy plików 
+no z punktu widzenia użytkownika No wiemy że system plików zawiera pewną jedną pewną liczbę takich kontenerów logo w którym są pliki przez pliki Rozumiemy to co to jest napisane jednostki logiczne przechowywanej informacji że jest istotne podkreślone niezależne od właściwości fizycznych urządzeń z pamięcią 
+zwykle Przepraszam za literówkę przechowywane są programy dane tekst liczby grafika może być muzyke.na i tak dalej 
+natomiast Mów teraz co miałem mamy dwa obrazy tego systemu plików z jednej strony Z punktu użytkowy to system plików widzimy jako tahoe hierarchiczną strukturę w której są katalogi w tych katalogach tą colę i znowu pliki katalogi i tak dalej Natomiast jeśli teraz popatrzymy na to z punktu widzenia 
+operacyjnego to przez system plików rozumiemy pewnie zbiór typów danych struktur danych oraz z funkcji systemowych po angielsku system Call jak wspomniałem wcześniej używanych przez system operacyjny w celu przechowywania informacji w pamięci masowej głównie na dysk 
+systemowe No to właśnie w ten sposób procesy zgłaszają prośbę o to żeby pewne informacje przykładowo zapisać Czy od czy 
+a system operacyjny spowoduje realizację tej prośby i teraz tak wspomniałem Love system dostępny w tej chwili praktycznie wszystkich obecnie używanych ten obraz z punktu widzenia użytkownika to jest taka struktura katalogowanie gdzie mamy 1 minut jeden korzeń od którego odchodzą 
+katalogi podkatalogi tak tak Każdy plik jest identyfikowany czy pomocy określonej nazwy systemach Unix przyjęły się dwa rodzaje nas nazwy krótkie dobrze znasz tłuszczaków i nazwy długie do 255 zł te długie nazwy używane 
+w których wyniku nie jest czytelna tylko tych których mamy bardzo dużą liczbę pliku w szczególności dotyczy to do zastosowań przykładu teraz tak w nazwie mogło być określone zna to mogą być małe i duże litery cyfry znaki specjalne tak jak przecinek minus podkreślenie 
+cudzysłów kropka też jest element nazwy znaków i to widzisz państwo przykłady nas kropka kropka xy&z kropka a b c d a b c a duże b małe cel duże 123 dwie kropki na i tak da kreska a to widzimy 
+to że istotne jest to że mała litera i duża jest odróżnia na czyli nazwa ABC mała małe litery nazwa a duże b małe C duże to są dwie różne nazwy jezior rozróżniane jako różnym wieku tak jest ale A to tak dla zabawy podaję taki przykład zastanowienia Dlaczego lepiej tej nazwy ostatni kreska a nie 
+proszę ogólne zasady prawda Jakie są dopuszczalne nazwy plików natomiast do przyjęły się pewne konwencję 
+używania nas dla ułatwienia pracy i tutaj z prawej strony wyświetlam Takie przykłady konwencji nazw plików program źródłowy więc tam a na końcu pokrowce itpc w języku Pokemona kończy kropka f wielkopolska.pl produkt kompilacji to na przykład kropka a kropka aut dane 
+to pełna nazwa na końcu that update a także w przyszłym jak mówię to mogłyby nazwy zupełnie inne które my w ogóle oznacza Grzybowice na to są tylko pewne konwencję ułatwiające pracę to jeszcze przyjęłaś również na konwencja że pliki zaczynające się fotki to są tak zwane pliki konfiguracyjne czyli taki to 
+kropka prof i To taki przykład w pliku konfiguracyjnym systemach uniksowych firmy hewlett-packard dobrze teraz co jest istotne jedna nazwa to jest jedna sprawa to jest nazwa pliku a druga sprawa to jest plik jako obiekt informacji zawierający tutaj jednostka tragiczna przechowywanej informacji to cześć 
+cena granitowych że pliki mogą być identyfikowane za pomocą wielu różnych nazw 
+Czyli można powiedzieć jeden obiekt na dysku może mieć kilka las które są umieszczone na końcu zupełnie różnych katalogach 
+nazywamy to do wiązania 
+Może państwo Ja prosiłem żebyś zanotowali to proszę co rozumiemy przez do wiązań proszę cię zanotować dlatego że to w poprzednich to są osoby które z tego powodu nie widziałem tutaj dowiązanie nie znały Czyli co to jest dowiązanie rozwiązanie to operacja nadania dodatkowej nazwy istniejące mu już plikowi 
+czy do wiązań jest to operacja nadania dodatkowej nazwy istniejące mu już piwko jak wspomniałem ta nazwa masz być to może być zupełnie inna składający się z innych znaków A obie mogą się odwoływać do tego samego obiektu na dysku 
+Czyli warto na rozwój że sama nazwa to nie jest plik to jest nazwa to jest obiekt który gdzieś jest przechowywany na dyskotece no i tutaj dziewczyna naszymi krzyżowych mamy wiele typów plików i zwykłe To są właśnie takie pliki których używają użytkownicy zawierające teksty pewne informacje 
+niekoniecznie tekstowe dane to może być muzyka może być grafika i tak dalej ale są również pliki specjalny 
+katalogi z punktu widzenia systemu operacyjnego to są pliki czyli w tym wypadku mówimy o pliku typu katalog 
+mamy taki pliki dowiązania symboliczne Potyki nazwany gniazda czyli poza plikami zwykłymi te pozostałe nazwy można być pewne struktury systemu operacyjnego który są pewne informacje zapisane w których korzysta system operacyjny 
+parę informacji o tych różnych typach plików 
+szpital zwykłych przechowujemy No właśnie programy dane teksty grafikę części started systemach Unix mówię jak system operacyjny rozumie on nie widzi formatu 
+On widzi tylko ciąg bajtów czy tak jak napisałem przestaną piórnik pliki nie mają ustalonego format 
+to znaczy aplikacje mogą wytworzyć pliki o różnym formacie ale system operacyjny tego nie iść tylko nie zwraca na to uwagę On widzi po prostu ciąg bajtów pewnej długość 
+zapisuje to informację ile to jest tych Jaka jest długość tego domku 
+bo tak jak poniżej napisałem różne aplikacje mogą tworzyć pliki o określonym formacie warsztat to jest podany meble generuje plik który mamy na głowę kod wykonywalny 5 awizowany dla prawda ale przedstawionych tego nie widzi on będzie chciał bajka tylko 
+to są pliki zwykłe a teraz przejdziemy do innych typów wykorzystywanych przez system operacji 
+Wiki specjalnie to także inna nazwa pliki urządzeń one zapewniają łączność z urządzeniami mi terminalami napędami taśmy i tak dalej tam nie są przechowywane żadne dane 
+ale teraz pliki te charakteryzują sposób działania urządzenia na przykład wskazują miejsce podłączenia urządzeń do systemu zapewniają dostęp do programów obsługi urządzeń teraz tak tak jak wspomniałem wcześniej dom ponieważ urządzenia dzielimy na i znakowe 
+to do mnie podobnie pliki specjalne mogą być blokowe Bluetooth znakowe taki przykład dysk który może być zarówno 
+urządzenie używane jako urządzenie blokowe w którym zapisujemy dane całymi blokami Jakie urządzenie znakowe w taką informację zapisujemy by pobawić to wtedy gdy jest życzenie żeby zapisać info właśnie w formie znakowej 
+to należy do systemu do jądra systemu operacyjnego do wysłać 
+prośbę od razu domowej ze wskazaniem pliku specjalnego typu znakowego poddajesz mamy zna pod napisem jest życzenie żeby zapisać informacje by całymi blokami czyli no to wtedy trzeba użyć w pliku specjalnego blokowego czyli w tym przypadku przykład w tym przykładzie dysk 
+dwa pliki specjalne 1 znakowy drugi bankowy dobrze kolejna 
+na piku to jest plik typu katalog mówienie o strukturze systemu operacyjnego nie nie o tym kontenerze który państwo widzę kuzynką jeszcze dzisiaj pokażę państwu taki przykład struktury tego katalog tego typu katalog katalog służą do powiązania nas pliku to wiemy że każdy pipa swoją nazwę 
+z danymi znajdującymi się na dysku 
+w każdym katalogu może się znajdować Pewna liczba plików ale także innych katalogów i podkatalogów i ten plik typu katalog bo mówił czas o pliku tylko katarów jest przechowywany tak jak zwykły p 
+i taki uproszczona struktura to taka tabela z dwoma kolumnami aby każdy twórca systemu Unix owego może sobie rozbudować tą tabletkę czterokolumnowy na przykład Ale co jest na Te dwie kolumny o których tu mowa są najważniejsze po jednej nazwa pliku 
+w takim wierszu To biedny kolumny jest nazwa pliku a w drugiej jest pewna liczba numer za pomocą numeru system operacyjny może się może odszukać atrybuty pliku i informacje adresowe na dysku 
+Czy można powiedzieć że w wyniku tych mamy powiązanie dwóch informacji nazwy pliku i 
+takie liczby 
+Co oznacza ta liczba to się za chwilkę dopiero 
+kolejne przykłady typów plików dowiązania zwykłe Otóż jak co miałem Weź to zapisali sobie zakładam Co to jest do wiązań Otóż Oczywiście Mamy dwa rodzaje tych dowiązań mamy do wiązania tak zwane zbyt twarde które widzą Państwo mogą być tworzone odrębnie to do samego systemu pliku ale są też używane dowiązania symboliczne używa 
+granicami systemów i tutaj trzeba od razu wspomnieć że ze mną się niszowych systemów plików może być więcej niż jeden a to wtedy staje No każdy ma swój ród Każdy ma swoją hierarchię katalogów od razu się może nasunąć pytanie Jak to jest że możemy mieć kilka system a użytkownik widzi tylko jedną hierarchiczną strukturę też państwu ale już 
+dokładnie ale pokażę jak to się odbywa 
+w przypadku dowiązań symbolicznych to tworzony jest taki dodatkowy trik zwany dowiązanie symboliczne która zawiera informację gdzie jest informacji które należy można pójdą wiązać 
+ale o tym też będzie Herbowa inne przykłady potoki nazwane działać zgodnie z zasadą w kwestii poczta jest output stosowany do komunikacji między poczteksami tutaj wykorzystuje się odpowiednie procedury biblioteczny potoki mogą otwierać tylko kołki do odczytu zapisu takie zwykłe pić otwiera inny jeszcze przypadku są gniazda wprowadzone 
+Bentley bezkresną 40 grup do nich też wykorzystywany do komunikacji między procesem troszkę inne mechanizmy niż potoki tutaj są wykorzystywane popatrzmy tutaj na taką typową strukturę czyli to drzewo katalogów w systemach Unix owych 
+to jest ten obraz który dzidzi użytkownik Mamy jeden lód oznaczony tatą takim kosteczką bekslasz daj mamy różne katalogi podkatalogi pliki i otóż tak znowu nazwy tych logów mogły być dowolnie zgodnie z konwencją zgodnie z zasadami na 
+przyjęła się pewna konwencja nas żeby ułatwić sobie pracy jak miśta torowi użytkownik Hej tu mamy przykład tej konwencji mamy tak nowy bezpośrednio pod katalogiem katalogu tego root pies katalog o nazwie home i w tym katalogu Home znajdują się katalogi osobiste 
+Czy Adam b to będzie katalog osobisty użytkownika Adam b to będzie katalog oczywiście Ania a a to widzimy jakieś przykłady królików znajdują się w tym katalogu osobistym pana Adama tę w katalogu etc z kolei są zawarte wykorzystywane do administrowania systemem 
+widzimy taki plik o nazwie pasywne w tym pliku znajdują się nazwy użytkowników W prostszych toczą tam również hasła w bardziej złożonych wersjach to jest to bardziej Chata są bardziej zaszyte ale są też informacje dotyczące tych Jaki jest katalog osobisty każdego użytkownika 
+Shell w którym użytkownik rozpoczyna pracę no i tego typu informacji katalog grup tych grup zawiera informacje o pewnych grupach które są dostępne czyli zestawach użytkowników tutaj jest ten plik który o kosztach innych o której się spotkamy dasz No i także wiele To to są tylko 
+oczywiście przez wiele innych plików teraz katalog deszcz od devices to jest nazwa katalogu w którym są te pliki specjalne i on siedzieli na dwa podkatalogi właśnie podkatalog plików znakowych i bloków i tutaj są specjalne czyli pliki dzień z kolei tutaj niżej katalog tmp 
+ten polary w którym zapisywane są różne pliki które po pewnym czasie to automatycznie usuwany To taki przykład prosty pliki do do prawda tworzone są w trakcie uruchomienia życzenia żeby coś wydrukować No to trzeba najpierw utworzyć plik dla drukarki a potem ten film będzie oczywiście optymalna katalog usr 
+tak zwany binaria czyli pliki wykonywalne formy mi na maila to mamy odbyła się pod patronatem mamy pewne lipa Lotek inne katalogi inne pliki z oryginalnej czy jak wspomniałem to co to jest pewna konwencja nas Czy przechodząc na tradycyjnej na 2:00 to mogą się państwo spotkać że 
+nazwy mogą się zmienić dane przyjęło się żeby używać tą konwencję żeby sobie ułatwić życie to kiedyś przykłada bo zamiast nazwy Home była nazwa jurzec że to mamy konta osobiste użytkowników ale jak mówię jest to pewna konwencja natomiast część istotne że użytkownik widzi to się larw śliczną tylko z jednym ruchem mimo że w rzeczywistości może być kilka 
+nauczył się zrzut Ale one są połączone ze sobą także to jest taki obraz wirtualny można powiedzieć zasobów prawda 
+bardzo istotnym pojęciem 
+czyste przy pracy systemami plików jest ścieżka dostępu 
+klucze wspomnieć o pewnych na Czy mamy tak mamy katalog osobisty to jest jedna nazwa to jest katalog przydzielony konkretnego użytkownikowi i nazwa tego katalogu jest wpisana w tym pliku swde o którym mówiłem wcześniej Natomiast w trakcie pracy gdy jakąś hierarchiczną strukturę systemu 
+to użytkownik ma możliwość tak przechodzenia od jednego katalogu do drugiego którego na przykład przeglądania jego zawartości do tego celu używane są odpowiednie polecenia o nazwie CD to niż jest napisane część dyrektorem Ale co jest istotne katalog w którym użytkownik danej chwili jest to nazywamy katalogiem bieżąco 
+zasada jest taka że której użytkownik zaczyna pracę to automatycznie jego katalogiem bieżącym jest jego katalog osoby czyj tutaj jeśli rozpocznie pracę Pan Adam b to jego katalogiem osobisty będzie ten jego katalog osobisty będzie jego katalogiem wjeżdżał 
+Ważne jest to pojęcie katalogu bieżącego i ścieżki dostępu Otóż sama nazwa pliku to jest za mało że identyfikować w tym kirch i z czymś w systemie hierarchicznej struktury trzeba także określić położenie tego tej nazwy pliku bo pamiętajmy o nazwa nie o samych pika całym moim miejscu 
+trzeba wskazać 
+gdzie on w tej strukturze jest i czemu służy ścieżka dostępu i Są dwie możliwości określenia tego po 
+pierwsze pierwsza możliwość to jest bezwzględna ścieżka dostępu która określa położenie pliku lub katalogu względem katalogu Głównego To widzimy RTC padł no ta pierwsza pierwszy bek Slash to oznacza rzut czyli to jest tego pliku paskudo względem 
+tego korzenia pada tego Ruta to wiemy że on jest w pliku w katalogu etc popatrzmy tutaj czy widzimy do pliku pas budę według ścieżki bezwzględnej to jest tak ten Deck Slash EPC weksle spazmy pogoda z kolei 
+dla pliku kropka profil Będzie Next reszty określa lód home 
+katalog osobisty pani Adama b badamy.to tak patrz mi tutaj jak chcesz Home index też AD kropka to w ten sposób 
+określamy w sposób jednoznaczny położenie nazwy względem przy wypadku 
+katalogu głównego pan jest to choroba nerek Ale jest jeszcze możliwość droga ona jest nazywana względność dostępu która określa położenie lub pliku względem katalogu bieżącego 
+przykładowo jeśli 
+katalogi w bieżącym jest prawda A ten kardiolog to użycie sam nazwy Adam b w wypadku wskazuje od razu na ten katalog osobisty użytkownika Zobaczmy że nie tego bez leżą początkowego Ada bek bek też a kropka aut wskazuje na tym 
+plik upada Adama b Popatrz na to dwa przykłady czyli tata blogiem osobistym jeśli będzie jeśli katarkiem bierze będzie Home do 
+używamy do Kropki prof i tego pliku używamy Adam b bez Flasha bez serca początkowego tego Ada bek bek co.to dobrze popatrzmy dalej A co oznaczają te dwie kropki dwie kropki oznaczają przesunięcie wyżej względem katalog osobisty tego bieżącego Czy mamy katalog bieżący określony 
+dwie kropki wyżej to jest wskazanie katalogów wyżej nadrzędnego no a dalej od tego nadrzędnego mogą być kolejne odwołała popatrzmy będzie w przypadku gdy katalogiem 
+bieżącym jest w Express Home a u żyjemy 
+odwołania dwie kropki usr NIP 
+katalogiem wierzącym jest Home dwie kropki to jest odwołanie wyżej to będzie odwołanie do Dorota usr ZIP będąc z katalogu ją w ten sposób możemy się odwołać do katalogu B 
+te odwołania przy pomocy ścieżek do nazw plików muszą być wykorzystywane muszą być wykorzystywany przy wykonywaniu jakichkolwiek operacji spika 
+przykładowo chcemy zmienić katalog bieżący No to jest polecenie change directory a trzeba wpisać ścieżkę dostępu do katalogu tego do którego chcemy przejść i to może być zarówno ta ścieżka bezwzględna względna 
+polecenie pewd Ustalenie nazwy katalogu bieżącym na to ona nie wymaga to odwołania bo spowoduje wyświetlenie tej nazwy katalogu bieżącego włosów Print working directory 
+sprawdzenie zawartości katalogu może być wykonane przez użycie 
+polecenia LS odsłuch list wyświetleń wylistowanie on ma szereg opcji 
+i tutaj trzeba wtedy podać ścieżkę dostępu do katalogu 
+którego zawartość chcę aby 
+świetnie iść i tutaj zamieściłem też parę przykładów 
+opcji tego polecenia LS o wiele wyglądu to przede wszystkim najczęściej używana to jest opcja l która zawiera pełniejsze informacje o p k to i tak zwany długi format to samo LS w przypadku katalogu to Wyświetli nam tylko nazwy plików które tam są A jeśli chcemy mieć więcej informacji o tych plikach tak zwane atrybuty 
+No trzeba używać to opcja r No ale tak katalog jak wiemy to też jest z punktu widzenia systemu operacyjnego pewien plik i możemy chcieć sobie uzyskać informacje o atrybutach tego katalogu tego pliku to pogada to wtedy dodajemy to literką d opcje opcje zaznaczamy tam przydatne 
+Tesco poziomu C długi wydruk i że ma dotyczyć katalog Brico ukryte to są zwykłe tam konfiguracyjne zaczynające się od kropki i one zwykle nie są pokazywane przy samym poleceniu LS to żeby je zobaczyć trzeba użyć opcji 
+kwestia a inny przykład to jest taki wyświetlenie zawartości nie tylko katalogu tego bieżącego którego idziemy ale jego podkatalogów czyli takie rekurencyjne pokazanie zawartości podkatalogów 
+to daj mamy opcje r22 siarczan rekurencji w domu zachęcam państwa do domu różne wersje linuksowe zawierać różne zestawy tych opcji poleceń różnych i tutaj zawiera jest Zachęcam do skorzystania z tego elektronicznego manuala Men LS 
+No i teraz tak popatrzył na kilka operacji dotyczących katalogów to mamy to sprawdzenie zawartości tworzenie pod katalogów make directory przód Utwórz katalog No to trzeba oczywiście utworzyć ten katalog podając jaka będzie nazwa jego położenie w tej całej strukturze Czyli trzeba podać ścieżkę dostępu do tego nowego katalogu 
+Jeśli chcemy usunąć to też trzeba wskazać który to usuwanie jest bardzo tutaj niebezpieczne Bo standardowo się usunie katalog chłopców z zawartością Bez ostrzeżenia chociaż w wielu systemach do ostrzeżenia Co wprowadza No i mamy tutaj 
+utworzenie dowiązania do katalogu jak wspomniałem przez dowiązanie rozumiemy nadanie dodatkowej nazwy prawda że w przypadku katalogu tutaj widzisz opcję s to będzie dowiązanie symboliczne stara nazwa nowa nazwa i w tym wypadku właśnie przy tym do wiązania tym gościem on jest taki plik typu dowiązanie symboliczne stara nazwa 
+to jest zawartość tego dotychczasowego określa dotychczasowy katalog na którego chcemy uzyskać tworzyć dowiozę na pyszną zawartość a nowa Zawada nowa nazwa to jest ta która powstanie w wyniku do wiązania No chcemy żeby był do oto nową nazwą do tego samego co było pod nazwą starą katalogu 
+popatrzmy na przykłady operacji odnoszących się do trików to chcemy wyświetlić zawartość pewnego pliku tekstowego 
+balujesz przykłady wskazujący na tą potrzebę używania ścieżek dostępu do mamy takie polecenie Kate obsuwa w konkretnej wyświetla nam zawartość pliku dana jest wygodne gdy wyświetlamy zawartość krótkich filmików które się mieszczą na ekranie terminala No i oczywiście trzeba ścieżkę dostępu w przypadku pliku tekstowego przykładowo dużego No to 
+ten ta informacja może się przewinąć przez lekarstwo końcówkę zobaczymy problemu z kolei takie standardowe polecenie More też szału że ścieżki dostępu wskazać plik pozwala nam przewijać strona po stronie wyświetlić ten zawartość tego pliku No to to jest takie standardowe porozmawiać z tobą oczywiście możemy użyć dowolnego edytora 
+przeglądaj zawartość pliku 
+co jest istotne teraz to z punktu widzenia systemu operacyjnego przy tego typu polecenia gdy chcemy wyświetlić zawartość Czy mamy niżej przykład polecenia drukowania prawda że tego typu polecenia No niezbędny jest dostęp do informacji pliku do które są na dysku twardym system 
+wykonać cały szereg operacji takich które pozwolą właśnie odczytać najpierw z dysku te informacje tego typu a one mogą być rosół ale na tym dysku prostych blokach już je zebrać żeby móc potem wyświetlić prawda musi znaleźć te bloki dyskowe pliku na dysku atrybutów pliku LS nałożone różne opcje 
+dostępu nożną będzie ta opcja l z długim który pozwala więcej tych informacji o tym pliku wyświetlić 
+wyciąg Zauważ że tutaj potrzebne jest tylko dostęp do tego miejsca gdzie są te atrybuty pliku niekoniecznie do samej zawartości tego dodaj informacje o tym kopiowanie pliku No to tutaj trzeba ta podać źródło co kopiujemy ci na złość się szkołą tego z którego chcemy zrobić kopię i podać nazwę 
+tego nowego pliku Do którego mamy to wpiszę zauważmy że tutaj mamy do czynienia z dwoma różnymi pika 
+Jaki ten nowy może być utworzony jako zupełnie nowy usuwanie pliku No to mamy polecenie remont rymów też tutaj mamy Trzeba włożyć nazwy pliku te ścieżkowy lub katalog 
+zmiana nazwy pliku takie polecenie od MV od słów Mów skąd ta na zamów przyjęta dlaczego Bo też można sobie w ten sposób przenieść nazwę pliku z jednego katalogu do drugiego do bo mamy stara nazwa nowa nazwa prawda jeśli ta stara nazwać z jednym catan 
+nazwę sobie wpiszemy w innym katalogu to stara nazwa znika a będzie obowiązywać nowa na 
+chcę zwrócić państwa uwagę że to jest zmiana nazwy pliku 
+można być to przeniesienie to jest obraz wirtualny strukturze katalogów w rzeczywistości jeśli mówimy o jako obiekt żadnego przeniesienia informacje o tym będzie mogło pójść to mamy z domu utworzenie takie rozwiązanie w przypadku katalogów to mamy dowiązanie do pliku 
+tak albo link dużo różne opcje stara nazwa nowa nazwa 
+No jeśli to mieliśmy sytuację taką że po kopiowaniu w przypadku polecenia kopy Mieliśmy dwa 
+kopiowanie mamy dwa pliki początkowo ale zawierają to samo tutaj tylko Przedtem miał jedną nazwę to mam nazwę w przypadku polecenia link to była stara nazwa o nazwę wstaję i powstała nowa nazwa która może w wigilię katalogu czyli w rezultacie w wyniku polecenia link mamy dwie nazwy 
+Cobi 
+Jeszcze raz podkreślam bo to podstawie częstym błędem żeby że trzeba rozróżniać obiekt tych jako obiekt od na nalicza używać tych dwóch złomowej nazwa pliku a plik jako obiekt który gdzieś udaje takiego poza tym zawiera informacje w tym pliku zawarte na dysku ma swoje to już wspomniałem ma swoje atrybuty 
+formacja oni właśnie niżej mamy wyświetlone atrybuty 
+plików i katalogów 
+czyli proszę o informację 
+które są określone dla każdego 
+biegły opilku jako obiekcie niepłodności pierwsza rzecz to jest Empiku 
+Już wiem jaki typ przykłady państw kupić zwykły może być może być specjalnym że plik typu dowiązanie symboliczne typu katalog 
+pieszy prawa dostępu do pliku 
+prawa dostępu do pliku określają jak z danego pliku może korzystać z zawartości tego pliku może korzystać określonym Każdy plik to mamy też idę dzikach właściciela Każdy plik ma swoich do właściciela i zabójca tych prawach dostępu to tylko 
+liczba do wiązań do pliku bardzo istotny na informacja woda nowy plik to ma jedno gdy jest tworzony ma jedną nazwy na jedno dogląda teraz użyjemy polecenia link żeby nadać mu drugą nazwę będzie miał wtedy 2 to i tak dalej to tak to bardziej złożony 
+także są to ta liczba do wiaderka także to jak w porównaniu z innymi kataloga niżej to w te rekolekcje zachodu z kolejna informacja to jest identyfikator grób jest możliwość taka że użytkownik razem z pełną 
+innymi użytkownikami tworzy tak zwaną grupę i gramach tej grupy chcą wspólnie korzystać z pewnych pliku 
+No czy się ta grupa musi mieć identyfikowana jako zestaw określonych użytkowników i identyfikator i teraz mówimy o 
+prawa dostępu do prawa dostępu podzielone są na 3 grupy prawa dostępu właściciela grupy w której on jest 
+czyli pewnego zestawów użytkowników i prawa dostępu innych 
+w każdym tych z tych przypadków mamy 
+3 prawa dostępu prawo do odczytu informacji z pliku prawo do modyfikowania informacji w pliku prawo do wykonywania tego pliku oczywiście to ma uzasadnienie wtedy gdy ten plik jest plikiem wykonywalnym czynnik każdy ten zestaw trzech praw może być inny dla 
+inny dla grupy na inny dla pozostałych na przykład właściciel może mieć prawo 
+odczytu i modyfikowania na jeśli to jest naprawdę tekstowy to o jego się nie będzie wykonywał o prawa dla grupy że inne osoby współpracujące z tym użytkownikiem domu Na Skarpie odczytywać wtedy nie mogą modyfikować a z kolei pozostałe osoby w ogóle mogą ani nie mogą czytać ani nie mogą modyfikować a ja również 
+tak żeby tutaj możliwość jest tak 
+poznają państwo na ćwiczeniach takie pojęcie maski która określa takie automatyczny sposób tworzenia tych praw dostępu gdy tworzymy sobie no plik dobrze Czyli mamy tak tym pliku prawa dostępu liczba dowiązań identyfikator właściciela identyfikator grupy z kolei mamy Brico w bajkach 
+i są takie trzy wskaźniki czasowe jak wspomniałem rozmiar pliku w bajtach że system Unix nie widzi 
+do której nie widzi formy 
+zawarte informacje odwiesi tylko pewien ciąg bajki prawda No i pasie długość tego ciągu liczba bajtów to jest to co nazywamy plików Bike czy wskaźniki czasowe 
+czas ostatniej modyfikacji pliku 
+czas ostatniego dostępu do pliku 
+i czas ostatniej zmiany informacji i A co to jest ten i bezorkowo zapisz go do tego przyjdź i czy są takie trzy wskaźniki czasowe No to zmieni się wtedy gdy zmieni się zawartość tego pliku prawda gdy tworzony jest nowy plik No to wszystkie te wskaźnik są identyczne równe czasowi 
+utworzenia Wenecji czas dostępu to jest czas gdy system operacyjny musi do uzyskać dostęp do informacji zawartych w tym pliku czy w tym obiekcie Czyli on musi 
+zajrzeć do tych bloków dyskowych tego pliku to będzie czasu znajdę do przykładowo czas dostępu No to właśnie polecenie Kemon LP od ma wyświetlić informacji to będzie czas tego zdarzenia że system operacyjny musiał zajrzeć do zawartości bloków dyskowych tego pliku 
+ale przykładowo LS 
+nie on musi tylko wyświetlić atrybuty nie musisz zaglądać do tego co w tym pliku jest prawda 
+No i tutaj jest oczywiście też atrybutem jest sama na zabieg również popatrzmy na pewien przykład ale to jest przykład który nie zawiera wszystkich informacji o wszystkich atrybutach tylko zawiera wynik polecenia 
+LS z opcjami LD dlaczego jest ta opcja The No bo chcemy wyświetlić informacje o zawartości katalogu etc jakbyś opcji The nie wpisali to byśmy dostali informację o zawartości tego katalogu w sensie jakie tam plikiem nim co prawda A my chcemy uzyskać informacje 
+o atrybutach tego kataru idę popatrzmy to jest katalog typu director to jest plik typu katalog prawda nisko ostatnio dodaje ktory to jest początkowa literka D gdyby to był plik zwykły to byłaby to kreseczka 
+to widzimy rwx 
+No to akurat było to wykonywane jako 
+lód ale to zależy jak ten administrator ustali państwa dostępny więc ja zachęcam państwa do samodzielnego sprawdzenia rzecz rwx r odczyt zawartości tego katalogu możliwość modyfikowania na przypadku zwykłych użytkowników zobaczy administrator mnie po z oszukanych na to Poznaniu czyli Gmail kreseczka X w przypadku kart 
+oznacza możliwość wejścia do tego katalogu jako do katalogu bieżącego czyli to dotyczą właściciela od na wszystkie możliwości prawa dostępu A kto jest właścicielem czy ta grupa to jest ten zestaw to jest też nazwa rund ale też grupa która określa Princess użytkowników to widzimy Wyłączona jest możliwość modyfikowania 
+zawartości katalogu pies kreseczka w tym drugim r kreska x i dla innych Czyli dla zwykłych użytkowników mamy r2 skx Żyda dla mamy plik typu katalog rwx prawa dostępu właściciela czyli administratora Airpress KX grupy oznaczonej jako root i RP 
+pozostały 22 to jest liczba do wiązań do to są nazwy właściciela i grupy 1024 1024 bajty patrz to jest rozmiar tego katalogu rozmiar katalogu 1024 bajty a w tym katalogu małpa byś pliki które w sumie zawierają wiele gigabajtów 
+to jest rozmiar pliku tytuł katalog wskaźnik czasu standardowo to się wyświetla wskaźnik czasu modyfikacji na tonacje Po jakim katalogu mówimy prawda Czy to jest ta ścieżka dostępu wskazanych edycja 
+dobrze czyli Wiemy już teraz że jedna rzecz to jest zawartość informacji samym pliku są umieszczone gdzieś na dysku że o każdym pliku przechowywany jest pewien zestaw informacji zwanych atrybutami 
+Przechodzimy teraz do struktury 
+systemu operacyjnego zwanej i Dance Każdy plik ma i musi mieć swoją strukturę o nazwie odbierz przez i Note jest to rekord który przechowuje większość informacji Dlaczego pies większy bo oni wszystko teraz powiemy sobie dlaczego nie wszystkim popatrzmy co zawiera 
+Kacper to Antek Birds tynku 
+prawa dostępu liczbę do wiązek do pliku identyfikator właściciela na identyfikator grupy plików bajkach czas ostatniej modyfikacji pliku czas ostatni to dostępu do pliku czas zmiany informacji w ale ten początkowy to są 
+No Tatry bud-tech opiekuńczy pluszowy ale proszę wybaczyć czego nie ma bo przechodzimy do wskaźników adresowych na dysku 
+czego nie ma potrzeby patrzą zauważeni 
+popatrzmy na atrybuty plików i katalogu 
+Zakładam że państwo sami zauważyli czemu nie ma tutaj prawda tej nazwy kilku minut dalej są wskaźniki części stopy i węzeł oprócz tych atrybutów ale widzimy że nie wszystkich pojebana zły no zawiera informacje o tym gdzie są na d bloki disco 
+tego zawierające informacje o tym pliku 
+to jest dość wzmożony system adresowania 
+No ale ta złożoności ma wiele zalet mamy tak to jest oczywiście wiele form W jaki sposób można te informacje i zapisy na czym polega problem pliki mogą być małe a mogło być bardzo duży 
+natomiast i węzeł powinien mieć określoną kwotę 
+i teraz jak pytanie jest tak jak wpisywać Te wskaźniki adresowe do bloków na dysku których może być mało A może być bardzo dużo 
+i tutaj ja przedstawiam taki dość typowy sposób 
+adresowania z wykorzystaniem zwanego adresowania pośredniego wyjaśnię państwu na czerwono w tym standardzie i węźle mamy tylko 15 wskaźników adresowych 
+12 wskaźników to bezpośrednio zawiera adresy bloków z danymi tego p 
+Natomiast w przypadku gdy plik jest większy wymaga więcej niż 12 bloku stosowany jest tak zwany adresowanie pośrednie 
+jednostopniowy dwustopniowy 3 stopni przejdziemy później do tego jak to jest realizowany na czym to polega natomiast a Filip tylko tyle że umożliwia mimo tego że Vive źle jest 
+określany nie duży rozmiar informacji zapisywanych informacji adresowych to można adresować Babylon Babylon pliki Iga i terapeutow Wiemy już że każdy i węzeł jest związany czy może być związany z określonym plikiem 
+każdy istniejący plik musi mieć swój event 
+i gdy tworzymy nowy plik to musi być i węzeł w którym można jemu przyporządkować i teraz tak gdy jest stworzony system plików toft stworzona również tablica i bez no i początkowo one są wolne tej węzłów chyba a potem jak będą tworzone przypisywane piki wnuczka z nich kopiowa następny systemie to będą im przydzielane te kolejne 
+węzły przyporządkowane do poszczególnych dobra żeby że jesteś barwnica tonem i tworzymy nowy system No i teraz ta jest pytanie ile tych i węzłów utworzyć gdy taki nowy plik powstaje 
+gdy utworzymy ich bardzo bardzo dużo a 
+liczba plików będzie niewielka ale one będą bardzo dużego rozmiaru żeby pełnioną całą obszar tego systemu plików 
+No to ileś tych i wielu będzie po prostu Niepotrzebna to dam czy będzie chwila dnia a z drugiej strony jeśli będzie za mało a pliki będą bardzo małe na pewno dojdziemy do sytuacji takiej że już wszystkie pliki które 
+zostały utworzone A jest ich dużo wykorzystały istniejące i węzły i mimo że jest miejsce na dysku w starym systemie plików to nowych 
+tylko nie możemy utworzyć bo brakuje i bez kluczy jeśli zabraknie i dance-lato nie można utworzyć 
+także tutaj stosowane są w różnych systemach różne sposoby pół rozwiązania tego problemu można przyjąć że jaki będzie średni rozmiar pliku w danym systemie plików i odpowiednia do tego ułożyć to liczbę imprezy po zupę są narzędzia stacyjne które ułatwiają top.na w tym przykład w tym przykładzie który mówi 
+imprezy zajmuje 128 bajtów do której określonym adresowaniu od działki też później i one są umieszczane w takiej strukturze systemu operacyjnego zwanej tablicą i bez każdy i węzeł ma swój numer on określ położenie w tej tablicy też można powiedzieć w tej tablicy idę do sądu 
+i Czy mając numer i węzła No możemy go po prostu zidentyfikować 
+a Wiemy już Jakie informacje ten i węzeł 
+zachowuje No co to informację konkretnego pliku No wtedy gdy niż temu plikowi zostanie przydzielony 
+Czyli jeszcze raz by tworzymy nowy plik to jemu trzeba przydzielić i bezę i te informacje które to są podane zapisać 
+to mamy przykład że można sobie wyświetlić informacje o numerze i węzła który jest przyporządkowany konkretnemu plikom tutaj z domu 
+bierzemy jako przykład plik typu katalog to jest katalog i pamiętają państwo etc tak z Lechem czy iść i w tym wypadku mamy opcje ta.pl żeby mieć długi wydruk i żeby uzyskać informacje o numerze i węzła idę ponieważ chcemy uzyskać informacji o katalogu prawda a nie o jego zawartości 
+No patrzę mogłaś zrobić taki przykład wezmą jakiś inny plik nie plik typu od razu zwykłym albo i wyszedł informacje o numerze i warzywa albo jeszcze inaczej Eli bez opcji The ale w odniesieniu tego ATC to wtedy powinni państwo dostać informację o i i poszedł sprawdzić po numerach i węzłów tych plików które się tam znajdują 
+przejdziemy teraz do tego jakie informacje są przechowywane w katalogu to wiemy już jakie informacje są przechowywane w węzłach i tutaj mamy to zestawienie 
+plik typu katalog to jest tutaj tablica i węzłów wysłane Telimeny to numerowany i bloki dyskowe do pliku na dysku dobrze zawartość pliku typu katalog 
+w tym pliku łączone są dwie informacje 
+nazwa pliku to jako jest plik 1 i numer i węzła tego p 
+Wiemy już co i weszły zawierają i proszę zobaczyć te informacje zawarte w i węzłach to są w tablicy wezmą to dam bo ten weekend odbędzie się w taki dziwny 
+Czyli mamy katalog plik tylko katalog mamy tablice i węzłów No i mamy dysk i popatrzymy 
+Wiki numer jeden plik o nazwie pik jeden jest związany z ma swój i bezą na 348 wiemy że w tym pliku 308 w tym wypadku znajdują się atrybuty tego pliku w szczególności informacje adresowe które mówią Gdzie są bloki pozazmysłowe 
+czyli w przypadku gdy na przykład chcemy odczytać co musisz zrobić system operacyjny gdy chcemy odczytać zawartość pliku 1 piszemy polecenie do Print albo ten takie to było to to lecenie se popatrzmy 
+Cat Panda albo Mall 
+brykiet pa pa podając ścieżkę dostępu mówimy wjazd w katalogu między innymi jestem projektodawcy i na tej podstawie system operacyjny w określonym katalogu znajduje nas podanych poleceń 1 w określonym konopi ścieżkę trzeba było podać prostokątna najpierw system operacyjny zajrzy do pliku typ 
+po dla tej nazwy pliku znajduje numer i weszłam 
+przechodzi do tablicy eventu 
+Tam znajduje informacje adresowe czyli 
+adresy bloków dyskowy odczytuje zawartość bloku w dysku No i wyświetla użytkownikowi jako odpowiedź zadane polecenie odczytu tego 
+chillout aż 300 w Rosji musi zajrzyj do pliku to katalog musi Zajrzyj w tablicy metrów a następnie wykonać operację odczytu dysku 
+to mamy za chwilkę pokażę O co tutaj chodzi bo mamy na przykład jakiś plik 2 który ma i będą 0 
+mamy plik 3 
+inny numer i mamy plik a o numerze i wezwać 360 pad my3 Co to oznacza że dwie nazwy to że zobaczyć mają ten sam i węzeł 
+Wyślij węzeł mają ten sam to znaczy że mają 
+te wszystkie atrybuty takie same prawda No podana zmarł 
+naboi gazomierz tylko jedne prawda informacje w moim życiu takie same kurwa mają te same bloki dysku to jest właśnie przykład do wiązania p1xa są ze sobą do wiązanek 
+w tym przykładowo plik Apo powstać jako wynik do wiązania do pq1 
+dobrze tutaj na początku mamy jeszcze dwie informacje kropka i dwie kropki zamiast nas kropka ja zakładam że państwo na trują że kropka Oznacza odwołanie do tego katalogu który tutaj do którego do czy ten plik typu katalog Dobra on ma też stoi GPS 
+Natomiast te dwie kropki oznaczają tak jak poprzednio wspomniałem odwołanie do katalogu wyżej czyli do katalogu nadrzędnego dany się znajduje numer Proszę zobaczyć że te informacje tutaj tak naprawdę określa się raki szczęściu które systemów it 
+dla każdego katalogu istnieje plik typu katalog tego typu 
+w którym jest informacja o jego i węźle oraz informacja o imprezie katalogu wyżej czyli wynika z tego informacja gdzie w tej strukturze jakim pod katalogiem którego katalogu jest katalog danych 
+Czy to są informacje określające całą strukturę hierarchiczną wszystkie w pliku 
+dobrze Teraz przedstawię taki dodatkowy plik państwu z informacjami ilustrującymi Jak działa system O Panie to mnie ten tutaj dobrze przesunę na prawo to polega widocznie 
+jesteś strony chcę się mieścić o 
+Rozpatrzmy taki przykład mamy pewien plik typu katalog Ystad początkowy jest taki jak tutaj kropka ilustracja Skąd się wzięło to co jest to z lewej strony wyobraź to żeby mamy tak pewien katalog którym jest No oczywiście informacja i wejdę lokata o kompletnie 
+informacja o i B jeśli w katalogu nadrzędnego jest jeden plik 2 x 1 ma i b zawodach 348 52 nr 8 Wyobraźmy sobie że wykonaliśmy polecenie kopy CP plik 153 Co się dzieje w wyniku polecenia kot ma być utworzony nowy plik i do niego 
+zapisana informacja z pliku 1.2 czy ma być utworzony plik o nazwie piw przy i przepisane do niego informacja w zrobić w system operacji 
+co jeśli mam otworzyć plik linowy 
+plik o takiej nazwie No to musi dla niego pobrać z tablicy i węzłów wolny i bez 
+a następnie musi znaleźć wolne bloki dyskowe to ja też tych bloków pisać do tego i weszłam tego to widzimy pobrał i we 355 no i do niego wpisze te nowe bloki dyskowe jak już ma te nowe bloki dyskowe to teraz z bloków dyskowych są adres 348 
+przepisuje informację do bloków dyskowych adresowanych pod 355 w tym i w tym momencie jak się pisze informację to mamy mamy obiekt mamy nową nazwę i nowy obiekt prawda No początkowo zawartość tych bloków dyskowych i tego i tego są identyczne to może coś zmienić prawda I wtedy będą się różniły 
+dobrze kolejne polecenie Powiedzmy że mamy taką sytuację tutaj 
+zostaje wydane polecenie remove plik 2 
+co tu się dzieje Proszę zobaczyć ta nazwanie Żbika wcale P2 tylko wpisany jest numer i węzła numer 0 taki którego nie ma 
+oczywiście zwolniony jest Tarczyn i węzeł który on miał zostać zwolniony p208 w tej chwili z dopisany do tablicy wolnych eventu 
+bloki dyskowe są zwolnione tam informacje się nie czyści w tych blokach dyskont po prostu one są napisane do tablicy wolnych bloków disco mogą być wykorzystane ale nie mów to stąd te informacje gdzieś tam są tylko nie mamy do nich dostępu Bożą zgubione adresy prawda 
+po tego i węzła tych adres już nie mam dobrze polecenie mów plik 3 plik b 
+mamy to plik 3 GB 
+co to będzie wtedy działo proszę zobaczyć to jedyna zmiana jest taka że ta nazwa pik 3 zostaje zastąpiony nazwą ich B 
+A numer i męża zostaje ten sam czyli poleceni mów nie zmienia żadnej zawartości na dysku nie przenosi z jednych bloków dyskowych informacji wyniki jakie były tam puszczają ta nazwa 
+No i tu mamy kolejny przykład 
+polecenia link czyli dowiązanie 2b plik jeden plik a 
+czyli dowiązanie twarde jak wspomniałem oznacza nadanie dodatkowej nazwy istniejące już obiektowi czyli tak dalej na dysku jest plik ona jeden z tymi blokami dyskowym i które są zapisane w evencie 348 Natomiast tutaj przy do wiązaniu pobierana 
+nowa pozycja w tej tablicy do której jest wpisywana nowa nazwa tablic a i przepisywany numer i węzła 340 
+co to oznacz do mamy dwie nazwy to tak jak tutaj żadna rzutnik 15 a które odwołują się do tego samego numeru i wezmę ten sam numer i będzie to że mamy te same informacje adresowe i te same atrybuty czyli te same bloki blisko Leci trzy żyjemy tej nazwy czy tej zawsze do tego samego i wezwała musi 
+system operacyjny pobrać informacje w tych samych lotnisko tutaj na o jednej rzeczy tylko trzeba pamiętać że przy takim poleceniu link 
+zmieniasz się Jaki atrybut liczba dowiązań każde rozwiązanie to zwiększa liczbę dowiązań kobiety 
+dobrze przejdziemy teraz do zadania domowego które mam dla państwa to na razie z winem 
+A może może tak bez samcem 
+to szkoda się powiększyć za bardzo 
+dobrze tam będzie 
+to jest zadanie dotyczące tego obecnego czyli drugiego wykładu dotyczy właśnie atrybutów pliku 
+Co się dzieje gdy Wykonywane są różne operacje z Danym plik tutaj jest możliwość tworzenia aliasów do poleceń tutaj taka taki skrót RL to taki i Alias do dłuższego polecenia LS kreska l standardowo to polecenie LS option ci to ll pokazuje między nimi czas ostatniej modyfikacji pliku 
+wiemy że te wskaźniki czasowe są trzy mamy z opcją u pokazuje czasu ostatniego dostępu do pliku natomiast do piątce ostatni informacji przechowywanych w Iveco że o 19:00 zostało wydane takie polecenie i utworzony plik strzałka taka oznacza że tworzymy tworzony jest nowy 
+wynik tego polecenia wpisywane do tego p utworzony plik ABC i sprawdzona atrybuty do tego znowu użyto tego polecenia a b c i d widzimy prawa dostępu mamy jedna dowiązanie właściciel user1 grupa 29 to jest rozmiar bajtów jest data do 19 Dopasuj że to był wrzesień 13 
+o 19:10 
+śpi wpisano zawartość tego polecenia do pliku ABC dwie strzałki oznaczają że informacje zostały dopisane 
+i trzeba podać co pokażą polecenia No tutaj 
+Cześć Ela jest opcja etrata No tutaj co tutaj się zmieni No to to już podpowiem patrz no to było jak dopiszemy Ten sam zestaw informacja informacja leżały długo będziesz taka sama no to będzie 2 razy 29 tej rozmiar to zmieni się data modyfikacji Prawda też A to trzeba jeszcze podać co będzie z opcją u 
+to to to na tym Proszę się zastanowić 
+No tutaj w tym pierwszym jeszcze Podpowiem na tle nie odczytu nie było tata natomiast jakie informacje zmieniły się trochę źle czy zmieniły się zmieniły się data modyfikacji zmieniła prawda i oznaczyć czyli tak Odpowiadając na takie pytanie Jak podaje ten przykład dlatego że trzeba 
+pokażę to polecenia i uzasadnić do tym wypadku uzasadnij bo że coś się zmieniło i jak prawda i dlaczego zostało rozmiar został powiększony został data bo dziś kasy się zmieniła no i zmieniła się w rezultacie informacja data czas wskaźnik czasowy zawartości węzła problem bo lód a239 czyli A teraz już poszedł samochodzie 
+dalej o 19:20 wydana polecenie link a b c x y z Wpisz dowód to pokażę te polecenia a b c d u Ice 
+olej to pytanie czy tylko widziałeś że się coś zmieniło Czy zmieniło się jeszcze gdzie indziej czy aplikant dyskowych się coś zmieniło czy nie Proszę na tym się spokojnie stanowić i odpowiednio tutaj podać to jest dalszy ciąg prawda czy ten ABC to był taki jak tutaj poty 19:10 do 19:25 No jeszcze do ćwiczeń 
+ja tylko podpowie Change moc zmiana praw dostępu dodać x Znaczy to jest tak troszkę niepotrzebne ale to chodzi dla kotwiczenie to jest dodanie prawa dostępu do domu pytanie gdzie ten Prawa gdzie ta informacja o prawach dostępów jest zmieniana czy weźmie tylko czy na dysku wpisała dyskowy i proszę podać że ona do 
+A my mamy dokładnie podać 
+dotyczące informacje dotyczące plików x y z 
+dobrze i to będzie odpowiedź jako potwierdzenie obecności na ten wykład przy czym tak nawet jeśli będą błędy to ja obecność zaliczam Natomiast jeśli do bardzo dobre odpowiedzi z pełnym uzasadnieniem 
+to takie odpowiedzi będę chciał nagrodzić jednym punktem do opisywanym do wyniku całego kursu 
+oczywiście zasady zaliczenia kursu są bez zmian także no trzeba z tego końcowego sprawdzianu uzyskać punktów z pytań podstawowych co najmniej 15 w całości Ale do do tego będą się dolicza ły będą jeszcze dalsze zadania i to może się okazać że za dodatkowe punkty mogą podwyższyć państwo 
+to będzie taka nagroda za ważną i dobrą pracę 
+dobrze Jest jeszcze parę minut także jeśli ktoś chciałby się o coś zapytać bardzo proszę 
+Dzień dobry ja chciałem zapytać czy te czy ta praca to atrybuty plików zostanie udostępnione czy teraz chyba calcata nie no oczywiście bo to za długie bym tak se teraz przepisywali to oczywiście jak zrobię tak że będzie mail to znaczy dag to jeszcze po prostu z moich materiałach dydaktycznych żeby maila nie obciążać tym Natomiast 
+i termin tak jak poprzednio jest 2 tygodnie na odpowiedź 
+znaczy ja to ja takiego maila o terminach wyślę Natomiast te ten plik będzie w moich na terapię dydaktycznych podany Bardzo proszę jeśli jeszcze kolejne pytania to jest to ja może jeszcze zapytam A propos samej treści wykładów znaczy nie jestem pewna to padał to pliki mają swoje atrybuty i są i węzły w których są atrybuty plików 
+no i wiele informacji się powtarza teraz pytanie czy te atrybuty plików one są wewnątrz samego pliku nim jako jego metadane czy raczej one są do wiązany przez ten i węzeł to jeszcze raz w takim razie muszę powtórzyć genetyczne atrybuty plików są i węzłach a i węzły są w tablicy okej I teraz drugie tam jest No oczywiście wszystkie rzeczy są na dysku pa znaczy trening ABS 
+na dysku w ramach danego systemu plików czyli nie są w blokach dyskowych tego pliku tylko co zupełnie gdzie indziej to okej jeszcze raz tą w strukturze To jest tablica eventów jest w to którą systemu operacyjnego okej tak nie w pełni jasne w tej chwili czy tak tak tak jest drugie pytanie czy informacje na przykład o rozmiarze pliku jest zapisana Czy ona jest oblicz 
+za każdym razem kiedy pytam o rozmiar i czy na przykład mógłbym zrobić tak że jakiś plik który ma mało informacji bym zepsuje gówno olbrzymim rozmiarze czy tak zmanipulować informacjami o pliku więc informacja o rozmiarze pliku jest wpisana w i węźle tego pliku jest wpisywana zgodnie z tym co 
+informacji jest wpisanych do tych bloków dyskowych tego pliku 
+już jasne czy jeszcze nie to znaczy nie teraz pytanie jak bardzo mogę tego nadużyć czy jestem w stanie na przykład zmodyfikować tą informację 
+Avia kino jak jak pan powiększy jest pan w stanie zmodyfikować powiększając zestaw informacji zawartych w pliku a poza tym nie wiem no właśnie czy bez bez zmiany samego pliku zmienić jego informacje o rozmiarze i na przykład zapisać krótki plik tekstowy jako drugi gabarytowy plik nie okej Szkoda dziękuję Proszę bardzo jeśli jeszcze są kolejne pytania to 
+znaczy ja powiem tak wszystko można jeść zmodyfikuj about system operacyjny ale Zakładam że system operacyjny niemodyfikowalne tak nie logowanie konie są prawa fizyki tylko to wszystko tworzą ludzie prawda więc nawet to co ja państwu przedstawiam czy Beata to w literaturze No to dotyczy prawnego konkretnego 
+pewnie konkretnej klasy systemów bo tą Przecież to wszystko otworzymy jako informatycy i są coraz to nowe pomysły i zaraz inaczej można to wszystko robić kawę inaczej oprogramowanie napisać No dobra w porządku Bardzo proszę jeśli ktoś państwa czas już tam kończy ale się są pytanie 
+wyślij nie to takim razie zakończy nagrywanie bardzo Państwu Dziękuję za udział No i zapraszam do pracy dalej że będziemy mieli dobre wyniki w tym roku także trzymam kciuki za za wynik do widzenia 

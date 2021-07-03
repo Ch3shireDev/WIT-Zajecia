@@ -1,0 +1,81 @@
+# Egzamin z ekonomii
+
+Określ, czy poniższe zdania są prawdziwe czy fałszywe.
+
+- Rachunek ekonomiczny to porównanie nakładów i wyników działalności gospodarczej
+- Paradoks Giffena dotyczy dóbr, których udział w wydatkach jest mały
+- Zmniejszenie kosztów stałych jest spowodowane spadkiem rozmiarów produkcji
+- Prawo malejącej użyteczności krańcowej wyjaśnia dlaczego krzywa obojętności jest nachylona dodatnio
+- Popyt jest mało elastyczny względem ceny gdy względna zmiana ceny jest większa od względnej zmiany popytu
+- Punkt optimum technologicznego wyznacza wielkość produkcji przy której koszt krańcowy osiąga minimum
+- Koszt przeciętny stanowi iloraz kosztu stałego i rozmiarów produkcji
+- Jeżeli dane dobro ma bliki substytut o podobnej cenie to popyt na to dobro jest elastyczny
+- Prawo Engla głosi że w miarę wzrostu dochodów rosną wydatki ludzi na żywność
+- Pionowa krzywa podaży oznacza, że podaż jest mało elastyczna
+- Spadek ceny danego dobra powoduje przesunięcie w lewo krzywej podaży tego dobra
+- Dobra normalne to dobra na które popyt wzrasta w miarę wzrostu dochodu
+- Przedsiębiorstwo konkurencyjne osiąga optimum produkcyjne w punkcie przecięcia się kosztów krańcowych z ceną
+- Popyt jest wysoce elastyczny względem ceny gdy względna zmiana ceny jest wyższa od względnej zmiany popytu
+- Krzywa popytu ma nachylenie dodatnie
+- Koszt przeciętny stanowi iloraz kosztu zmiennego i rozmiarów produkcji
+- Dla każdej ceny poniżej ceny równowagi powstaje niedobór produktu w stosunku do zapotrzebowania na ten produkt
+- Krańcowa stopa substytucji mierzy odległość między krzywymi obojętności
+- Ujemny współczynnik cenowej mieszanej elastyczności popytu świadczy o tym że analizowane dobra są dobrami niższego rzędu
+- Nauka ekonomii zajmuje się tworzeniem praw ekonomicznych
+- W gospodarce rynkowej ceny są ustalane przez konsumenta a w gospodarce nakazowo rozdzielczej przez producenta
+- Popyt jest wysoce elastyczny względem ceny gdy względna zmiana ceny jest mniejsza od względnej zmiany popytu
+- Ponieważ podstawowym celem firmy jest maksymalizacja zysku to powinna ona rozszerzać swoją produkcję tak długo jak zysk się zwiększa
+- Ekonomicznym celem gospodarstwa domowego jest maksymalizacja wydatków na konsumpcję
+- Dla każdej ceny poniżej ceny równowagi powstaje niedobór produktu w stosunku do zapotrzebowania na ten produkt
+- Zmiany czynników niecelowych powodują zmiany wielkości popytu wzdłuż danej krzywej popytu
+- Zysk przeciętny jest różnicą między kosztem przeciętnym i utargiem przeciętnym
+- Jeżeli cena dobra x maleje a popyt na dobro y wzrasta to dobra x i y są dobrami komplementarnymi
+- Popyt jest mało elastyczny względem ceny gdy wględna zmiana ceny jest większa od względnej zmiany popytu
+- Zysk przeciętny jest różnicą między utargiem całkowitym a kosztami przecięntymi
+- Efekt dochodowy zmiany ceny polega na zmianie struktury popytu spowodowanej zmianą ceny
+- Ujemny współczynnik cenowej mieszanej elastyczności popytu świadczy o tym że analizowane dobra są dobrami niższego rzędu
+- Kształt krzywej obojętności wynika z prawa malejącej użyteczności krańcowej
+- Krańcowa stopa substytucji mierzy odległośc między dwiema krzywymi obojętności
+- Rynek sprzedawcy charakteryzuje się długotrwałą nadwyżką podaży nad popytem
+- Na rynku doskonałym żaden z podmiotów nie wpływa indywidualnie na kształtowanie cen
+- Rynek monopolistyczny charakteryzuje się znacznym rozproszeniem popytu i podaży
+- Przekształcenie popytu potencjalnego w popyt efektywny zależy tylko od woli konsumenta
+- Graficznym odzwieciedleniem popytu doskonale elastycznego jest typowa ujemnie nachylona krzywa popytu
+- Wszystkie dobra podrzędne są dobrami Giffena
+- W krótkim okresie podaż reaguje na zmianę ceny w mniejszym stopniu niż w okresie długim
+- W krótkim okresie zwiększenie podaży jest możliwe dzięki inwestycjom
+- Wszystkie dobra podstawowe są dobrami podrzędnymi
+- Pojęcie dobro wyższego rzędu jest węższe od dobra normalne
+- Krzywa Engla pokazuje jaką ilość danego dobra konsumenci są skłonni kupić przy danym poziomie dochodów
+- Efekt dochodowy przedstawia wpływ zmiany dochodu konsumenta na cenę i ilość konsumowanego dobra
+- Popyt konsumentów na dane dobro zależy od ceny tego dobra i dochodów konsumentów natomiast nie zależy od cen innych dóbr
+- Jeżeli relatywnie duża zmiana ceny powoduje relatywnie małą zmianę popytu to popyt jest nieelastyczny
+- Popyt jest mało elastyczny przy wyższych cenach i elastyczny przy niższych
+- Cenowa elastyczność popytu i nachylenie krzywej popytu to dwie różne wielkości
+- Jeżeli zmiana ceny produktu nie powoduje zmiany ceny jego podaży to podaż jest doskonale nieelastyczna a krzywa podaży jest pionowa
+- Gdy rośnie dochód konsumenta udział wydatków na dobra normalne zawsze rośnie
+- Spadek kosztów produkcji powoduje przesunięcie krzywej podaży w prawo
+- Dodatnia wartość współczynnika mieszanej cenowej elastyczności popytu świadczy o tym iż między dwoma dobrami występuje związek substytucji
+- Popyt sztywny to popyt który tylko nieznacznie reaguje na zmianę cen
+- eżeli dane dobro ma bliski substytut o podobnej cenie to popyt na to dobro jest elastyczny
+- Elastyczność cenowa popytu na batony Mars jest wyższa niż elasyczność cenowa popytu na batony w ogóle
+- Korzyści skali pojawiają się wtedy gdy wraz ze wzrostem produkcji przeciętny koszt zmienny spada
+- Według klasycznego modelu funkcjonowania przedsiębiostwa podstawowym celem przedsiębiorstwa prywatnego jest minimalizacja kosztu jednostkowego
+- Prawo malejących przychodów głosi że zwiększenie nakładów czynnika zmiennego daje od pewnego momntu malejące przyrosty produkcji
+- Utarg przeciętny to dochód ze sprzedaży jednej jednostki produktu
+- Produkt przecięnty jest zawsze większy od produktu krańcowego
+- Funkcja produkcji charakteryzuje się stałymi efektami skali jeśli rozmiary produkcji rosną szybciej niż nakłady czynników produkcji
+- Krańcowy produkt pracy zawsze musi być równy cenie produkcji
+- Jeśli krańcowa stopa substytucji kapitału przez pracę jest równa stosunkowi ceny pracy do ceny kapitału to firma powinna zwiększyć zatrudnienie czynnika pracy
+- Krańcowa stopa substytucji kapitału przez pracę jest miarą nachylenia stycznej do danej izokwanty
+- Rosnąca część krzywej długookresowego kosztu przeciętnego pokazuje niekorzyści skali
+- W okresie krótkim nakłady jednego z czynników używanych w procesie produkcyjnym są stałe
+- Koszt całkowity jest rosnącą funkcją wielkości produkcji
+- Pionowa odległość między krzywą kosztu całkowitego a krzywą kosztu stałego jest równa kosztowi zmiennemu
+- Jeśli koszt krańcowy maleje to maleć musi również koszt przeciętny
+- Konkurencję doskonałą charakteryzuje rozproszenie po stronie popytu i podaży
+- Rynek doskonale konkurencyjny jest doskonale efektywny
+- Krótkookresowa krzywa kosztu krańcowego zawsze przecina krzywą krótkookresowego kosztu przeciętnego w jej minimum
+- Koszt krańcowy zawsze rośnie wraz ze wzrostem produkcji
+- Jeżeli utarg krańcowy przewyższa koszt krańcowy to przedsiębiorstwo wolnokonkurencyjne produkuje zbyt wiele z punktu widzenia maksymalizacji zysku całkowitego
+- Krzywa podaży firmy wolnokonkurencyjnej to zarazem rosnący odcinek krzywej utargu krańcowego tej firmy

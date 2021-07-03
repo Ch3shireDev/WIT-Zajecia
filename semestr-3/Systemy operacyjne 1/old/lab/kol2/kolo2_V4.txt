@@ -1,0 +1,114 @@
+WIT, 2021-02-06; SysOp1, kolokwium 2: wersja 4
+
+UWAGA: Zadanie 1 MUSI być wykonane przed 2 i 3, zadanie 2 PRZED 3; Pozostałe
+zadania (4-6)mogą być wykonane w dowolnej kolejnosci.
+
+-----------------
+1 (MAX. 2 PUNKTY)
+PRZYGOTOWANIE: Utwórz- w domowym- podkatalog: "K2_V4" i tam dalej pracuj;
+a.(1 PUNKT)
+   Pobierz plik: "skrypt_V4" z katalogu:
+     "/opt/windows/staff/pkopersk/SysOp1/Kolo3/" 
+   na maszynie "oceanic", używając polecenia "scp", "sftp" lub panelu "mc";
+b.(1 PUNKT)
+   Uruchom ten skrypt w bieżacej- lub w potomnej powłoce (jeśli potrzeba-
+   modyfikując prawa dostępu).
+
+Uwaga: skrypt tworzy 5 różnych plików o nazwach pasujących do pewnego wzorca, 
+umieszczając tam: informacje o uzytkowniku (w pierwszym pliku), datę i czas oraz 
+(tylko w ostatnim pliku) informacje o jądrze i architekturze sprzętowej systemu.
+W razie trudności- skontaktuj się z prowadzącym lub utwórz pliki samodzielnie,
+na podstawie poleceń w skrypcie.
+
+JAKO ODPOWIEDZI PODAJ:
+sekwencję wydanych poleceń ORAZ napis podany w odpowiedzi na pytanie ze skryptu.
+
+-------------------
+2 (MAX. 4 PUNKTY)
+Nie używając edytora zmodyfikuj, wg. podanego niżej opisu, zawartość ostatnio
+utworzonego pliku (nalezy sprawdzić który to plik), ALE wynik zapisz
+w NOWYM pliku o nazwie takiej jak oryginał Z DODANYM NA KOŃCU członem:
+"_<TWOJ_LOGIN>" (np. dla oryginału o nazwie "plik" i loginu "piotr", nowa nazwa
+będzie "plik_piotr");
+Wprowadzon3 zmiany polegają na tym, aby (kolejno):
+a.(1 PUNKT)
+   spacje były zastąpione znakiem nowej linii ORAZ
+b.(1 PUNKT)
+   aby nie było żadnej pustej linii ORAZ
+c.(1 PUNKT)
+   ostatnia linia zawierała TYLKO informację o domyślnej grupie uzytkownika,
+   zapisaną w pierwszym z utworzonych plików.
+
+Uwagi: - MOZLIWY dodatkowy (1 PUNKT) za krótkie, eleganckie sformułowanie;
+       - w a. i b. : zastosować polecenie: "tr" (oraz ewentualnie inne);
+       - znak nowej linii to \n ;
+       - w b. : można to  zrobić na 2 sposoby- wystarczy wybrac jeden.
+
+JAKO ODPOWIEDZI PODAJ:
+sekwencje wydanych poleceń ORAZ zawartość "zmienionego" pliku.
+
+-------------------
+3 (MAX. 2 PUNKTY)
+a.(1 PUNKT)
+   Ile jest linii we wszystkich plikach utworzonych w zadaniu 1 ?
+b.(1 PUNKT)
+   Usun, używając możliwie NAJMNIEJSZEJ liczby poleceń, wszystkie pliki
+   utworzone w zadaniu 1. OPRÓCZ "zmienionego" (czyli OPRÓCZ pliku
+   z "_<TWOJ_LOGIN>" na końcu nazwy);
+
+JAKO ODPOWIEDZI PODAJ: sekwencje wydanych poleceń.
+
+-------------------
+4 (MAX. 4 PUNKTY)
+Utwórz (bez edytora) plik SPIS_1.TXT zawierający 2 kolumny tekstu, gdzie:
+a.(1 PUNKT)
+   pierwsza kolumna jest nazwą pliku w Twoim katalogu domowym ORAZ
+b.(1 PUNKT)
+   druga kolumna numerem i-węzła tego pliku ORAZ
+c.(1 PUNKT)
+   kolumny oddzielone są JEDNĄ (!) spacją.
+d.(1 PUNKT)
+   wyświetl zawartośc pliku posortowaną bez rozróżniania małych/dużych liter i
+  z separatorem # zamiast spacji
+
+JAKO ODPOWIEDZI PODAJ: sekwencje wydanych poleceń i zawartosc utworzonego pliku.
+
+-------------------
+5 (MAX. 3 PUNKTY)
+a.(1.5 PUNKTA)i
+   Wyszukaj w katalogu /tmp pliki (TYLKO !), podając jako wynik TYLKO ich 
+   liczbę. Wyjaśnij czy wynik jest wiarygodny.
+   Co zrobić, aby cała wyświetlana informacja została zapisana w pliku ?
+b.(1.5 PUNKTA)
+   Wyszukaj w /dev pliki specjalne typu b (TYLKO !) starsze niż tydzień,
+   uzyskując jednocześnie informację o i-węzłach znalezionych obiektów.
+
+Uwaga: w obu przypadkach można to zrobić na 2 sposoby- wystraczy podać jeden.
+
+JAKO ODPOWIEDZI PODAJ: sekwencje wydanych poleceń (i wyjaśnienie w punkcie a.).
+
+--------------------
+6. (MAX. 5 PUNKTOW)
+Ustaw domyślny znak zachęty tak, aby zawierał:
+a.(2 PUNKTY)
+   kod zakończenia ostatnio wykonanego polecenia ORAZ czas (!bez daty);
+b.(3 PUNKTY)
+   Poniższa sekwencja poleceń generuje pseudolosową liczbę całkowitą z zakresu
+   0-255:
+	od A none -t u1 -N1 /dev/urandom
+   a następne generuje 2 pseudolosowe znaki ascii (ich nazwy, gdy są one
+   "niedrukowalne"):
+	od -A none -a N2 /dev/urandom
+   Korzystając z tej wiedzy oraz ze znanych poleceń i mechanizmów shella bash,
+   należy:
+   podać ciąg poleceń AUTOMATYCZNIE generujących w bieżącym katalogu pliki o
+   przypadkowych nazwach (według wzorca: "3 znaki ascii", "podkreślenie" i
+   "2 cyfry" (np. +Az(_12) tak długo, dopóki wtgenerowana licaba nie jest
+   większa niż 100.
+c.(1 PUNKT)
+   Co zrobić, aby liczba w nazwie miała określony zakres, między (np. 10..20) ?
+
+Uwagi: - w (a) manual shella, paragraf PROMPTING; środowisko użytkownika;
+       - w (b,c) polecenia: od, test, let, if ... , while ... lub podobne.
+
+JAKO ODPOWIEDZI PODAJ: sekwencje wydanych poleceń i otrzymana liczbę losową

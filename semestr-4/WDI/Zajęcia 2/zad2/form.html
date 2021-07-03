@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style-form.css">
+</head>
+
+<body>
+
+    <div id="main">
+
+        <div id="header" class="bg-primary shadow">
+            <div class="bg-secondary d-flex">
+                <div id="header-title">
+                    <h1>Oldtimer club</h1>
+                </div>
+                <div id="header-image">
+                    <img
+                        src="https://i.guim.co.uk/img/static/sys-images/guardian/About/General/2012/4/11/1334168379495/Danny-DeVito-008.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdG8tZGVmYXVsdC5wbmc&enable=upscale&s=07b33e4e450f1b4485c28d215d2c19e6">
+                </div>
+            </div>
+        </div>
+        <div id="body">
+            <nav class="bg-primary shadow">
+                <ul class="bg-secondary">
+                    <li class="bg-primary shadow">Pierwszy</li>
+                    <li class="bg-primary shadow">Drugi</li>
+                    <li class="bg-primary shadow">Trzeci</li>
+                </ul>
+            </nav>
+
+            <form method="POST"  class="bg-primary shadow">
+                <table class="bg-secondary">
+                    <th>
+                        <h3>Formularz dodawania zgłoszenia</h3>
+                    </th>
+
+                    <tr class="form-field">
+                        <td>
+                            <label for="make">Marka</label>
+                        </td>
+                        <td>
+                            <input type="text" id="make" name="make" required>
+                        </td>
+                    </tr>
+
+                    <tr class="form-field">
+                        <td>
+                            <label for="model">Model</label>
+                        </td>
+                        <td>
+                            <input type="text" id="model" name="model" required>
+                        </td>
+                    </tr>
+
+                    <tr class="form-field">
+                        <td>
+                            <label for="year">Rok</label>
+                        </td>
+                        <td>
+                            <input type="text" id="year" name="year" required>
+                        </td>
+                    </tr>
+
+                    <tr class="form-field">
+                        <td>
+                            <label for="engine">Silnik</label>
+                        </td>
+                        <td class="radio-field">
+                            <input type="radio" id="engineChoice1" name="engine" value="gas" required>
+                            <label for="engineChoice1">Benzyna</label>
+                            <input type="radio" id="engineChoice2" name="engine" value="diesel">
+                            <label for="engineChoice2">Diesel</label>
+                        </td>
+                    </tr>
+
+                    <tr class="form-field">
+
+                        <td>
+                            <label for="fequipment">Wyposażenie</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="equipment1" name="equipment" value="air conditioning">
+                            <label for="equipment1">Klimatyzacja</label>
+                            <br>
+                            <input type="checkbox" id="equipment2" name="equipment" value="ABS">
+                            <label for="equipment2">ABS</label>
+                            <br>
+                            <input type="checkbox" id="equipment3" name="equipment" value="power steering">
+                            <label for="equipment3">Wspomaganie kierownicy</label>
+                        </td>
+                    </tr>
+
+                    <tr class="form-field">
+                        <td>
+                            <label for="condition">Stan ogólny</label>
+                        </td>
+                        <td>
+                            <select id="condition" name="condition">
+                                <option value="bad">Zły</option>
+                                <option value="mediocre">Średni</option>
+                                <option value="good" selected>Dobry</option>
+                                <option value="very good">Bardzo dobry</option>
+                                <option value="ideal">Idealny</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr class="form-field">
+                        <td>
+                            <label for="description">Opis</label>
+                        </td>
+                        <td>
+                            <textarea type="text" id="description" name="description"></textarea>
+                        </td>
+                    </tr>
+
+                    <tr id="buttons-field">
+                        <td>
+                            <input type="submit" value="Potwierdź">
+                        </td>
+                        <td>
+                            <input type="reset" value="Resetuj">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>

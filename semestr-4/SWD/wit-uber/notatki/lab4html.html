@@ -1,0 +1,178 @@
+# Regresja liniowa.
+
+#Model linowy Y= B0+B1x+Teta<- b³¹d losowy
+
+Prosta regresji Y= B0+ B1x   B0=^B0; B1=^B1 (Estymacja metod¹ najmniejszych kwadratów)
+
+
+# reszty = Yi-Y^i=Epsilon i
+# Zad 1 zestaw 7
+x- dochód
+y - wartoœæ domu
+
+x=c(36,64,49,21,28,47,58,19,32) 
+y=c(129,310,260,92,126,242,288,81,134)
+
+rysowanie próby
+plot(x,y,xlab="dochod",ylab="wartosc domu")
+
+model=lm(y~x) # dopasowanie modelu liniowego
+
+
+# rysowanie modelu na prubach
+plot(x,y,xlab="dochod",ylab="wartosc domu")
+abline(model,col="red")
+
+###1. Test istotnoœci zwi¹zku liniowego miêdzy Y i X (test t istotnoœci wspólczynika B1)
+H: B1  = 0 # model Ÿle dopasowany nie ma zale¿noœci liniowej
+K: B1 != 0 #
+
+summary(model) # sprawdzamy dopasowanie 
+
+t-value = 13.172
+p-value = 3.39e-06 <alfa=0.05
+
+# wniosek model jest dobrze dopasowany
+
+(opcjonalnie)
+Test istotnoœci wsp. B0;
+H: B0=0 (wsp. jest nie istotny)
+K  B0!=0 
+
+# wniosek B0 jest nie istotny w modelu.
+
+###2. Wartoœæ wspó³czynika dopasowania R^2
+
+Mulitple R-squard = 0.9612= 96,12%
+					W takim stopniu model wyjaœnia zmienoœæ y
+
+(R^2=SSR/SST)
+
+# Wniosek: Model jest dobrze dopasowany.
+
+###3. Test Normalnoœci reszt. ( sprawdzamy czy reszty maj¹ rozk³ad normalny)
+
+reszty = model$residuals
+
+segments(x,model$fitted,x,y) # rysuje doleg³oœci punktów z próby do lini modelu
+
+#test normalnoœci
+
+qqnorm(reszty)
+qqline(reszty)
+
+shapiro.test(reszty)
+
+H: reszty maj¹! rozk³ady normalne
+K: nie! maj¹ rozk³adów normalnych
+# wniosek p-value wiêksze od aplha=0.05 nie odrzucamy hipotezy H.
+
+Testy równowa¿na z testem T istotnoœci wspó³czynika B1.
+1. Test istotnoœci zwi¹sku liniowego miêdzy Y a X z tabeli ANOVA
+anova(model)
+2. Test istotnoœci wspó³czynika korelacji liniowej 
+H: ro =0
+K: ro!=0
+cor.test(x,y)
+
+
+###Prognoza dla x=40 (tys$)
+
+predict(model,list(x=40))
+
+prognoza wraz z 0.95 przedzia³em ufnoœci.
+
+predict(model,list(x=40),int="c",(opcjonalnie) level=0.95)
+
+###### ZAD 5
+
+x=c(20,30,40,50,80,140,200,250)
+y=c(4.8,3.2,2.5,2.5,1.5,1.8,1.2,0.8)
+
+plot(x,y)
+
+## dobieramy modele z g³owy !
+
+# linowy
+model1=lm(y~x) # model linowy y:bo+bix
+
+
+# model wykladniczy y=exp(b0+b1x) <=> ln(y)=b0+b1x
+lny=log(y)
+model2= lm(lny~x)
+
+# model potêgowy : y=b0x^b1 <=> ln(y)=ln(b0)+b1*ln(x)
+model3=lm(log(y)~log(x))
+
+# model odrwotnoœciowy wzglêdem y: y=1/(b0+b1x) <=> 1/y=b0+b1x
+odwrY=1/y
+model4=lm(odwrY~x)
+
+# model odrwotnoœciowy wzglêdem x: y=b0+b1*(1/x) 
+odwrX=1/x
+model5=lm(y~odrwX)
+
+summary(model1)$r.squared
+summary(model2)$r.squared
+summary(model3)$r.squared
+summary(model4)$r.squared
+summary(model5)$r.squared
+
+# wniosek najwiêkszy jest model 5!!
+# wiec zajmojemy siê modelem 5
+summary(model5)
+model: Y=0.7552+78.0908*1/x
+
+# Sprawdzamy istotnoœæ B1
+H: B1=0
+K: B1!=0
+# p-value ma³e wiêc odrzucamy! hipoteze H
+
+# Poziom objaœniania przez model
+R^2= 
+
+shapiro.test(model5$residuals)
+
+#prognoza
+1/predict(model5,list(x=100),level=0.95)
+
+
+
+####### Regresja wieloraka  ZAD 7
+
+Model linowy :Y = b0+b1x1+b2x2+epsilon
+Y - wartosæ sprzeda¿y
+x1 - wydatki na reklame
+x2 - wydatki na pokazy
+
+y=c(72,76,78,70,68,80,82,65,62,90)
+x1=c(12,11,15,10,11,16,14,8,8,18)
+x2=c(5,8,6,5,3,9,12,4,3,10)
+
+model=lm(y~x1+x2)
+### 1. Testy istotnoœci wspó³czyników
+summary(model)
+### 2.  Wartoœæ skorygowania wsp. dopasowania 
+Multiple R-squared: 0.961,      Adjusted R-squared: 0.9499
+
+### 3. Sprawdzenie norlmanoœæi reszty
+H: Reszy s¹ normalny
+K: nie s¹ normalne
+# wniosek p-value du¿e nie! odrzucamy H
+
+shapiro.test(model$residual)
+
+
+Prognoza dla x1=8,x2=12
+
+predict(model,data.frame(x1=8,x2=12)
+
+#### Wybór najlepszego modelu metod¹ selekcji zmienych objeœniaj¹cych( x1,x2 itd)
+
+step(model,direction="backword") # domyœlnie
+
+step(model,direction="forward") # pusty model
+
+step(model,direction="both")
+
+

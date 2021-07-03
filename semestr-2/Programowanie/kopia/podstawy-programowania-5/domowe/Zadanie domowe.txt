@@ -1,0 +1,16 @@
+Zadanie domowe:
+
+Zad 1. Napisać 4 możliwe różne proste praktyczne programy w c++ które będą w możliwe najprostszy/przejrzysty sposób najlepiej obrazować przydatność i zastosowanie w praktyce: 
+a) adresowania zmiennych 
+b) wykorzystanie deklaracji wskaźnikowej
+c) przekazywanie argumentów funkcji przez wskaźnik 
+d) związek wskaźników z tablicami
+e) obrazować dynamiczne zarządzanie pamięcią 
+f) przydzielanie i zwalnianie pamięci dla pojedynczych zmiennych i tablic
+g) dostęp do dynamicznie alokowanej pamięci
+Wszystkie zadania powinny być bardzo dokładnie opisane komentarzem.
+
+
+
+Zad 2. Napisać program test z c++ ok. 10-20 pytań z powyższego zakresu
+Test powinien mieć 4 możliwe odpowiedzi (jedna prawdziwa), pytania powinny być losowo wczytywane z pliku txt bez powtórzeń. Na koniec powinno być podsumowanie ilości odpowiedzi złych i prawidłowych. Program powinien być tak napisany aby można było dodawać do pliku kolejne nowe pytania. 

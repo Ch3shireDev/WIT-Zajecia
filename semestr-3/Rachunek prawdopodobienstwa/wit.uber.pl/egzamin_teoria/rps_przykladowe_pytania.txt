@@ -1,0 +1,25 @@
+1)	Estymator zgodny str.102 
+2)	Twierdzenie graniczne Linderberga-Levy'ego - CTG str.57 
+3)	Test zgodnoœci Ko³mogorowa str.153 
+4)	Wspó³czynnik korelacji rangowej Spearmana str.161 
+5)	wszystko o dystrybuancie 
+6)	czym sie rozni prawd. niezalezne od rozlacznego str 16 
+7)	kowaqriancja str 52 
+8)	estymatory str 101 
+9)	estymator efektywny - co to jest? jak stwierdzic ktory estymator jest bardziej efektywny? str 104 
+10)	wzor Bayesa - napisac, postawic hipoteze, wyjasnic itd. str 16 
+11)	tw. Glivenko-Cantelli 
+12)	Wspó³czynnik korelacji (wzór + w³asnoœci) str 52 
+13)	Definicja prawd. + aksjomaty. str 11 
+14)	estymator asymptotycznie nieobciazony str 103 
+15)	narysowal mi wykres i przedzial od a do b i musialem obliczyc prawdopodobienstwo z tego 
+16)	poziom istotnosci (i potem I ten blad ) str 135 
+17)	moc testu 
+18)	estymator nieobci¹¿ony str 103
+19)	efektywnosc 
+20)	dystrybunta dwoch zmiennych  
+21)	CTG, 
+22)	def. prawdopodobienstwa, 
+23)	lemat Gliwenki-Cantelliego,
+24)	asymptotyczna nieobciazonosc i cos tam jeszcze
+25)	kiedy zmienne losowe sa niezalezne

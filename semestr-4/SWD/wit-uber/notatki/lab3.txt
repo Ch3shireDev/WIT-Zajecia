@@ -1,0 +1,327 @@
+#Zad1
+m=100
+n=rnorm(m)
+c=rcauchy(m)
+u=runif(m)
+w=rexp(m)
+aw=-w
+par(mfrow=c(3,2))
+qqnorm(aw,main="-EXP")
+qqline(n,col="red") 
+
+#Zad2
+O=73
+A=74
+B=34
+AB=19
+x=c(O,A,B,AB)
+pstwa=rep(0.25,4) # powtarza dla 4 razy wartoœæ 0.25
+
+# test zgodnoœci
+#chisq.test(wektor z obserwacjami,p=wektor prawdopodbierñstw, <corect=false>)
+chisq.test(x,p=pstwa,correct=F)
+pstwa2=c(0.367,0.371,0.186,0.076)
+chisq.test(x,p=pstwa2,correct=F)$expected
+
+#Zad 3 do domu!!
+
+#Zad 4
+wakacje=read.csv2("P:/smwd/wakacje.csv")
+head(wakacje)
+tabela=table(wakacje$miejsce)
+chisq.test(tabela)
+
+#Zad 5
+x=c(2.5,1.8,6,0.5,8.75,1.2,3.75)
+ks.test(x,"pnorm",0.25)
+
+#Zad 6
+
+#Test jednorodnoœæo chi-kwadrat
+prop.test(wektot liczb sukcesów,licznosci prób)
+x=c(61,34,38,35)
+y=c(206,164,98,102)
+prop.test(x,y)
+
+#Zad 7 test niezale¿noœci chi-kwadrat
+licznosc=matrix(c(80,115,55,95,70,35),2			,3			, byrow=T)
+			vector              liczba wierszy liczba kolumnb wypelnie wierszami
+
+w1=c(80,115,55)
+w2=c(95,70,35)
+licznosci=rbind(w1,w2)
+		cbind # ³¹czenie kolumnami
+chisq.test(licznosci)
+ 
+#Zad 8 
+
+tabelka=table(wakacje)
+chisq.test(tabelka)
+
+
+#ANOVA!!! Analiza wariancji
+#Y - zmiena odpowiedzi ( objaœniana)
+#A- czynnik ( zmiena objaœniaj¹ca)
+Zak³admy ¿e A mo¿e istnieæ na 'k' poziomach.
+
+Zad 1
+
+# Y- wytrzyma³oœæ na œciskanie
+# A - gatunek betonu
+#k=3
+
+# Test F : H :q1=q2=..=qk
+	     K :nie H
+#qi- Œrednia wytrzyma³oœæ na œciskanie danego gatunku betonu.
+#Za³o¿enia 1:Dla ka¿dego pozimu czynnika A rozk³ad Y jest normalny stak¹ sam¹ wariancj¹.
+# sigma1^2=sigma2^2=...=sigmak^2
+w=c(204,200,198,204,197,205,213,209,190,208,202,210)
+gat=c(rep(1,4),rep(2,4),rep(3,4))
+w1=w[gat==1]
+w2=w[gat==2]
+w3=w[gat==3]
+
+par(mfrow=c(3,1))
+qqnorm(w3,main="norm")
+qqline(w3,col="red") 
+
+# test normalnoœci Shapira-Wilka
+# Sprawdzamy zalo¿enie H: Yi ma rozk³ad normalny
+				K: nie H
+
+shapiro.test(w1)
+shapiro.test(w2)
+shapiro.test(w3)
+# sapply(list(w1,w2,w3),shapiro.test)
+
+# Za³o¿enie 2: Sprawdzamy równoœæ wariancji
+# H: sigma1^2=sigma2^2=...=sigmak^2
+  K: nie H
+# Test Bartleta 
+bartlett.test(w,gat)
+
+#Yij= ui+ Eij <- b³ad losowy = mi+Bi+Eij
+
+#Test F
+g=factor(gat)
+summary(aov(w~g))
+
+czas=c(19,22,20,18,25,21,24,17,20,21,33,27,29,30,22,23,16,15,18,26,17,23,20,19)
+typ=c(rep(1,8),rep(2,8),rep(3,8))
+
+# Za³o¿enia 1: Normalnoœæ (test Shapiro-Wilka)
+	Hi: Yi ma rozk³ad normalny
+	Ki: nie Hi
+c1=czas[typ==1]
+c2=czas[typ==2]
+c3=czas[typ==3]
+
+shapiro.test(c1)
+shapiro.test(c2)
+shapiro.test(c3)
+
+Rozk³ady s¹ normalne p-value > 0.05
+
+
+# Za³o¿enie 2: Równoœæ wariancji ( test bartleta)
+ H:
+bartlett.test(czas,typ)
+  H: sigma1^2=sigma2^2=...=sigmak^2
+  K: nie H
+
+p-value> 0.05 
+Warianjcie s¹ równe
+
+Za³o¿enia ANOVA s¹ spe³nione!
+Testujemy równosæi œrednich: ( test.ANOVA)
+H: mi1=mi2=mi3
+K : nie H
+
+t=factor(typ)
+summary(aov(czas~t))
+
+p-value < 0.05
+
+Zatem czas reakcji zale¿y od typu uk³adu.
+
+Prównania wielkortne!! ( test Tukey'a)
+H1: mi1=mi2
+K1: nie H1
+
+H1: mi1=mi3
+K1: nie H2
+
+H1: mi2=mi3
+K1: nie H3
+
+model=aov(czas~t)
+plot(TukeyHSD(model))
+
+#Zad 3
+z=read.csv2("P:/smwd/zarobki.csv")
+
+Y-zarobki
+A- miasto i=1,2,3,4
+
+Yi- zarobki w i-tym mieœæie
+
+Sprawdzamy za³o¿enia:
+
+Normalnoœæ:
+Hi: Yi ma rozk³ad normalny 
+Ki: nie H
+
+zWa=z$zarobki[z$miasto=="Warszawa"]
+zKr=z$zarobki[z$miasto=="Krakrow"]
+zKa=z$zarobki[z$miasto=="Katowice"]
+zWr=z$zarobki[z$miasto=="Wroclaw"]
+
+
+shapiro.test(zWa)
+shapiro.test(zKr)
+shapiro.test(zWr)
+shapiro.test(zKa)
+
+nie s¹ normalne
+
+Stosujemy metody nie parametryczne ( test Ktuskala-Walisa)
+H: F1=F2=F3=F4
+K: nie H
+
+kruskal.test(z$zarobki,z$miasto)
+
+p-value < 0.05  przyjmujemy K
+
+Kolos  zestawy 3,4,5
+
+
+
+# ANOWA dwu czynikiowa
+
+Y-zmiena odpowiedzi
+A - czynik B- czynik
+
+Yij=MI +ALPHAi+BETAj+(ALPHA*BETA)ij+TETAij
+
+Zestaw 6
+
+ZAD 6
+
+Y- plon
+A- Woda i =1,2 (a=2)
+B- azot i=1,2,3,4 (b=4)
+k=1,2,3,4
+
+Za³o¿enia 
+W ka¿dejz a*b=8 pod populacji rozka³dy sa normalne z t¹ sam¹ wrainacj¹
+
+Test normalnoœæi
+
+i=1,2
+j=1,2,3,4
+
+Hij: Yij ma rozk³ad normalny
+Kij: nie H
+
+#Sptyne wprodwadzanie danych
+woda=factor(rep(1:2,each=16)) 
+
+azot=factor(rep(rep(1:4,each=4),2)
+
+plon=c(...)
+
+# tworzymy klase potrzebn¹ do sprawdzenia za³o¿eñ
+klasa=paste(woda,azot,sep="||")
+
+
+#Test normalnoœci
+Shapiro wilka
+
+# zastosuj plon, klas do shapiro.test
+tapply(plon,klasa,shapiro.test)
+# jak dwa wektory
+sapply(list(vecX,vecY), shapiro.test)
+
+# wnioski: wszytkie pvalue s¹ wiêksze od alpha=0.05 przyjmujemy H
+Sprawdzamy równoœæ wariancji
+
+Test Bartletha
+H: simga11=sigma12=...=sigma24
+K: nie H
+
+bartlet.test(plon,klasa)
+
+Za tem za³o¿enia ANOVA s¹ spe³nione
+Przechodzimy do czêœæi zasadniczej.
+
+Test istotnoœci czynników A,B oraz A*B
+model=aov(plan ~ woda* azot)
+
+summary(model)
+# wynik
+
+                         Df      Sum Sq             Mean Sq             F value    Pr(>F)     
+woda         /a-1/       1 /SSA/ 341.91 / MSA/a-1 / 341.91   / MSA/MSE / 98.8421 5.507e-10 *** 
+azot        /b-1/        3 /SSB/ 86.83  / MSB/b-1 / 28.94                8.3674 0.0005547 ***
+woda:azot   /woda* azot/ 3 /SSAB/10.68  / MSAB/.. / 3.56                 1.0288 0.3974760    
+Residuals    (a*b)(n-1)/24       83.02  /MSE /      3.46                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+
+Test istotnoœci czynika A
+H: alpha1=aplha2=0 ( czynik A nie wp³ywa na Y) 
+K: nie H
+
+# odrzucamy hipoteze H bo pvalue=5.507e-10 mniejsze od 0.05
+
+Test istotnoœci czynika B
+H: beta1=beta2=beta3=beta4=0 ( czynik B nie wp³ywa na Y) 
+K: nie H
+
+# odrzucamy hipoteze H bo pvalue=0.0005547 mniejsze od 0.05
+
+Test istotnoœci interakcji A i B
+H: (alpha beta)ij=0 ( brak interacji ) 
+K: nie H
+
+# nie ma podstaw do odrzucenia H bo pvalue=0.3974760  > od 0.05
+
+
+TukeyHSD(model)
+
+H: MI1=MI2
+K: MI1!=MI2
+
+#przy dwóch dawkach wody wiêksze plony
+
+i tak dla kazdego testu, zak³adamy H: ¿e nie ma wp³ywu a K ¿e ma 
+
+Na interakcje patrzymy tylko w tedy gdy ANOVA wykaza³a interackjie w przeciwnym wypadku olewamy ostani¹ tabelke.
+
+
+ZAD 7
+
+Y- "przyleganie"
+
+A - malowanie   a=2 i=1,2 
+B - farba	b=3 j=1,2,3
+
+malowanie=factor(rep(c("z","n"),each=9))
+
+ aaa bbbb cccc aaa bbb ccc
+
+farba=factor(rep(rep(c("a","b","c"),each=3),each=2)
+
+przyleganie=c(4.0,4.5,4.3,5.6,4.9,5.4,3.8,3.7,9,5.4,4.9,5.6,5.8,6.1,6.3,6.5,6.0,5.0)
+
+#ZA³o¿enia  1 : testy normalnoœci, zrobiæ klase, równoœæ równoœæ
+
+
+tapply(przyleganie,klasa,shapiro.test)
+
+bartlett.test(przyleganie,klasa)
+
+model=aov(ptzyleganie ~ malowanie * farba)
+
+TukeyHSD(model)

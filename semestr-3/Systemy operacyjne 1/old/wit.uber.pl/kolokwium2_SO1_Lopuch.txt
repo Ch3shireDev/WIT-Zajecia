@@ -1,0 +1,7 @@
+Kolokwium sk³ada³o siê z 3 czêœci, dwie pierwsze abcd obliczeniowe i pytania dotycz¹ce komend, trzecia czêœæ poni¿ej.
+
+1. Dany jest plik tekstowy. Napisz skrypt który pozwoli wybraæ wiersze zawieraj¹ce okreœlon¹ liczbê znaków podan¹ w wywo³aniu skryptu.
+2. Napisz skrypt który co n sekund (n podane w wierszu wywo³ania) bêdzie sprawdza³, czy w systemie pracuje okreœlony u¿ytkownik (równie¿ podany w wierszu wywo³ania) jeœli tak skrypt ma wys³aæ maila do u¿ytkownika , który uruchomi³ skrypt. w temacie listu ma byæ podana nazwa u¿ytkownika, którego sprawdzaliœmy.
+3. Napisz skrypt, który wyœwietli listê plików, które zosta³y zmodyfikowane w dniu wskazanym przez argument.
+
+wszystkie pliki nale¿y upakowaæ w pliku o nazwie nazwisko.tar.gz i skopiowaæ do podkatalogu nazwa_grupy w katalogu domowym u¿ytkownika wso na komputerze unix (blade-runner)

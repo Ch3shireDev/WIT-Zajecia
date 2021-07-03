@@ -1,0 +1,163 @@
+#Zad 1
+
+#stan=c("panny","mezatki","wdowy","rozwotki")
+#stan
+#licznosci=c(17364,56128,11239,8170)
+#licznosci
+#pie(licznosci,labels=stan,radius=0.9,col=rainbow())
+#pie(rep(1,200),labels=" ",col=rainbow(200))
+#barplot(licznosci,names=stan,col=rainbow(10),main="Kobiety w USA",col.main="red", horiz=TRUE)
+# Inf - nieskoñczonoœæ
+# NoN - nie liczba
+# NA - nie dostêpny
+# sum(is.na(auta$zp)) - zlicza ile jest braków danych
+#czestosci=licznosci/sum(licznosci)
+#round(czestosci,2)
+#barplot(round(czestosci,2),names=stan,col=rainbow(10),main="Kobiety w USA",col.main="red", horiz=TRUE)
+#prop.table(licznosci)
+#barplot(prop.table(licznosci),names=paste(stan,"-",licznosci),col=rainbow(10),main="Kobiety w USA",col.main="red" )
+
+#Zad 2
+
+#data()
+
+#read.table("sciezka/do/pliku") - wczytywanie z pliku
+#read.csv
+#read.csv2 - wczytywanie z exela
+#stacje=read.csv("P:/smwd/stacje.csv")
+#class(stacje) - typ danych w pliku
+#head(stacje) 
+#names(stacje) -kolumny
+
+#table(stacje)
+#prop.table(table(stacje))
+
+#Zad3
+
+#ceny=c(23.30,24.50,25.30,25.30,24.30,24.80,25.20,24.50,24.60,24.10,24.30,26.10,23.10,25.50,22.60,24.60,24.30,25.40,25.20,26.80)
+
+#plot(1:25,pch=c(1:25))
+
+#plot(ceny,type="b",pch=20,lty=2,lwd=2,xlab="dzien",ylab="cena akcji",xlim=c(1,20))
+
+#Zad4
+
+#TinnR
+
+#butelki=read.csv("P:/smwd/butelki.csv")
+#butelki
+#names(butelki)
+#lpsi=0.0068947
+cis=butelki$strength*lpsi
+
+#hist(cis,labels=T,col="blue")
+#h=hist(cis)
+#h
+#Metody doboru ilosci klas
+
+# strugs k=sufit(logN+1)
+# scott b=3.5*S/n^(1/3)
+#FD b=2IQR/n^(1/3)
+
+#butelki=read.csv("P:/smwd/butelki.csv")
+#lpsi=0.0068947
+#cis=butelki$strength*lpsi
+#h=hist(cis)
+
+#b=h$breaks[2]-h$breaks[1]
+#k=length(h$mids)
+
+#x=c(h$mids[1]-b  ,h$mids, h$mids[k]+b) 
+#y=c(0,h$counts,0)  
+#plot(x,y,col="red")
+#par(mfrow=c(2,2)) /mfcol/
+
+#par(mfrow=c(2,2))
+#hist(cis,prob=T,col="green")
+#plot(x,y,col="red")
+
+#hist(cis,col="green")
+#lines(x,y,col="blue")
+
+#sk=numeric(length(7))
+#sk[1]=h$counts[1]
+#for(i in 2:7) sk[i]=sk[i-1]+h$counts[i]
+#barplot(sk,space=0)
+#stem(cis)
+#sort(cis)[1:10]
+
+#boxplot(cis,horizontal=T)
+#par=((mfrow=c(1,1))
+#boxplot(cis,horizontal=T)
+#s=summary(cis)
+#min(cis)
+#max(cis)
+#mean(cis) - srednia z proby
+#mean(cis,trim=0.1) - srednia ucieta
+#range(cis)
+#IQR(cis) - rostep miedy qwartylowy
+#var(cis) - S^2
+#sd(cis) - S
+#quantile(cis,0.9) - kwantyle
+#mean(cis/sd(cis)) - wspo³czynik zmienoœci
+#mean((cis-mean(cis))^3)/sd(cis)^3      - wspo³czynik asymetri
+#(mean((cis-mean(cis))^4)/sd(cis)^4)-3  - kurtoza 
+
+#wsp.a=function(x){
+
+#	a=mean((x-mean(x))^3)/sd(x)^3
+#	list(a=a)
+#}
+
+#wsp.k=function(x){
+
+#	k=(mean((x-mean(x))^4)/sd(x)^4) -3
+#	list(k=k)
+#}
+
+# Zad 6
+
+#auta=read.csv2("P:/smwd/samochody.csv")
+#head(auta)
+#auta$zp=378.5/(1.609* auta$mpg)
+#auta$zp
+#mean(auta$zp)
+#mean(auta$zp,na.rm=T) - gdy s¹ braki danych
+#zp1=na.omit(auta$zp) - usuwa braki w kolumnach albo w calych ramkach
+complete.cases(auta$zp) - usuwa ca³e wiersze gdzie s¹ braki.
+
+# ==
+# &
+# |
+# <=
+# >
+
+#m=auta$zp[auta$zp<=7]
+#s=auta$zp[auta$zp>7 & auta$zp<=10 ]
+#d=auta$zp[auta$zp>10]
+#mm=na.omit(m)
+#ss=na.omit(s)
+#dd=na.omit(d)
+
+#licznosci=c(length(mm),length(ss),length(dd))
+#etykiety=c("malo","srednio","duzo")
+#barplot(licznosci,names=etykiety)
+#head(auta)
+#zpA=auta$zp[auta$producent==1]
+#mean(zpA)
+#c68=auta$zp[auta$cylindry==6 | auta$cylindry==8]
+#c68
+#auta.A=subset(auta,auta$producent==1)
+#auta.A$zp
+#labels=c("malo","srednio","duzo")
+#s=cut(auta$zp,c(-Inf,7,10,Inf),labels=c("malo","srednio","duzo"),right=T)  - tnie dane na przedzia³y
+#tabs=table(s)
+#barplot(tabs)
+
+#boxplot(auta$zp~auta$producent)
+#boxplot(auta$zp~auta$producent+auta$cylindry)
+
+l=split(auta,auta$producent)
+mean(l$"1"$zp)
+# l[,1] kolumna
+# l[1,] wiersz

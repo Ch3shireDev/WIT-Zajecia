@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Formularz dodawania zgłoszenia</h3>
+    <form method="POST">
+
+        <label for="make">Marka</label><br>
+        <input type="text" id="make" name="make" required><br>
+        <label for="model">Model</label><br>
+        <input type="text" id="model" name="model" required><br>
+        <label for="year">Rok</label><br>
+        <input type="text" id="year" name="year" required><br>
+        <label for="engine">Silnik</label><br>
+
+        <input type="radio" id="engineChoice1" name="engine" value="gas" required>
+        <label for="engineChoice1">Benzyna</label>
+
+        <input type="radio" id="engineChoice2" name="engine" value="diesel">
+        <label for="engineChoice2">Diesel</label>
+
+        <br>
+        <label for="fequipment">Wyposażenie</label><br>
+
+        <input type="checkbox" id="equipment1" name="equipment" value="air conditioning">
+        <label for="equipment1">Klimatyzacja</label><br />
+        <input type="checkbox" id="equipment2" name="equipment" value="ABS">
+        <label for="equipment2">ABS</label><br />
+        <input type="checkbox" id="equipment3" name="equipment" value="power steering">
+        <label for="equipment3">Wspomaganie kierownicy</label>
+        <br />
+
+        <label for="condition">Stan ogólny</label><br>
+        <select id="condition" name="condition">
+            <option value="bad">Zły</option>
+            <option value="mediocre">Średni</option>
+            <option value="good" selected>Dobry</option>
+            <option value="very good">Bardzo dobry</option>
+            <option value="ideal">Idealny</option>
+        </select>
+        <br />
+
+        <label for="description">Opis</label><br>
+        <textarea type="text" id="description" name="description"></textarea>
+        <br>
+
+        <input type="submit" value="Potwierdź">
+        <input type="reset" value="Resetuj">
+    </form>
+</body>
+
+</html>

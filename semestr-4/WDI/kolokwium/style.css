@@ -1,0 +1,133 @@
+
+      html {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 13px;
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      body {
+        max-width: 1000px;
+        margin: auto;
+        padding: 2rem;
+      }
+
+      main {
+        border: 2px solid rgb(41, 123, 199);
+        border-radius: 5px;
+        padding: 0.6rem;
+        background-color: rgb(147, 197, 246);
+      }
+
+      main div {
+        display: flex;
+        flex-direction: row;
+      }
+
+      article {
+        flex-grow: 1;
+        text-align: justify;
+        padding: 0 1rem;
+        background-color: rgb(206, 230, 254);
+        color: rgb(61, 130, 214);
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      aside {
+        min-width: 300px;
+      }
+
+      footer {
+        margin-top: 1rem;
+        background-color: rgb(206, 230, 254);
+        padding: 0.5rem;
+        border-radius: 5px;
+        color: rgb(61, 130, 214);
+        text-align: center;
+      }
+
+      nav {
+        margin: 0;
+      }
+
+      nav ul li {
+        display: inline;
+        border: 2px solid;
+        border-radius: 5px;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+      }
+      nav ul li a:visited {
+        color: inherit;
+      }
+
+      li:hover{
+          cursor: pointer;
+          box-shadow: 0 0 10px #333;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      #link-1 {
+        background: #befaa2;
+        border-color: #48b45a;
+        color: #48b45a;
+      }
+      #link-2 {
+        background: #feb6d1;
+        border-color: #ff0a7e;
+        color: #ff0a7e;
+      }
+      #link-3 {
+        background: #ffc8a9;
+        border-color: #de8026;
+        color: #de8026;
+      }
+
+      img {
+        border-radius: 5px;
+      }
+
+      label {
+        min-width: 50%;
+        display: inline-block;
+      }
+
+      .form-element {
+        margin-top: 1rem;
+      }
+
+      .form-label {
+        vertical-align: top;
+      }
+
+      label {
+        line-height: normal;
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      select,
+      input {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      table {
+        width: 95%;
+        margin-top: 1rem;
+      }

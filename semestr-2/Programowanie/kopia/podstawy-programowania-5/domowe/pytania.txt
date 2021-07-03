@@ -1,0 +1,179 @@
+# Pytanie 1
+
+Czy możliwe jest zdefiniowanie wskaźnika typu void?
+
+a) Tak, jeśli nie będzie na nic pokazywał
+b) Nie
+c) Tak
+c) Zależy od sytuacji
+
+Odpowiedź: c
+
+Komentarz: Wskaźniki typu void są ogólnymi wskaźnikami bez typów. Przydają się jeśli chcemy przekazać zwyczajnie adres w pamięci, bez dodatkowych informacji na temat typu zmiennej przechowywanej pod tym adresem.
+
+# Pytanie 2
+
+Jaką wartość zwróci następujący kod:
+    int a = 5;
+    int *b = &a;
+    a++;
+    return *b;
+
+a) 5
+b) 6
+c) pozycja w pamięci
+d) nic nie zwróci, wystąpi błąd
+
+Odpowiedź: b
+
+Komentarz: Ponieważ b jest wskaźnikiem, *b zwraca wartość przechowywaną pod danym adresem w pamięci. Ponieważ zwiększyliśmy wartość a do 6, zwracana wartość to 6.
+
+# Pytanie 3
+
+Jaką wartość zwróci następujący kod:
+    int a = 5;
+    int b = a;
+    a++;
+    return b;
+
+a) 5
+b) 6
+c) pozycja w pamięci
+d) nic nie zwróci, wystąpi błąd
+
+Odpowiedź: a
+
+Komentarz: Ponieważ b zawiera nową zmienną o przypisanej wartości starej zmiennej, zwiększanie wartości a nie wpływa na wartość b.
+
+# Pytanie 4
+
+Jaką wartość zwróci następujący kod:
+    int a = 5;
+    int *b = &a;
+    a++;
+    return b;
+
+a) 5
+b) 6
+c) pozycja w pamięci
+d) nic nie zwróci, wystąpi błąd
+
+Odpowiedź: c
+
+Komentarz: zmienna b jest wskaźnikiem. Zwrócenie samej wartości b odpowiada zwróceniu wartości pozycji w pamięci.
+
+# Pytanie 5
+
+Jaką wartość zwróci następujący kod:
+    int a = 5;
+    int &b = a;
+    a++;
+    return b;
+
+a) 5
+b) 6
+c) pozycja w pamięci
+d) nic nie zwróci, wystąpi błąd
+
+Odpowiedź: c
+
+Komentarz: Zmienna b jest referencją do zmiennej a - działa ona jak wskaźnik, tylko że bez możliwości zmiany adresu i bez przymusu pisania gwiazdki przed wartością. Zatem b efektywnie wskazuje na wartość a, tylko odwołujemy się bezpośrednio zamiast z gwiazdką.
+
+# Pytanie 6
+
+W jaki sposób zadeklarować funkcję która odwołuje się do tablicy typu int?
+
+a) void fun(int *tab, int n);
+b) void fun(int tab[]);
+c) void fun(int *tab);
+d) void fun(int *tab[], int n);
+
+Odpowiedź: a
+
+Komentarz: zmienna typu tablicowego jest efektywnie wskaźnikiem. Przekazując ją do funkcji należy przekazać również rozmiar tablicy, aby funkcja wiedziała ile elementów zawiera tablica.
+
+# Pytanie 7
+
+Jaką wartość zwróci następujący kod?
+    int tab[] = {5,3,8};
+    int *a = tab;
+    a++;
+    return *a;
+
+a) 5
+b) 6
+c) 3
+d) 4
+
+Odpowiedź: c
+
+Komentarz: Ponieważ zmienna tab jest wskaźnikiem na pierwszy element tablicy, to wskaźnik a początkowo wskazuje na pierwszy element tablicy. Zwiększenie wskaźnika powoduje przeskoczenie na kolejny element tablicy.
+
+# Pytanie 8
+
+W jakim przypadku funkcja może zwiększyć wartość argumentu typu int?
+
+a) w każdym
+b) tylko gdy argument jest przekazywany jako int
+c) gdy argument jest przekazywany jako int*
+d) gdy argument jest przekazywany jako int* oraz int&
+
+Odpowiedź: d
+
+Komentarz: W normalnych warunkach - tworząc funkcję void fun(int x); - do funkcji przekazywana jest KOPIA WARTOŚCI x. Jeśli byśmy przekazali wartość x przez wskaźnik lub przez referencję, to funkcja będzie miała dostęp do oryginalnej wartości, mogąc go dowolnie zmieniać.
+
+# Pytanie 9
+
+W którym przypadku program poprawnie zwalnia zaalokowaną pamięć?
+
+a) int* tab = new int[20]; delete tab;
+b) int* tab = new int(20); delete* tab;
+c) int* tab = new int[20]; delete[] tab;
+d) int* tab = new int(20); delete[] tab;
+
+Odpowiedź: c
+
+Komentarz: Operacja new int(20) prowadzi do alokacji w pamięci zmiennej typu int o wartości 20. Operacja new int[20] prowadzi do zaalokowania 20 zmiennych typu int. Aby zwolnić całą tablicę zmiennych należy użyć operacji delete[].
+
+# Pytanie 10
+
+W którym przypadku program poprawnie zwalnia zaalokowaną pamięć?
+
+a) int x = 5; delete x;
+b) int *x = 5; delete x;
+c) int *x = new int(5); delete x;
+d) int &x = new int(5); delete x;
+
+Odpowiedź: b
+
+Komentarz: W przypadku tworzenia zmiennych standardowymi metodami nie jest potrzebne zwalnianie pamięci. Operacja b jest niepoprawna, ponieważ prowadzi do ustalenia wskaźnika na 5-ty bajt pamięci, a następnie jego zwolnienia - prawdopodobnie kompilator nie pozwoli na taką operację. Poprawna jest operacja c, ponieważ jest to klasyczne stworzenie wskaźnika razem z alokacją pamięci, a następnie zwolnienie owego miejsca w pamięci.
+
+# Pytanie 11
+
+Czy tablica powinna być ręcznie usuwana operacją delete[]?
+
+a) Tylko wtedy gdy została stworzona operacją new[]
+b) Tak, zawsze
+c) Nie, nigdy
+d) tylko wtedy jeśli jest to tablica wskaźników
+
+Odpowiedź: a
+
+Komentarz: Standardowo stworzona tablica (np. int tab[20];) nie potrzebuje ręcznego zwalniania. Natomiast jeśli stworzyliśmy tablicę metodą new[], to musimy ją skasować metodą delete[].
+
+# Pytanie 12
+
+Jaką wartość zwróci następujący kod?
+    int tab[] = {5,3,8};
+    int *a = tab;
+    (*a)++;
+    return *a;
+
+a) 5
+b) 6
+c) 3
+d) 4
+
+Odpowiedź: b
+
+Komentarz: tworzymy tablicę, a następnie wskaźnik wskazujący na pierwszy element tablicy - ponieważ zmienna tab efektywnie przechowuje wskaźnik na jej pierwszy element. Odwołanie metodą (*a) powoduje odwołanie do ELEMENTU przechowywanego na pierwszym elemencie, następnie ++ powoduje jego inkrementację. Zatem wartość zwracana przez *a to 5+1, czyli 6.

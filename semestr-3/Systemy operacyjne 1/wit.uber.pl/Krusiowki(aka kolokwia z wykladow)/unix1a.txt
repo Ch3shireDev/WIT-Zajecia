@@ -1,0 +1,128 @@
+zadanie 1                                         
+  a)  mkdir -p kat/dir1/dir11 kat/dir1/dir12      
+        
+        Opcja -p pozwala na tworzenie ca³ych œcie¿ek
+        (zamiast pojedyñczych katalogów po kolei)
+        Tworzymy zatem dwie œcie¿ki w jednym poleceniu.
+
+  b)  cat f1 > kat/dir1/dir11/file1
+
+        Zawartoœæ pliku f1 zapisujemy w pliku file1,
+        poprzedzonego œcie¿k¹ do miejsca jego lokalizacji.
+        (file1 wczeœniej nie istnia³, wiêc siê sam stworzy³).
+
+  c)  cat linie > kat/linie
+
+        Zawartoœæ pliku linie zapisujê w nowym pliku (te¿ linie),
+        tyle ¿e ten drugi bêdzie utworzony w katalogu kat
+
+  d)  ls -R kat
+
+        Opcja -R (du¿¹ liter¹!) pozwoli wyœwietliæ rekurencyjnie
+        strukturê wybranego katalogu (czyli katalogu kat) 
+
+
+zadanie 2
+  a)  cat kat/dir1/dir11/file1
+
+  b)  cat samochody >> kat/dir1/dir11/file1
+       
+        Zawartoœæ pliku samochody dopisujemy w pliku file1,
+        poprzedzonego œcie¿k¹ do miejsca jego lokalizacji.
+
+  c)  cat kat/dir1/dir11/file1
+
+
+zadanie 3
+  
+  a)  cd kat/dir1/dir12
+
+  b)  ls
+
+  c)  cat ../../../pracownicy
+
+        Dwie kropeczki oznaczaj¹ katalog o jeden "wy¿ej".
+        Poniewa¿ siedzimy w katalogu o g³êbokoœci równej 3, to
+        ¿eby operowaæ na plikach z katalogu osobistego, musimy
+        trzy razy napisaæ dwie kropeczki.
+
+  d)  cat ../../../pracownicy > pracownicy
+      
+        Z zawartoœæ pliku pracownicy z katalogu osobistego, zostanie 
+        zapisana do pliku pracownicy (ta sama nazwa) w katalogu bie¿¹cym.
+
+  e)  cd
+
+        Polecenie cd wraca do katalogu osobistego z dowolnego
+        miejsca.
+
+
+zadanie 4
+
+  a)  cat linie > kat/linie
+
+  b)  chmod 600 kat
+
+  c)  W sumie to na pewno dwóch ostatnich nie da siê wykonaæ.
+      Resztê sobie przetestuj.
+
+
+zadanie 5
+
+  a)  Wpisaæ po kolei co nastêpuje:  
+
+      cat > skrypt
+      echo Jan Kowalski
+      echo Warszawa
+      echo koniec skryptu
+      [ nacisn¹æ ctrl+d ]
+
+  b)  chmod a+x skrypt
+
+        Wszystkim dodaj x (prawo do wykonywania)
+
+  c)  ll
+
+  d)  chmod 754 skrypt
+
+
+zadanie 6
+  
+  a)  ¿eby to obliczyæ, to robimy tak - popatrzmy na wartoœci wzorca:
+  
+  wzorzec katalogów:
+    rwx rwx rwx
+
+  wzorzec plików:
+    rw- rw- rw-
+
+  To, co powy¿ej, to takie wartoœci s¹ zawsze. Teraz obliczymy
+  wartoœci dla umask 234:
+    -w- -wx r--
+
+  TERAZ OBLICZYMY EFEKT TEGO UMASK, CZYLI ZE ZBIORU WARTOŒCI KATALOGU
+  WYJMUJEMY TE, KTÓRE WYSTÊPUJ¥ W WARTOŒCIACH UMASK 234:
+
+                 rwx rwx rwx  
+              -  -w- -wx r--
+                 ###########
+              =  r-x r-- -wx   <-- wynik
+
+  ORAZ ANALOGICZNIE DLA PLIKÓW:
+
+                 rw- rw- rw-
+              -  -w- -wx r--
+                 ###########
+              =  r-- r-- -w-   <-- wynik
+
+  b)  OD PRAW, JAKIE MIA£ PLIK SKRYPT NALE¯Y ODJ¥Æ WARTOŒCI, JAKIE WYSTÊPUJ¥
+      W UMASK 234:
+
+                 rwx r-x r--
+              -  -w- -wx r--
+                 ###########      
+              =  r-x r-- ---   <-- wynik
+
+  
+
+

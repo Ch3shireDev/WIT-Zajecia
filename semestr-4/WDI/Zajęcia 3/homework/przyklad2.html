@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WIT</title>
+  </head>
+  <body>
+    <form method="post" action="przyklad2.php">
+      Liczba wierszy:
+      <select name="liczba_wierszy">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+      <br />
+
+      Liczba kolumn:
+      <select name="liczba_kolumn">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+      <br />
+
+      Kolor tła strony:
+      <select name="kolor_tla">
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="yellow">yellow</option>
+      </select>
+      <br />
+
+      <label for="pokoloruj">Pokoloruj parzyste</label>
+      <input type="checkbox" name="pokoloruj" id="pokoloruj" />
+
+      <button type="submit">Wyślij</button>
+    </form>
+  </body>
+</html>

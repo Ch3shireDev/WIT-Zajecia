@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/css.css" media="screen, projection">
+<title>Unix LS Command: 15 Practical Examples</title>
+<meta name="description" content="ls – Unix users and sysadmins cannot live without this two letter command. Whether you use it 10 times a day or 100 times a day, knowing the power of ls co">
+<meta name="robots" content="noodp, noydir">
+<link rel="canonical" href="https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/">
+<link rel="alternate" type="application/rss+xml" title="The Geek Stuff feed" href="https://www.thegeekstuff.com/feed/">
+<link rel="pingback" href="https://www.thegeekstuff.com/xmlrpc.php">
+
+<!-- All in One SEO Pack 2.2.6.2 by Michael Torbert of Semper Fi Web Design[296,341] -->
+<meta name="description" content="ls - Unix users and sysadmins cannot live without this two letter command. Whether you use it 10 times a day or 100 times a day, knowing the power of ls command">
+
+<link rel="canonical" href="https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="The Geek Stuff » Unix LS Command: 15 Practical Examples Comments Feed" href="https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/feed/">
+<link rel="https://api.w.org/" href="https://www.thegeekstuff.com/wp-json/">
+<link rel="alternate" type="application/json+oembed" href="https://www.thegeekstuff.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.thegeekstuff.com%2F2009%2F07%2Flinux-ls-command-examples%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.thegeekstuff.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.thegeekstuff.com%2F2009%2F07%2Flinux-ls-command-examples%2F&amp;format=xml">
+<link rel="shortcut icon" href="https://static.thegeekstuff.com/wp-content/uploads/2015/05/favicon.ico.gzip">
+<script src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/cbgapi.loaded_1" async=""></script><script src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/cbgapi.loaded_0" async=""></script><script type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/a"></script><script type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/inputtools.js"></script><script charset="utf-8" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/button.js"></script></head>
+<body class="template-single">
+<script type="text/javascript" async="" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/ga.js"></script><script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-5302569-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<div class="container">
+	<div id="header" class="header">
+		<p id="logo"><a href="https://www.thegeekstuff.com/"><img src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/thegeekstuff.gif" alt="The Geek Stuff"></a>
+</p><div id="header_ad"><div id="header_ad1">
+<script async="" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/adsbygoogle.js"></script>
+<!-- TGS Logo Header -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8090601437064582" data-ad-slot="4708993701"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+	</div>
+	<span class="menu_control">≡ Menu</span>
+<ul id="menu-tgs-menu" class="menu"><li id="menu-item-15798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-15798"><a href="https://www.thegeekstuff.com/">Home</a></li>
+<li id="menu-item-15797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15797"><a href="https://www.thegeekstuff.com/linux-101-hacks-ebook/">Free eBook</a></li>
+<li id="menu-item-15805" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15805"><a href="https://www.thegeekstuff.com/best-of-the-blog/">Start Here</a></li>
+<li id="menu-item-15800" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15800"><a href="https://www.thegeekstuff.com/contact/">Contact</a></li>
+<li id="menu-item-15802" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15802"><a href="https://www.thegeekstuff.com/about/">About</a></li>
+</ul>
+	<div class="columns">
+		<div class="content">
+			<div id="post-550" class="post_box grt top" itemscope="" itemtype="http://schema.org/Article">
+				<div class="headline_area">
+					<h1 class="headline" itemprop="name">Unix LS Command: 15 Practical Examples</h1>
+					<div class="byline small">
+						<span class="post_author_intro">by</span> <span class="post_author" itemprop="author">Ramesh Natarajan</span>
+						<meta itemprop="datePublished" content="2009-07-13">
+						<meta itemprop="dateModified" content="2009-08-15">
+						<span class="post_date_intro">on</span> <span class="post_date" title="2009-07-13">July 13, 2009</span>
+					</div>
+				</div>
+				<div class="post_content" itemprop="articleBody">
+<div style="margin:7px 0px 6px 0px; padding:5px;">
+
+<div style="float:left; width=95px">
+<div style="position: absolute; width: 450px; left: -10000px;" id="___plusone_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" id="I0_1569279318089" name="I0_1569279318089" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/fastbutton.html" data-gapiattached="true" width="100%" frameborder="0"></iframe></div><g:plusone size="medium" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone>
+</div>
+
+<div style="float:left; padding:2px; width:90px"><iframe src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/like_002.html" scrolling="no" style="border:none; overflow:hidden; width:450px; height:21px;" allowtransparency="true" frameborder="0"></iframe>
+</div>
+
+<div style="width=95px">
+<iframe id="twitter-widget-0" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 65px; height: 20px;" title="Twitter Tweet Button" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/tweet_button.html" frameborder="0"></iframe><script type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/widgets.js"></script>
+</div>
+
+</div>
+<p><img class="alignright size-medium wp-image-875" title="Ls Command for Ubuntu, Debian, Fedora, Red Hat, AIX, SUSE, CentOS" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/ls-command-300x257.gif" alt="Ls Command for Ubuntu, Debian, Fedora, Red Hat, AIX, SUSE, CentOS" srcset="https://static.thegeekstuff.com/wp-content/uploads/2009/07/ls-command-300x257.gif 300w, https://www.thegeekstuff.com/wp-content/uploads/2009/07/ls-command.gif 350w" sizes="(max-width: 300px) 100vw, 300px" width="300" height="257">ls
+ – Unix users and sysadmins cannot live without this two letter command.
+ Whether you use it 10 times a day or 100 times a day, knowing the power
+ of ls command can make your command line journey enjoyable.</p>
+<p>In this article, let us review 15 practical examples of the mighty ls command.</p>
+<p><span id="more-550"></span></p>
+<h3>1. Open Last Edited File Using ls -t</h3>
+<p>To open the last edited file in the current directory use the combination of  ls, head and vi commands as shown below.</p>
+<p><strong>ls -t</strong> sorts the file by modification time, showing the last edited file first. <strong>head -1</strong> picks up this first file.</p>
+<pre>$ vi first-long-file.txt
+$ vi second-long-file.txt
+
+$ <strong>vi `ls -t | head -1`</strong>
+[<strong>Note</strong>: This will open the last file you edited (i.e second-long-file.txt)]</pre>
+<h3>2. Display One File Per Line Using ls -1</h3>
+<p>To show single entry per line, use -1 option as shown below.</p>
+<pre>$ ls -1
+bin
+boot
+cdrom
+dev
+etc
+home
+initrd
+initrd.img
+lib</pre>
+<h3>3. Display All Information About Files/Directories Using ls -l</h3>
+<p>To show long listing information about the file/directory.</p>
+    <center>
+      <div style="margin-left:2px; margin-top:10px; margin-bottom:10px; ">
+
+        <!-- AD BLOCK -->
+		
+<script async="" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/adsbygoogle.js"></script>
+<!-- TGS Inside Content -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-8090601437064582" data-ad-slot="8643685131"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+        <!-- END AD BLOCK -->
+
+	  </div>
+    </center>
+
+
+<pre>$ ls -l
+-rw-r----- 1 ramesh team-dev 9275204 Jun 13 15:27 mthesaur.txt.gz</pre>
+<ul>
+<li><strong>1st Character – File Type:</strong> First character specifies the type of the file.<br>
+In the example above the hyphen (-) in the 1st character indicates that 
+this is a normal file.  Following are the possible file type options in 
+the 1st character of the ls -l output.<p></p>
+<ul>
+<li><strong>Field    Explanation</strong></li>
+<li>–    normal file</li>
+<li>d    directory</li>
+<li>s    socket file</li>
+<li>l    link file</li>
+</ul>
+</li>
+<li><strong>Field 1 – File Permissions:</strong> Next 9 character 
+specifies the files permission. Each 3 characters refers to the read, 
+write, execute permissions for user, group and world In this example, 
+-rw-r—– indicates read-write permission for user, read permission for 
+group, and no permission for others.</li>
+<li> <strong>Field 2 – Number of links:</strong> Second field specifies the number of links for that file. In this example, 1 indicates only one link to this file.</li>
+<li><strong>Field 3 – </strong><strong>Owner:</strong> Third field specifies owner of the file. In this example, this file is owned by username ‘ramesh’.</li>
+<li><strong>Field 4 – Group:</strong> Fourth field specifies the group of the file. In this example, this file belongs to ”team-dev’ group.</li>
+<li><strong>Field 5</strong><strong> – Size:</strong> Fifth field specifies the size of file. In this example, ‘9275204’ indicates the file size.</li>
+<li> <strong>Field 6 – Last modified date &amp; time:</strong> Sixth 
+field specifies the date and time of the last modification of the file. 
+In this example,  ‘Jun 13 15:27’ specifies the last modification time of
+ the file.</li>
+<li><strong> Field 7 – File name: </strong>The last field is the name of the file. In this example, the file name is mthesaur.txt.gz.</li>
+</ul>
+<h3>4. Display File Size in Human Readable Format Using ls -lh</h3>
+<p>Use <strong>ls -lh</strong> (h stands for human readable form), to display file size in easy to read format. i.e M for MB, K for KB, G for GB.</p>
+<pre>$ ls -l
+-rw-r----- 1 ramesh team-dev 9275204 Jun 12 15:27 arch-linux.txt.gz*
+
+$ <strong>ls -lh</strong>
+-rw-r----- 1 ramesh team-dev <span style="color: red;">8.9M</span> Jun 12 15:27 arch-linux.txt.gz</pre>
+<h3>5. Display Directory Information Using ls -ld</h3>
+<p>When you use “ls -l” you will get the details of directories content.
+ But if you want the details of directory then you can use -d option 
+as., For example, if you use ls -l /etc will display all the files under
+ etc directory. But, if you want to display the information about the 
+/etc/ directory, use -ld option as shown below.</p>
+<pre>$ ls -l /etc
+total 3344
+-rw-r--r--   1 root root   15276 Oct  5  2004 a2ps.cfg
+-rw-r--r--   1 root root    2562 Oct  5  2004 a2ps-site.cfg
+drwxr-xr-x   4 root root    4096 Feb  2  2007 acpi
+-rw-r--r--   1 root root      48 Feb  8  2008 adjtime
+drwxr-xr-x   4 root root    4096 Feb  2  2007 alchemist
+
+$ <strong>ls -ld /etc</strong>
+drwxr-xr-x 21 root root 4096 Jun 15 07:02 /etc</pre>
+<h3>6.  Order Files Based on Last Modified Time Using ls -lt</h3>
+<p>To sort the file names displayed in the order of last modification 
+time use the -t option. You will be finding it handy to use it in 
+combination with -l option.</p>
+<pre>$ <strong>ls -lt</strong>
+total 76
+drwxrwxrwt  14 root root  4096 Jun 22 07:36 tmp
+drwxr-xr-x 121 root root  4096 Jun 22 07:05 etc
+drwxr-xr-x  13 root root 13780 Jun 22 07:04 dev
+drwxr-xr-x  13 root root  4096 Jun 20 23:12 root
+drwxr-xr-x  12 root root  4096 Jun 18 08:31 home
+drwxr-xr-x   2 root root  4096 May 17 21:21 sbin
+lrwxrwxrwx   1 root root    11 May 17 20:29 cdrom -&gt; media/cdrom
+drwx------   2 root root 16384 May 17 20:29 lost+found
+drwxr-xr-x  15 root root  4096 Jul  2  2008 var</pre>
+<h3>7. Order Files Based on Last Modified Time (In Reverse Order) Using ls -ltr</h3>
+<p>To sort the file names in the last modification time in reverse 
+order. This will be showing the last edited file in the last line which 
+will be handy when the listing goes beyond a page. This is my default ls
+ usage.  Anytime I do ls, I always use ls -ltr as I find this very 
+convenient.</p>
+<pre>$ <strong>ls -ltr</strong>
+
+total 76
+drwxr-xr-x  15 root root  4096 Jul  2  2008 var
+drwx------   2 root root 16384 May 17 20:29 lost+found
+lrwxrwxrwx   1 root root    11 May 17 20:29 cdrom -&gt; media/cdrom
+drwxr-xr-x   2 root root  4096 May 17 21:21 sbin
+drwxr-xr-x  12 root root  4096 Jun 18 08:31 home
+drwxr-xr-x  13 root root  4096 Jun 20 23:12 root
+drwxr-xr-x  13 root root 13780 Jun 22 07:04 dev
+drwxr-xr-x 121 root root  4096 Jun 22 07:05 etc
+drwxrwxrwt  14 root root  4096 Jun 22 07:36 tmp</pre>
+<h3>8. Display Hidden Files Using ls -a (or) ls -A</h3>
+<p>To show all the hidden files in the directory, use ‘-a option’. Hidden files in Unix starts with ‘.’ in its file name.</p>
+<pre>$ <strong>ls -a</strong>
+[rnatarajan@asp-dev ~]$ ls -a
+.                             Debian-Info.txt
+..                            CentOS-Info.txt
+.bash_history                 Fedora-Info.txt
+.bash_logout                  .lftp
+.bash_profile                 libiconv-1.11.tar.tar
+.bashrc                       libssh2-0.12-1.2.el4.rf.i386.rpm</pre>
+<p>It will show all the files including the ‘.’  (current directory) and
+  ‘..’ (parent directory).  To show the hidden files, but not the ‘.’  
+(current directory) and ‘..’ (parent directory), use option -A.</p>
+<pre>$ <strong>ls -A</strong>
+Debian-Info.txt               Fedora-Info.txt
+CentOS-Info.txt               Red-Hat-Info.txt
+.bash_history                 SUSE-Info.txt
+.bash_logout                  .lftp
+.bash_profile                 libiconv-1.11.tar.tar
+.bashrc                       libssh2-0.12-1.2.el4.rf.i386.rpm
+[<strong>Note</strong>: . and .. are not displayed here]</pre>
+<h3>9. Display Files Recursively Using ls -R</h3>
+<pre>$ ls  /etc/sysconfig/networking
+devices  profiles
+
+$ ls  -R /etc/sysconfig/networking
+/etc/sysconfig/networking:
+devices  profiles
+
+/etc/sysconfig/networking/devices:
+
+/etc/sysconfig/networking/profiles:
+default
+
+/etc/sysconfig/networking/profiles/default:</pre>
+<p>To show all the files recursively, use -R option. When you do this 
+from /, it shows all the unhidden files in the whole file system 
+recursively.</p>
+<h3>10. Display File Inode Number Using ls -i</h3>
+<p>Sometimes you may want to know the inone number of a file for 
+internal maintenance.  Use -i option as shown below to display inone 
+number.  Using inode number you can remove files that has special 
+characters in it’s name as explained in the <a href="https://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/#example6">example#6 of the find command</a> article.</p>
+<pre>$ ls -i /etc/xinetd.d/
+279694 chargen      279724 cups-lpd  279697 daytime-udp
+279695 chargen-udp  279696 daytime   279698 echo</pre>
+<h3>11. Hide Control Characters Using ls -q</h3>
+<p>To print question mark instead of the non graphics control characters use the -q option.</p>
+<pre>ls -q</pre>
+<h3>12. Display File UID and GID Using ls -n</h3>
+<p>Lists the output like -l, but shows the uid and gid in numeric format instead of names.</p>
+<pre>$ ls -l ~/.bash_profile
+-rw-r--r--  1 ramesh ramesh 909 Feb  8 11:48 /home/ramesh/.bash_profile
+$ ls -n ~/.bash_profile
+-rw-r--r--  1 <strong>511 511</strong> 909 Feb  8 11:48 /home/ramesh/.bash_profile
+
+[Note: This display 511 for uid and 511 for gid]</pre>
+<h3>13. Visual Classification of Files With Special Characters Using ls -F</h3>
+<p>Instead of doing the ‘ls -l’ and then the checking for the first 
+character to determine the type of file. You can use -F which classifies
+ the file with different special character for different kind of files.</p>
+<pre>$ ls -F
+Desktop/  Documents/  Ubuntu-App@  firstfile  Music/  Public/  Templates/</pre>
+<p>Thus in the above output,</p>
+<ul>
+<li> / – directory.</li>
+<li> nothing – normal file.</li>
+<li> @ – link file.</li>
+<li>* – Executable file</li>
+</ul>
+<h3>14. Visual Classification of Files With <span style="color: #0000ff;">Colors </span>Using ls -F</h3>
+<p>Recognizing the file type by the color in which it gets displayed is 
+an another kind in classification of file. In the above output 
+directories get displayed in blue, soft links get displayed in green, 
+and ordinary files gets displayed in default color.</p>
+<pre>$ ls --color=auto
+<span style="color: blue;">Desktop  Documents</span> <span style="color: green;">Examples </span>firstfile <span style="color: blue;">Music  Pictures  Public  Templates  Videos</span></pre>
+<h3>15. Useful ls Command Aliases</h3>
+<p>You can take some required ls options in the above, and make it as aliases. We suggest the following.</p>
+<ul>
+<li> Long list the file with size in human understandable form.
+<pre>alias ll="ls -lh"</pre>
+</li>
+<li> Classify the file type by appending special characters.
+<pre>alias lv="ls -F"</pre>
+</li>
+<li> Classify the file type by both color and special character.
+<pre>alias ls="ls -F --color=auto"</pre>
+</li>
+</ul>
+<h3>Awesome Linux Articles</h3>
+<p>Following are few awesome <strong>15 examples</strong> articles that you might find helpful.</p>
+<ul>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/">Get a Grip on the Grep! – 15 Practical Grep Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/">Linux Crontab: 15 Awesome Cron Job Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/">Mommy, I found it! — 15 Practical Linux Find Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/">15 Examples To Master Linux Command Line History</a></li>
+</ul>
+<div style="margin:7px 0px 3px 0px; padding:5px; background:#F2F0E8">
+
+<div style="float:left; width=95px">
+<div style="position: absolute; width: 450px; left: -10000px;" id="___plusone_1"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" id="I1_1569279318102" name="I1_1569279318102" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/fastbutton_002.html" data-gapiattached="true" width="100%" frameborder="0"></iframe></div><g:plusone size="medium" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:plusone>
+</div>
+
+<div style="float:left; width=95px">
+<iframe id="twitter-widget-1" scrolling="no" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 65px; height: 20px;" title="Twitter Tweet Button" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/tweet_button_002.html" frameborder="0"></iframe><script type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/widgets.js"></script>
+</div>
+
+<div style="float:left; padding:2px; width:90px"><iframe src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/like_002.html" scrolling="no" style="border:none; overflow:hidden; width:450px; height:21px;" allowtransparency="true" frameborder="0"></iframe>
+</div>
+
+<div style="padding:1px">
+&gt;&nbsp;<a href="#commentform" rel="nofollow">Add your comment</a>
+</div>
+
+</div>
+<h3>If you enjoyed this article, you might also like..</h3>
+<table>
+<tbody><tr>
+<td valign="top">
+<ol>
+<li><a href="https://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/">50 Linux Sysadmin Tutorials</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/11/50-linux-commands/">50 Most Frequently Used Linux Commands (With Examples)</a></li>
+<li><a href="https://www.thegeekstuff.com/2011/12/linux-performance-monitoring-tools/">Top 25 Best Linux Performance Monitoring and Debugging Tools</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/">Mommy, I found it! – 15 Practical Linux Find Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/linux-101-hacks-ebook/">Linux 101 Hacks 2nd Edition eBook</a>&nbsp;<img title="Linux 101 Hacks Book" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/free-small.png" alt="Linux 101 Hacks Book"></li>
+</ol>
+</td>
+<td>
+<ul>
+<li><a href="https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/">Awk Introduction – 7 Awk Print Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/">Advanced Sed Substitution Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/8-essential-vim-editor-navigation-fundamentals/">8 Essential Vim Editor Navigation Fundamentals</a></li>
+<li><a href="https://www.thegeekstuff.com/2011/06/iptables-rules-examples/">25 Most Frequently Used Linux IPTables Rules Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/">Turbocharge PuTTY with 12 Powerful Add-Ons</a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<br>
+<center>
+<table id="booktable">
+<tbody><tr>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/bash-101-hacks-ebook/"><img title="Bash 101 Hacks Book" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/bash-132.png" alt="Bash 101 Hacks Book"></a>
+</td>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/sed-awk-101-hacks-ebook/"><img title="Sed and Awk 101 Hacks Book" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/sed-and-awk-132.png" alt="Sed and Awk 101 Hacks Book"></a>
+</td>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/nagios-core-ebook/"><img title="Nagios Core 3 Book" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/nagios-core-132.png" alt="Nagios Core 3 Book"></a>
+</td>
+<td>
+<a rel="nofollow" href="https://www.thegeekstuff.com/vim-101-hacks-ebook/"><img title="Vim 101 Hacks Book" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/vim-101-hacks-132.png" alt="Vim 101 Hacks Book"></a>
+</td>
+</tr>
+</tbody></table>
+</center>
+<br>
+				</div>
+				<p class="post_tags" itemprop="keywords">
+					<span class="post_tags_intro">Tagged as:</span>
+					<a href="https://www.thegeekstuff.com/tag/alias-command/" rel="tag">alias command</a>,
+					<a href="https://www.thegeekstuff.com/tag/display-files-in-colour/" rel="tag">Display Files in Colour</a>,
+					<a href="https://www.thegeekstuff.com/tag/head-command/" rel="tag">Head Command</a>,
+					<a href="https://www.thegeekstuff.com/tag/in-ls-command/" rel="tag">in ls command</a>,
+					<a href="https://www.thegeekstuff.com/tag/linux-ls-command/" rel="tag">Linux Ls Command</a>,
+					<a href="https://www.thegeekstuff.com/tag/list-files-and-directories/" rel="tag">List Files and Directories</a>,
+					<a href="https://www.thegeekstuff.com/tag/ls-command/" rel="tag">ls command</a>,
+					<a href="https://www.thegeekstuff.com/tag/ls-command-options/" rel="tag">ls command options</a>,
+					<a href="https://www.thegeekstuff.com/tag/ls-commands/" rel="tag">ls commands</a>,
+					<a href="https://www.thegeekstuff.com/tag/ls-output/" rel="tag">ls output</a>,
+					<a href="https://www.thegeekstuff.com/tag/ls-tutorial/" rel="tag">ls tutorial</a>,
+					<a href="https://www.thegeekstuff.com/tag/unix-ls-command/" rel="tag">Unix Ls Command</a>
+				</p>
+			</div>
+			<div id="comments">
+				<p class="comments_intro"><span class="bracket">{</span> <span class="num_comments">92</span> comments… <a href="#commentform" rel="nofollow">add one</a> <span class="bracket">}</span></p>
+				<ul class="comment_list">
+					<li class="comment even thread-even depth-1" id="comment-12642">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">George</span>
+							<span class="comment_date">July 13, 2009, 2:14 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12642"><p>I never 
+imagined that I’d value an email subscription more than I do with The 
+Geek Stuff.  Honestly, I just did it for the book–but I’m finding that 
+I’m learning enormous amounts from these entries.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12642" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-12649">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://www.know.eu/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://www.know.eu/" rel="external nofollow" class="url">Francesco Talamona</a></span>
+							<span class="comment_date">July 13, 2009, 5:00 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12649"><p>I couldn’t understand the use of “-q” switch.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12649" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-12652">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://www.lgrodriguez.net/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://www.lgrodriguez.net/" rel="external nofollow" class="url">Gabriel Rodriguez</a></span>
+							<span class="comment_date">July 13, 2009, 7:05 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12652"><p>Very useful!, thanks a lot</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12652" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-12655">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://kalimansurf.wordpress.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://kalimansurf.wordpress.com/" rel="external nofollow" class="url">KaliSurf</a></span>
+							<span class="comment_date">July 13, 2009, 8:53 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12655"><p>Wow!!!! great post…</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12655" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-12657">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://www.bdv-unix-skills.co.uk/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://www.bdv-unix-skills.co.uk/" rel="external nofollow" class="url">Vince Stevenson</a></span>
+							<span class="comment_date">July 13, 2009, 10:31 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12657"><p>Thanks for this blog post.  I wasn’t familiar with ls -A.  Rgds Vince</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12657" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-12663">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://lindesk.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://lindesk.com/" rel="external nofollow" class="url">Binny V A</a></span>
+							<span class="comment_date">July 13, 2009, 12:08 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12663"><p>For the recursion command, I’ll recommend ls -R -1</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12663" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-12667">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">José</span>
+							<span class="comment_date">July 13, 2009, 1:53 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12667"><p>yeah!!!….good post…..but, how we make to list files and directories en groups?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12667" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-12674">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Gagan Brahmi</span>
+							<span class="comment_date">July 13, 2009, 3:53 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12674"><p>Hi,</p>
+<p>There are other characters which can be seen when using the ls -l command. However, I am not sure what those mean.</p>
+<p>Is there any chance that you can tell me what those character refere to?</p>
+<p>The following are the three additional ones which I need to know:</p>
+<p>crw-r–r–<br>
+brw-r–r–<br>
+prw-r–r–</p>
+<p>So it is c, b &amp; p that I need to know the meaning for.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12674" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-12685">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://billyduc.wordpress.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://billyduc.wordpress.com/" rel="external nofollow" class="url">billyduc</a></span>
+							<span class="comment_date">July 13, 2009, 9:31 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12685"><p>listing directory only : ls -d */</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12685" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-12704">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Gagan Brahmi</span>
+							<span class="comment_date">July 14, 2009, 1:08 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12704"><p>You can get the list of hidden directory only using the following command:</p>
+<p>ls -d .*/</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12704" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="comment-12714">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ramesh Natarajan</span>
+							<span class="comment_date">July 14, 2009, 9:32 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-12714"><p><strong>@George,</strong> Thanks for those very kind words. I’m very happy to hear that the eBook and these articles are being helpful to you. </p>
+<p><strong>@Francesco,</strong> Thanks for reference to the article that explains -q option. To make it easy for others, I’m quoting that example here.</p>
+<blockquote><p>Another very important switch is –hide-control-chars (or 
+-q). Linux filenames can contain any character, even control characters.
+ It is possible to create a filename with hidden characters in the name.
+ In these cases, you can’t rename or delete the file unless you know 
+what the hidden characters are. Contrary to what the name implies, the 
+–hide-control-chars switch displays any unprintable characters in the 
+filename as question marks, making their locations visible.</p>
+<p>$ rm orders.txt<br>
+rm: orders.txt non-existent<br>
+$ ls –color=never –classify –-hide-control-chars<br>
+archive/ check-orders.sh* orde?rs.txt
+</p></blockquote>
+<p><strong>@Gabriel, @KaliSurf, @Vince,</strong> Thanks for the nice comment. I’m glad that you found this article helpful.</p>
+<p><strong>@Binny,</strong> Combining the item#2 (ls -1) and item#9 (ls 
+-R) mentioned in the article and using it as (ls -R -1) is definitely a 
+good idea that makes the output readable. Thanks for pointing that out.</p>
+<p><strong>@Jose,</strong> As Billyduct pointed out, Use ls -d */ to display only the directories and not the files. </p>
+<p><strong>@Gagan,</strong></p>
+<p>c indicates Character devices. For example, do “ls -l /dev/tty*” — you’ll see c in front of all terminal devices as shown below.</p>
+<pre>$ ls -l tty*
+crw-rw-rw-  1 root root 5,  0 Jul  4 00:38 tty
+crw-rw----  1 root root 4,  0 Feb  8  2008 tty0
+crw-------  1 root root 4,  1 Feb  8  2008 tty1
+</pre>
+<p>b indicates Block Devices. For example, do “ls -l /dev/sda*” (or) hda
+ and you’ll see b in front of all hard disk partitions indicating it is a
+ block device as shown below.</p>
+<pre>$ ls -l /dev/sda*
+brw-rw----  1 root disk 8, 0 Feb  8  2008 /dev/sda
+brw-rw----  1 root disk 8, 1 Feb  8  2008 /dev/sda1
+</pre>
+<p>p indicates it is a named pipe (FIFO) as shown below.</p>
+<pre>$ ls -l | grep ^p
+prw-------  1 root root        0 Feb  8  2008 initctl
+</pre>
+<p><strong>@Billyduc,</strong> Excellent example to show only directories in the ls output using ls -d */ . Thanks for the suggestion.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-12714" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-13100">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">NARDI</span>
+							<span class="comment_date">July 24, 2009, 7:20 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-13100"><p>part of my .bashrc file:<br>
+alias la=’ls -lA’<br>
+alias l.=’ls -ld .*’<br>
+alias ld=’ls -ld .’<br>
+alias ll=’ls -lFh’<br>
+alias lt=’ls -lFhtr’<br>
+but i’ll now replace ld wit ls -ld */ for it’s much more usefull. the only new one for me =)</p>
+<p>JFYI notice the numbers that appears instead of ‘file size’ column in ls -l /dev<br>
+These are major and minor numbers of device. You can examine their meanings in<br>
+/usr/src/linux/Documentation/devices.txt<br>
+ documentation file (or where you have your kernel documentation 
+located). If you’re really interested this can entertain you for quite a
+ while =))</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-13100" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="comment-13162">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ramesh Natarajan</span>
+							<span class="comment_date">July 25, 2009, 12:18 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-13162"><p>@Nardi,</p>
+<p>Thanks for sharing your .bashrc aliases. You got very practical and 
+useful ls aliases setup. Also, thanks for pointing the devices.txt 
+documentation file location that talks about major and minor numbers. </p>
+<p>For those who are interested, we already wrote an article about <a href="http://www.thegeekstuff.com/2009/06/how-to-identify-major-and-minor-number-in-linux/" rel="nofollow">Linux Major and Minor Device Numbers.</a></p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-13162" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-17749">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Anand babu</span>
+							<span class="comment_date">September 24, 2009, 1:40 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-17749"><p>changing mode is very critical tochange to root</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-17749" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-18894">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">jsonx</span>
+							<span class="comment_date">October 7, 2009, 5:05 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-18894"><p>Thanks. Your tutorials are very clear and helpful.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-18894" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-25244">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://suhrid.net/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://suhrid.net/" rel="external nofollow" class="url">Suhrid</a></span>
+							<span class="comment_date">December 7, 2009, 10:23 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-25244"><p>Thanks for this very useful summary of the ls command.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-25244" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-28289">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Arun</span>
+							<span class="comment_date">January 4, 2010, 4:19 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-28289"><p>Good Post</p>
+<p>But what is the ls command to list the files by Size wise(Ascending / Descending)</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-28289" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-28330">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">nardi</span>
+							<span class="comment_date">January 4, 2010, 10:57 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-28330"><p>@Arun<br>
+read manual (type: man ls)<br>
+$ ls -S  … biggest files first<br>
+$ ls -Sr … smallest files first<br>
+or if you like it long and understandable (I thing this is handy only for aliases in config files):<br>
+$ ls –sort=size –reverse</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-28330" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-28401">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Yasodha</span>
+							<span class="comment_date">January 5, 2010, 1:45 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-28401"><p>Great !!! Really helpful post…. Thanks a lot……</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-28401" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-33572">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">rajesh</span>
+							<span class="comment_date">February 9, 2010, 1:56 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-33572"><p>List files based on their size.</p>
+<p>ls -l|sort -n</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-33572" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-36786">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">santanu</span>
+							<span class="comment_date">February 26, 2010, 9:23 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-36786"><p>nice post</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-36786" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-38001">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">metrit</span>
+							<span class="comment_date">March 6, 2010, 5:58 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-38001"><p>when i want to print only the ones starting with t for example wich is the right command ??</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-38001" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-38381">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">nardi</span>
+							<span class="comment_date">March 8, 2010, 3:07 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-38381"><p>@metrit<br>
+use regular expressions<br>
+see man regexp or google “bash regular expressions”</p>
+<p>list files starting with ‘t’:<br>
+$ ls t*</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-38381" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-40021">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Avin</span>
+							<span class="comment_date">March 19, 2010, 7:44 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-40021"><p>Frankly speaking. I use LS command lots of time but never thought It is as strong command that much.<br>
+Thanks for the cool LS options.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-40021" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-46060">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Uma Suresh</span>
+							<span class="comment_date">May 6, 2010, 12:30 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-46060"><p>I was 
+just looking for a command like ls -1 which prints single file entry per
+ line to be passed into a script and I found this great post. Thanks 
+much for all your tips.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-46060" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-48906">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Rituraj</span>
+							<span class="comment_date">June 3, 2010, 5:41 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-48906"><p>Sir I am new user of this site ,and i want to learn linux so plz provide me some notes and tips</p>
+<p>Thanks &amp; Regards<br>
+Rituraj</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-48906" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-49043">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Raj</span>
+							<span class="comment_date">June 4, 2010, 8:32 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-49043"><p>nice 
+article. I read the grep one – awsome tips. Is there any way to that 
+these settings can be populated to hundreds of servers without modifying
+ bashrc or profile? so i want to hav one .profile/bashrc and want that 
+to be effective whenever i login to any host i manage.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-49043" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-55384">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ram</span>
+							<span class="comment_date">July 22, 2010, 3:09 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-55384"><p>I just 
+wonder what exactly the size for a directory in the “ls -l” output. Even
+ empty directory show this as 4096! what does that mean?<br>
+Can anyone shed some light?<br>
+Thanks</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-55384" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-56936">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">NARDI</span>
+							<span class="comment_date">August 1, 2010, 1:37 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-56936"><p>@Ram<br>
+the size of “directory” itself depends only on the number of files in 
+it. it’s because directory, as written on hard drive, is just an list of
+ files and adresses of that files on hard drive. </p>
+<p>to see the total size of directory, you should use other utils such 
+as ncdu (which you’d probably need to install, but it’s worth it!) or 
+the ‘du’ command in this form:<br>
+du -hs *<br>
+this counts and prints “total_size  filename” pair for all files and directoriess in working directory.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-56936" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-59368">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Anonymous</span>
+							<span class="comment_date">August 16, 2010, 5:17 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-59368"><p>Very Very userful for techies</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-59368" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-64695">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">pydiramu</span>
+							<span class="comment_date">September 29, 2010, 12:39 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-64695"><p>Hi, Its very helpful</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-64695" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-67596">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">c3rr4t0</span>
+							<span class="comment_date">October 25, 2010, 12:43 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-67596"><p>Hi Ramesh!<br>
+A very handy site.<br>
+I have a question:<br>
+What about |, =, and &gt; in ls -F ?</p>
+<p>Thanks for read me.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-67596" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-75335">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">mnrao</span>
+							<span class="comment_date">December 26, 2010, 11:03 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-75335"><p>I know that files in current dir starting with “txt” can be listed by<br>
+ls txt*<br>
+but can I use ls to list files starting with txt in all lower level directories as well.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-75335" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-75400">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">NARDI</span>
+							<span class="comment_date">December 26, 2010, 4:45 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-75400"><p>@mnrao not ls itself. you can use command like<br>
+ls -R ./* | grep ‘/txt’</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-75400" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-78977">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">shahid</span>
+							<span class="comment_date">January 13, 2011, 4:09 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-78977"><p>Dears!</p>
+<p>pls help to find time command which shows only time .</p>
+<p>T&amp;R<br>
+shahid</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-78977" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-88975">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://googlegroup.com/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://googlegroup.com/" rel="external nofollow" class="url">bhupendra lohnai</a></span>
+							<span class="comment_date">February 24, 2011, 4:22 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-88975"><p>What are the advantages of unix OS?<br>
+How can it better to the window operatin system?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-88975" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-92221">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Adhika</span>
+							<span class="comment_date">March 13, 2011, 11:53 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-92221"><p>Hi Ramesh, </p>
+<p>May be you should also give the example to display a year in the ‘ls -ltr’ command.<br>
+I’ve always used this command:<br>
+ls -trh –time-style=’+%d-%b-%Y %H:%M:%S’</p>
+<p>for reference, I looked from: <a href="http://www.gnu.org/software/coreutils/manual/html_node/Formatting-file-timestamps.html" rel="nofollow">here</a>, <a href="http://www.gnu.org/software/coreutils/manual/html_node/Date-conversion-specifiers.html#Date-conversion-specifiers" rel="nofollow">here</a>, and <a href="http://www.gnu.org/software/coreutils/manual/html_node/Time-conversion-specifiers.html#Time-conversion-specifiers" rel="nofollow">here</a></p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-92221" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-92436">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Spoorthi N Gowda</span>
+							<span class="comment_date">March 15, 2011, 12:12 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-92436"><p>please help me in finding the answer for function of ls -l command in unix</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-92436" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-99816">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Manju Arasaiah</span>
+							<span class="comment_date">April 21, 2011, 10:57 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-99816"><p>is there a quick command to get the owner of the file? like ls -o (like this)? thx</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-99816" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-100198">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">karthikai</span>
+							<span class="comment_date">April 23, 2011, 7:55 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-100198"><p>what is the use of ls -s(small s) command? i was confusing this…</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-100198" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-104766">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">jitu</span>
+							<span class="comment_date">May 23, 2011, 2:56 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-104766"><p>i could’nt alias lv=”ls -f”  please sir clear this topic</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-104766" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-111636">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">bala</span>
+							<span class="comment_date">June 13, 2011, 8:26 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-111636"><p>really usefull for beginners</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-111636" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-114112">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">robinatw</span>
+							<span class="comment_date">June 23, 2011, 4:52 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-114112"><p>Awsome, i like this article..<br>
+thank Ramesh  and everybody…</p>
+<p>Robin</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-114112" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-114178">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://thegeekstuf/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://thegeekstuf/" rel="external nofollow" class="url">jitendra kumar dwivedi</a></span>
+							<span class="comment_date">June 23, 2011, 1:35 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-114178"><p>thanks for deeply suggest for ls command. i want to learn.awk coomand</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-114178" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-116776">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">sam1985</span>
+							<span class="comment_date">July 9, 2011, 6:38 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-116776"><p>Hi 
+Ramesh, long time follower. Is there a way for ls to display alphabets 
+in language other than English like Russian. I am on Windows and use 
+Cygwin 1.7.10 &amp; Mintty 0.9.9. Files that are in Russian are 
+displayed using question marks ????.mp3. The font is Consolas and echo 
+*.* shows<br>
+file name perfectly making ls the culprit. Any ideas ?? Thanks!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-116776" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-122654">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">gambit</span>
+							<span class="comment_date">August 18, 2011, 7:09 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-122654"><p>Hi Ramesh,</p>
+<p>ls -lh doesn’t seem to work on AIX 5, any idea how can i view my files in GB format?</p>
+<p>Thanks.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-122654" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-126203">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Sonika</span>
+							<span class="comment_date">September 8, 2011, 12:28 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-126203"><p>really good collection of commands</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-126203" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-127656">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Aparna</span>
+							<span class="comment_date">September 16, 2011, 4:34 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-127656"><p>This 
+website is very good. I am newbee to Unix and was trying to find out how
+ the size of a file/folder is measured, finally i found ls -lh to my 
+rescue in this website.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-127656" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-128008">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">YM</span>
+							<span class="comment_date">September 18, 2011, 8:36 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-128008"><p>Does anybody know how to list “one file” that is in each of the sub directories of root?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-128008" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-133150">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Haoza</span>
+							<span class="comment_date">October 18, 2011, 7:38 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-133150"><p>Didn’t understand point 14. Visual Classification of Files With Colors Using ls -F</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-133150" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-141024">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">kiran varma</span>
+							<span class="comment_date">November 16, 2011, 4:51 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-141024"><p>thanks for the information provided it is very usefull</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-141024" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-193530">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Prescilla</span>
+							<span class="comment_date">February 7, 2012, 7:27 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-193530"><p>thanks 
+for this very useful post. but can anyone tell me what the “total” 
+means? that is the first line of every ls -l command and i haven’t 
+figured out what it refers to.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-193530" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-193593">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Dave</span>
+							<span class="comment_date">February 7, 2012, 9:13 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-193593"><p>Wow, really you can’t do the equivalent of “dir *.txt /s” without typing something like ls -R | grep “.txt”..??<br>
+Either I’ve missed something or I must have missed out on the decision 
+to make it so the normal user can’t use the operating system without 
+immersing themselves in decades of dedicated training…</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-193593" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-196124">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Kalarani</span>
+							<span class="comment_date">February 10, 2012, 11:11 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-196124"><p>pls anyone tell  me   the  difference between  regular expression and  wildcard expression in unix?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-196124" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-204519">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Tushar</span>
+							<span class="comment_date">March 5, 2012, 4:03 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-204519"><p>I want to implement all ls command  , How can i do it in inux<br>
+rply please</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-204519" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-204757">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">ls</span>
+							<span class="comment_date">March 5, 2012, 11:19 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-204757"><p>Hi try using the ‘man’ command.<br>
+type –&gt; man ls</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-204757" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-204906">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">nidhi</span>
+							<span class="comment_date">March 6, 2012, 4:52 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-204906"><p>Same 
+here, this subscription is one which does not hurt after subscribing 
+…its helping a lot in keeping linux fundamentals fresh. Thanks a lot for
+ such a wonderful website and content</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-204906" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-211810">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Shivani</span>
+							<span class="comment_date">March 22, 2012, 3:06 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-211810"><p>Hi,<br>
+I want to count total number of files(files and directories) in a directory and create a file having this count.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-211810" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-211915">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Shivani</span>
+							<span class="comment_date">March 22, 2012, 9:17 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-211915"><p>I want to develop this functionality from a batch file.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-211915" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-213252">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">wannabe</span>
+							<span class="comment_date">March 25, 2012, 6:30 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-213252"><p>Thanks!<br>
+I have a question.<br>
+ls -l<br>
+Field 5 – Size: Fifth field specifies the size of file. In this example, ’9275204′ indicates the file size.<br>
+In case of directory, what means of “Field5”?<br>
+If it is file, “Field 5” is file size. and If it is directory?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-213252" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-214842">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">sam</span>
+							<span class="comment_date">March 29, 2012, 8:27 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-214842"><p>@ Shivani</p>
+<p>this should help set u in right direction -&gt;  find . -type f | wc -l<br>
+also you can try ls -R1 but hard to distinguish between files &amp; dirs.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-214842" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-221262">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Moum</span>
+							<span class="comment_date">April 12, 2012, 6:38 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-221262"><p>Hello,</p>
+<p>I know to retrieve the last file in a directory I can use this command:<br>
+FIC=`ls -rt ${DIRLOG} | tail -n 1`<br>
+Is it possible to recover all the files except the last one réepertoire with command ls ?</p>
+<p>Thx for your help</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-221262" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-239056">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Root Lee</span>
+							<span class="comment_date">May 24, 2012, 8:23 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-239056"><p>Very useful, I shared it over Google+</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-239056" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-242615">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">kk</span>
+							<span class="comment_date">May 31, 2012, 9:29 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-242615"><p>Can I get some some help,</p>
+<p>I need a ls -lrt kind of thing that displayes the  year too. its 
+May2012 and I have a file that shows Dec…..I would like to see the year 
+please</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-242615" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-254625">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">mukilan</span>
+							<span class="comment_date">June 18, 2012, 6:33 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-254625"><p>how to seen the links using ls commands????</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-254625" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-271390">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Rajesh</span>
+							<span class="comment_date">July 18, 2012, 2:26 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-271390"><p>Really it is useful</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-271390" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-289996">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Gnanaprakasam</span>
+							<span class="comment_date">August 24, 2012, 12:21 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-289996"><p>Hi,<br>
+  I need a small help here in using ls with the output of date command. Here is my requirement.<br>
+I need to list all the files that were created the previous day( sysdate -1) .<br>
+I have used the following<br>
+prevdate=`date +”%b %d” –date=”yesterday”`<br>
+ls -lt | grep ‘$prevdate’<br>
+It is not listing any files.<br>
+Could you please help me here.</p>
+<p>Thanks<br>
+Gnanaprakasam R</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-289996" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-293203">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Marzieh</span>
+							<span class="comment_date">August 30, 2012, 8:03 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-293203"><p>Hello, I just installed Fedora 17 and when I type ls -l I get:</p>
+<p>-rw-r–r– .  1 marzi marzi 4096 Aug 14 19:05 stuff</p>
+<p>Do you know what is the “.” after the File Permission field?  I am confused……<br>
+can you help please?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-293203" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-299638">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Prashant Tarudkar</span>
+							<span class="comment_date">September 10, 2012, 1:31 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-299638"><p>Hi ,<br>
+I want to return those file whose third charcter should be a or e or i by ls command.<br>
+Could someone pls help me in that.</p>
+<p>Thank You<br>
+Prashant</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-299638" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-414724">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">biswajit</span>
+							<span class="comment_date">December 4, 2012, 8:51 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-414724"><p>thanks</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-414724" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-544993">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Allan</span>
+							<span class="comment_date">February 18, 2013, 2:30 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-544993"><p>@Prashant Tarudkar</p>
+<p>ls | grep -E ‘^..[ie].*’</p>
+<p>ls piped to grep. -E means regex search, see ‘man grep’ for the details.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-544993" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-584711">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Sss</span>
+							<span class="comment_date">March 19, 2013, 2:47 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-584711"><p>when we list the content of directory<br>
+using ls -l or ls -ltr<br>
+it displays total 76  as first line<br>
+Can you please explain the meaning of total<br>
+what does it reflects..?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-584711" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-603817">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Rayudu</span>
+							<span class="comment_date">March 27, 2013, 11:35 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-603817"><p>Thanks … Great post… Its very help full 🙂</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-603817" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-743569">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">cellar.dweller</span>
+							<span class="comment_date">May 12, 2013, 7:36 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-743569"><p>Great article, as always! I wonder: Where did you find the ls -1 documented?</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-743569" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-998522">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Zahir Hussain</span>
+							<span class="comment_date">October 24, 2013, 11:41 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-998522"><p>Very nice explanation with examples ….<br>
+Looking forward more  unix command with examples… 🙂</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-998522" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1046131">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Dharmesh</span>
+							<span class="comment_date">November 19, 2013, 7:40 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1046131"><p>excellent sir…</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1046131" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1117791">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Vamshi Krishna</span>
+							<span class="comment_date">December 16, 2013, 4:27 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1117791"><p>Very helpful..as a beginner in Linux this site is helping me alot..Thank You</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1117791" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1205837">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Geolin</span>
+							<span class="comment_date">January 16, 2014, 10:45 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1205837"><p>really helpful post !</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1205837" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1706272">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Siddhartha</span>
+							<span class="comment_date">May 15, 2014, 3:21 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1706272"><p>How can i list 5 files</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1706272" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1925175">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Deepak</span>
+							<span class="comment_date">July 3, 2014, 6:10 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1925175"><p>Simple. Elegant. Comprehensive.<br>
+Thank you Ramesh.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1925175" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-1961214">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Philippe Petrinko</span>
+							<span class="comment_date">July 16, 2014, 1:30 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1961214"><p>Hello, </p>
+<p>Nice topic. </p>
+<p>Please note there are two typos:</p>
+<p>“Sometimes you may want to know the _inone_ number of a file for 
+internal maintenance. Use -i option as shown below to display _inone_ 
+number.”</p>
+<p>inone =&gt; inode</p>
+<p>–P</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1961214" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1966529">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Ramesh</span>
+							<span class="comment_date">July 18, 2014, 2:03 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-1966529"><p>Is there a way to list files only after a certain date. Eg: want to list all the files only after Jan 1st 2010</p>
+<p>Thanks</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-1966529" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-2211553">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Rakesh</span>
+							<span class="comment_date">September 9, 2014, 12:04 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-2211553"><p>Very useful, thanks!</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-2211553" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3302017">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Margaretha</span>
+							<span class="comment_date">December 19, 2014, 3:12 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3302017"><p>Thanks 
+so much for the post. How do I display file info with both the full date
+ (including year) as well as the time last modified. It seems to either 
+display full date without time or only the day and time e.g. Feb  8 
+11:48 </p>
+<p>I actually need time created as well as time modified.</p>
+<p>Thanks 🙂<br>
+Margaretha</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3302017" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-3486354">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">kalyan</span>
+							<span class="comment_date">January 6, 2015, 5:24 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3486354"><p>sir, what is the purpose of  ‘ln’ commnad and ln -s..</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3486354" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3935646">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Helen</span>
+							<span class="comment_date">March 20, 2015, 10:10 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-3935646"><p>what does the “|” mean in “ls | grep D”</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-3935646" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-4360725">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Anonymous</span>
+							<span class="comment_date">July 27, 2015, 8:50 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4360725"><p>@sam1985<br>
+Cygwin? Cygwin runs on (Windows) console, so it doesn’t support Russian. It’s not a problem with ls.</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4360725" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4493410">
+						<div class="comment_head">
+							<span class="avatar"><a href="http://abc/" rel="nofollow"></a></span>
+							<span class="comment_author"><a href="http://abc/" rel="external nofollow" class="url">Priya</a></span>
+							<span class="comment_date">September 21, 2015, 2:40 pm</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4493410"><p>Hi Friends,</p>
+<p>am looking for sorting the files size in GB,The bigger file should be first.</p>
+<p>I have searched on the google for sorting the files by size in GB on solaris.<br>
+I found so many commands,but all the commands are sorting the size nicely bytes wise in order.<br>
+but for the same files when am trying in GB its showing incorrect 
+results,I mean its taking the higer no. first while sorting,its not 
+caring even though its in MB, KB or GB.you can see below example i tried
+ with the command du -sh * | sort -rn | more and its showing below 
+output.</p>
+<p>520 KB<br>
+200 GB<br>
+180 MB<br>
+40 GB</p>
+<p>I should get the output like below</p>
+<p>200 GB<br>
+40 GB<br>
+180 MB<br>
+520 KB</p>
+<p>I would really appreciate if anyone can help me with this</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4493410" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-4681297">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Anonymous</span>
+							<span class="comment_date">January 24, 2016, 9:09 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4681297"><p>thanks bro</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4681297" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4723049">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Aiden Holt</span>
+							<span class="comment_date">March 7, 2016, 9:24 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4723049"><p>-rwxr-xr-x 1 root root 920788 Mar 28 2013 bash What does this mean chunk by chunk please answer</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4723049" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment even thread-even depth-1" id="comment-4893868">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">mnk</span>
+							<span class="comment_date">December 13, 2016, 10:18 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4893868"><p>What does cdrom -&gt; media/cdrom<br>
+mean in lrwxrwxrwx   1 root root    11 May 17 20:29 cdrom -&gt; media/cdrom</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4893868" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+					<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4907469">
+						<div class="comment_head">
+							<span class="avatar"></span>
+							<span class="comment_author">Aniket</span>
+							<span class="comment_date">January 16, 2017, 5:17 am</span>
+						</div>
+						<div class="comment_text grt" id="comment-body-4907469"><p>The possible file types you may see are depicted by preceding the permissions by one of these:</p>
+<p>– = Regular File<br>
+d = Directory<br>
+l = Symbolic Link<br>
+b = Block Special Device<br>
+c = Character Device<br>
+s = Unix Socket (local domain socket)<br>
+p = Named Pipe</p>
+						</div>
+						<div class="comment_footer">
+							<a class="comment_permalink" href="#comment-4907469" title="permalink to this comment" rel="nofollow">Link</a>
+						</div>
+</li><!-- #comment-## -->
+				</ul>
+				<form id="commentform" method="post" action="https://www.thegeekstuff.com/wp-comments-post.php">
+					<a rel="nofollow" id="cancel-comment-reply-link" href="https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/#respond" style="display:none;">Cancel reply</a>
+					<p class="comment_form_title">Leave a Comment</p>
+					<p id="comment_form_name">
+						<label for="author">Name</label>
+						<input id="author" class="input_text" name="author" tabindex="1" type="text">
+					</p>
+					<p id="comment_form_email">
+						<label for="email">Email</label>
+						<input id="email" class="input_text" name="email" tabindex="2" type="text">
+					</p>
+					<p id="comment_form_url">
+						<label for="url">Website</label>
+						<input id="url" class="input_text" name="url" tabindex="3" type="text">
+					</p>
+					<p id="comment_form_comment">
+						<label for="comment">Comment</label>
+						<textarea name="comment" id="comment" class="input_text" tabindex="4" rows="6"></textarea>
+					</p>
+					<p id="comment_form_submit">
+						<input id="submit" class="input_submit" name="submit" tabindex="5" value="Submit" type="submit">
+					</p>
+<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="bb7fa5ba7a" type="hidden"></p>
+
+	<p style="clear: both;" class="subscribe-to-comments">
+	<input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" type="checkbox">
+	<label for="subscribe">Notify me of followup comments via e-mail</label>
+	</p>
+
+
+<p style="display: none;"></p><input name="comment_post_ID" value="550" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+				<input id="ak_js" name="ak_js" value="1569279318179" type="hidden"></form>
+			</div>
+			<div class="prev_next">
+				<p class="next_post">Next post: <a href="https://www.thegeekstuff.com/2009/07/correct-spelling-from-linux-command-line/" rel="next">Become a Better Writer from Unix Command Line</a></p>
+				<p class="previous_post">Previous post: <a href="https://www.thegeekstuff.com/2009/07/how-to-view-modify-and-recreate-initrd-img/" rel="prev">How to View, Modify and Recreate initrd.img</a></p>
+			</div>
+		</div>
+		<div class="sidebar">
+<div class="widget widget_text" id="text-21">			<div class="textwidget"><a title="Subscribe via RSS" href="https://www.thegeekstuff.com/feed" rel="nofollow">RSS</a>&nbsp; | &nbsp;<a title="Subscribe via Email" href="https://feedburner.google.com/fb/a/mailverify?uri=TheGeekStuff&amp;loc=en_US" rel="nofollow">Email</a>&nbsp; | &nbsp;<a title="Follow us on Twitter" href="https://twitter.com/thegeekstuff" rel="nofollow">Twitter</a>&nbsp; | &nbsp;<a title="Become a fan" href="https://www.facebook.com/thegeekstuff" rel="nofollow">Facebook</a>&nbsp; | &nbsp;<a title="Follow us on Google+" href="https://plus.google.com/112493711428194838421/posts">Google+</a>
+<br><br>
+<form action="https://www.thegeekstuff.com/search" id="cse-search-box">
+  <div>
+    <input name="cx" value="005666763606120661560:zkmegbt_djm" type="hidden">
+    <input name="cof" value="FORID:10" type="hidden">
+    <input name="ie" value="UTF-8" type="hidden">
+    <input style="background: rgb(255, 255, 255) url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) no-repeat scroll left center; text-indent: 48px;" name="q" size="30" placeholder="Custom Search" type="text">
+    <input style="border-color:#CCCCCC #999999 #999999 #CCCCCC; border-style:double; border-width:1px; overflow:visible;" name="sa" value="Search" type="submit">
+  </div>
+<input name="siteurl" value="www.thegeekstuff.com/2009/07/linux-ls-command-examples/" type="hidden"><input name="ref" value="www.thegeekstuff.com/category/linux/" type="hidden"><input name="ss" type="hidden"></form>
+<script type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script><script src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/a_002" type="text/javascript"></script><link href="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/transliteration.css" type="text/css" rel="stylesheet"><script src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/transliteration.js" type="text/javascript"></script>
+<script type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/t13n"></script>
+<script type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/brand"></script>
+<br></div>
+		</div><div class="widget widget_text" id="text-3">			<div class="textwidget"><script async="" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/adsbygoogle.js"></script>
+<!-- TGS Side Bar -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-8090601437064582" data-ad-slot="9054077260"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br></div>
+		</div><div class="widget widget_text" id="text-4"><p class="widget_title">EBOOKS</p>			<div class="textwidget"><ul>
+<li><img title="Linux 101 Hacks Book" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/free-small.png" alt="Linux 101 Hacks Book">&nbsp;<a href="https://www.thegeekstuff.com/linux-101-hacks-ebook/">Linux 101 Hacks 2nd Edition eBook</a> - Practical Examples to Build a Strong Foundation in Linux</li>
+<li><a href="https://www.thegeekstuff.com/bash-101-hacks-ebook/">Bash 101 Hacks eBook</a> - Take Control of Your Bash Command Line and Shell Scripting</li>
+<li><a href="https://www.thegeekstuff.com/sed-awk-101-hacks-ebook/">Sed and Awk 101 Hacks eBook</a> - Enhance Your UNIX / Linux Life with Sed and Awk</li>
+<li><a href="https://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 Hacks eBook</a> - Practical Examples for Becoming Fast and Productive in Vim Editor</li>
+<li><a href="https://www.thegeekstuff.com/nagios-core-ebook/">Nagios Core 3 eBook</a> - Monitor Everything, Be Proactive, and Sleep Well</li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-22">			<div class="textwidget"><iframe src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/likebox.html" scrolling="no" style="border:none; overflow:hidden; height:258px;" allowtransparency="true" frameborder="0"></iframe></div>
+		</div><div class="widget widget_text" id="text-17"><p class="widget_title">POPULAR POSTS</p>			<div class="textwidget"><ul>
+<li><a href="https://www.thegeekstuff.com/dslr-accessories/">15 Essential Accessories for Your Nikon or Canon DSLR Camera</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/01/12-amazing-and-essential-linux-books-to-enrich-your-brain-and-library/">12 Amazing and Essential Linux Books To Enrich Your Brain and Library</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/12/50-unix-linux-sysadmin-tutorials/">50 UNIX / Linux Sysadmin Tutorials</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/11/50-linux-commands/">50 Most Frequently Used UNIX / Linux Commands (With Examples)</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/gtd-getting-things-done/">How To Be Productive and Get Things Done Using GTD</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/03/30-things-to-do-when-you-are-bored-and-have-a-computer/">30 Things To Do When you are Bored and have a Computer</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/09/linux-file-system-structure/">Linux Directory Structure (File System Structure) Explained with Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/">Linux Crontab: 15 Awesome Cron Job Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/">Get a Grip on the Grep! – 15 Practical Grep Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/07/linux-ls-command-examples/">Unix LS Command: 15 Practical Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/15-examples-to-master-linux-command-line-history/">15 Examples To Master Linux Command Line History</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/bug-tracking-system/">Top 10 Open Source Bug Tracking System</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/01/vi-and-vim-macro-tutorial-how-to-record-and-play/">Vi and Vim Macro Tutorial: How To Record and Play</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/03/15-practical-linux-find-command-examples/">Mommy, I found it! -- 15 Practical Linux Find Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/07/best-gmail-tips-and-tricks/">15 Awesome Gmail Tips and Tricks</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/expertise-in-google-search/">15 Awesome Google Search Tips and Tricks</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/raid-levels-tutorial/">RAID 0, RAID 1, RAID 5, RAID 10 Explained with Diagrams</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/01/15-practical-unix-linux-top-command-examples/">Can You Top This? 15 Practical Linux Top Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/09/top-5-best-network-monitoring-tools/">Top 5 Best System Monitoring Tools</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/06/top-5-best-linux-os-distributions/">Top 5 Best Linux OS Distributions</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/06/how-to-monitor-remote-linux-host-using-nagios-30/">How To Monitor Remote Linux Host using Nagios 3.0</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/01/awk-introduction-tutorial-7-awk-print-examples/">Awk Introduction Tutorial – 7 Awk Print Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/09/rsync-command-examples/">How to Backup Linux? 15 rsync Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/09/the-ultimate-wget-download-guide-with-15-awesome-examples/">The Ultimate Wget Download Guide With 15 Awesome Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/07/top-5-best-linux-text-editors/">Top 5 Best Linux Text Editors</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/08/tcpdump-command-examples/">Packet Analyzer: 15 TCPDUMP Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/06/bash-array-tutorial/">The Ultimate Bash Array Tutorial with 15 Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/">3 Steps to Perform SSH Login Without Password Using ssh-keygen &amp; ssh-copy-id</a></li>
+<li><a href="https://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/">Unix Sed Tutorial: Advanced Sed Substitution Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2010/03/netstat-command-examples/">UNIX / Linux: 10 Netstat Command Examples</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/06/the-ultimate-guide-for-creating-strong-passwords/">The Ultimate Guide for Creating Strong Passwords</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/6-steps-to-secure-your-home-wireless-network/">6 Steps to Secure Your Home Wireless Network</a></li>
+<li><a href="https://www.thegeekstuff.com/2008/08/turbocharge-putty-with-12-powerful-add-ons-software-for-geeks-3/">Turbocharge PuTTY with 12 Powerful Add-Ons</a></li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-19"><p class="widget_title">CATEGORIES</p>			<div class="textwidget"><ul>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/linux/">Linux Tutorials</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/vim-2/">Vim Editor</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/sed/">Sed Scripting</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/awk/">Awk Scripting</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/bash-2/">Bash Shell Scripting</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/nagios-2/">Nagios Monitoring</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/openssh-2/">OpenSSH</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/iptables/">IPTables Firewall</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/apache/">Apache Web Server</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/mysql/">MySQL Database</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/perl/">Perl Programming</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/google/">Google Tutorials</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/ubuntu/">Ubuntu Tutorials</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/postgresql/">PostgreSQL DB</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/hello-world/">Hello World Examples</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/c-programming/">C Programming</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/c-plus-plus/">C++ Programming</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/dell-2/">DELL Server Tutorials</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/oracle/">Oracle Database</a></li>
+<li><a rel="nofollow" href="https://www.thegeekstuff.com/category/vmware/">VMware Tutorials</a></li>
+</ul></div>
+		</div><div class="widget widget_text" id="text-20">			<div class="textwidget"><div style="position: absolute; width: 450px; left: -10000px;" id="___person_0"><iframe ng-non-bindable="" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" id="I2_1569279318113" name="I2_1569279318113" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/person.html" data-gapiattached="true" width="100%" frameborder="0"></iframe></div><g:person href="https://plus.google.com/112493711428194838421" data-rel="author" layout="landscape" data-gapiscan="true" data-onload="true" data-gapistub="true"></g:person></div>
+		</div>		</div>
+	</div>
+	<div class="footer">
+<div id="footer_widgets" class="columns_3">
+	<div class="one-third sidebar first">
+<div class="widget widget_text" id="text-7"><h4 class="widget_title">About The Geek Stuff</h4>			<div class="textwidget"><br>
+<img class="float" title="Ramesh Natarajan" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/ramesh-small.gif" alt="Linux 101 Hacks Book">
+My name is <strong>Ramesh Natarajan</strong>. I will be posting 
+instruction guides, how-to, troubleshooting tips and tricks on Linux, 
+database, hardware, security and web. My focus is to write articles that
+ will either teach you or help you resolve a problem. Read more about <a href="https://www.thegeekstuff.com/about/">Ramesh Natarajan</a> and the blog.</div>
+		</div>	</div>
+	<div class="one-third sidebar">
+<div class="widget widget_text" id="text-9"><h4 class="widget_title">Contact Us</h4>			<div class="textwidget"><br>
+<strong>Email Me :</strong>
+Use this <a href="https://www.thegeekstuff.com/contact" rel="nofollow">Contact Form</a>
+ to get in touch me with your comments, questions or suggestions about 
+this site. You can also simply drop me a line to say hello!.
+<br><br>
+<a title="Follow us on Google+" href="https://plus.google.com/112493711428194838421/posts">Follow us on Google+</a>
+<br><br>
+<a title="Follow us on Twitter" href="https://twitter.com/thegeekstuff" rel="nofollow">Follow us on Twitter</a>
+<br><br>
+<a href="https://www.facebook.com/thegeekstuff" rel="nofollow">Become a fan on Facebook</a>&nbsp;&nbsp;</div>
+		</div>	</div>
+	<div class="one-third sidebar last">
+<div class="widget widget_text" id="text-8"><h4 class="widget_title">Support Us</h4>			<div class="textwidget"><br>
+Support this blog by purchasing one of my ebooks.
+<br><br>
+<a rel="nofollow" href="https://www.thegeekstuff.com/bash-101-hacks-ebook/">Bash 101 Hacks eBook</a>
+<br><br>
+<a rel="nofollow" href="https://www.thegeekstuff.com/sed-awk-101-hacks-ebook/">Sed and Awk 101 Hacks eBook</a>
+<br><br>
+<a rel="nofollow" href="https://www.thegeekstuff.com/vim-101-hacks-ebook/">Vim 101 Hacks eBook</a>
+<br><br>
+<a rel="nofollow" href="https://www.thegeekstuff.com/nagios-core-ebook/">Nagios Core 3 eBook</a></div>
+		</div>	</div>
+	<div style="clear:both;"></div>
+</div>
+		<p class="attribution">Copyright © 2008–2018 Ramesh Natarajan. All rights reserved  | <a href="https://www.thegeekstuff.com/copyright">Terms of Service</a></p>
+	</div>
+</div>
+<script type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/comment-reply.gzip"></script>
+<script async="async" type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/form.gzip"></script>
+<script type="text/javascript">
+(function(){
+	var classes = document.getElementsByClassName('menu_control');
+	for (i = 0; i < classes.length; i++) {
+		classes[i].onclick = function() {
+			var menu = this.nextElementSibling;
+			if (/show_menu/.test(menu.className))
+				menu.className = menu.className.replace('show_menu', '').trim();
+			else
+				menu.className += ' show_menu';
+		};
+	}
+})();
+</script>
+<noscript><style type="text/css" scoped>.menu { display: block; }</style></noscript>
+<script type="text/javascript" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/plusone.js" gapi_processed="true"></script><iframe name="oauth2relay333289072" id="oauth2relay333289072" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/postmessageRelay.html" style="width: 1px; height: 1px; position: absolute; top: -100px;" tabindex="-1" aria-hidden="true"></iframe>
+
+
+
+<iframe scrolling="no" allowtransparency="true" src="Unix%20LS%20Command:%2015%20Practical%20Examples_pliki/widget_iframe.html" title="Twitter settings iframe" style="display: none;" frameborder="0"></iframe><iframe id="rufous-sandbox" scrolling="no" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: medium none;" title="Twitter analytics iframe" frameborder="0"></iframe></body></html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Content Delivery Network via Amazon Web Services: CloudFront: static.thegeekstuff.com
+
+ Served from: www.thegeekstuff.com @ 2019-09-23 16:04:28 by W3 Total Cache -->

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="library\speedway.cpp">
+      <Filter>objects\speedway</Filter>
+    </ClCompile>
+    <ClCompile Include="library\camera.cpp">
+      <Filter>objects\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="library\car.cpp">
+      <Filter>objects\car</Filter>
+    </ClCompile>
+    <ClCompile Include="library\object.cpp">
+      <Filter>objects\object</Filter>
+    </ClCompile>
+    <ClCompile Include="library\input.cpp">
+      <Filter>core\input</Filter>
+    </ClCompile>
+    <ClCompile Include="library\update.cpp">
+      <Filter>core\update</Filter>
+    </ClCompile>
+    <ClCompile Include="library\display.cpp">
+      <Filter>core\display</Filter>
+    </ClCompile>
+    <ClCompile Include="library\ai_car.cpp">
+      <Filter>objects\ai_car</Filter>
+    </ClCompile>
+    <ClCompile Include="library\finish.cpp">
+      <Filter>objects\finish</Filter>
+    </ClCompile>
+    <ClCompile Include="library\game.cpp">
+      <Filter>core\game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\display.h">
+      <Filter>core\display</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\speedway.h">
+      <Filter>objects\speedway</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\camera.h">
+      <Filter>objects\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\car.h">
+      <Filter>objects\car</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\object.h">
+      <Filter>objects\object</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\input.h">
+      <Filter>core\input</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\update.h">
+      <Filter>core\update</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\ai_car.h">
+      <Filter>objects\ai_car</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\finish.h">
+      <Filter>objects\finish</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\game.h">
+      <Filter>core\game</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="core">
+      <UniqueIdentifier>{92a1d0d9-b9ad-444f-b171-1d1bf5995037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\display">
+      <UniqueIdentifier>{94cf772f-dbc4-4cab-9a5a-61fc2cf95173}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\input">
+      <UniqueIdentifier>{01d35480-cdfc-4287-b1bf-46b4a90a423e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\update">
+      <UniqueIdentifier>{3ef5f41b-070b-4a69-bd0c-a3fe79e38707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objects">
+      <UniqueIdentifier>{67b6ed0b-ed61-454a-a802-a41187a07dfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objects\object">
+      <UniqueIdentifier>{1f8f7d09-6a0e-4795-82c9-77c64157930a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objects\speedway">
+      <UniqueIdentifier>{2c5a5f39-76b9-4391-a417-52dd81e3b69c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objects\car">
+      <UniqueIdentifier>{0192ae35-7919-4197-b575-0c98c48e3243}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objects\camera">
+      <UniqueIdentifier>{ef8121f8-674a-459b-a227-ef5b873bc6ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objects\ai_car">
+      <UniqueIdentifier>{2ac906fd-f7af-4651-b07c-dba9e713afe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objects\finish">
+      <UniqueIdentifier>{50a7a734-3aff-4d2a-af39-948afbaedcda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\game">
+      <UniqueIdentifier>{f8614438-6f21-422e-b1c9-1b963915644c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
