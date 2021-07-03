@@ -1,0 +1,31 @@
+Stworzyc klase 'Stos' - stos dla znakow. Dla stosu mozliwe powiny byc nastepujace operacje:
+
+   - Stos s1;		- s1 jest stosem o rozmiarze domyslnym np.0;
+   - Stos s2(6);	- s2 jest stosem o rozmiarze podanym jako 
+			  parametr i wypelniny zerami
+   - Stos s2(6,1);	- s3 jest stosem o rozmiarze podanym jako 
+			  parametr i wypelniny zerami wartosciami 
+			  podamnymi jako parametr
+
+   - s2.rozmiar();		- odczyt rozmiaru stosu
+   - s2.ustawRozmiar();		- ustal rozmiar stosu
+   - s2.ileElementow();		- odczyt liczby elementow odlozonych na stos
+   - s2.zwiekszRozmiar(12);	- zwiekszenie rozmiaru stosu o zadana wartosc
+   - s2.dopasujRozmiar();		- dopasowanie rozmiaru do liczby elementow
+   - s2.oproznij();		- oproznij stos
+
+   - s2.dodaj(5);		- dodaj element na stos
+   - s2 << 5;			- dodaj element na stos
+
+   - s2.zdejmij();			- zdejmi element ze stosu
+   - s2 >> val;			- zdejmi element ze stos
+
+   - cout << s2;		- wypisz zawartosc stosu na ekran
+				  i pokazac aktualny pukt dostepu	
+
+Wersje:
+	- na tablicy statycznej (max. 50 pkt)
+	- na tablicy dynamicznej(max. 70 pkt)
+
+
+Wykorzystujac stos napisz program odwracajacy napis

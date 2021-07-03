@@ -1,0 +1,31 @@
+Stworzyc klase 'DSet' - zbiór liczb. Dla zbioru mozliwe powiny byc nastepujace operacje:
+
+   - DSet s1;			- s1 jest zbiorem domyslnym np. przechowuj¹cym liczby od 9 do 0;
+   - DSet s2(6);		- s2 jest zbiorem przechowuj¹cym liczby z zakresu od wartoœci podanej jako parametr do 0 (np. od 6 do 0);
+   - DSet s2(6,1);		- s3 jest zbiorem przechowuj¹cym liczby z zakresu od wartoœci podanej jako parametry (np. od 6 do 1);
+
+   - s2.size();			- odczyt licznoœci zbioru
+   - s2.empty();		- oproznij zbioór
+
+   - s2.add(5);			- dodaj element do zbioru
+   - s2 << 5;			- dodaj element do zbioru
+
+   - s2.remove();		- zdejmi element ze zbioru
+   - s2 >> val;			- zdejmi element ze zbioru
+
+   - cout << s2;		- wypisz zawartosc stosu na ekran
+				  i pokazac aktualny pukt dostepu	
+
+   - s1 & s2;			- iloczyn zborów
+   - s1 | s2;			- suma zborów
+   - s1 - s2;			- ró¿nica zborów
+
+
+Wersje:
+	- na tablicy statycznej (max. 50 pkt)
+	- na tablicy dynamicznej(max. 60 pkt)
+	- na listy (max. 70 pkt)
+
+
+
+

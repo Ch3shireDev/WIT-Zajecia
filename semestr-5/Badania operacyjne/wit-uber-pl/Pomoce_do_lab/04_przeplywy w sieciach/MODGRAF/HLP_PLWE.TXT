@@ -1,0 +1,75 @@
+Ka¿dy model grafowy dla programu MODGRAF musi byæ zapisany w postaci pliku tekstowego o œciœle okreœlonym formacie. Plik ten mo¿na utworzyæ za pomoc¹ dowolnego edytora tekstowego generuj¹cego czyste pliki ASCII. Mo¿na te¿ to zrobiæ z poziomu programu MODGRAF poprzez wywo³anie opcji "Plik/Nowy graf".
+
+
+FORMAT PLIKU WEJŒCIOWEGO
+===================================
+· Linia tekstu informacyjnego, np. nazwa grafu lub s³owny opis pliku. Tekst ten powinien mieœciæ siê w jednej linii i nie przekraczaæ 40 znaków. 
+· Linia odstêpu (pusta linia).
+· Typ grafu w postaci s³owa: "skierowany" lub "nieskierowany". Przy czym typ grafu rozpoznawany jest tylko na podstawie pierwszej litery tego s³owa: "s" lub "n".
+· Linia odstêpu (pusta linia).
+· Lista krawêdzi grafu. Ka¿da krawêdŸ jest zdefiniowana w osobnej linii zawieraj¹cej oddzielone odstêpami: nazwê wierzcho³ka pocz¹tkowego, nazwê wierzcho³ka koñcowego oraz pewn¹ iloœæ parametrów (od 0 do 2). Parametry krawêdzi s¹ wielkoœciami liczbowymi, mog¹ byæ ujemne, a tak¿e byæ liczbami u³amkowymi. Ka¿da krawêdŸ musi mieæ podane tyle samo parametrów. Ich liczba zale¿y od rodzaju modelu grafowego i stosowanych algorytmów. Niektóre algorytmy nie wymagaj¹ parametrów liczbowych, np. algorytmy kolorowania. 
+
+Po liœcie krawêdzi mo¿e wyst¹piæ sekcja opcjonalna, która okreœla po³o¿enie wierzcho³ków na ekranie. Sekcja ta jest generowana automatycznie podczas zapisywania po³o¿enia grafu widocznego na ekranie za pomoc¹ opcji "Plik/Zachowaj topologiê jako" i mo¿e byæ w ka¿dej chwili usuniêta z pliku przez u¿ytkownika. System wtedy roz³o¿y wszystkie wierzcho³ki na okrêgu o œrednicy dobranej odpowiednio do liczby wierzcho³ków. Postaæ sekcji:
+
+· Linia odstêpu (pusta linia).
+· Lista wierzcho³ków, po jednym w ka¿dej linii. Ka¿dy linia sk³ada siê z trzech pól oddzielonych odstêpami: nazwy wierzcho³ka oraz dwóch liczb okreœlaj¹cych jego po³o¿enie na ekranie.
+
+
+UWAGI
+===================================
+· Maksymalna d³ugoœæ nazwy wierzcho³ka nie powinna przekraczaæ 12 znaków. D³u¿sze nazwy zostan¹ obciête do pierwszych 12 znaków i w takiej postaci zostan¹ zapisane do plików wynikowych. 
+· Separatorem dziesiêtnym w liczbach u³amkowych jest kropka, a nie przecinek. Przecinek oznacza natomiast koniec pliku, wiêc nie nale¿y go nadu¿ywaæ.
+· Znak # oznacza pocz¹tek komentarza w danej linii - ca³y tekst po prawej stronie znaku # jest traktowany jako komentarz.
+
+
+PRZYK£ADOWY PLIK WEJŒCIOWY
+===================================
+Graf przyk³adowy
+
+Nieskierowany
+
+Bia³ystok     Warszawa       194          
+Warszawa      Poznañ         303          
+Szczecin      Warszawa       516          
+Gdañsk        Szczecin       340          
+Kraków        Warszawa       294          
+Wroc³aw       Kraków         258          
+Wroc³aw       Poznañ         171          
+Poznañ        Szczecin       238          
+Gdañsk        Bia³ystok      381          
+Lublin        Warszawa       161          
+Kraków        Lublin         273          
+Gdañsk        Warszawa       343          
+Bia³ystok     Lublin         254          
+
+Bia³ystok      92            381.4667
+Warszawa       150.5333      274.8667
+Poznañ         142.1333      140.6667
+Szczecin       27.8          75.53333
+Gdañsk         10.8          220.4667
+Kraków         273.1333      269.3333
+Wroc³aw        219.5333      133.1333
+Lublin         203.1333      352.6
+
+
+KOMUNIKATY B£ÊDÓW PLIKU WEJŒCIOWEGO
+===================================
+· Niezdefiniowany typ grafu (skierowany/nieskierowany)	
+Brak pola, w którym definiuje siê typ grafu jako skierowany lub nieskierowany.
+
+· Nie potrafiê przeczytaæ wierzcho³ka podczas czytania krawêdzi
+Brak zdefiniowanego drugiego wierzcho³ka w krawêdzi.
+
+· Nieprawid³owa wartoœæ parametru krawêdzi 'x y'
+Parametr wskazanej krawêdzi nie jest liczb¹ rzeczywist¹.
+
+· Nieprawid³owa liczba parametrów krawêdzi
+Poszczególne krawêdzie posiadaj¹ ró¿n¹ liczbê parametrów, co jest niedopuszczalne.
+
+· Plik zawiera definicjê multigrafu
+Powtórnie zdefiniowana krawêdŸ, co tworzy multigraf, a taki typ grafu nie jest obs³ugiwany przez program MODGRAF.
+
+· Nieprawid³owa liczba parametrów krawêdzi grafu
+Wszystkie krawêdzie musz¹ mieæ tak¹ sam¹ liczbê parametrów. Gdy gdzieœ jest za ma³o, albo za du¿o parametrów pojawia siê komunikat ze wskazanym numerem b³êdnej linii.
+
+

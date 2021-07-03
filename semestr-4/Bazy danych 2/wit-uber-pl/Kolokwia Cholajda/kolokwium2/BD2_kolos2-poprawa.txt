@@ -1,0 +1,85 @@
+gr A
+
+DESCRIBE BD2_POZYCJE_ZAMOWIEN;
+
+SELECT KOD_KRESKOWY,ILOSC FROM BD2_POZYCJE_ZAMOWIEN
+	WHERE KOD_KRESKOWY = 9878762222000;
+
+		
+CREATE OR REPLACE TRIGGER ziemniaki
+BEFORE INSERT ON BD2_POZYCJE_ZAMOWIEN
+FOR EACH ROW
+BEGIN
+	IF (:new.kod_kreskowy = '9878762222000' AND :new.ilosc > 100) THEN
+		RAISE_APPLICATION_ERROR(-20001, 'Za duzo chcesz kupic');
+	END IF;
+END;
+/
+
+DESCRIBE BD2_POZYCJE_ZAMOWIEN;
+DESCRIBE BD2_ZAMOWIENIA;
+
+SELECT * FROM BD2_POZYCJE_ZAMOWIEN;
+SELECT * FROM BD2_ZAMOWIENIA;
+
+INSERT INTO BD2_POZYCJE_ZAMOWIEN(id_zamowienia,numer_pozycji,kod_kreskowy,ilosc) VALUES(1,6,'9878762222000',120);
+
+
+
+procedura: DELETE poz_zam zam 
+
+CREATE OR REPLACE PROCEDURE usunac_dane(arg_data IN DATE) IS
+BEGIN
+	UPDATE bd2_klienci SET ID_ZAMOWIENIA = NULL WHERE DATA_ZAMOWIENIA = arg_data;
+	UPDATE bd2_pozycje_zamowien SET ID_ZAMOWIENIA = NULL WHERE DATA_ZAMOWIENIA = arg_data;
+	DELETE FROM bd2_zamowienia WHERE DATA_ZAMOWIENIA = arg_data;
+	DELETE FROM Bd2_klienci WHERE ID_ZAMOWIENIA = NULL;
+END;
+/
+
+CREATE OR REPLACE PROCEDURE zwolnij_szefa (arg_id_data IN DATE) IS
+BEGIN
+	UPDATE bd2_pracownicy SET ID_SZEFA = NULL WHERE ID_SZEFA = arg_id_szefa;
+	DELETE FROM bd2_pracownicy WHERE ID_PRACOWNIKA = arg_id_szefa;
+END;
+/
+
+gr B
+
+1. Wybierz ile zosta³o zlo¿onych WSZYSTKICH zamowieñ w poszczególnych latach. W dodatkowych trzech kolumnach przedstaw ile z nich zosta³o z³o¿onych przez klientów: z Warszawy, z Poznania,
+oraz pozosta³ych (wliczaj±c w to nieznanych klientów, ktorzy nie przedstawili siê w momêcie sk³adania zamowienia).
+
+SELECT to_char(Z.data_zamowienia,'yyyy') AS DATA, 
+COUNT(Z.id_zamowienia) AS ilosc_zamowien,
+SUM(DECODE(K.miasto,'Warszawa',1,0)) AS WARSZAWA,
+SUM(DECODE(K.miasto,'Poznañ',1,0)) AS POZNAN,
+SUM(DECODE(K.miasto,NULL,1,0)) AS POZOSTALI
+FROM BD2_ZAMOWIENIA Z, BD2_KLIENCI K
+WHERE Z.id_klienta=K.id_klienta
+GROUP BY to_char(Z.data_zamowienia,'yyyy');
+
+2. Dla podanego towaru zaprezentuj porównanie: ile sprzedano go w Poznaniu, a ile w Warszawie.
+
+SELECT T.nazwa as NAZWA, SUM(DECODE(K.miasto,'Warszawa',PZ.ilosc,0)) AS WARSZAWA,
+SUM(DECODE(K.miasto,'Poznañ',PZ.ilosc,0)) AS Poznañ
+FROM BD2_TOWARY T, BD2_ZAMOWIENIA Z, BD2_KLIENCI K, BD2_POZYCJE_ZAMOWIEN PZ
+WHERE T.kod_kreskowy=PZ.kod_kreskowy AND K.id_klienta=Z.id_klienta AND PZ.id_zamowienia=Z.id_zamowienia
+GROUP BY T.nazwa;
+
+3. Dla ka¿dego zamawianego towaru wyznacz jego zamawian± ilo¶æ z podzia³em na poszczególne
+miejscowo¶ci zamawiaj±cych klientów (wykonaj perspektywê). W oparciu o perspektywê wyznacz dla
+ka¿dego zamawianego towaru w jakiej miejscowo¶ci (wystarczy pierwsza w kolejno¶ci alfabetycznej)
+sprzedano go najwiêcej i ile to by³o.
+
+CREATE VIEW ale_fajna AS
+SELECT T.nazwa AS NAZWA, K.miasto AS MIASTO, PZ.ilosc AS ILOSC
+FROM BD2_KLIENCI K, BD2_TOWARY T, BD2_POZYCJE_ZAMOWIEN PZ, BD2_ZAMOWIENIA Z
+WHERE K.id_klienta=Z.id_klienta AND PZ.kod_kreskowy=T.kod_kreskowy
+	AND PZ.id_zamowienia=Z.id_zamowienia
+ORDER BY T.nazwa;
+
+a potem:
+
+SELECT nazwa, MAX(ilosc)
+FROM ale_fajna af
+GROUP BY nazwa;

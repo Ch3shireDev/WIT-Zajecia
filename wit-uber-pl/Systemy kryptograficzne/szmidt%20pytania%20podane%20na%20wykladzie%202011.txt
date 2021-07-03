@@ -1,0 +1,6 @@
+﻿1. uslugi kryptograficzne(poufnosc, integralność, tajność)
+2. kryptosystem klucza publicznego 
+3. RSA
+4. Diffi-Helman
+5  AES
+ 

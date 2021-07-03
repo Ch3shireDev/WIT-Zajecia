@@ -1,0 +1,53 @@
+pytania jakie udalo mi sie zebrac z fizyki, odpowiedni glownie nie sa moje i POWINNY byc dobre.
+
+1. Czy mo¿na jednoznacznie okreœliæ polaryzacjê pojedyñczego fotonu?
+	nie (z zasady nieoznaczonosci dla polaryzacji)
+2. Czy pojedyñczy elektron mo¿e ze sob¹ interferowaæ?
+	tak
+3. Jak¹ czêstotliwoœæ ma fala o d³ugoœci 1cm rozchodz¹ca siê z prêdkoœci¹ v=200
+	2 = c/f = c*T
+4. Ile wynosi energia fotonu?
+	E=h*v (h=sta³a planca, v=czêstoœæ promieniowania)
+5. Zasada dzia³ania wyœwietlaczy ciek³okrystalicznych polega na organizacji moleku³ w wyniku:
+	Pola elektrycznego
+6. W zjawiski fotoelektrycznym liczba wybijanych elektronow (pr¹du) zale¿y od:
+	natê¿enia œwiat³a
+7. Metoda przesy³ania klucza szyfruj¹cego BB84 wyko¿ystuje przesy³anie fotonów o losowo zmiennej:
+	Polaryzacji
+8. Prêdkoœæ rozchodzenia siê impulsów jest zwi¹zana z:
+	prêdkoœci¹ grupow¹ (wielkoœæ opisuj¹ca rozchodzenie siê fal nieharmonicznych (innych ni¿ sinusoidalne) w sytuacji, gdy natê¿enie fali nie wp³ywa na prêdkoœæ ruchu fali)
+9. W pó³przewodniku typu n wiêkszoœciowymi noœnikami pr¹du s¹:
+	Elektrony
+10. Uk³ady scalone to w wiêkszoœci uk³ady
+	Tranzystorów polowych
+11. Wiêksza od prêdkoœci œwiat³a w pró¿ni mo¿e byæ prêdkoœæ:
+	fazowa œwiat³¹ (to prêdkoœæ, z jak¹ rozchodz¹ siê miejsca fali o tej samej fazie)
+12. W œwiat³owodach fotonicznych œwiat³o jest prowadzone w wyniku odbicia:
+	Ca³kowitego wewnêtrzengo odbicia (wiat³o padaj¹ce na granicê od strony oœrodka o wy¿szym wspó³czynniku za³amania pod k¹tem wiêkszym ni¿ k¹t graniczny, nie przechodzi do drugiego oœrodka, lecz ulega ca³kowitemu odbiciu)
+13. Spin elektronu w zewnêtrznym polu magnetycznym ustawia siê wzglêdem pola
+	Równolegle lub antyrównolegle
+14. Dziury (noœniki ³adunku w pó³przewodnikach typu p) s¹ to:
+	Miejsca w paœmie walencyjnym zwalniane przez elektrony (p ma wiêksza rezystywnoœæ niz typ n)
+15. Pole magnetyczne jest wytwa¿ane przez:
+	Poruszaj¹ce siê ³adunki elektryczne
+16. Pó³przewodnik typu n jest pó³przewodnikiem:
+	Domieszkowanym przez atomy addaj¹ce elektrony do pasma przewodnictwa
+17. W œwiat³owodach telekomunikacyjnych przesy³a siê fale elektromagnetyczn¹ o d³ugoœci:
+	1530-1565 nm (podczerwieñ)
+18. Czy dwie wi¹zki elektronów mog¹ ze sob¹ interferowaæ?
+	tak
+19. Co wymusza emisjê fotonu w procesie emisji wymuszonej?
+	Inny foton
+20. Emisja wymuszona polega na tym ¿e foton jest emitowany w wyniku:
+	obecnoœci inego fotonu
+21. Czy wi¹zka elektronów mo¿e ulegaæ dyfrakcji (ugiêcie fali)?
+	tak (z Dualizmu korpuskularno-falowego) 
+22. Mikroskop tunelowy poprzez pomiar pr¹du elektrycznego... w wyniku tunelowania elektronów mierzy:
+	odleg³oœæ ig³y (ostrza) od próbki
+23. Jaki rodzaj emisji jest ¿ród³em promieniowania laserowego?
+	spójne promieniowanie elektromagnetyczne
+24. Dwój³omnoœæ optyczna powoduje, ¿e œwiat³o za³amuje siê pod dwoma k¹tami w zale¿noœci od:
+	kierunku drgañ pola elektrycznego fali elektromagnetycznej (polaryzacji fali)
+25. W typowych œwiat³owodach jednomodowych stosowanych w telekomunikacji? œwiat³o traci ok. 99% energii w wyniku strat po przebyciu odleg³oœci:
+	100km
+	

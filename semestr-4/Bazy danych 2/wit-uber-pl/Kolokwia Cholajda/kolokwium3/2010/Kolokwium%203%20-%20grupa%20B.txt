@@ -1,0 +1,5 @@
+Kolokwium 3 ,grupa B - BD2 2009/2010
+
+1. (15dp) Napisz funkcjê bazodanow¹, która zwraca sumê kontroln¹ z podanego (jako ³añcuch tekstowy) ci¹gu cyfr w postaci sumy
+   kolejnych cyfr ci¹gu dzielonej modulo 10.
+2. (15dp) Wykonaj trigger, który uniemo¿liwi sprzeda¿ nabia³u klientom z Warszawy.

@@ -1,0 +1,85 @@
+/* CSS Document */
+
+div#pudlo
+{
+    margin:auto;
+	margin-top:10px;
+	height:600px;
+	width:535px;
+	padding:4px;
+	font-family:"Verdana";
+	font-size:11px;
+	color:#297bc7;
+	
+ 
+}
+
+div#linki
+{
+    height:15px;
+	width:337px;
+	margin-left:25px;
+	margin-top: 26px;
+	font-family:Verdana;
+	font-size:11px;
+	
+}
+
+#img
+{
+   border:none;
+}
+
+div#pudlo_wew
+{
+	height:514px;
+	width:505px;
+	position:absolute;
+	padding: 15px;
+	background-image:url(glowne_tlo.jpg);
+	margin-top: 50px;
+	top: 20px;
+}
+
+div#tresc
+{
+  height:442px;
+  width:272px;
+  float:left;
+  margin-top:6px;
+  padding:10px;
+  font-family:Verdana;
+  font-size:11px;
+  overflow:hidden;
+  background-image: url(tlo_tekst_niebieskie.jpg);
+}
+
+div#obrazek
+{
+  height:163px;
+  width:178px;
+  float:right;
+  padding:10px;
+  margin-top:6px;
+  background-image:url(widok.jpg);
+}
+
+div#menu
+{
+  height:230px;
+  width:160px;
+  float:right;
+  padding:20px;
+  font-size:11px;
+}
+
+div#stopa
+{
+  float:left;
+  height:26px;
+  width:499px;
+  background-image:url(tlo_stopka.jpg);
+  margin-top:10px;
+  padding-top:10px;
+
+}

@@ -1,0 +1,189 @@
+/*********************************************************************************************/
+/*  					KOLOKWIUM II					     */
+/*  											     */
+/* Zastaw odpowiedzi zawiera jedynie przyk³adowe sk³adnie - rozwi¹zaæ ka¿de zadanie mo¿na na */
+/* wiele (ró¿nych!) sposobów.								     */
+/*********************************************************************************************/
+
+-- Wybraæ informacjê o zamówieniach z³o¿onych w czwartym kwartale 1999 roku.
+SELECT 	 * 
+FROM 	 ID206_ZAMOWIENIA 
+WHERE 	    DATA_ZAMOWIENIA >= TO_DATE('01.10.1999', 'dd.mm.yyyy') 
+	AND DATA_ZAMOWIENIA <  TO_DATE('01.01.2000', 'dd.mm.yyyy'); 
+
+-- Wybraæ informacjê o zamówieniach, w których sprzedawano towar o nazwie "cebula"
+SELECT 	 Z.* 
+FROM 	 ID206_ZAMOWIENIA Z
+	,ID206_SZCZEGOLY_ZAMOWIEN S
+	,ID206_TOWARY T
+WHERE 	    Z.ID_ZAMOWIENIA = S.ID_ZAMOWIENIA
+	AND S.KOD_KRESKOWY = T.KOD_KRESKOWY
+	AND T.NAZWA = 'cebula';
+
+-- Wybraæ informacjê o zamówieniach, w których sprzedawano towar o nazwie "cebula" lub "cebula czerwona"
+SELECT 	DISTINCT Z.* 
+FROM 	 ID206_ZAMOWIENIA Z
+	,ID206_SZCZEGOLY_ZAMOWIEN S
+	,ID206_TOWARY T
+WHERE 	    Z.ID_ZAMOWIENIA = S.ID_ZAMOWIENIA
+	AND S.KOD_KRESKOWY = T.KOD_KRESKOWY
+	AND T.NAZWA IN ('cebula', 'cebula czerwona');
+
+-- Wybraæ informacjê o tym w jakich miastach mieszkaj¹ klienci i pracownicy firmy;
+SELECT 	MIASTO
+FROM	ID206_KLIENCI
+UNION
+SELECT 	MIASTO
+FROM	ID206_PRACOWNICY
+ORDER BY MIASTO;
+
+-- Wybraæ informacjê o kliencie i o dacie jego ostatnio z³o¿onego zamówienia (tylko, gdy klient sk³ada³ zamówienia) i gdy
+-- data ostatniego zamówienia przekracza dzieñ 1 stycznia 1999 roku.
+SELECT 	 K.ID_KLIENTA
+	,K.NAZWISKO
+	,K.IMIE
+	,MAX(Z.DATA_ZAMOWIENIA)
+FROM 	 ID206_KLIENCI K
+	,ID206_ZAMOWIENIA Z
+WHERE 	 K.ID_KLIENTA = Z.ID_KLIENTA
+HAVING   MAX(Z.DATA_ZAMOWIENIA) >= TO_DATE('01.01.1999', 'dd.mm.yyyy')
+GROUP BY K.ID_KLIENTA
+	,K.NAZWISKO
+	,K.IMIE
+ORDER BY K.ID_KLIENTA ASC;
+
+			-- ³atwo powy¿sze sprawdziæ zapytaniem:
+			-- SELECT 	 DISTINCT ID_KLIENTA 
+			-- FROM 	 ID206_ZAMOWIENIA 
+			-- WHERE 	 DATA_ZAMOWIENIA >= TO_DATE('01.01.1999', 'dd.mm.yyyy') ;
+
+-- Wybraæ informacjê o tych pracownikach, którzy przyjêli najwiêcej zamówieñ w 1999 roku
+SELECT 	 P.ID_PRACOWNIKA
+	,P.NAZWISKO
+	,COUNT(Z.ID_ZAMOWIENIA) AS ILE
+FROM 	 ID206_PRACOWNICY P
+	,ID206_ZAMOWIENIA Z
+WHERE       P.ID_PRACOWNIKA = Z.ID_PRACOWNIKA
+	AND Z.DATA_ZAMOWIENIA >= TO_DATE('01.01.1999', 'dd.mm.yyyy') 
+	AND Z.DATA_ZAMOWIENIA <  TO_DATE('01.01.2000', 'dd.mm.yyyy') 
+GROUP BY P.ID_PRACOWNIKA
+	,P.NAZWISKO
+ORDER BY ILE DESC;
+
+			-- powy¿sza sk³adnia wystarczy - pracowników jest niewielu i nie trzeba u¿ywaæ ROWNUM
+
+
+-- Wybraæ informacjê o klientach, którzy kupowali celulê (towar o nazwie "cebula") wiêcej ni¿ 1 raz
+SELECT   K.ID_KLIENTA
+	,K.NAZWISKO
+	,COUNT(T.KOD_KRESKOWY) AS ILE
+FROM 	 ID206_KLIENCI K
+	,ID206_ZAMOWIENIA Z
+	,ID206_SZCZEGOLY_ZAMOWIEN S
+	,ID206_TOWARY T
+WHERE 	    K.ID_KLIENTA = Z.ID_KLIENTA
+	AND Z.ID_ZAMOWIENIA = S.ID_ZAMOWIENIA
+	AND S.KOD_KRESKOWY = T.KOD_KRESKOWY
+	AND T.NAZWA = 'cebula'
+HAVING 	COUNT(T.KOD_KRESKOWY) > 1
+GROUP BY K.ID_KLIENTA
+	,K.NAZWISKO
+ORDER BY K.ID_KLIENTA ASC;
+
+
+-- Wybraæ wartoœæ najdro¿szego zamówienia, a nastêpnie o najtañszego (jako jedno zapytanie).
+-- Wskazówka: wykonaæ widok wyznaczaj¹cy wartoœæ zamówienia dla ka¿dego zamówienia.
+CREATE OR REPLACE VIEW id206_wartosci_zamowien AS
+SELECT   Z.ID_ZAMOWIENIA
+	,(SUM(T.CENA_BRUTTO * S.ILOSC)) AS WARTOSC_ZAMOWIENIA
+FROM 	 ID206_ZAMOWIENIA Z
+	,ID206_SZCZEGOLY_ZAMOWIEN S
+	,ID206_TOWARY T
+WHERE 	    Z.ID_ZAMOWIENIA = S.ID_ZAMOWIENIA
+	AND S.KOD_KRESKOWY = T.KOD_KRESKOWY
+GROUP BY Z.ID_ZAMOWIENIA;
+
+
+SELECT  MAX(WARTOSC_ZAMOWIENIA) AS MAX_MIN
+FROM  	id206_wartosci_zamowien
+UNION ALL
+SELECT  MIN(WARTOSC_ZAMOWIENIA) AS MAX_MIN
+FROM  	id206_wartosci_zamowien;
+
+			-- powy¿sze zapytanie te¿ mo¿na by³o napisaæ w jednym SELECT'ie
+
+
+-- Wybraæ informacjê o tym ilu klientów mieszka w danym mieœcie.
+SELECT   MIASTO
+	,COUNT(ID_KLIENTA)
+FROM 	ID206_KLIENCI
+GROUP BY MIASTO;
+
+
+-- Wybraæ informacjê o tym ile razy KA¯DY z towarów by³ zamawiany i ile sztuk go ³¹cznie zamówiono.
+SELECT   T.KOD_KRESKOWY
+	,T.NAZWA
+	,COUNT(S.KOD_KRESKOWY)  AS ILE_RAZY
+	,NVL(SUM(S.ILOSC), 0)	AS ILE_SZTUK
+FROM 	 ID206_TOWARY T
+	,ID206_SZCZEGOLY_ZAMOWIEN S
+WHERE    T.KOD_KRESKOWY = S.KOD_KRESKOWY (+)
+GROUP BY T.KOD_KRESKOWY
+	,T.NAZWA;
+	
+
+-- Wybraæ informacjê o tym ile razy dany klient sk³ada³ zamówienie (tylko dla klientów, którzy sk³adali zamówienia)
+SELECT   ID_KLIENTA
+	,COUNT(ID_ZAMOWIENIA)	AS ILE_RAZY
+FROM 	ID206_ZAMOWIENIA
+WHERE   NOT ID_KLIENTA IS NULL
+GROUP BY ID_KLIENTA;
+
+
+-- Wybraæ informacjê o pracownikach, którzy przyjmowali kiedykolwiek zlecenia od klientów z Poznania.
+SELECT  DISTINCT P.ID_PRACOWNIKA
+	,P.NAZWISKO
+FROM 	 ID206_PRACOWNICY P
+	,ID206_ZAMOWIENIA Z
+	,ID206_KLIENCI K
+WHERE	    P.ID_PRACOWNIKA = Z.ID_PRACOWNIKA
+	AND Z.ID_KLIENTA = K.ID_KLIENTA
+	AND K.MIASTO = 'Poznañ';
+
+
+-- Wybraæ informacjê o tym ile warte by³y razem zamówienia klientów z danego miasta - tylko najwy¿sz¹ i najni¿sz¹ wartoœæ.
+-- Wskazówka: wykonaæ widok wyznaczaj¹cy wartoœæ zamówieñ dla ka¿dego miasta.
+CREATE OR REPLACE VIEW id206_wartosci_z_miast AS
+SELECT   K.MIASTO
+	,(SUM(T.CENA_BRUTTO * S.ILOSC)) AS WARTOSC
+FROM 	 ID206_KLIENCI K
+	,ID206_ZAMOWIENIA Z
+	,ID206_SZCZEGOLY_ZAMOWIEN S
+	,ID206_TOWARY T
+WHERE 	    K.ID_KLIENTA = Z.ID_KLIENTA
+	AND Z.ID_ZAMOWIENIA = S.ID_ZAMOWIENIA
+	AND S.KOD_KRESKOWY = T.KOD_KRESKOWY
+GROUP BY K.MIASTO;
+
+SELECT  MAX(WARTOSC) 	AS MAX_MIN
+FROM 	id206_wartosci_z_miast
+UNION ALL
+SELECT  MIN(WARTOSC) 	AS MAX_MIN
+FROM 	id206_wartosci_z_miast;
+
+
+-- Wybraæ informacjê o cenie ka¿dego towaru w formacie xx z³ yy gr.
+SELECT 	NAZWA
+	,CENA_BRUTTO
+	,TRUNC(CENA_BRUTTO, 0) || ' z³ ' || SUBSTR(TO_CHAR(CENA_BRUTTO, '90.00'),-2,2) || ' gr.'  AS CENA_INACZEJ
+FROM 	ID206_TOWARY;
+
+-- Wybraæ informacjê o towarach, które nie zosta³y jeszcze sprzedane
+SELECT  DISTINCT T.*
+--	,S.KOD_KRESKOWY
+FROM	 ID206_TOWARY T
+	,ID206_SZCZEGOLY_ZAMOWIEN S
+WHERE 	    T.KOD_KRESKOWY = S.KOD_KRESKOWY (+)
+	AND S.KOD_KRESKOWY IS NULL;
+
+			-- powy¿sze zapytanie mo¿na by³o te¿ zrobiæ z podzapytaniem lub operatorem MINUS

@@ -1,0 +1,47 @@
+
+------ Zadanie 1 -----------
+
+create table klient_firmy
+(
+ID_KLIENTA	NUMBER(6)	PRIMARY KEY,
+NAZWISKO	VARCHAR2(30)	NOT NULL,
+NAZWA_FIRMY	VARCHAR2(30)	NULL,
+NIP		CHAR(13)	NULL,
+ULICA_I_NR_DOMU	VARCHAR2(50)	NOT NULL,
+MIASTO		VARCHAR2(30)	CHECK(MIASTO IS NOT NULL),
+KOD_POCZTOWY	CHAR(8)		NOT NULL
+);
+
+------ Zadanie 2 -----------
+
+create table kontakt
+(
+ID_KONTAKTU	NUMBER(6)	CONSTRAINT	pk_kontakt_id_kontaktu PRIMARY KEY,
+ID_KLIENTA	NUMBER(6)	NOT NULL,
+RODAJ_KONTAKTU	varchar2(15)	NOT NULL	CHECK(RK IN('email','telefon', 'fax', 'tel. komorkowy'),
+WARTOSC		VARCHAR2(15)	NOT NULL
+);
+
+------ Zadanie 3 -----------
+
+alter table kontakt add constraint fk_kontakt_id_klienta FOREGIN KEY (id_klienta) REFERENCES klinet_firmy(id_klienta);
+
+
+------ Zadanie 4 -----------
+
+create index on kontakt (rodzaj_kontaktu desc, wartosc desc);
+create sequnce seq_kontakt start with 100 increment by 10;
+
+
+
+------ Zadanie 5 -----------
+
+//alter table klient_firmy modify NIP CHAR(13) NOT NULL CHECK(NAZWA_FIRMY IS NOT NULL);
+
+alter table klient_firmy add CONSTRAINT ch_nip CHECK ((NAZWA_FIRMY IS NULL) OR (NAZWA_FIRMY IS NOT NULL AND NIP IS NOT NULL));  
+
+
+------ Zadanie 6 -----------
+insert into klient_firmy(ID_KLIENTA, nazwisko, ulica_i_nr_domu, miasto, kod_pocztowy) values('123', 'kowalski', 'spó³dzielcza 298', 'warszawa', '09-100');
+
+insert into bd2_towary(id_klienta, rodzaj_kontaktu, wartosc) values(1, 'telefon', '022-658-98-79');

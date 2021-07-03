@@ -1,0 +1,1 @@
+zeby uruchomic pliki z danego foldera to nalezy je przekopiowac na pulpit (bo inaczej podczas ich otwierania wyskocza bledy)

@@ -1,0 +1,9 @@
+Bazy danych II - æwiczenia
+Kolokwium 1
+
+1.	(5p.) Wykonaj tabelê KLIENT_FIRMY o polach: identyfikator klienta, nazwisko, imiê, nazwa firmy, NIP oraz adres, który nale¿y podzieliæ wg uznania. Wszelkie ograniczenia podaj przy kolumnie (o ile to mo¿liwe) bez podawania nazwy ograniczenia.
+2.	(5p.) Wykonaj tabelê KONTAKT o polach: identyfikator kontaktu, identyfikator klienta, rodzaj kontaktu, wartoœæ. Dopuszcza siê jedynie nastêpuj¹ce rodzaje kontaktów: email, telefon, fax, telefon komórkowy. Wszelkie ograniczenia (o ile to mo¿liwe) podaj przy tabeli z jawnie podan¹ nazw¹ ograniczenia. Nie wykonuj w tej tabeli klucza obcego (nastêpne zadanie)
+3.	(5p.) Dodaj (instrukcj¹ ALTER TABLE) klucz obcy do tabeli KONTAKT na polu identyfikator klienta tak, ¿eby odnosi³ siê do wartoœci ju¿ istniej¹cych w kluczu podstawowym tabeli KLIENT_FIRMY.
+4.	(5p.) Wykonaj indeks dwupolowy malej¹cy na polach rodzaj kontaktu i wartoœæ w tabeli KONTAKT. Wykonaj sekwencjê zaczynaj¹c¹ generacjê liczb od 100 i zwiêkszaj¹c¹ siê o 10.
+5.	(5p.) Zmodyfikuj tabelê KLIENT_FIRMY dodaj¹c ograniczenie, które wymaga podania numeru NIP, gdy podano nazwê firmy.
+6.	(5p.) Wstaw po jednym wierszu do ka¿dej z tabel. ZatwierdŸ transakcjê. Zmieñ nazwy firm w tabeli KLIENT_FIRMY tak, ¿eby zaczyna³y siê zwrotem „POL „. Wycofaj transakcjê. 

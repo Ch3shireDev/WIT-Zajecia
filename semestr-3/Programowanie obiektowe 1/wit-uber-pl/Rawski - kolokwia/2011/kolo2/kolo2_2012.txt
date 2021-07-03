@@ -1,0 +1,7 @@
+1. Napisz klase Osoba przechowuj¹c¹ imie w postaci 'char*' i nazwisko w postaci 'string'. Klasa ma posiadaæ metodê wirtualn¹ podajDane wypisuj¹c¹ dane osoby.
+
+2. Napisz klasy Kobieta i Mezczyzna dzidzicz¹ce po 'Osoba' i przechowuj¹ce dodatkowo odpowiednio imie mê¿a i imiê ¿ony oraz odpowiednio zmienion¹ metodê podajDane
+
+3. Napisz klasê Katalog przechowuj¹c¹ wska¿niki na obiekty typu Mezczyzna i Kobieta oraz metode drukujInfo wypisuj¹c¹ ile jest osób i dane osób . Wykorzystaj vector z stl.
+
+4. Klase katalog napisz jako szblon klasy.

@@ -1,0 +1,67 @@
+------------------kolos 2-gi--------------------------------
+Zad1 10 pkt
+Wybierz ile zostalo zlozonych wszystkich zamowien w poszczegulnych latach
+
+zad2 10 pkt
+ale danego towaru zaprezentuj porownanie: lie sprzedano go w poznaniu a ile w warszawie
+
+...
+inne gr:
+
+1. Dla ka¿dego pracownika wykonaj zapytanie, które zrzuci jego imiê i nazwisko poprzedzone zwrotem "sz.pan" lub "sz.pani" w zale¿no¶ci od p³ci danej osoby.
+
+SELECT DECODE(SUBSTR(imie,-1,1),'a','sz.pani','sz.pan') || ' ' || imie || ' ' ||  nazwisko as Osoba
+FROM BD2_PRACOWNICY;
+
+2. Znajdz identyfikatory zamówieñ o ³±cznej warto¶ci ponad 2000 z³, dla tego zbioru zamowieñ wybierz jakie towary by³y sprzedawane w jakich ilo¶ciach i o jakiej warto¶ci.
+
+SELECT T.nazwa, SUM(T.cena_brutto*PZ.ilosc) as wartosc
+FROM BD2_TOWARY T, BD2_POZYCJE_ZAMOWIEN PZ
+WHERE PZ.kod_kreskowy=T.kod_kreskowy AND PZ.id_zamowienia IN
+(SELECT PZ.id_zamowienia
+FROM BD2_POZYCJE_ZAMOWIEN PZ, BD2_TOWARY T
+WHERE PZ.kod_kreskowy=T.kod_kreskowy
+GROUP BY PZ.id_zamowienia
+HAVING SUM(T.cena_brutto*PZ.ilosc)>2000)
+GROUP BY T.nazwa;
+
+3. Wybierz identyfikator i nazwisko pracownika oraz ile razy ka¿dy z nich obs³ugiwa³ przyjêcie
+zamówienia.
+
+SELECT P.id_pracownika, P.nazwisko, COUNT(Z.id_zamowienia) as ile_razy
+FROM BD2_ZAMOWIENIA Z, BD2_PRACOWNICY P
+WHERE Z.id_pracownika=P.id_pracownika
+GROUP BY P.id_pracownika, P.nazwisko;
+
+4. Za pomoc± perspektywy wykonaj zapytanie wyznaczaj±ce najmniejsz± warto¶æ zamówienia.
+
+CREATE OR REPLACE VIEW PERSPEKT AS
+
+SELECT MIN(T.cena_brutto*PZ.ilosc) as minimum
+FROM BD2_TOWARY T, BD2_POZYCJE_ZAMOWIEN PZ, BD2_ZAMOWIENIA Z
+WHERE Z.id_zamowienia=PZ.id_zamowienia AND T.kod_kreskowy=PZ.kod_kreskowy;
+
+
+5. Ile razy ka¿dy z towarów by³ zamawiany?
+
+SELECT  T.nazwa, COUNT(PZ.kod_kreskowy) as ilosc
+FROM BD2_TOWARY T, BD2_POZYCJE_ZAMOWIEN PZ
+WHERE PZ.kod_kreskowy=T.kod_kreskowy
+GROUP BY T.nazwa;
+
+6. Wybierz informacje o pracownikach którzy obs³ugiwali klientów z Warszawy.
+
+SELECT K.id_klienta, K.imie, K.nazwisko, K.miasto
+FROM BD2_KLIENCI K, BD2_PRACOWNICY P, BD2_ZAMOWIENIA Z
+WHERE K.miasto='Warszawa' AND K.id_klienta=Z.id_klienta AND P.id_pracownika=Z.id_pracownika;
+
+7. Który z klientów nic nie zamawia³:
+
+SELECT K.id_klienta, k.imie, k.nazwisko
+FROM BD2_KLIENCI K, BD2_ZAMOWIENIA Z
+WHERE K.id_klienta=Z.id_klienta (+) AND Z.id_zamowienia  IS NULL;
+
+8. Kto zarabia najmniej.
+
+SELECT id_pracownika, imie, nazwisko, pensja FROM BD2_PRACOWNICY
+WHERE pensja=(SELECT MIN(pensja) FROM BD2_PRACOWNICY);

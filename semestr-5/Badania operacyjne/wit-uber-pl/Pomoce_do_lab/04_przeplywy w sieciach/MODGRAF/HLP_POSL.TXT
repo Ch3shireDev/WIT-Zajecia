@@ -1,0 +1,103 @@
+Program MODGRAF s³u¿y do rozwi¹zywania problemów decyzyjnych za pomoc¹ modeli i algorytmów grafowych b¹dŸ sieciowych.
+
+
+TYPOWY PROCES MODELOWANIA I ROZWI¥ZYWANIA PROBLEMU:
+===================================================
+
+1) Zdefiniowanie grafu w postaci pliku tekstowego ("Plik/Nowy graf") lub  wczytanie grafu z istniej¹cego pliku ("Plik/Wczytaj graf").
+
+2) Po wczytaniu pliku ze zdefiniowanym grafem mo¿e wyst¹piæ jedna z trzech sytuacji:
+* Graf wczytuje siê poprawnie i w g³ównym oknie pojawia siê jego graficzna reprezentacja. W zale¿noœci od potrzeb poszczególne wierzcho³ki grafu mo¿na wtedy przesuwaæ za pomoc¹ przeci¹gania mysz¹ z wciœniêtym jej lewym klawiszem. Przesuniêcie ca³ego grafu realizowane jest podobnie, ale z wciœniêtym klawiszem Shift. Zmienione rozmieszczenie wierzcho³ków grafu mo¿e zostaæ dopisane do pliku wejœciowego i zapamiêtane poprzez wybranie z menu "Plik" pozycji "Zachowaj topologiê jako".
+* Graf wczytuje siê poprawnie, ale pojawia siê komunikat informuj¹cy, ¿e graf nie bêdzie wyœwietlany. Nastêpuje to w przypadku wczytywania du¿ych grafów. Ich pe³na reprezentacja graficzna jest wtedy niemo¿liwa, a w g³ównym oknie wyœwietlona jest tylko zastêpcza winieta, która informuje o parametrach wczytanego grafu. Pomimo braku reprezentacji graficznej wszystkie algorytmy i operacje na grafie s¹ dostêpne.
+* Pojawia siê komunikat o b³êdzie i numer linii, w której zidentyfikowano b³¹d. W takim przypadku nale¿y poprawiæ opis grafu w pliku tekstowym, wybieraj¹c z menu "Plik" pozycjê "Edytuj graf".
+
+3) Wybranie odpowiedniego algorytmu (patrz opis poni¿ej) spowoduje rozwi¹zanie problemu i wyœwietlenie wyniku, sk¹d mo¿e on zostaæ zapisany w osobnym pliku. W wiêkszoœci przypadków rozwi¹zanie zobrazowane jest tak¿e w postaci reprezentacji graficznej.
+ 
+
+
+ZESTAW DOSTÊPNYCH OPCJI PROGRAMU:
+====================================
+
+[Plik] - OPERACJE NA PLIKACH
+
+{Nowy graf}
+Otwiera okno edycyjne, pozwalaj¹ce zdefiniowaæ graf w postaci pliku tekstowego (patrz "Format pliku wejœciowego").
+
+{Wczytaj graf}
+Wczytuje graf z wczeœniej zapisanego pliku, utworzonego za pomoc¹ opcji "Plik/Nowy graf" lub zewnêtrznego edytora tekstowego.
+
+{Edytuj graf}
+Otwiera okno edycyjne, zawieraj¹ce opis aktualnie wczytanego grafu, pozwalaj¹c na zmodyfikowanie jego postaci.
+
+{Zachowaj topologiê jako}
+Pozwala na zapisanie w pliku akualnego po³o¿enia wierzcho³ków grafu na ekranie.
+
+{Koniec}
+Wyjœcie z programu.
+------------------------------------
+
+[Trasy] - ALGORYTMY WYZNACZANIA TRAS
+
+{Drzewo rozpinaj¹ce}
+Algorytm znajduje podgraf analizowanego grafu, który jest drzewem zawieraj¹cym wszystkie jego wierzcho³ki i suma wag krawêdzi jest najmniejsza (minimalne drzewo rozpinaj¹ce) lub najwiêksza (maksymalne drzewo rozpinaj¹ce). Algorytmy wymagaj¹ grafu nieskierowanego.
+Krawêdzie grafu powinny mieæ zdefiniowany jeden parametr liczbowy - reprezentuj¹cy wagê krawêdzi.
+
+{Najkrótsze drogi - Alg. Dijkstry}
+Algorytm znajduje najkrótsze drogi z podanego wierzcho³ka do wszystkich pozosta³ych wierzcho³ków grafu.
+Krawêdzie grafu powinny mieæ zdefiniowany jeden parametr liczbowy - wagê krawêdzi. Wagi krawêdzi musz¹ byæ nieujemne.
+
+{Najkrótsze drogi - Alg. Floyda}
+Algorytm znajduje najkrótsze drogi pomiêdzy wszystkimi parami wierzcho³ków. Jako wynik powstaje tablica odleg³oœci pomiêdzy wierzcho³kami. 
+Krawêdzie grafu powinny mieæ zdefiniowany jeden parametr liczbowy - wagê krawêdzi.
+
+{Komiwoja¿er}
+Problem komiwoja¿era polega na znalezieniu w grafie cyklu, który przechodzi³by przez ka¿dy jego wierzcho³ek dok³adnie raz, a suma wag poszczególnych krawêdzi cyklu by³a najmniejsza z mo¿liwych. Algorytmy Near i FI znajduj¹ pewne zgrubne przybli¿enie rozwi¹zania o najmniejszej sumie wag i mog¹ zostaæ poprawione poprzez zastosowanie dodatkowych heurystyk poprawy: 2Opt i 3Opt. Istota algorytmu 2Opt nie pozwala na zastosowanie go do grafu skierowanego. Algorytm dok³adny znajduje optymalne rozwi¹zanie problemu komiwoja¿era, zarówno dla grafów skierowanych, jak i nieskierowanych. Mo¿liwoœæ znalezienia rozwi¹zania dok³adnego okupiona jest jednak znacznym wyd³u¿eniem czasu obliczeñ. 
+Krawêdzie grafu powinny mieæ zdefiniowany jeden parametr - wagê krawêdzi.
+
+{Cykl Eulera}
+Algorytm znajduje taki cykl w grafie, w którym ka¿da krawêdŸ (³uk) wystêpuje dok³adnie raz. Po wykonaniu algorytmu kolejnoœæ przechodzenia krawêdzi zaznaczona jest numerami. 
+Krawêdzie grafu nie musz¹ mieæ podanych ¿adnych parametrów liczbowych.
+------------------------------------
+
+[Przep³ywy] - ALGORYMY WYZNACZANIA PRZEP£YWÓW W SIECIACH
+
+{Maksymalny przep³yw}
+Algorytm wyznacza maksymalny przep³yw pomiêdzy podan¹ par¹ wierzcho³ków. 
+Krawêdzie grafu powinny mieæ okreœlony jeden parametr - przepustowoœæ krawêdzi (³uku).
+
+{Najtañszy przep³yw}
+Algorytm wyznacza najtañszy przep³yw o zadanej wielkoœci pomiêdzy podan¹ par¹ wierzcho³ków. 
+Krawêdzie grafu powinny mieæ dwa parametry. Pierwszy parametr oznacza górn¹ przepustowoœæ krawêdzi (dolne ograniczenie na przep³yw jest przyjmowane jako 0). Drugi parametr okreœla jednostkowy koszt przep³ywu przez krawêdŸ. 
+------------------------------------
+
+[Kolorowanie] - ALGORYTMY KOLOROWANIA GRAFÓW
+
+{Kolorowanie wierzcho³ków}
+Problem ten polega na takim pokolorowaniu wierzcho³ków, aby ¿adne dwa wierzcho³ki ze sob¹ po³¹czone nie mia³y przypisanego takiego samego koloru i liczba u¿ytych kolorów by³a jak najmniejsza. Do dyspozycji znajduje siê kilka algorytmów heurystycznych o ró¿nych dok³adnoœciach i czasach dzia³ania.
+
+{Kolorowanie krawêdzi}
+Algorytm przyporz¹dkowuje kolory krawêdziom grafu w taki sposób, aby ¿adne dwie krawêdzie wychodz¹ce z jednego wierzcho³ka nie by³y pomalowane takim samym kolorem i liczba u¿ytych kolorów by³a jak najmniejsza.
+
+W obu modelach kolorowania krawêdzie nie musz¹ mieæ okreœlonych parametrów liczbowych.
+------------------------------------
+
+[Skojarzenia] - ALGORYTMY WYZNACZANIA SKOJARZEÑ
+
+{Maksymalne skojarzenie}
+Algorytm wyznacza maksymaln¹ liczbê krawêdzi w grafie, spoœród których ¿adne dwie nie wychodz¹ z tego samego wierzcho³ka.
+
+{Maksymalna klika}
+Maksymalna klika, to najwiêkszy podgraf grafu, w którym wszystkie pary wierzcho³ków s¹ ze sob¹ po³¹czone. Dostêpne s¹ dwa algorymy wyznaczania maksymalnej kliki - przybli¿ony i dok³adny.
+
+W obu powy¿szych modelach krawêdzie nie musz¹ mieæ okreœlonych parametrów liczbowych.
+------------------------------------
+
+[Pomoc] - POMOC PODRÊCZNA
+------------------------------------
+
+
+
+
+
+
+

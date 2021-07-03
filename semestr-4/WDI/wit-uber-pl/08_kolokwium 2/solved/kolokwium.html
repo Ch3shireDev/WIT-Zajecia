@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+
+<title>Kolokwium 2 WIT</title>
+
+<link href="styl.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript">
+	function wielkosc(rozmiar) {
+	document.getElementById('tresc').style.fontSize = rozmiar;
+	}
+	
+	function kolor(kolor) {
+	document.getElementById('tresc').style.color = kolor;
+	
+	}
+	function tlo(obraz) {
+	document.getElementById('tresc').style.backgroundImage = obraz;
+	}
+</script>
+</head>
+
+
+
+<body>
+
+
+
+<div id="pudlo"> 
+    <div id="linki">
+	  <a  href="http://wp.pl" ><img id="img" src="link_1.jpg"/></a>
+	  <a href="http://onet.pl" ><img id="img" src="link_2.jpg"/></a>
+	  <a href="http://wit.edu.pl" ><img id="img" src="link_3.jpg"/></a>	</div>
+	
+	
+	<div id="pudlo_wew">
+	
+	  <div id="tresc">
+	    <h2>NAGŁÓWEK</h2>
+		
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec lacus vitae quam pretium semper. Phasellus id feugiat nisl. In ligula dolor, adipiscing eleifend auctor ut, ullamcorper a augue.</p> 
+			<p>Integer pellentesque pretium ornare. Nullam varius egestas ante vel luctus. Aliquam ut augue turpis. Praesent leo elit, ornare et lobortis non, vehicula et arcu. Sed auctor malesuada mi, et condimentum mi bibendum sit amet. Mauris tincidunt feugiat luctus. Morbi eget odio augue, ac mattis tellus. </p>
+
+			<p>Etiam non justo est, nec fringilla arcu. Curabitur egestas augue eget sapien malesuada imperdiet tincidunt justo ultricies. Ut et egestas quam. Donec ut lacus nisi. In hac habitasse platea dictumst. </p> 
+			<p>In in dignissim sapien. Ut porta euismod mi, a mattis purus ullamcorper pulvinar. Nullam vestibulum vulputate dui eget sodales. Integer nibh turpis, suscipit vitae dictum sed, malesuada posuere odio. Duis rhoncus magna ac lectus molestie rhoncus. </p>
+
+			<p>Aenean congue turpis vitae lorem mattis fringilla. Ut varius tortor in est hendrerit id consequat dui lacinia. Duis et felis sapien. Praesent metus dolor, blandit ac fringilla eget, pretium a lacus. Curabitur eget lacus elit.</p> 
+			<p> Vestibulum imperdiet tincidunt eros. Suspendisse potenti. Phasellus blandit, dui molestie adipiscing mattis, nunc orci hendrerit mauris, ac bibendum tortor enim a augue. Donec turpis enim, aliquet dignissim tempor ullamcorper, adipiscing vel ante. Donec augue odio, posuere vitae vulputate et, lobortis id est. In vel nisi velit, eget euismod ligula. Integer porta consequat nisl ut fermentum. Nunc posuere felis vel felis cursus lobortis. Suspendisse vitae sollicitudin est.</p>
+      </div>
+      
+	  <div id="obrazek">	  
+	  </div>
+	  <div id="menu" align="center">
+		<form id="formularz" name="formularz">
+
+		  <p>zmień kolor tla</p>
+        	<p><select name="kolor-tla" onchange="tlo(this.value)" style="width: 120px;">
+       		  		<option value="url(tlo_tekst_niebieskie.jpg)">niebieskie</option>
+           	  		<option value="url(tlo_tekst_pomaranczowe.jpg)">pomaranczowe</option>
+			  		<option value="url(tlo_tekst_zielone.jpg)">zielone</option>
+       		  </select></p><br />
+
+    	  <p>zmień kolor czcionki</p>
+		  	<p><select name="czcionka" onchange="kolor(this.value)" style="width: 120px;">
+		  			<option value="orange">pomarańczowa</option>
+					<option value="red">czerwona</option>
+					<option value="green">zielona</option>
+					<option value="blue">niebieska</option>
+          	   </select></p><br />
+
+    	  <p>zmień rozmiar czcionki</p>
+      		<p><select name="rozmiar" onchange="wielkosc(this.value)" style="width: 120px;" >
+	        		<option value="11px">11px</option>
+	        		<option value="12px">13px</option>
+	        		<option value="15px">15px</option>
+          		</select></p>
+	  </form>
+	 </div>
+	  
+	  
+	 <div id="stopa">
+	 <center>Imię Nazwisko ID03P0x</center>
+	 </div>
+ 
+  </div>
+</div>
+
+
+</body>
+</html>

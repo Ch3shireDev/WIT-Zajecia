@@ -1,0 +1,10 @@
+Bazy danych II - æwiczenia
+Kolokwium 1
+
+1.	(5p.) Wykonaj tabelê RODZAJ_KSI¥¯KI (do przechowania wartoœci takich jak: encyklopedia, podrêcznik, dla dzieci, popularno-naukowa itp.) o polach: identyfikator rodzaju ksi¹¿ki, nazwa rodzaju. Wszelkie ograniczenia podaj przy kolumnie (o ile to mo¿liwe) bez podawania nazwy ograniczenia.
+2.	(7p.) Wykonaj tabelê KSI¥¯KI o polach: identyfikator ksi¹¿ki, tytu³, autorzy, identyfikator rodzaju ksi¹¿ki, liczba stron, cena brutto. Wszelkie ograniczenia (o ile to mo¿liwe) podaj przy tabeli z jawnie podan¹ nazw¹ ograniczenia. Wykonaj w tej tabeli klucz obcy (odwo³uj¹cy siê do klucza podstawowego tabeli RODZAJ_KSI¥¯KI).
+3.	(3p.) Wykonaj indeks unikalny malej¹cy dla pól tytu³ oraz autorzy w tabeli KSI¥¯KI.
+4.	(4p.) Dodaj pole data wydania (NULLowe) do tabeli KSI¥¯KI.
+5.	(4p.) Zmieñ d³ugoœæ pola autor w tabeli KSI¥¯KI do 1000 znaków.
+6.	(2p.) Wykonaj sekwencjê zaczynaj¹c¹ generacjê liczb od 100 i zwiêkszaj¹c¹ siê o 10.
+7.	(5p.) Wstaw po jednym wierszu do ka¿dej z tabel. ZatwierdŸ transakcjê. Zmieñ ceny brutto wszystkich ksi¹¿ek podnosz¹c je o 10%. Wycofaj transakcjê. 

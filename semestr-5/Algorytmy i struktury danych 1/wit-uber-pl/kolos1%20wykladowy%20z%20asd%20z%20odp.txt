@@ -1,0 +1,111 @@
+Pamiêtamy... pamiêtamy...
+
+Przedmiotem dzia³añ by³o nazwisko. Trzeba by³o wzi¹æ pierwszych 8 liter, lub je¿eli by³o ono za krótkie to dobraæ kilka liter z imieni np.
+
+imiê i nazwisko: NOWAK PIOTR
+
+nasze litery: NOWAKPIO
+
+Nastêpnie jedna litera mia³a siê powatarzaæ 3 razy i jedna 2 razy, wiêc zmieniamy tak aby by³o ok (ju¿ mamy 2x O):
+
+A ->N
+P->N
+
+nasze s³owo: NOWNKNIO
+
+ i na tym s³owie pracujemy. Musimy je posortowaæ  :
+-mergesort
+-partitioning (quicksort)
+-Floyd
+-Kube³kowe (permutacje 3 pierwszych liter) (Radix)
+-Najd³u¿szy wspólny podci¹g
+-Huffman
+-Tablica P (tego nie by³o 10 II na poprawce)
+
+i do domu :-)
+
+ROZWI¥ZANIA:
+
+1) MergeSort
+
+dzielimy wyraz a¿ bêdziemy mieli zbiory jedno elementowe a nastêpnie je ³¹czymy sortuj¹c przy okazji  np>
+
+1 krok  ->  NOWN |  KNIO
+2 krok  ->  NO | WN         KN | IO
+3 krok  ->  N|O      W|N       K|N    I|O
+4 krok  ->  NO   |   NW       KN  | IO
+5 krok  ->  NNOW | IKNO
+6 ktok  -> IKNNNOOW <-posortowany
+
+2) Partitionig
+
+Bierzemy pierwsz¹ litereê a nastêpnie pozosta³e porz¹dkujemy wzglêdem niej (mniejsze na lewo, wiêksze na prawo) np.
+
+NOWNKNIO
+1 przebieg->INKNNOWO
+
+i dalej porz¹dkuowujemy w ten sam sposób dwa kawa³ki.
+
+3) Kopiec Floyda
+
+nasze litery:   NOWNKNIO
+numerujemy: 1 23 45678
+
+i tworzymy kopiec zgodnie z za³o¿eniem ¿e dzieæmi i-tego wierzcho³ka jest 2*1 oraz  2*1+1 wierzcho³ek.
+wiêc dzieæmi N (1) s¹ O(2*1) i W(2*1+1)
+     N
+    /  \
+  O   W
+
+dzieæmi O s¹ N(2*2) i K(2*2+1)
+        N
+       /  \
+     O   W
+    /  \
+  N    K
+
+i tak dalej bawimy siê w tworzenie kopca a nastêpnie por¿dujemy go wied¹c, ze wiêksze elementy powinny by wy¿ej i zamieniamyw  ten sposób aby to osi¹gn¹æ:
+np. w naszym kopcu W>N a jest ni¿ej wiêc zamieniamy:
+
+        W
+       /  \
+     O    N
+    /  \
+  N    K
+
+
+I teraz jest OK.
+
+4)Radixsort
+permutacje:
+WNO
+ONW   
+OWN
+WON
+NOW
+NWO
+
+porz¹dkujemy wzglêdem ostatniej kolumny:
+OWN
+WON
+WNO
+NWO
+ONW
+NOW
+
+porz¹dkujemy wzglêdem pzedostatniej kolumny:
+WNO
+ONW
+WON
+NOW
+OWN
+NWO
+
+porz¹dkujemy wzglêdem pierwszej kolumny( KONIEC!!!):
+NOW
+NWO
+ONW
+OWN
+WNO
+WON
+

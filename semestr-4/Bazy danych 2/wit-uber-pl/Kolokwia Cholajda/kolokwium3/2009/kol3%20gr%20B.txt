@@ -1,0 +1,74 @@
+grupa B
+
+
+-------------------------------------
+				     |
+Zadanie 1			     |
+				     |
+-------------------------------------
+
+Wykonaj funkcjê bazodanow¹, która dla podanego ³añcucha cyfr zwraca sumê kontroln¹ w postaci sumy kolejnych cyfr dzielonej modulo 10.
+
+
+
+CREATE OR REPLACE FUNCTION checksum (av_lancuch VARCHAR2) RETURN INT AS
+	lancuch NUMBER(10) := 0;
+	dl NUMBER(3) := 0;
+	pomocnik CHAR(1);
+
+BEGIN
+
+	dl:=LENGTH(av_lancuch);
+	
+	FOR poz IN 1..dl 
+	LOOP
+		pomocnik := SUBSTR(av_lancuch, poz, 1);
+		lancuch := lancuch + TO_NumBER(pomocnik);
+	END LOOP;
+		RETURN (lancuch) mod 10;
+	EXCEPTION
+		WHEN OTHERS THEN RETURN 0;
+END;
+/
+
+select checksum('3409') from dual;
+
+
+
+-------------------------------------
+				     |
+Zadanie 2			     |
+				     |
+-------------------------------------
+
+Wykonaj funkcjê bazodanow¹, która dla danego miasta zwróci ³añcuch tekstowy zawieraj¹cy nazwiska (unikalne i w kolejnoœci alfabetycznej) klientów mieszkaj¹cych w danym mieœcie
+
+
+
+CREATE OR REPLACE FUNCTION nazwiska(on_miasto IN VARCHAR2) RETURN VARCHAR2 AS 
+nazwiska VARCHAR2(1024) :=' ';
+pom VARCHAR2(30) := ' ';
+CURSOR kursorek (arg_kursora VARCHAR2) IS 
+	SELECT NAZWISKO FROM BD2_KLIENCI 
+	WHERE MIASTO = arg_kursora ORDER BY NAZWISKO ASC;
+BEGIN
+	OPEN kursorek(on_miasto);
+	LOOP
+		FETCH kursorek INTO pom;
+		EXIT WHEN kursorek%notfound;
+		nazwiska := nazwiska || pom || '; ';
+		
+	END LOOP;
+	CLOSE kursorek;
+	RETURN on_miasto || ': ' || LTRIM(RTRIM(nazwiska));
+EXCEPTION
+	WHEN OTHERS THEN 
+	IF kursorek%isopen THEN
+		CLOSE kursorek;
+	END IF;
+	RETURN 'przykro mi, nic nie ma :(';
+END;
+/
+
+
+select distinct nazwiska('Otwock') from bd2_klienci;
