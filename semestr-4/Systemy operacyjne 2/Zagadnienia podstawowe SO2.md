@@ -115,10 +115,10 @@ może dotyczyć więcej niż dwóch procesów, każda para procesów może mieć
 
 Sytuacje wyjątkowe np.: przerwanie procesu w trakcie przesyłania komunikatów, utrata komunikatów, zniekształcenia komunikatów. Sposób rozwiązania: W przypadku zakończenia jednego procesu system musi powiadomić inne procesy, że ten zakończył działanie. W przypadku utraty jak i zniekształcenia komunikatu, system informuje nadawcę o utracie bądź zniekształceniu komunikatu. Systemie mogą wystąpić różne sytuacje wyjątkowe w trakcie wymiany komunikatów:
 
-*   Zakończenie procesu – nadawca lub odbiorca zakończył działanie przed zakończeniem przetwarzania komunikatów. Pozostaną wówczas komunikaty, których nikt nigdy nie odbierze, lub jakieś procesy będą czekać na komunikaty, które nigdy nie zostaną wysłane. Rozwiązanie: zakończenie drugiego procesu lub wysłanie do niego komunikatu o zakończeniu pierwszego procesu.
-*   Utrata komunikatów- komunikat nadany przez jeden proces może zaginąć w sieci komunikacyjnej z powodu awarii sprzętu lub linii komunikacyjnej.
+* Zakończenie procesu – nadawca lub odbiorca zakończył działanie przed zakończeniem przetwarzania komunikatów. Pozostaną wówczas komunikaty, których nikt nigdy nie odbierze, lub jakieś procesy będą czekać na komunikaty, które nigdy nie zostaną wysłane. Rozwiązanie: zakończenie drugiego procesu lub wysłanie do niego komunikatu o zakończeniu pierwszego procesu.
+* Utrata komunikatów- komunikat nadany przez jeden proces może zaginąć w sieci komunikacyjnej z powodu awarii sprzętu lub linii komunikacyjnej.
 Rozwiązanie: system operacyjny odpowiedzialny jest za wykrywanie takich zdarzeń i ponowne nadanie komunikatu, lub poinformowanie procesu wysyłającego o awarii komunikacji.
-*   Zniekształcenia komunikatów – komunikat może dojść do celu zniekształcony po drodze. Przypadek podobny do zagubienia komunikatu. Rozwiązanie:
+* Zniekształcenia komunikatów – komunikat może dojść do celu zniekształcony po drodze. Przypadek podobny do zagubienia komunikatu. Rozwiązanie:
 system operacyjny wyśle powtórnie komunikat w pierwotnej postaci. Do wykrywania tego rodzaju błędów używa się sum kontrolnych.
 
 Pytania podstawowe z zakresu zakleszczeń – blokad (deadlock)
@@ -157,13 +157,13 @@ Do zakleszczenia dojdzie, jeśli spełnione będą cztery warunki:
 Jeśli system nie dysponuje żadnym mechanizmem, który może poradzić sobie z powstałą sytuacją, to następuje permanentne "zawieszenie" się zadań tworzących cykl. Możliwe jest wywłaszczenie zadania z zasobów przez system operacyjny, jednak może to powodować problemy z synchronizacją (np. wprowadzenie w stan nieprzewidziany przez projektanta). 
 
 * Wzajemne wyłączanie 
-  Co najmniej jeden zasób jest niepodzielny. Tylko jeden proces może korzystać z tego zasobu, inne procesy zamawiające ten zasób są opóźniane.
+ Co najmniej jeden zasób jest niepodzielny. Tylko jeden proces może korzystać z tego zasobu, inne procesy zamawiające ten zasób są opóźniane.
 * Przetrzymywanie i oczekiwanie 
-  Musi istnieć proces mający przydzielony pewien zasób (co najmniej jeden) i oczekujący na przydział dodatkowego zasobu, przetwarzanego przez inny proces.
+ Musi istnieć proces mający przydzielony pewien zasób (co najmniej jeden) i oczekujący na przydział dodatkowego zasobu, przetwarzanego przez inny proces.
 * Brak wywłaszczeń 
-  Tylko proces przetrzymujący określony zasób może ten zasób zwolnić.
+ Tylko proces przetrzymujący określony zasób może ten zasób zwolnić.
 * Czekanie cykliczne 
-  Musi istnieć zbiór oczekujących procesów {P0, P1, ..., Pn-1}, takich, że P0 czeka na zasób przetrzymywany przez P1, P1 czeka na zasób przetrzymywany przez P2, itd., aż Pn-1 czeka na zasób przetrzymywany przez P0.
+ Musi istnieć zbiór oczekujących procesów {P0, P1, ..., Pn-1}, takich, że P0 czeka na zasób przetrzymywany przez P1, P1 czeka na zasób przetrzymywany przez P2, itd., aż Pn-1 czeka na zasób przetrzymywany przez P0.
 
 ### 3. Co oznacza warunek czekania cyklicznego?
 
@@ -211,7 +211,8 @@ jest wymuszanie całkowitego uporządkowania wszystkich typów zasobów i wymaga
 
 ### 9. Na czym polegają metody unikania blokad?
 
-Polegają na tym, że przy każdym zamawianiu zasobów przez proces, system operacyjny decyduje czy ten proces ma czekać czy nie. Wymagana jest przez to wcześniejsza informacja jak procesy będą zamawiać i zwalniać zasoby. Na podstawie tych informacji, algorytmy przydziału zasobów tak przydzielają zasoby, aby system nie wszedł w stan blokady. Algorytm dynamicznie sprawdza stan przydziału zasobów i decyduje o przydziale zasobów tak, aby nie dopuścić do spełnienia warunku czekania cyklicznego 
+Polegają na tym, że przy każdym zamawianiu zasobów przez proces, system operacyjny decyduje czy ten proces ma czekać czy nie. Wymagana jest przez to wcześniejsza informacja jak procesy będą zamawiać i zwalniać zasoby. Na podstawie tych informacji, algorytmy przydziału zasobów tak przydzielają zasoby, aby system nie wszedł w stan bloka
+dy. Algorytm dynamicznie sprawdza stan przydziału zasobów i decyduje o przydziale zasobów tak, aby nie dopuścić do spełnienia warunku czekania cyklicznego 
 
 Metoda unikania zakleszczeń wymaga dodatkowych informacji o tym jak będzie następowało zamawianie zasobów. Mając wszystkie informacje na temat kolejności występowania zamówień i zwolnień dla każdego procesu, system operacyjny może decydować przy każdym zamówieniu, czy proces powinien czekać , czy też nie. Przy każdym zmówieniu system będzie musiał wziąć pod uwagę zasoby bieżąco dostępne, zasoby przydzielone każdemu z procesów oraz przyszłe zamówienia i zwolnienia ze strony każdego procesu, aby zdecydować, czy bieżące zamówienie może być zrealizowane, czy też musi zostać odłożone w celu uniknięcia zakleszczenia w przyszłości. Różne algorytmy wymagają rożnych ilości i typów informacji
 
@@ -226,8 +227,9 @@ przydzielonych oraz przez maksymalne zapotrzebowania procesów.
 
 Jest to taki ciąg procesów, któremu możliwe jest przydzielenie zasobów w taki sposób, aby nie dopuścić do blokady procesów.
 
-Stan systemu jest bezpieczny, jeśli istnieje porządek, w którym system może przydzielić zasoby każdemu procesowi (nawet w stopniu maksymalnym), stale unikając zakleszczenia. Mówiąc bardziej formalnie, system jest w stanie bezpiecznym tylko wtedy, gdy istnieje ciąg bezpieczny. Ciąg procesów P1, ..., Pn jest bezpieczny w danym stanie przydziałów, jeśli dla każdego procesu Pi jego potencjalne zapotrzebowanie na zasoby może być zaspokojone przez bieżąco dostępne zasoby oraz zasoby użytkowane prze wszystkie procesy Pj, przy czym
-`j<i` . Jeśli więc zasoby, których wymaga proces Pi, nie są natychmiast dostępne, to może on poczekać, aż zakończą się wszystkie procesy Pj. Po ich zakończeniu proces Pi może otrzymać wszystkie potrzebne mu zasoby, dokończyć przewidzianą pracę, oddać przydzielone zasoby i zakończyć działanie.
+Stan systemu jest bezpieczny, jeśli istnieje porządek, w którym system może przydzielić zasoby każdemu procesowi (nawet w stopniu maksymalnym), stale unikając zakleszczenia. Mówiąc bardziej formalnie, system jest w stanie bezpiecznym tylko wtedy, gdy istnieje ciąg bezpieczny. 
+
+Ciąg procesów P1, ..., Pn jest bezpieczny w danym stanie przydziałów, jeśli dla każdego procesu Pi jego potencjalne zapotrzebowanie na zasoby może być zaspokojone przez bieżąco dostępne zasoby oraz zasoby użytkowane prze wszystkie procesy Pj, przy czym `j<i` . Jeśli więc zasoby, których wymaga proces Pi, nie są natychmiast dostępne, to może on poczekać, aż zakończą się wszystkie procesy Pj. Po ich zakończeniu proces Pi może otrzymać wszystkie potrzebne mu zasoby, dokończyć przewidzianą pracę, oddać przydzielone zasoby i zakończyć działanie.
 
 ### 12. Co to jest stan zagrożenia?
 
@@ -252,15 +254,15 @@ Jeśli wszystkie zasoby mają tylko po jednym egzemplarzu, to można zdefiniowa�
 
 Stan blokady można zidentyfikować sprawdzając w grafie oczekiwań, czy istnieje cykl (pętla) w tym grafie. Jeżeli istnieje cykl to istnieje też stan blokady. 
 
-Groźba zakleszczenia występuje tylko wtedy, gdy jakiś proces zgłasza zamówienie, które nie może być natychmiast zrealizowane. Jest możliwe, że zamówienie takie jest finalna potrzebą, której zaspokojenie spowodowałoby zakończenie całego łańcucha czekających procesów. W skrajnym przypadku algorytm wykrywania zakleszczeń może być wywoływany za każdym razem, gdy zamówienie na przydział nie może być spełnione natychmiast. Można wówczas zidentyfikować nie tylko zbiór zakleszczonych procesów, lecz również proces, 
-który do tego doprowadził
+Groźba zakleszczenia występuje tylko wtedy, gdy jakiś proces zgłasza zamówienie, które nie może być natychmiast zrealizowane. Jest możliwe, że zamówienie takie jest finalna potrzebą, której zaspokojenie spowodowałoby zakończenie całego łańcucha czekających procesów. W skrajnym przypadku algorytm wykrywania zakleszczeń może być wywoływany za każdym razem, gdy zamówienie na przydział nie może być spełnione natychmiast. Można wówczas zidentyfikować nie tylko zbiór zakleszczonych procesów, lecz również proces, który do tego doprowadził.
 
 ### 16. W jaki sposób można wyjść z istniejącej blokady i jakie wiążą się z tym koszty?
 
-Poprzez a); Usunięcie jednego (lub kilku)procesów w celu przerwania cyklicznego czekania.
-* usunąć wszystkie procesy w blokadzie (znaczny koszt np.: duża strata czasu).
-* usuwać procesy pojedynczo, aż do usunięcia blokady(problem -który proces usunąć?).
-b).wywłaszczenie procesów z zasobów(problem – który wywłaszczyć, który wznowić po wywłaszczeniu, być może któryś trzeba głodzić?). 
+Poprzez 
+ a); Usunięcie jednego (lub kilku) procesów w celu przerwania cyklicznego czekania.
+ + usunąć wszystkie procesy w blokadzie (znaczny koszt np.: duża strata czasu).
+ + usuwać procesy pojedynczo, aż do usunięcia blokady(problem -który proces usunąć?).
+ b).wywłaszczenie procesów z zasobów(problem – który wywłaszczyć, który wznowić po wywłaszczeniu, być może któryś trzeba głodzić?). 
 
 Są dwa sposoby likwidowania zakleszczenia. Jednym jest usunięcie jednego lub kilku procesów w celu przerwania czekania cyklicznego. Może zaniechać wszystkich zakleszczonych procesów – rozerwany wtedy zostaje cykl zakleszczenia, lecz ponoszony przy tym koszt jest znaczny, ponieważ likwidowane procesy mogły wykonywać swoje obliczenia od dawna, a ich wyniki częściowe zostaną zniszczone. Możemy także usuwać procesy pojedynczo, aż do wyeliminowania cyklu zakleszczenia – wymaga to sporego nakładu pracy na powtarzanie wykonywania algorytmu wykrywania zakleszczenia po każdym usunięciu procesu w celu sprawdzenia czy pozostałe procesy nadal są zakleszczone.
 Drugi polega na odebraniu pewnych zasobów jednemu lub kilku procesom, których dotyczy zakleszczenie. Jeśli zwalczamy zakleszczenia poprzez wywłaszczanie zasobów, to należy uwzględnić trzy kwestie:
@@ -284,18 +286,21 @@ Idea polega na tym, by ukryć przed użytkownikami fizyczne rozproszenie obiektu
 
 ### 2. Jakie są różnice między wieloprocesorami a multikomputerami?
 
-Podstawowa różnica to taka, że system wieloprocesowy, jest to układ pewnej liczby procesorów, które dzielą tą samą pamięć operacyjną, natomiast w multikompeterach każdy procesor ma swoją pamięć operacyjną. 
+Podstawowa różnica to taka, że system wieloprocesowy, jest to układ pewnej liczby procesorów, które dzielą tą samą pamięć operacyjną, natomiast w multikomputerach każdy procesor ma swoją pamięć operacyjną. 
 
-Systemy wieloprocesorowe mają jedną wspólną cechę:  wszystkim jednostkom centralnym udostępnia się bezpośrednio pamięć dzieloną. Wieloprocesory o or­ganizacji  szynowej  składają się  z  pewnej  liczby jednostek centralnych  (CPU) podłączonych do wspólnej szyny wraz z modułem pamięci. W prostej konfigu­racji występuje szybka tablica połączeń (płyta z interfejsem szyny), czyli płyta główna (ang. motherboard), w której możemy umocować karty CPU i pamięci.
+Systemy wieloprocesorowe mają jedną wspólną cechę: wszystkim jednostkom centralnym udostępnia się bezpośrednio pamięć dzieloną. Wieloprocesory o or­ganizacji szynowej składają się z pewnej liczby jednostek centralnych (CPU) podłączonych do wspólnej szyny wraz z modułem pamięci. W prostej konfigu­racji występuje szybka tablica połączeń (płyta z interfejsem szyny), czyli płyta główna (ang. motherboard), w której możemy umocować karty CPU i pamięci.
 
-W przeciwieństwie do  wieloprocesorów zbudowanie multikomputera jest dość łatwe. Każda jednostka centralna ma bezpośrednie połączenie ze swoją pamięcią lokalną. Jedyny problem stanowi sposób komunikowania się jednostek central­nych między sobą. Mówiąc jaśniej, i tutaj są potrzebne jakieś schematy połączeń, ponieważ jednak chodzi teraz wyłącznie o komunikację procesor-procesor, ruch będzie kilka rzędów wielkości mniejszy niż w wypadku używania połączeń sie­ciowych również do ruchu procesor-pamięć.
+W przeciwieństwie do wieloprocesorów zbudowanie multikomputera jest dość łatwe. Każda jednostka centralna ma bezpośrednie połączenie ze swoją pamięcią lokalną. Jedyny problem stanowi sposób komunikowania się jednostek central­nych między sobą. Mówiąc jaśniej, i tutaj są potrzebne jakieś schematy połączeń, ponieważ jednak chodzi teraz wyłącznie o komunikację procesor-procesor, ruch będzie kilka rzędów wielkości mniejszy niż w wypadku używania połączeń sie­ciowych również do ruchu procesor-pamięć.
 
 Wieloprocesor to wiele procesorów, z których każdy ma własną pamięć podręczną i wszystkie mają wspólną pamięć ogólnie dostępną. Wszystkie procesory są na jednej szynie. Korzystają z jednej wspólnej pamięci systemowej (adresowej).
 Multikomputer złożony jest ze stacji roboczych, w których każda ma pamięć lokalną. Stacje połączone są siecią LAN
 
 ### 3. Czym różni się architektura powiązań szynowych od przełączanych?
 
-W architekturze powiązanej szynowo mamy dostępną tylko jedną szynę danych łączącą procesory (posiadające własną pamięć podręczną) z główna pamięcią.
+### Czym różni się połączenie szynowe od połączenia przełączanego?
+
+W architekturze powiązanej szynowo mamy dostępną tylko jedną szynę danych łączącą procesory (posiadające własną pamięć podręczną) z główną pamięcią.
+
 W architekturze przełączanej mamy pewną ilość procesorów i pewna ilość modułów pamięci. Każdy procesor jest połączony z każdym modułem pamięci przy pomocy wybieraka krzyżowego.
 
 W architekturze powiązań szynowych wykorzystuje się stały szkielet połączeń, w którym jeden nośnik łączy wszystkie maszyny (BUS). W przełączanych trasa przekazywania informacji określana jest jawnie, w wyniku połączeń przy pomocy przełączników (switched). 
@@ -314,9 +319,13 @@ W wieloprocesorze, każdy procesor posiada własna pamięć podręczną oraz og�
 
 ### 6. Jakie właściwości muszą posiadać pamięci podręczne w wieloprocesorach, aby zapewnić spójność pamięci?
 
-Pamięć podręczna powinna być: -przepisywana (write throught)- gdy następuje aktualizacja danych w pamięci oper. które też są zawarte w pamięci podręcznej to dane w pamięci podręcznej również powinny zostać zaktualizowane. -podglądająca (snoopy)- tzn. powinna podsłuchiwać szynę czy nie przechodzą przez nią adresy danych które zawarte są również w pamięci podręcznej. Jeżeli takie adresy będą to pamięć podręczna powinna, albo uaktualnić modyfikowane dane albo wyrzucić ten adres i dane, przez co procesor będzie się odwoływał do danych zawartych w pamięci operacyjnej (a więc do tych najbardziej aktualnych).
+Pamięć podręczna powinna być: 
+* przepisywana (write throught) - gdy następuje aktualizacja danych w pamięci oper. które też są zawarte w pamięci podręcznej to dane w pamięci podręcznej również powinny zostać zaktualizowane. 
+* podglądająca (snoopy)- tzn. powinna podsłuchiwać szynę czy nie przechodzą przez nią adresy danych które zawarte są również w pamięci podręcznej. Jeżeli takie adresy będą to pamięć podręczna powinna, albo uaktualnić modyfikowane dane albo wyrzucić ten adres i dane, przez co procesor będzie się odwoływał do danych zawartych w pamięci operacyjnej (a więc do tych najbardziej aktualnych).
 
-Pamięć podręczna musi być przepisy walna – powinna przepisywać dane do pamięci ogólnej. Podglądająca – powinna podsłuchiwać szynę i sprawdzać czy dane zapisywane do pamięci ogólnej są aktualne z tymi przechowywanymi w pamięci podręcznej i w razie konieczności aktualizować dane
+Pamięć podręczna musi być: 
+* przepisywalna – powinna przepisywać dane do pamięci ogólnej. 
+* podglądająca – powinna podsłuchiwać szynę i sprawdzać czy dane zapisywane do pamięci ogólnej są aktualne z tymi przechowywanymi w pamięci podręcznej i w razie konieczności aktualizować dane.
 
 ### 7. Czy wieloprocesory szynowe mogą być budowane z większej liczby procesorów niż przełączane, czy z mniejszej? Wyjaśnić, dlaczego?
 
@@ -330,22 +339,25 @@ Przełącznik krzyżowy dokonuje powiązania pomiędzy procesorem a szukanym mod
 
 Przełącznik krzyżowy łączy proces z modułem pamięci. W przypadku gdy mamy dostępnych n procesorów i m modułów pamięci możemy skonstruować macierz n x m, gdzie na przecięciu każdego wiersza i kolumny umieszczamy jeden przełącznik krzyżowy. Umożliwia na to połączenie dowolnego z procesorów z dowolnym z dostępnych modułów pamięci.
 
-### 9. Wyjaśnić ideę sieci „Omega” stosowaną w wieloprocesorach.
+### 9. Wyjaśnić ideę sieci "Omega" stosowaną w wieloprocesorach.
 
 Ideą sieci omega jest zastosowanie takiej samej liczby przełączników jak i procesorów. W wyniku czego, czasami zapytanie wysłane przez procesor do modułu pamięci musi przejść przez kilka przełączników zanim trafi do tego modułu, również odpowiedź będzie biegła tą samą drogą. Zatem przełączniki spełniają też rolę pośredniczącą w wysyłaniu komunikatów. 
 
-W sieci Omega dzięki zastosowaniu przełączników poczwórnych możemy stworzyć sieć przełączającą łącząca dowolny procesor z dowolnym modułem pamięci tylko przy użyciu tej samej liczby przełączników co procesorów czy modułów pamięci. Dodatkowo sposób łączenie przełączników z procesorami i modułami pamięci umożliwia zestawienie wielu bezkonfliktowych połączeń
-pomiędzy wybranymi procesorami a modułami pamięci
+W sieci Omega dzięki zastosowaniu przełączników poczwórnych możemy stworzyć sieć przełączającą łącząca dowolny procesor z dowolnym modułem pamięci tylko przy użyciu tej samej liczby przełączników co procesorów czy modułów pamięci. Dodatkowo sposób łączenie przełączników z procesorami i modułami pamięci umożliwia zestawienie wielu bezkonfliktowych połączeń pomiędzy wybranymi procesorami a modułami pamięci
 
 ### 10. Czym różnią się prawdziwe systemy rozproszone od stosowanych obecnie powszechnie systemów sieciowych?
 
 W systemach sieciowych istnieją stacje robocze połączone siecią LAN, każda maszyna ma własny system operacyjny, program użytkowy wykonywany tylko na lokalnej maszynie. W prawdziwych systemach rozproszonych istnieje wiele komputerów połączonych siecią, na których jest system operacyjny sprawiający wrażenie jednolitego (wirtualny monoprocesor). 
 
 Sieciowe systemy operacyjne:
-Stacje robocze połączone są siecią LAN.
-Każda maszyna ma własny system operacyjny Prawdziwe systemy rozproszone:
-Wiele komputerów połączonych siecią Wrażenie jednolitego systemu (wirtualny monoprocesor)
-Wszyscy wykonują jeden system operacyjny w n kopiach Dzielenie plików na dobrze określoną semantykę.
+* Stacje robocze połączone są siecią LAN.
+* Każda maszyna ma własny system operacyjny 
+
+Prawdziwe systemy rozproszone:
+* Wiele komputerów połączonych siecią 
+* Wrażenie jednolitego systemu (wirtualny monoprocesor)
+* Wszyscy wykonują jeden system operacyjny w n kopiach 
+* Dzielenie plików na dobrze określoną semantykę.
 
 ### 11. Jak działa system operacyjny w przypadku wieloprocesora?
 

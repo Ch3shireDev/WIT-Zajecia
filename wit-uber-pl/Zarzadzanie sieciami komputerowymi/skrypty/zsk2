@@ -1,8 +1,0 @@
- traceroute -q6 wp.pl 500 | tr -s ' ' | head -n2| tail -n1| cut  -d ' ' -f5,7,9,11,13 | tr ' ' '\n' | sort | head -n1
- sleep 5
-  traceroute -q6 wp.pl 1000 | tr -s ' ' | head -n2| tail -n1| cut  -d ' ' -f5,7,9,11,13 | tr ' ' '\n' | sort | head -n1
-  sleep 5
-   traceroute -q6 wp.pl 5000 | tr -s ' ' | head -n2| tail -n1| cut  -d ' ' -f5,7,9,11,13 | tr ' ' '\n' | sort | head -n1
-   sleep 5
-    traceroute -q6 wp.pl 10000 | tr -s ' ' | head -n2| tail -n1| cut  -d ' ' -f5,7,9,11,13 | tr ' ' '\n' | sort | head -n1
-    

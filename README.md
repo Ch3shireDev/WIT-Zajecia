@@ -1,3 +1,3 @@
 # WIT - Zajęcia
 
-Materiały z zajęć pierwszego roku studiów zaocznych na kierunku informatyka, rocznik 2019-2020.
+Materiały ze studiów zaocznych na kierunku informatyka (inżynieria oprogramowania), rocznik 2019-2023.

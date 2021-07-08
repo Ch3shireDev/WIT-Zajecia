@@ -1,0 +1,4 @@
+z kolosa wynik 5/7p
+za krusia 7/10p ale chyba jest ok brak rysunku tylko
+
+w zadaniu 1 brakuje " | wc -l"
