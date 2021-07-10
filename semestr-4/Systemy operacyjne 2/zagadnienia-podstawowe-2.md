@@ -16,17 +16,11 @@ Zakleszczenia przełamuje się poprzez:
 * usunięcie jednego lub wielu procesów przetrzymujących zasób
 * wywłaszczenie procesów z przetrzymywanych zasobów
 
-### 03. Jak system operacyjny wieloprocesora zarządza szeregowaniem procesów?
-
-### 11. Jak działa system operacyjny w przypadku wieloprocesora?
+### 03. Jak działa system operacyjny w przypadku wieloprocesora? Jak system operacyjny wieloprocesora zarządza szeregowaniem procesów?
 
 System wieloprocesorowy zawiera jedną kolejkę uruchomień, wspólną pamięć dzieloną, wspólne zasoby, połączenie szyną oraz wiele jednostek centralnych (tj. procesorów). W przypadku systemów operacyjnych wieloprocesorowych z kwantem czasu kiedy na jednym z procesorów kończy się kwant czasu, przekazywany jest do niego kolejny proces czekający w kolejce, natomiast bieżący proces przechodzi na koniec kolejki.
 
-### 04. Wyjaśnić pojęcie spójności pamięci i w jaki sposób zapewnia się spójność pamięci w wieloprocesorach korzystających z pamięci podręcznych?
-
-### 07. W jaki sposób zapewnia się spójność pamięci w wieloprocesorach korzystających z pamięci podręcznych?
-
-### 05. Wyjaśnić pojęcie spójności pamięci w wieloprocesorach.
+### 04. Wyjaśnić pojęcie spójności pamięci i w jaki sposób zapewnia się spójność pamięci w wieloprocesorach korzystających z pamięci podręcznych? W jaki sposób zapewnia się spójność pamięci w wieloprocesorach korzystających z pamięci podręcznych?
 
 Dane zapisywane w pamięci podręcznej powinny być takie same jak dane zapisywane w pamięci operacyjnej. Jeśli jeden z procesorów aktualizuje wartość zmiennej w swojej pamięci podręcznej (odpowiadającej zmiennej w pamięci operacyjnej), to wszystkie inne procesory korzystające też z tej zmiennej również powinny mieć zaktualizowaną wartość tej zmiennej w swoich pamięciach podręcznych.
 
@@ -49,15 +43,11 @@ Semafor jest współdzieloną zmienną do której jest dostęp poprzez dwie atom
 
 ### 09. Czym różni się wieloprocesor od multikomputera?
 
-### 02. Jakie są różnice między wieloprocesorami a multikomputerami?
-
 Wieloprocesor jest pojedynczą maszyną z wieloma procesorami i współdzieloną pamięcią operacyjną oraz zasobami. Wszystkie procesory korzystają z jednej szyny.
 
 Multikomputer jest wieloma komputerami z własnymi pamięciami operacyjnymi, połączonymi poprzez sieć LAN.
 
-### 10. Co to jest stan blokady (zakleszczenia) procesów?
-
-### 12. Jakie są warunki konieczne wystąpienia blokady (zakleszczenia) procesów?
+### 10. Co to jest stan blokady (zakleszczenia) procesów? Jakie są warunki konieczne wystąpienia blokady (zakleszczenia) procesów?
 
 Stan zakleszczenia występuje wtedy, gdy:
 * istnieją w systemie zasoby niepodzielne, tj. takie w których korzystanie z egzemplarza zasobu przez jeden proces uniemożliwia korzystania z niego innemu procesowi
@@ -65,9 +55,7 @@ Stan zakleszczenia występuje wtedy, gdy:
 * nie jest możliwe wywłaszczenie zasobów z procesu, tj. zwolnienie zasobu następuje jedynie po użyciu go przez dany proces
 * istnieje w systemie operacyjnym cykl n procesów, z których każdy kolejny proces oczekuje na zasób przetrzymywany przez proces następny w kolejności (modulo n, tj. proces Pn-1 oczekuje na zasób przetrzymywany przez proces P0).
 
-### 11. Czym różni się połączenie szynowe od połączenia przełączanego?
-
-### 03. Czym różni się architektura powiązań szynowych od przełączanych?
+### 11. Czym różni się połączenie szynowe od połączenia przełączanego? Czym różni się architektura powiązań szynowych od przełączanych?
 
 W architekturze szynowej mamy procesory (posiadające własne pamięci podręczne) połączone jedną szyną danych z główną pamięcią.
 
@@ -77,19 +65,7 @@ W architekturze przełączanej mamy pewną ilość procesorów i pewną ilość 
 
 (ang availability) Gotowość systemu do natychmiastowego użycia - prawdopodobieństwo, że system działa poprawnie w dowolnej chwili i jest gotów działać na zlecenie użytkowników.
 
-### 14. Co oznacza pojęcie przezroczystości w systemach rozproszonych?
-
-### 01. Co to jest system rozproszony?
-
-### 12. Wyjaśnić pojęcie przezroczystości w systemach rozproszonych?
-
-### 13. Co oznacza przezroczystość położenia (location transparency) w systemach rozproszonych?
-
-### 14. Co oznacza przezroczystość zwielokrotnienia w systemach rozproszonych?
-
-### 15. Co oznacza przezroczystość wędrówki - migracji (migration transparency) w systemach ### rozproszonych?
-
-### 16. Jakie są dwie podstawowe koncepcje budowy operacyjnych systemów rozproszonych?
+### 01. Co to jest system rozproszony? Co oznacza pojęcie przezroczystości w systemach rozproszonych?
 
 System rozproszony to układ niezależnych komputerów sprawiający wrażenie na użytkowniku że jest jedną maszyną (tj. spełniający warunki przezroczystości).
 
@@ -104,6 +80,8 @@ Przezroczystością określa się ukrywanie przed użytkownikami faktu, że prac
 * awarii - ukrywany jest fakt awarii części maszyn systemu
 * trwałości - ukrywany jest fakt czy zasób przechowywany jest w pamięci czy na dysku.
 
+### 16. Jakie są dwie podstawowe koncepcje budowy operacyjnych systemów rozproszonych?
+
 ### 15. Czym różnią się metody zapobiegania od metod unikania blokady (zakleszczenia) procesów?
 
 Zapobieganie blokadom polega na wyeliminowaniu co najmniej jednego z warunków koniecznych do zakleszczenia procesów - wzajemnego wykluczenia, trzymania zasobów i oczekiwania, cyklicznego oczekiwania, braku wywłaszczania zasobów.
@@ -112,12 +90,30 @@ Unikanie blokad polega na podejmowaniu decyzji przez system operacyjny czy proce
 
 ### 04. Co to jest szyna? Jak procesory korzystają z szyny porozumiewając się z pamięcią? 
 
-### 06. Jakie właściwości muszą posiadać pamięci podręczne w wieloprocesorach, aby zapewnić spójność ### pamięci?
+(str 533) Szyna (magistrala, bus) jest wiązką przewodów wraz ze ściśle zdefiniowanym protokołem, precyzującym zbiór komunikatów które można tymi przewodami przesyłać.
+
+Szyna inaczej magistrala jest medium komunikacji między procesorami a pamięcią. Zawiera pewną liczbę linii adresowych, linii danych oraz linii kontrolnych. Z szyny korzystają wieloprocesory szynowe.
 
 ### 07. Czy wieloprocesory szynowe mogą być budowane z większej liczby procesorów niż przełączane, czy z mniejszej? Wyjaśnić, dlaczego?
 
+Wieloprocesory szynowe mogą być budowane z mniejszej liczby procesorów niż przełączane ze względu na charakter współpracy z pamięcią. W architekturze szynowej tylko jeden procesor może komunikować się w danej chwili z pamięcią, a w architekturze przełączanej każdy procesor może współpracować z odrębnym modułem pamięci w danej chwili, co jest bezpośrednim efektem użycia wybieraków krzyżowych.
+
 ### 08. Wyjaśnić ideę przełącznika krzyżowego stosowanego w wieloprocesorach.
+
+Przełącznik krzyżowy łączy proces z modułem pamięci. W przypadku gdy mamy dostępnych n procesorów i m modułów pamięci możemy skonstruować macierz n x m, gdzie na przecięciu każdego wiersza i kolumny umieszczamy jeden przełącznik krzyżowy. Umożliwia na to połączenie dowolnego z procesorów z dowolnym z dostępnych modułów pamięci. 
 
 ### 09. Wyjaśnić ideę sieci "Omega" stosowaną w wieloprocesorach. 
 
-### 10. Czym różnią się prawdziwe systemy rozproszone od stosowanych obecnie powszechnie systemów ### sieciowych?
+W sieci Omega dzięki zastosowaniu przełączników poczwórnych możemy stworzyć sieć przełączającą łączącą dowolny procesor z dowolnym modułem pamięci tylko przy użyciu tej samej liczby przełączników co procesorów czy modułów pamięci. Dodatkowo sposób łączenie przełączników z procesorami i modułami pamięci umożliwia zestawienie wielu bezkonfliktowych połączeń pomiędzy wybranymi procesorami a modułami pamięci.
+
+### 10. Czym różnią się prawdziwe systemy rozproszone od stosowanych obecnie powszechnie systemów sieciowych?
+
+Sieciowe systemy operacyjne:
+Stacje robocze połączone są siecią LAN.
+Każda maszyna ma własny system operacyjny
+
+Prawdziwe systemy rozproszone:
+Wiele komputerów połączonych siecią
+Wrażenie jednolitego systemu (wirtualny monoprocesor)
+Wszyscy wykonują jeden system operacyjny w n kopiach
+Dzielenie plików na dobrze określoną semantykę.
