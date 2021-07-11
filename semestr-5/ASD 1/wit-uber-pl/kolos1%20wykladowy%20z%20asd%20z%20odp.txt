@@ -1,0 +1,111 @@
+Pamiętamy... pamiętamy...
+
+Przedmiotem działań było nazwisko. Trzeba było wziąć pierwszych 8 liter, lub jeżeli było ono za krótkie to dobrać kilka liter z imieni np.
+
+imię i nazwisko: NOWAK PIOTR
+
+nasze litery: NOWAKPIO
+
+Następnie jedna litera miała się powatarzać 3 razy i jedna 2 razy, więc zmieniamy tak aby było ok (już mamy 2x O):
+
+A ->N
+P->N
+
+nasze słowo: NOWNKNIO
+
+ i na tym słowie pracujemy. Musimy je posortować  :
+-mergesort
+-partitioning (quicksort)
+-Floyd
+-Kubełkowe (permutacje 3 pierwszych liter) (Radix)
+-Najdłuższy wspólny podciąg
+-Huffman
+-Tablica P (tego nie było 10 II na poprawce)
+
+i do domu :-)
+
+ROZWIĄZANIA:
+
+1) MergeSort
+
+dzielimy wyraz aż będziemy mieli zbiory jedno elementowe a następnie je łączymy sortując przy okazji  np>
+
+1 krok  ->  NOWN |  KNIO
+2 krok  ->  NO | WN         KN | IO
+3 krok  ->  N|O      W|N       K|N    I|O
+4 krok  ->  NO   |   NW       KN  | IO
+5 krok  ->  NNOW | IKNO
+6 ktok  -> IKNNNOOW <-posortowany
+
+2) Partitionig
+
+Bierzemy pierwszą litereę a następnie pozostałe porządkujemy względem niej (mniejsze na lewo, większe na prawo) np.
+
+NOWNKNIO
+1 przebieg->INKNNOWO
+
+i dalej porządkuowujemy w ten sam sposób dwa kawałki.
+
+3) Kopiec Floyda
+
+nasze litery:   NOWNKNIO
+numerujemy: 1 23 45678
+
+i tworzymy kopiec zgodnie z założeniem że dziećmi i-tego wierzchołka jest 2*1 oraz  2*1+1 wierzchołek.
+więc dziećmi N (1) są O(2*1) i W(2*1+1)
+     N
+    /  \
+  O   W
+
+dziećmi O są N(2*2) i K(2*2+1)
+        N
+       /  \
+     O   W
+    /  \
+  N    K
+
+i tak dalej bawimy się w tworzenie kopca a następnie porżdujemy go wiedąc, ze większe elementy powinny by wyżej i zamieniamyw  ten sposób aby to osiągnąć:
+np. w naszym kopcu W>N a jest niżej więc zamieniamy:
+
+        W
+       /  \
+     O    N
+    /  \
+  N    K
+
+
+I teraz jest OK.
+
+4)Radixsort
+permutacje:
+WNO
+ONW   
+OWN
+WON
+NOW
+NWO
+
+porządkujemy względem ostatniej kolumny:
+OWN
+WON
+WNO
+NWO
+ONW
+NOW
+
+porządkujemy względem pzedostatniej kolumny:
+WNO
+ONW
+WON
+NOW
+OWN
+NWO
+
+porządkujemy względem pierwszej kolumny( KONIEC!!!):
+NOW
+NWO
+ONW
+OWN
+WNO
+WON
+

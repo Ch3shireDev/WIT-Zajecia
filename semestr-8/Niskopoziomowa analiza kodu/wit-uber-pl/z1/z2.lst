@@ -1,0 +1,291 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.3.3 Wed May 18 15:32:00 2011
+                              4 
+                              5 ;--------------------------------------------------------
+                              6 	.module z2
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _main
+                             12 	.globl _U12
+                             13 ;--------------------------------------------------------
+                             14 ; special function registers
+                             15 ;--------------------------------------------------------
+                             16 ;--------------------------------------------------------
+                             17 ; special function bits 
+                             18 ;--------------------------------------------------------
+                    00B4     19 _T1	=	0x00b4
+                             20 ;--------------------------------------------------------
+                             21 ; overlayable register banks 
+                             22 ;--------------------------------------------------------
+                             23 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                      24 	.ds 8
+                             25 ;--------------------------------------------------------
+                             26 ; internal ram data
+                             27 ;--------------------------------------------------------
+                             28 	.area DSEG    (DATA)
+                             29 ;--------------------------------------------------------
+                             30 ; overlayable items in internal ram 
+                             31 ;--------------------------------------------------------
+                             32 	.area	OSEG    (OVR,DATA)
+                             33 ;--------------------------------------------------------
+                             34 ; Stack segment in internal ram 
+                             35 ;--------------------------------------------------------
+                             36 	.area	SSEG	(DATA)
+   0000                      37 __start__stack:
+   0000                      38 	.ds	1
+                             39 
+                             40 ;--------------------------------------------------------
+                             41 ; indirectly addressable internal ram data
+                             42 ;--------------------------------------------------------
+                             43 	.area ISEG    (DATA)
+                             44 ;--------------------------------------------------------
+                             45 ; bit data
+                             46 ;--------------------------------------------------------
+                             47 	.area BSEG    (BIT)
+                             48 ;--------------------------------------------------------
+                             49 ; external ram data
+                             50 ;--------------------------------------------------------
+                             51 	.area XSEG    (XDATA)
+                    8000     52 _U12	=	0x8000
+                             53 ;--------------------------------------------------------
+                             54 ; external initialized ram data
+                             55 ;--------------------------------------------------------
+                             56 	.area XISEG   (XDATA)
+                             57 ;--------------------------------------------------------
+                             58 ; interrupt vector 
+                             59 ;--------------------------------------------------------
+                             60 	.area CSEG    (CODE)
+   0000                      61 __interrupt_vect:
+   0000 02s00r00             62 	ljmp	__sdcc_gsinit_startup
+   0003 32                   63 	reti
+   0004                      64 	.ds	7
+   000B 32                   65 	reti
+   000C                      66 	.ds	7
+   0013 32                   67 	reti
+   0014                      68 	.ds	7
+   001B 32                   69 	reti
+   001C                      70 	.ds	7
+   0023 32                   71 	reti
+   0024                      72 	.ds	7
+   002B 32                   73 	reti
+   002C                      74 	.ds	7
+                             75 ;--------------------------------------------------------
+                             76 ; global & static initialisations
+                             77 ;--------------------------------------------------------
+                             78 	.area GSINIT  (CODE)
+                             79 	.area GSFINAL (CODE)
+                             80 	.area GSINIT  (CODE)
+   0000                      81 __sdcc_gsinit_startup:
+   0000 75 81rFF             82 	mov	sp,#__start__stack - 1
+   0003 12s00r00             83 	lcall	__sdcc_external_startup
+   0006 E5 82                84 	mov	a,dpl
+   0008 60 03                85 	jz	__sdcc_init_data
+   000A 02s00r33             86 	ljmp	__sdcc_program_startup
+   000D                      87 __sdcc_init_data:
+                             88 ;	_mcs51_genXINIT() start
+   000D 74r00                89 	mov	a,#l_XINIT
+   000F 44s00                90 	orl	a,#l_XINIT>>8
+   0011 60 29                91 	jz	00003$
+   0013 74r00                92 	mov	a,#s_XINIT
+   0015 24r00                93 	add	a,#l_XINIT
+   0017 F9                   94 	mov	r1,a
+   0018 74s00                95 	mov	a,#s_XINIT>>8
+   001A 34s00                96 	addc	a,#l_XINIT>>8
+   001C FA                   97 	mov	r2,a
+   001D 90s00r00             98 	mov	dptr,#s_XINIT
+   0020 78r00                99 	mov	r0,#s_XISEG
+   0022 75 A0s00            100 	mov	p2,#(s_XISEG >> 8)
+   0025 E4                  101 00001$:	clr	a
+   0026 93                  102 	movc	a,@a+dptr
+   0027 F2                  103 	movx	@r0,a
+   0028 A3                  104 	inc	dptr
+   0029 08                  105 	inc	r0
+   002A B8 00 02            106 	cjne	r0,#0,00002$
+   002D 05 A0               107 	inc	p2
+   002F E5 82               108 00002$:	mov	a,dpl
+   0031 B5 01 F1            109 	cjne	a,ar1,00001$
+   0034 E5 83               110 	mov	a,dph
+   0036 B5 02 EC            111 	cjne	a,ar2,00001$
+   0039 75 A0 FF            112 	mov	p2,#0xFF
+   003C                     113 00003$:
+                            114 ;	_mcs51_genXINIT() end
+                            115 	.area GSFINAL (CODE)
+   0000 02s00r33            116 	ljmp	__sdcc_program_startup
+                            117 ;--------------------------------------------------------
+                            118 ; Home
+                            119 ;--------------------------------------------------------
+                            120 	.area HOME    (CODE)
+                            121 	.area CSEG    (CODE)
+                            122 ;--------------------------------------------------------
+                            123 ; code
+                            124 ;--------------------------------------------------------
+                            125 	.area CSEG    (CODE)
+   0033                     126 __sdcc_program_startup:
+   0033 12s00r38            127 	lcall	_main
+                            128 ;	return from main will lock up
+   0036 80 FE               129 	sjmp .
+                            130 ;------------------------------------------------------------
+                            131 ;Allocation info for local variables in function 'main'
+                            132 ;------------------------------------------------------------
+                            133 ;------------------------------------------------------------
+                            134 ;Z:\pn\z1\z2.c:8: void main (void) {
+                            135 ;	-----------------------------------------
+                            136 ;	 function main
+                            137 ;	-----------------------------------------
+   0038                     138 _main:
+                    0002    139 	ar2 = 0x02
+                    0003    140 	ar3 = 0x03
+                    0004    141 	ar4 = 0x04
+                    0005    142 	ar5 = 0x05
+                    0006    143 	ar6 = 0x06
+                    0007    144 	ar7 = 0x07
+                    0000    145 	ar0 = 0x00
+                    0001    146 	ar1 = 0x01
+                            147 ;Z:\pn\z1\z2.c:9: unsigned char r=0;
+                            148 ;     genAssign
+   0038 7A 00               149 	mov	r2,#0x00
+                            150 ;Z:\pn\z1\z2.c:11: unsigned char on=0;
+                            151 ;     genAssign
+   003A 7B 00               152 	mov	r3,#0x00
+                            153 ;Z:\pn\z1\z2.c:12: unsigned char hz=50;
+                            154 ;     genAssign
+   003C 7C 32               155 	mov	r4,#0x32
+   003E                     156 00120$:
+                            157 ;Z:\pn\z1\z2.c:16: if (( U12 & 0x01 )== 0 )
+                            158 ;     genAssign
+   003E 90 80 00            159 	mov	dptr,#_U12
+   0041 E0                  160 	movx	a,@dptr
+   0042 FD                  161 	mov	r5,a
+                            162 ;     genAnd
+   0043 53 05 01            163 	anl	ar5,#0x01
+                            164 ;     genCmpEq
+                            165 ;       Peephole 132   changed ljmp to sjmp
+                            166 ;       Peephole 199   optimized misc jump sequence
+   0046 BD 00 02            167 	cjne r5,#0x00,00132$
+                            168 ;00134$:
+                            169 ;       Peephole 200   removed redundant sjmp
+   0049                     170 00135$:
+                            171 ;Z:\pn\z1\z2.c:18: on =1;
+                            172 ;     genAssign
+   0049 7B 01               173 	mov	r3,#0x01
+                            174 ;Z:\pn\z1\z2.c:21: while(on)
+   004B                     175 00132$:
+                            176 ;     genAssign
+   004B 8A 05               177 	mov	ar5,r2
+   004D                     178 00112$:
+                            179 ;     genAssign
+   004D 8D 02               180 	mov	ar2,r5
+                            181 ;     genIfx
+   004F EB                  182 	mov	a,r3
+                            183 ;     genIfxJump
+                            184 ;       Peephole 110   removed ljmp by inverse jump logic
+   0050 60 EC               185 	jz  00120$
+   0052                     186 00136$:
+                            187 ;Z:\pn\z1\z2.c:24: if (( r & 0x01) == 0) // maskowanie
+                            188 ;     genAnd
+   0052 74 01               189 	mov	a,#0x01
+   0054 5D                  190 	anl	a,r5
+   0055 FE                  191 	mov	r6,a
+                            192 ;     genCmpEq
+                            193 ;       Peephole 132   changed ljmp to sjmp
+                            194 ;       Peephole 199   optimized misc jump sequence
+   0056 BE 00 04            195 	cjne r6,#0x00,00104$
+                            196 ;00137$:
+                            197 ;       Peephole 200   removed redundant sjmp
+   0059                     198 00138$:
+                            199 ;Z:\pn\z1\z2.c:25: T1 = 1;
+                            200 ;     genAssign
+   0059 D2 B4               201 	setb	_T1
+                            202 ;       Peephole 132   changed ljmp to sjmp
+   005B 80 02               203 	sjmp 00105$
+   005D                     204 00104$:
+                            205 ;Z:\pn\z1\z2.c:27: T1 = 0;
+                            206 ;     genAssign
+   005D C2 B4               207 	clr	_T1
+   005F                     208 00105$:
+                            209 ;Z:\pn\z1\z2.c:28: r++;
+                            210 ;     genPlus
+                            211 ;     genPlusIncr
+   005F 0D                  212 	inc	r5
+                            213 ;Z:\pn\z1\z2.c:29: for(i=0;i<hz;i++);
+                            214 ;     genAssign
+   0060 7E 00               215 	mov	r6,#0x00
+   0062                     216 00115$:
+                            217 ;     genCmpLt
+                            218 ;     genCmp
+   0062 C3                  219 	clr	c
+   0063 EE                  220 	mov	a,r6
+   0064 9C                  221 	subb	a,r4
+                            222 ;     genIfxJump
+                            223 ;       Peephole 108   removed ljmp by inverse jump logic
+   0065 50 03               224 	jnc  00118$
+   0067                     225 00139$:
+                            226 ;     genPlus
+                            227 ;     genPlusIncr
+   0067 0E                  228 	inc	r6
+                            229 ;       Peephole 132   changed ljmp to sjmp
+   0068 80 F8               230 	sjmp 00115$
+   006A                     231 00118$:
+                            232 ;Z:\pn\z1\z2.c:31: if (( U12 & 0x02 )== 0 )
+                            233 ;     genAssign
+   006A 90 80 00            234 	mov	dptr,#_U12
+   006D E0                  235 	movx	a,@dptr
+   006E FE                  236 	mov	r6,a
+                            237 ;     genAnd
+   006F 53 06 02            238 	anl	ar6,#0x02
+                            239 ;     genCmpEq
+                            240 ;       Peephole 132   changed ljmp to sjmp
+                            241 ;       Peephole 199   optimized misc jump sequence
+   0072 BE 00 02            242 	cjne r6,#0x00,00107$
+                            243 ;00140$:
+                            244 ;       Peephole 200   removed redundant sjmp
+   0075                     245 00141$:
+                            246 ;Z:\pn\z1\z2.c:33: on =0;
+                            247 ;     genAssign
+   0075 7B 00               248 	mov	r3,#0x00
+   0077                     249 00107$:
+                            250 ;Z:\pn\z1\z2.c:36: if (( U12 & 0x04 )== 0 )
+                            251 ;     genAssign
+   0077 90 80 00            252 	mov	dptr,#_U12
+   007A E0                  253 	movx	a,@dptr
+   007B FE                  254 	mov	r6,a
+                            255 ;     genAnd
+   007C 53 06 04            256 	anl	ar6,#0x04
+                            257 ;     genCmpEq
+                            258 ;       Peephole 132   changed ljmp to sjmp
+                            259 ;       Peephole 199   optimized misc jump sequence
+   007F BE 00 01            260 	cjne r6,#0x00,00109$
+                            261 ;00142$:
+                            262 ;       Peephole 200   removed redundant sjmp
+   0082                     263 00143$:
+                            264 ;Z:\pn\z1\z2.c:39: hz++;
+                            265 ;     genPlus
+                            266 ;     genPlusIncr
+   0082 0C                  267 	inc	r4
+   0083                     268 00109$:
+                            269 ;Z:\pn\z1\z2.c:42: if (( U12 & 0x08 )== 0 )
+                            270 ;     genAssign
+   0083 90 80 00            271 	mov	dptr,#_U12
+   0086 E0                  272 	movx	a,@dptr
+   0087 FE                  273 	mov	r6,a
+                            274 ;     genAnd
+   0088 53 06 08            275 	anl	ar6,#0x08
+                            276 ;     genCmpEq
+                            277 ;       Peephole 132   changed ljmp to sjmp
+                            278 ;       Peephole 199   optimized misc jump sequence
+   008B BE 00 BF            279 	cjne r6,#0x00,00112$
+                            280 ;00144$:
+                            281 ;       Peephole 200   removed redundant sjmp
+   008E                     282 00145$:
+                            283 ;Z:\pn\z1\z2.c:44: hz--;
+                            284 ;     genMinus
+                            285 ;     genMinusDec
+   008E 1C                  286 	dec	r4
+   008F 02s00r4D            287 	ljmp	00112$
+   0092                     288 00122$:
+   0092 22                  289 	ret
+                            290 	.area CSEG    (CODE)
+                            291 	.area XINIT   (CODE)

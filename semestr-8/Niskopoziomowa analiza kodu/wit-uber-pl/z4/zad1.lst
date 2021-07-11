@@ -1,0 +1,713 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.3.3 Tue May 17 10:50:19 2011
+                              4 
+                              5 ;--------------------------------------------------------
+                              6 	.module zad1
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _kolumna
+                             12 	.globl _klawiszZKolumny
+                             13 	.globl _main
+                             14 	.globl _putchar
+                             15 	.globl _init
+                             16 	.globl _func_isr
+                             17 	.globl _sleep
+                             18 	.globl _U10
+                             19 	.globl _U12
+                             20 	.globl _U15
+                             21 	.globl _key_set
+                             22 	.globl _t
+                             23 	.globl _key
+                             24 ;--------------------------------------------------------
+                             25 ; special function registers
+                             26 ;--------------------------------------------------------
+                    00A8     27 _IE	=	0x00a8
+                    0089     28 _TMOD	=	0x0089
+                    008D     29 _TH1	=	0x008d
+                    008B     30 _TL1	=	0x008b
+                    0088     31 _TCON	=	0x0088
+                    0099     32 _SBUF	=	0x0099
+                    0098     33 _SCON	=	0x0098
+                    0087     34 _PCON	=	0x0087
+                             35 ;--------------------------------------------------------
+                             36 ; special function bits 
+                             37 ;--------------------------------------------------------
+                    0098     38 _RI	=	0x0098
+                    0099     39 _TI	=	0x0099
+                             40 ;--------------------------------------------------------
+                             41 ; overlayable register banks 
+                             42 ;--------------------------------------------------------
+                             43 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                      44 	.ds 8
+                             45 ;--------------------------------------------------------
+                             46 ; internal ram data
+                             47 ;--------------------------------------------------------
+                             48 	.area DSEG    (DATA)
+   0000                      49 _key::
+   0000                      50 	.ds 2
+   0002                      51 _t::
+   0002                      52 	.ds 2
+   0004                      53 _key_set::
+   0004                      54 	.ds 2
+                             55 ;--------------------------------------------------------
+                             56 ; overlayable items in internal ram 
+                             57 ;--------------------------------------------------------
+                             58 	.area	OSEG    (OVR,DATA)
+                             59 	.area	OSEG    (OVR,DATA)
+                             60 ;--------------------------------------------------------
+                             61 ; Stack segment in internal ram 
+                             62 ;--------------------------------------------------------
+                             63 	.area	SSEG	(DATA)
+   0000                      64 __start__stack:
+   0000                      65 	.ds	1
+                             66 
+                             67 ;--------------------------------------------------------
+                             68 ; indirectly addressable internal ram data
+                             69 ;--------------------------------------------------------
+                             70 	.area ISEG    (DATA)
+                             71 ;--------------------------------------------------------
+                             72 ; bit data
+                             73 ;--------------------------------------------------------
+                             74 	.area BSEG    (BIT)
+                             75 ;--------------------------------------------------------
+                             76 ; external ram data
+                             77 ;--------------------------------------------------------
+                             78 	.area XSEG    (XDATA)
+                    8000     79 _U15	=	0x8000
+                    8000     80 _U12	=	0x8000
+                    FFFF     81 _U10	=	0xffff
+                             82 ;--------------------------------------------------------
+                             83 ; external initialized ram data
+                             84 ;--------------------------------------------------------
+                             85 	.area XISEG   (XDATA)
+                             86 ;--------------------------------------------------------
+                             87 ; interrupt vector 
+                             88 ;--------------------------------------------------------
+                             89 	.area CSEG    (CODE)
+   0000                      90 __interrupt_vect:
+   0000 02s00r00             91 	ljmp	__sdcc_gsinit_startup
+   0003 32                   92 	reti
+   0004                      93 	.ds	7
+   000B 32                   94 	reti
+   000C                      95 	.ds	7
+   0013 32                   96 	reti
+   0014                      97 	.ds	7
+   001B 02s00r57             98 	ljmp	_func_isr
+   001E                      99 	.ds	5
+   0023 32                  100 	reti
+   0024                     101 	.ds	7
+   002B 32                  102 	reti
+   002C                     103 	.ds	7
+                            104 ;--------------------------------------------------------
+                            105 ; global & static initialisations
+                            106 ;--------------------------------------------------------
+                            107 	.area GSINIT  (CODE)
+                            108 	.area GSFINAL (CODE)
+                            109 	.area GSINIT  (CODE)
+   0000                     110 __sdcc_gsinit_startup:
+   0000 75 81rFF            111 	mov	sp,#__start__stack - 1
+   0003 12s00r00            112 	lcall	__sdcc_external_startup
+   0006 E5 82               113 	mov	a,dpl
+   0008 60 03               114 	jz	__sdcc_init_data
+   000A 02s00r33            115 	ljmp	__sdcc_program_startup
+   000D                     116 __sdcc_init_data:
+                            117 ;	_mcs51_genXINIT() start
+   000D 74r00               118 	mov	a,#l_XINIT
+   000F 44s00               119 	orl	a,#l_XINIT>>8
+   0011 60 29               120 	jz	00003$
+   0013 74r00               121 	mov	a,#s_XINIT
+   0015 24r00               122 	add	a,#l_XINIT
+   0017 F9                  123 	mov	r1,a
+   0018 74s00               124 	mov	a,#s_XINIT>>8
+   001A 34s00               125 	addc	a,#l_XINIT>>8
+   001C FA                  126 	mov	r2,a
+   001D 90s00r00            127 	mov	dptr,#s_XINIT
+   0020 78r00               128 	mov	r0,#s_XISEG
+   0022 75 A0s00            129 	mov	p2,#(s_XISEG >> 8)
+   0025 E4                  130 00001$:	clr	a
+   0026 93                  131 	movc	a,@a+dptr
+   0027 F2                  132 	movx	@r0,a
+   0028 A3                  133 	inc	dptr
+   0029 08                  134 	inc	r0
+   002A B8 00 02            135 	cjne	r0,#0,00002$
+   002D 05 A0               136 	inc	p2
+   002F E5 82               137 00002$:	mov	a,dpl
+   0031 B5 01 F1            138 	cjne	a,ar1,00001$
+   0034 E5 83               139 	mov	a,dph
+   0036 B5 02 EC            140 	cjne	a,ar2,00001$
+   0039 75 A0 FF            141 	mov	p2,#0xFF
+   003C                     142 00003$:
+                            143 ;	_mcs51_genXINIT() end
+                            144 ;Z:\pn\z4\zad1.c:18: int key =-1;		//zmienna do przekazywania, ktory guzik zostal wcisniety
+                            145 ;     genAssign
+   003C 75*00 FF            146 	mov	_key,#0xFF
+   003F 75*01 FF            147 	mov	(_key + 1),#0xFF
+                            148 ;Z:\pn\z4\zad1.c:19: int t = 0;			//zmienna do iterowania kolumn
+                            149 ;     genAssign
+   0042 E4                  150 	clr	a
+   0043 F5*03               151 	mov	(_t + 1),a
+   0045 F5*02               152 	mov	_t,a
+                            153 ;Z:\pn\z4\zad1.c:20: int key_set = 0;	//zmienna informujaca, o tym, ze wcisniety klawisz zostal przetworzony
+                            154 ;     genAssign
+   0047 E4                  155 	clr	a
+   0048 F5*05               156 	mov	(_key_set + 1),a
+   004A F5*04               157 	mov	_key_set,a
+                            158 	.area GSFINAL (CODE)
+   0000 02s00r33            159 	ljmp	__sdcc_program_startup
+                            160 ;--------------------------------------------------------
+                            161 ; Home
+                            162 ;--------------------------------------------------------
+                            163 	.area HOME    (CODE)
+                            164 	.area CSEG    (CODE)
+                            165 ;--------------------------------------------------------
+                            166 ; code
+                            167 ;--------------------------------------------------------
+                            168 	.area CSEG    (CODE)
+   0033                     169 __sdcc_program_startup:
+   0033 12s01r94            170 	lcall	_main
+                            171 ;	return from main will lock up
+   0036 80 FE               172 	sjmp .
+                            173 ;------------------------------------------------------------
+                            174 ;Allocation info for local variables in function 'sleep'
+                            175 ;------------------------------------------------------------
+                            176 ;------------------------------------------------------------
+                            177 ;Z:\pn\z4\zad1.c:23: void sleep(int d){
+                            178 ;	-----------------------------------------
+                            179 ;	 function sleep
+                            180 ;	-----------------------------------------
+   0038                     181 _sleep:
+                    0002    182 	ar2 = 0x02
+                    0003    183 	ar3 = 0x03
+                    0004    184 	ar4 = 0x04
+                    0005    185 	ar5 = 0x05
+                    0006    186 	ar6 = 0x06
+                    0007    187 	ar7 = 0x07
+                    0000    188 	ar0 = 0x00
+                    0001    189 	ar1 = 0x01
+                            190 ;     genReceive
+   0038 AA 82               191 	mov	r2,dpl
+   003A AB 83               192 	mov	r3,dph
+                            193 ;Z:\pn\z4\zad1.c:25: for(i=0; i<d; i++);
+                            194 ;     genAssign
+   003C 7C 00               195 	mov	r4,#0x00
+   003E 7D 00               196 	mov	r5,#0x00
+   0040                     197 00101$:
+                            198 ;     genCmpLt
+                            199 ;     genCmp
+   0040 C3                  200 	clr	c
+   0041 EC                  201 	mov	a,r4
+   0042 9A                  202 	subb	a,r2
+   0043 ED                  203 	mov	a,r5
+   0044 64 80               204 	xrl	a,#0x80
+   0046 8B F0               205 	mov	b,r3
+   0048 63 F0 80            206 	xrl	b,#0x80
+   004B 95 F0               207 	subb	a,b
+                            208 ;     genIfxJump
+                            209 ;       Peephole 108   removed ljmp by inverse jump logic
+   004D 50 07               210 	jnc  00105$
+   004F                     211 00109$:
+                            212 ;     genPlus
+                            213 ;     genPlusIncr
+                            214 ;	tail increment optimized
+   004F 0C                  215 	inc	r4
+   0050 BC 00 ED            216 	cjne	r4,#0x00,00101$
+   0053 0D                  217 	inc	r5
+                            218 ;       Peephole 132   changed ljmp to sjmp
+   0054 80 EA               219 	sjmp 00101$
+   0056                     220 00105$:
+   0056 22                  221 	ret
+                            222 ;------------------------------------------------------------
+                            223 ;Allocation info for local variables in function 'func_isr'
+                            224 ;------------------------------------------------------------
+                            225 ;------------------------------------------------------------
+                            226 ;Z:\pn\z4\zad1.c:28: void func_isr (void) interrupt 3
+                            227 ;	-----------------------------------------
+                            228 ;	 function func_isr
+                            229 ;	-----------------------------------------
+   0057                     230 _func_isr:
+   0057 C0 E0               231 	push	acc
+   0059 C0 F0               232 	push	b
+   005B C0 82               233 	push	dpl
+   005D C0 83               234 	push	dph
+   005F C0 02               235 	push	ar2
+   0061 C0 03               236 	push	ar3
+   0063 C0 04               237 	push	ar4
+   0065 C0 D0               238 	push	psw
+   0067 75 D0 00            239 	mov	psw,#0x00
+                            240 ;Z:\pn\z4\zad1.c:33: U15 = kolumna[t];
+                            241 ;     genPlus
+   006A E5*02               242 	mov	a,_t
+   006C 24r47               243 	add	a,#_kolumna
+   006E F5 82               244 	mov	dpl,a
+   0070 E5*03               245 	mov	a,(_t + 1)
+   0072 34s02               246 	addc	a,#(_kolumna >> 8)
+   0074 F5 83               247 	mov	dph,a
+                            248 ;     genPointerGet
+                            249 ;     genCodePointerGet
+   0076 E4                  250 	clr	a
+   0077 93                  251 	movc	a,@a+dptr
+                            252 ;     genAssign
+                            253 ;       Peephole 100   removed redundant mov
+   0078 FA                  254 	mov  r2,a
+   0079 90 80 00            255 	mov  dptr,#_U15
+   007C F0                  256 	movx @dptr,a
+                            257 ;Z:\pn\z4\zad1.c:35: if (((U12 & 0xf0) == klawiszZKolumny[2])&& key_set == 0 && t == 2) 
+                            258 ;     genAssign
+   007D 90 80 00            259 	mov	dptr,#_U12
+   0080 E0                  260 	movx	a,@dptr
+   0081 FA                  261 	mov	r2,a
+                            262 ;     genAnd
+   0082 53 02 F0            263 	anl	ar2,#0xF0
+                            264 ;     genPointerGet
+                            265 ;     genCodePointerGet
+   0085 90s02r45            266 	mov	dptr,#(_klawiszZKolumny + 0x0002)
+   0088 E4                  267 	clr	a
+   0089 93                  268 	movc	a,@a+dptr
+   008A FB                  269 	mov	r3,a
+                            270 ;     genCmpEq
+   008B EA                  271 	mov	a,r2
+                            272 ;       Peephole 132   changed ljmp to sjmp
+                            273 ;       Peephole 199   optimized misc jump sequence
+   008C B5 03 21            274 	cjne a,ar3,00102$
+                            275 ;00131$:
+                            276 ;       Peephole 200   removed redundant sjmp
+   008F                     277 00132$:
+                            278 ;     genCmpEq
+   008F E5*04               279 	mov	a,_key_set
+   0091 70 04               280 	jnz	00133$
+   0093 E5*05               281 	mov	a,(_key_set + 1)
+                            282 ;       Peephole 162   removed sjmp by inverse jump logic
+   0095 60 02               283 	jz   00134$
+   0097                     284 00133$:
+                            285 ;       Peephole 132   changed ljmp to sjmp
+   0097 80 17               286 	sjmp 00102$
+   0099                     287 00134$:
+                            288 ;     genCmpEq
+   0099 E5*02               289 	mov	a,_t
+   009B B4 02 04            290 	cjne	a,#0x02,00135$
+   009E E5*03               291 	mov	a,(_t + 1)
+                            292 ;       Peephole 162   removed sjmp by inverse jump logic
+   00A0 60 02               293 	jz   00136$
+   00A2                     294 00135$:
+                            295 ;       Peephole 132   changed ljmp to sjmp
+   00A2 80 0C               296 	sjmp 00102$
+   00A4                     297 00136$:
+                            298 ;Z:\pn\z4\zad1.c:37: key =3;
+                            299 ;     genAssign
+   00A4 E4                  300 	clr	a
+   00A5 F5*01               301 	mov	(_key + 1),a
+   00A7 75*00 03            302 	mov	_key,#0x03
+                            303 ;Z:\pn\z4\zad1.c:38: key_set = 1;
+                            304 ;     genAssign
+   00AA E4                  305 	clr	a
+   00AB F5*05               306 	mov	(_key_set + 1),a
+   00AD 75*04 01            307 	mov	_key_set,#0x01
+   00B0                     308 00102$:
+                            309 ;Z:\pn\z4\zad1.c:41: if (((U12 & 0xf0) == klawiszZKolumny[3]) && key_set == 0 && t == 2) 
+                            310 ;     genAssign
+   00B0 90 80 00            311 	mov	dptr,#_U12
+   00B3 E0                  312 	movx	a,@dptr
+   00B4 FA                  313 	mov	r2,a
+                            314 ;     genAnd
+   00B5 53 02 F0            315 	anl	ar2,#0xF0
+                            316 ;     genPointerGet
+                            317 ;     genCodePointerGet
+   00B8 90s02r46            318 	mov	dptr,#(_klawiszZKolumny + 0x0003)
+   00BB E4                  319 	clr	a
+   00BC 93                  320 	movc	a,@a+dptr
+   00BD FC                  321 	mov	r4,a
+                            322 ;     genCmpEq
+   00BE EA                  323 	mov	a,r2
+                            324 ;       Peephole 132   changed ljmp to sjmp
+                            325 ;       Peephole 199   optimized misc jump sequence
+   00BF B5 04 21            326 	cjne a,ar4,00106$
+                            327 ;00137$:
+                            328 ;       Peephole 200   removed redundant sjmp
+   00C2                     329 00138$:
+                            330 ;     genCmpEq
+   00C2 E5*04               331 	mov	a,_key_set
+   00C4 70 04               332 	jnz	00139$
+   00C6 E5*05               333 	mov	a,(_key_set + 1)
+                            334 ;       Peephole 162   removed sjmp by inverse jump logic
+   00C8 60 02               335 	jz   00140$
+   00CA                     336 00139$:
+                            337 ;       Peephole 132   changed ljmp to sjmp
+   00CA 80 17               338 	sjmp 00106$
+   00CC                     339 00140$:
+                            340 ;     genCmpEq
+   00CC E5*02               341 	mov	a,_t
+   00CE B4 02 04            342 	cjne	a,#0x02,00141$
+   00D1 E5*03               343 	mov	a,(_t + 1)
+                            344 ;       Peephole 162   removed sjmp by inverse jump logic
+   00D3 60 02               345 	jz   00142$
+   00D5                     346 00141$:
+                            347 ;       Peephole 132   changed ljmp to sjmp
+   00D5 80 0C               348 	sjmp 00106$
+   00D7                     349 00142$:
+                            350 ;Z:\pn\z4\zad1.c:43: key =1;
+                            351 ;     genAssign
+   00D7 E4                  352 	clr	a
+   00D8 F5*01               353 	mov	(_key + 1),a
+   00DA 75*00 01            354 	mov	_key,#0x01
+                            355 ;Z:\pn\z4\zad1.c:44: key_set = 1;
+                            356 ;     genAssign
+   00DD E4                  357 	clr	a
+   00DE F5*05               358 	mov	(_key_set + 1),a
+   00E0 75*04 01            359 	mov	_key_set,#0x01
+   00E3                     360 00106$:
+                            361 ;Z:\pn\z4\zad1.c:46: if (((U12 & 0xf0) == klawiszZKolumny[2])&& key_set == 0 && t == 3) 
+                            362 ;     genAssign
+   00E3 90 80 00            363 	mov	dptr,#_U12
+   00E6 E0                  364 	movx	a,@dptr
+                            365 ;     genAnd
+                            366 ;     genCmpEq
+                            367 ;       Peephole 139   removed redundant mov
+   00E7 54 F0               368 	anl  a,#0xF0
+   00E9 FA                  369 	mov  r2,a
+                            370 ;       Peephole 132   changed ljmp to sjmp
+                            371 ;       Peephole 199   optimized misc jump sequence
+   00EA B5 03 21            372 	cjne a,ar3,00110$
+                            373 ;00143$:
+                            374 ;       Peephole 200   removed redundant sjmp
+   00ED                     375 00144$:
+                            376 ;     genCmpEq
+   00ED E5*04               377 	mov	a,_key_set
+   00EF 70 04               378 	jnz	00145$
+   00F1 E5*05               379 	mov	a,(_key_set + 1)
+                            380 ;       Peephole 162   removed sjmp by inverse jump logic
+   00F3 60 02               381 	jz   00146$
+   00F5                     382 00145$:
+                            383 ;       Peephole 132   changed ljmp to sjmp
+   00F5 80 17               384 	sjmp 00110$
+   00F7                     385 00146$:
+                            386 ;     genCmpEq
+   00F7 E5*02               387 	mov	a,_t
+   00F9 B4 03 04            388 	cjne	a,#0x03,00147$
+   00FC E5*03               389 	mov	a,(_t + 1)
+                            390 ;       Peephole 162   removed sjmp by inverse jump logic
+   00FE 60 02               391 	jz   00148$
+   0100                     392 00147$:
+                            393 ;       Peephole 132   changed ljmp to sjmp
+   0100 80 0C               394 	sjmp 00110$
+   0102                     395 00148$:
+                            396 ;Z:\pn\z4\zad1.c:48: key =2;
+                            397 ;     genAssign
+   0102 E4                  398 	clr	a
+   0103 F5*01               399 	mov	(_key + 1),a
+   0105 75*00 02            400 	mov	_key,#0x02
+                            401 ;Z:\pn\z4\zad1.c:49: key_set = 1;
+                            402 ;     genAssign
+   0108 E4                  403 	clr	a
+   0109 F5*05               404 	mov	(_key_set + 1),a
+   010B 75*04 01            405 	mov	_key_set,#0x01
+   010E                     406 00110$:
+                            407 ;Z:\pn\z4\zad1.c:52: if (((U12 & 0xf0) == klawiszZKolumny[3])&& key_set == 0 && t == 3)  
+                            408 ;     genAssign
+   010E 90 80 00            409 	mov	dptr,#_U12
+   0111 E0                  410 	movx	a,@dptr
+                            411 ;     genAnd
+                            412 ;     genCmpEq
+                            413 ;       Peephole 139   removed redundant mov
+   0112 54 F0               414 	anl  a,#0xF0
+   0114 FA                  415 	mov  r2,a
+                            416 ;       Peephole 132   changed ljmp to sjmp
+                            417 ;       Peephole 199   optimized misc jump sequence
+   0115 B5 04 20            418 	cjne a,ar4,00114$
+                            419 ;00149$:
+                            420 ;       Peephole 200   removed redundant sjmp
+   0118                     421 00150$:
+                            422 ;     genCmpEq
+   0118 E5*04               423 	mov	a,_key_set
+   011A 70 04               424 	jnz	00151$
+   011C E5*05               425 	mov	a,(_key_set + 1)
+                            426 ;       Peephole 162   removed sjmp by inverse jump logic
+   011E 60 02               427 	jz   00152$
+   0120                     428 00151$:
+                            429 ;       Peephole 132   changed ljmp to sjmp
+   0120 80 16               430 	sjmp 00114$
+   0122                     431 00152$:
+                            432 ;     genCmpEq
+   0122 E5*02               433 	mov	a,_t
+   0124 B4 03 04            434 	cjne	a,#0x03,00153$
+   0127 E5*03               435 	mov	a,(_t + 1)
+                            436 ;       Peephole 162   removed sjmp by inverse jump logic
+   0129 60 02               437 	jz   00154$
+   012B                     438 00153$:
+                            439 ;       Peephole 132   changed ljmp to sjmp
+   012B 80 0B               440 	sjmp 00114$
+   012D                     441 00154$:
+                            442 ;Z:\pn\z4\zad1.c:54: key =0;
+                            443 ;     genAssign
+   012D E4                  444 	clr	a
+   012E F5*01               445 	mov	(_key + 1),a
+   0130 F5*00               446 	mov	_key,a
+                            447 ;Z:\pn\z4\zad1.c:55: key_set = 1;
+                            448 ;     genAssign
+   0132 E4                  449 	clr	a
+   0133 F5*05               450 	mov	(_key_set + 1),a
+   0135 75*04 01            451 	mov	_key_set,#0x01
+   0138                     452 00114$:
+                            453 ;Z:\pn\z4\zad1.c:58: t++;
+                            454 ;     genPlus
+                            455 ;     genPlusIncr
+   0138 74 01               456 	mov	a,#0x01
+   013A 25*02               457 	add	a,_t
+   013C F5*02               458 	mov	_t,a
+                            459 ;       Peephole 180   changed mov to clr
+   013E E4                  460 	clr  a
+   013F 35*03               461 	addc	a,(_t + 1)
+   0141 F5*03               462 	mov	(_t + 1),a
+                            463 ;Z:\pn\z4\zad1.c:60: t=t%4;
+                            464 ;     genAssign
+   0143 E4                  465 	clr	a
+   0144 F5*01               466 	mov	(__modsint_PARM_2 + 1),a
+   0146 75*00 04            467 	mov	__modsint_PARM_2,#0x04
+                            468 ;     genCall
+   0149 85*02 82            469 	mov	dpl,_t
+   014C 85*03 83            470 	mov	dph,(_t + 1)
+   014F 12s00r00            471 	lcall	__modsint
+   0152 E5 82               472 	mov	a,dpl
+   0154 85 83 F0            473 	mov	b,dph
+                            474 ;     genAssign
+   0157 F5*02               475 	mov	_t,a
+   0159 85 F0*03            476 	mov	(_t + 1),b
+   015C                     477 00117$:
+   015C D0 D0               478 	pop	psw
+   015E D0 04               479 	pop	ar4
+   0160 D0 03               480 	pop	ar3
+   0162 D0 02               481 	pop	ar2
+   0164 D0 83               482 	pop	dph
+   0166 D0 82               483 	pop	dpl
+   0168 D0 F0               484 	pop	b
+   016A D0 E0               485 	pop	acc
+   016C 32                  486 	reti
+                            487 ;------------------------------------------------------------
+                            488 ;Allocation info for local variables in function 'init'
+                            489 ;------------------------------------------------------------
+                            490 ;------------------------------------------------------------
+                            491 ;Z:\pn\z4\zad1.c:67: void init(void)
+                            492 ;	-----------------------------------------
+                            493 ;	 function init
+                            494 ;	-----------------------------------------
+   016D                     495 _init:
+                            496 ;Z:\pn\z4\zad1.c:70: SCON = 0x50;	//konfiguracja rs232 (L1, 8-bit, samoprzeladowalny)
+                            497 ;     genAssign
+   016D 75 98 50            498 	mov	_SCON,#0x50
+                            499 ;Z:\pn\z4\zad1.c:72: TMOD &=	0x0F;	//konfiguracja licznika
+                            500 ;     genAnd
+   0170 53 89 0F            501 	anl	_TMOD,#0x0F
+                            502 ;Z:\pn\z4\zad1.c:73: TMOD |=	0x20;	//czy uzywamy licznika 0 czy 1 tryb z samo przeladowaniem czy bez
+                            503 ;     genOr
+   0173 43 89 20            504 	orl	_TMOD,#0x20
+                            505 ;Z:\pn\z4\zad1.c:75: TH1 = TL1 =253;     //Wartosc startowa
+                            506 ;     genAssign
+   0176 75 8B FD            507 	mov	_TL1,#0xFD
+                            508 ;     genAssign
+   0179 75 8D FD            509 	mov	_TH1,#0xFD
+                            510 ;Z:\pn\z4\zad1.c:76: TCON = 0x40;
+                            511 ;     genAssign
+   017C 75 88 40            512 	mov	_TCON,#0x40
+                            513 ;Z:\pn\z4\zad1.c:77: PCON = 0x80;
+                            514 ;     genAssign
+   017F 75 87 80            515 	mov	_PCON,#0x80
+                            516 ;Z:\pn\z4\zad1.c:78: IE =	0x88;
+                            517 ;     genAssign
+   0182 75 A8 88            518 	mov	_IE,#0x88
+   0185                     519 00101$:
+   0185 22                  520 	ret
+                            521 ;------------------------------------------------------------
+                            522 ;Allocation info for local variables in function 'putchar'
+                            523 ;------------------------------------------------------------
+                            524 ;------------------------------------------------------------
+                            525 ;Z:\pn\z4\zad1.c:84: void putchar(char znak)
+                            526 ;	-----------------------------------------
+                            527 ;	 function putchar
+                            528 ;	-----------------------------------------
+   0186                     529 _putchar:
+                            530 ;     genReceive
+   0186 85 82 99            531 	mov	_SBUF,dpl
+                            532 ;Z:\pn\z4\zad1.c:87: while(TI==0);
+   0189                     533 00101$:
+                            534 ;     genNot
+   0189 A2 99               535 	mov	c,_TI
+   018B B3                  536 	cpl	c
+   018C E4                  537 	clr	a
+   018D 33                  538 	rlc	a
+                            539 ;     genIfx
+                            540 ;       Peephole 105   removed redundant mov
+   018E FA                  541 	mov  r2,a
+                            542 ;     genIfxJump
+                            543 ;       Peephole 109   removed ljmp by inverse jump logic
+   018F 70 F8               544 	jnz  00101$
+   0191                     545 00108$:
+                            546 ;Z:\pn\z4\zad1.c:88: TI=0;
+                            547 ;     genAssign
+   0191 C2 99               548 	clr	_TI
+   0193                     549 00104$:
+   0193 22                  550 	ret
+                            551 ;------------------------------------------------------------
+                            552 ;Allocation info for local variables in function 'main'
+                            553 ;------------------------------------------------------------
+                            554 ;------------------------------------------------------------
+                            555 ;Z:\pn\z4\zad1.c:91: main (void){
+                            556 ;	-----------------------------------------
+                            557 ;	 function main
+                            558 ;	-----------------------------------------
+   0194                     559 _main:
+                            560 ;Z:\pn\z4\zad1.c:92: init();
+                            561 ;     genCall
+   0194 12s01r6D            562 	lcall	_init
+   0197                     563 00108$:
+                            564 ;Z:\pn\z4\zad1.c:96: switch(key){
+                            565 ;     genCmpLt
+                            566 ;     genCmp
+   0197 E5*01               567 	mov	a,(_key + 1)
+                            568 ;     genIfxJump
+                            569 ;       Peephole 112   removed ljmp by inverse jump logic
+   0199 20 E7 FB            570 	jb   acc.7,00108$
+   019C                     571 00115$:
+                            572 ;     genCmpGt
+                            573 ;     genCmp
+   019C C3                  574 	clr	c
+   019D 74 03               575 	mov	a,#0x03
+   019F 95*00               576 	subb	a,_key
+                            577 ;       Peephole 159   avoided xrl during execution
+   01A1 74 80               578 	mov  a,#(0x00 ^ 0x80)
+   01A3 85*01 F0            579 	mov	b,(_key + 1)
+   01A6 63 F0 80            580 	xrl	b,#0x80
+   01A9 95 F0               581 	subb	a,b
+                            582 ;     genIfxJump
+                            583 ;       Peephole 132   changed ljmp to sjmp
+                            584 ;       Peephole 160   removed sjmp by inverse jump logic
+   01AB 40 EA               585 	jc   00108$
+   01AD                     586 00116$:
+                            587 ;     genJumpTab
+   01AD E5*00               588 	mov	a,_key
+   01AF 25 E0               589 	add	a,acc
+   01B1 25*00               590 	add	a,_key
+   01B3 90s01rB7            591 	mov	dptr,#00117$
+   01B6 73                  592 	jmp	@a+dptr
+   01B7                     593 00117$:
+   01B7 02s01rC3            594 	ljmp	00101$
+   01BA 02s01rE2            595 	ljmp	00102$
+   01BD 02s02r02            596 	ljmp	00103$
+   01C0 02s02r22            597 	ljmp	00104$
+                            598 ;Z:\pn\z4\zad1.c:99: putchar('A');
+   01C3                     599 00101$:
+                            600 ;     genCall
+   01C3 75 82 41            601 	mov	dpl,#0x41
+   01C6 12s01r86            602 	lcall	_putchar
+                            603 ;Z:\pn\z4\zad1.c:100: putchar(' ');
+                            604 ;     genCall
+   01C9 75 82 20            605 	mov	dpl,#0x20
+   01CC 12s01r86            606 	lcall	_putchar
+                            607 ;Z:\pn\z4\zad1.c:101: key = -1;
+                            608 ;     genAssign
+   01CF 75*00 FF            609 	mov	_key,#0xFF
+   01D2 75*01 FF            610 	mov	(_key + 1),#0xFF
+                            611 ;Z:\pn\z4\zad1.c:102: sleep(40);
+                            612 ;     genCall
+                            613 ;       Peephole 182   used 16 bit load of dptr
+   01D5 90 00 28            614 	mov  dptr,#(((0x00)<<8) + 0x28)
+   01D8 12s00r38            615 	lcall	_sleep
+                            616 ;Z:\pn\z4\zad1.c:103: key_set = 0;
+                            617 ;     genAssign
+   01DB E4                  618 	clr	a
+   01DC F5*05               619 	mov	(_key_set + 1),a
+   01DE F5*04               620 	mov	_key_set,a
+                            621 ;Z:\pn\z4\zad1.c:104: break;
+                            622 ;Z:\pn\z4\zad1.c:108: putchar('B');
+                            623 ;       Peephole 132   changed ljmp to sjmp
+   01E0 80 B5               624 	sjmp 00108$
+   01E2                     625 00102$:
+                            626 ;     genCall
+   01E2 75 82 42            627 	mov	dpl,#0x42
+   01E5 12s01r86            628 	lcall	_putchar
+                            629 ;Z:\pn\z4\zad1.c:109: putchar(' ');
+                            630 ;     genCall
+   01E8 75 82 20            631 	mov	dpl,#0x20
+   01EB 12s01r86            632 	lcall	_putchar
+                            633 ;Z:\pn\z4\zad1.c:110: key = -1;
+                            634 ;     genAssign
+   01EE 75*00 FF            635 	mov	_key,#0xFF
+   01F1 75*01 FF            636 	mov	(_key + 1),#0xFF
+                            637 ;Z:\pn\z4\zad1.c:111: sleep(40);
+                            638 ;     genCall
+                            639 ;       Peephole 182   used 16 bit load of dptr
+   01F4 90 00 28            640 	mov  dptr,#(((0x00)<<8) + 0x28)
+   01F7 12s00r38            641 	lcall	_sleep
+                            642 ;Z:\pn\z4\zad1.c:112: key_set = 0;
+                            643 ;     genAssign
+   01FA E4                  644 	clr	a
+   01FB F5*05               645 	mov	(_key_set + 1),a
+   01FD F5*04               646 	mov	_key_set,a
+                            647 ;Z:\pn\z4\zad1.c:113: break;
+   01FF 02s01r97            648 	ljmp	00108$
+                            649 ;Z:\pn\z4\zad1.c:116: putchar('C');
+   0202                     650 00103$:
+                            651 ;     genCall
+   0202 75 82 43            652 	mov	dpl,#0x43
+   0205 12s01r86            653 	lcall	_putchar
+                            654 ;Z:\pn\z4\zad1.c:117: putchar(' ');
+                            655 ;     genCall
+   0208 75 82 20            656 	mov	dpl,#0x20
+   020B 12s01r86            657 	lcall	_putchar
+                            658 ;Z:\pn\z4\zad1.c:118: key = -1;
+                            659 ;     genAssign
+   020E 75*00 FF            660 	mov	_key,#0xFF
+   0211 75*01 FF            661 	mov	(_key + 1),#0xFF
+                            662 ;Z:\pn\z4\zad1.c:119: sleep(40);
+                            663 ;     genCall
+                            664 ;       Peephole 182   used 16 bit load of dptr
+   0214 90 00 28            665 	mov  dptr,#(((0x00)<<8) + 0x28)
+   0217 12s00r38            666 	lcall	_sleep
+                            667 ;Z:\pn\z4\zad1.c:120: key_set = 0;
+                            668 ;     genAssign
+   021A E4                  669 	clr	a
+   021B F5*05               670 	mov	(_key_set + 1),a
+   021D F5*04               671 	mov	_key_set,a
+                            672 ;Z:\pn\z4\zad1.c:122: break;
+   021F 02s01r97            673 	ljmp	00108$
+                            674 ;Z:\pn\z4\zad1.c:125: putchar('D');
+   0222                     675 00104$:
+                            676 ;     genCall
+   0222 75 82 44            677 	mov	dpl,#0x44
+   0225 12s01r86            678 	lcall	_putchar
+                            679 ;Z:\pn\z4\zad1.c:126: putchar(' ');
+                            680 ;     genCall
+   0228 75 82 20            681 	mov	dpl,#0x20
+   022B 12s01r86            682 	lcall	_putchar
+                            683 ;Z:\pn\z4\zad1.c:127: key = -1;
+                            684 ;     genAssign
+   022E 75*00 FF            685 	mov	_key,#0xFF
+   0231 75*01 FF            686 	mov	(_key + 1),#0xFF
+                            687 ;Z:\pn\z4\zad1.c:128: sleep(40);
+                            688 ;     genCall
+                            689 ;       Peephole 182   used 16 bit load of dptr
+   0234 90 00 28            690 	mov  dptr,#(((0x00)<<8) + 0x28)
+   0237 12s00r38            691 	lcall	_sleep
+                            692 ;Z:\pn\z4\zad1.c:129: key_set = 0;
+                            693 ;     genAssign
+   023A E4                  694 	clr	a
+   023B F5*05               695 	mov	(_key_set + 1),a
+   023D F5*04               696 	mov	_key_set,a
+                            697 ;Z:\pn\z4\zad1.c:130: break;
+   023F 02s01r97            698 	ljmp	00108$
+                            699 ;Z:\pn\z4\zad1.c:134: }
+   0242                     700 00110$:
+   0242 22                  701 	ret
+                            702 	.area CSEG    (CODE)
+   0243                     703 _klawiszZKolumny:
+   0243 D0                  704 	.db #0xD0
+   0244 E0                  705 	.db #0xE0
+   0245 70                  706 	.db #0x70
+   0246 B0                  707 	.db #0xB0
+   0247                     708 _kolumna:
+   0247 FD                  709 	.db #0xFD
+   0248 FE                  710 	.db #0xFE
+   0249 F7                  711 	.db #0xF7
+   024A FB                  712 	.db #0xFB
+                            713 	.area XINIT   (CODE)

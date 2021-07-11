@@ -1,0 +1,1704 @@
+                              1 ;--------------------------------------------------------
+                              2 ; File Created by SDCC : FreeWare ANSI-C Compiler
+                              3 ; Version 2.3.3 Wed May 25 11:33:19 2011
+                              4 
+                              5 ;--------------------------------------------------------
+                              6 	.module zegar
+                              7 	
+                              8 ;--------------------------------------------------------
+                              9 ; Public variables in this module
+                             10 ;--------------------------------------------------------
+                             11 	.globl _main
+                             12 	.globl _wyswietl_alarm
+                             13 	.globl _alarm
+                             14 	.globl _wyswietl_godz
+                             15 	.globl _czas
+                             16 	.globl _gotoXY
+                             17 	.globl _init
+                             18 	.globl _func_isr
+                             19 	.globl _czekaj
+                             20 	.globl _wyslij_dane
+                             21 	.globl _wyslij_polecenie4
+                             22 	.globl _wyslij_polecenie8
+                             23 	.globl _U12
+                             24 	.globl _gotoXY_PARM_2
+                             25 	.globl _t
+                             26 	.globl _key_set
+                             27 	.globl _dlugosc_sekundy
+                             28 	.globl _stop
+                             29 	.globl _alarm_on
+                             30 	.globl _alarm_min
+                             31 	.globl _alarm_godz
+                             32 	.globl _sek
+                             33 	.globl _min
+                             34 	.globl _godz
+                             35 	.globl _produkt
+                             36 	.globl _RS
+                             37 	.globl _E
+                             38 ;--------------------------------------------------------
+                             39 ; special function registers
+                             40 ;--------------------------------------------------------
+                    0090     41 _P1	=	0x0090
+                    00A8     42 _IE	=	0x00a8
+                    0089     43 _TMOD	=	0x0089
+                    008D     44 _TH1	=	0x008d
+                    008B     45 _TL1	=	0x008b
+                    0088     46 _TCON	=	0x0088
+                    0099     47 _SBUF	=	0x0099
+                    0098     48 _SCON	=	0x0098
+                    0087     49 _PCON	=	0x0087
+                             50 ;--------------------------------------------------------
+                             51 ; special function bits 
+                             52 ;--------------------------------------------------------
+                    00B4     53 _T1	=	0x00b4
+                    0098     54 _RI	=	0x0098
+                    0099     55 _TI	=	0x0099
+                             56 ;--------------------------------------------------------
+                             57 ; overlayable register banks 
+                             58 ;--------------------------------------------------------
+                             59 	.area REG_BANK_0	(REL,OVR,DATA)
+   0000                      60 	.ds 8
+                             61 ;--------------------------------------------------------
+                             62 ; internal ram data
+                             63 ;--------------------------------------------------------
+                             64 	.area DSEG    (DATA)
+   0000                      65 _E::
+   0000                      66 	.ds 1
+   0001                      67 _RS::
+   0001                      68 	.ds 1
+   0002                      69 _produkt::
+   0002                      70 	.ds 6
+   0008                      71 _godz::
+   0008                      72 	.ds 2
+   000A                      73 _min::
+   000A                      74 	.ds 2
+   000C                      75 _sek::
+   000C                      76 	.ds 2
+   000E                      77 _alarm_godz::
+   000E                      78 	.ds 2
+   0010                      79 _alarm_min::
+   0010                      80 	.ds 2
+   0012                      81 _alarm_on::
+   0012                      82 	.ds 2
+   0014                      83 _stop::
+   0014                      84 	.ds 2
+   0016                      85 _dlugosc_sekundy::
+   0016                      86 	.ds 2
+   0018                      87 _key_set::
+   0018                      88 	.ds 2
+   001A                      89 _t::
+   001A                      90 	.ds 2
+   001C                      91 _gotoXY_PARM_2::
+   001C                      92 	.ds 1
+                             93 ;--------------------------------------------------------
+                             94 ; overlayable items in internal ram 
+                             95 ;--------------------------------------------------------
+                             96 	.area	OSEG    (OVR,DATA)
+                             97 	.area	OSEG    (OVR,DATA)
+                             98 	.area	OSEG    (OVR,DATA)
+                             99 	.area	OSEG    (OVR,DATA)
+                            100 ;--------------------------------------------------------
+                            101 ; Stack segment in internal ram 
+                            102 ;--------------------------------------------------------
+                            103 	.area	SSEG	(DATA)
+   0000                     104 __start__stack:
+   0000                     105 	.ds	1
+                            106 
+                            107 ;--------------------------------------------------------
+                            108 ; indirectly addressable internal ram data
+                            109 ;--------------------------------------------------------
+                            110 	.area ISEG    (DATA)
+                            111 ;--------------------------------------------------------
+                            112 ; bit data
+                            113 ;--------------------------------------------------------
+                            114 	.area BSEG    (BIT)
+                            115 ;--------------------------------------------------------
+                            116 ; external ram data
+                            117 ;--------------------------------------------------------
+                            118 	.area XSEG    (XDATA)
+                    8000    119 _U12	=	0x8000
+                            120 ;--------------------------------------------------------
+                            121 ; external initialized ram data
+                            122 ;--------------------------------------------------------
+                            123 	.area XISEG   (XDATA)
+                            124 ;--------------------------------------------------------
+                            125 ; interrupt vector 
+                            126 ;--------------------------------------------------------
+                            127 	.area CSEG    (CODE)
+   0000                     128 __interrupt_vect:
+   0000 02s00r00            129 	ljmp	__sdcc_gsinit_startup
+   0003 32                  130 	reti
+   0004                     131 	.ds	7
+   000B 32                  132 	reti
+   000C                     133 	.ds	7
+   0013 32                  134 	reti
+   0014                     135 	.ds	7
+   001B 02s00rE6            136 	ljmp	_func_isr
+   001E                     137 	.ds	5
+   0023 32                  138 	reti
+   0024                     139 	.ds	7
+   002B 32                  140 	reti
+   002C                     141 	.ds	7
+                            142 ;--------------------------------------------------------
+                            143 ; global & static initialisations
+                            144 ;--------------------------------------------------------
+                            145 	.area GSINIT  (CODE)
+                            146 	.area GSFINAL (CODE)
+                            147 	.area GSINIT  (CODE)
+   0000                     148 __sdcc_gsinit_startup:
+   0000 75 81rFF            149 	mov	sp,#__start__stack - 1
+   0003 12s00r00            150 	lcall	__sdcc_external_startup
+   0006 E5 82               151 	mov	a,dpl
+   0008 60 03               152 	jz	__sdcc_init_data
+   000A 02s00r33            153 	ljmp	__sdcc_program_startup
+   000D                     154 __sdcc_init_data:
+                            155 ;	_mcs51_genXINIT() start
+   000D 74r00               156 	mov	a,#l_XINIT
+   000F 44s00               157 	orl	a,#l_XINIT>>8
+   0011 60 29               158 	jz	00003$
+   0013 74r00               159 	mov	a,#s_XINIT
+   0015 24r00               160 	add	a,#l_XINIT
+   0017 F9                  161 	mov	r1,a
+   0018 74s00               162 	mov	a,#s_XINIT>>8
+   001A 34s00               163 	addc	a,#l_XINIT>>8
+   001C FA                  164 	mov	r2,a
+   001D 90s00r00            165 	mov	dptr,#s_XINIT
+   0020 78r00               166 	mov	r0,#s_XISEG
+   0022 75 A0s00            167 	mov	p2,#(s_XISEG >> 8)
+   0025 E4                  168 00001$:	clr	a
+   0026 93                  169 	movc	a,@a+dptr
+   0027 F2                  170 	movx	@r0,a
+   0028 A3                  171 	inc	dptr
+   0029 08                  172 	inc	r0
+   002A B8 00 02            173 	cjne	r0,#0,00002$
+   002D 05 A0               174 	inc	p2
+   002F E5 82               175 00002$:	mov	a,dpl
+   0031 B5 01 F1            176 	cjne	a,ar1,00001$
+   0034 E5 83               177 	mov	a,dph
+   0036 B5 02 EC            178 	cjne	a,ar2,00001$
+   0039 75 A0 FF            179 	mov	p2,#0xFF
+   003C                     180 00003$:
+                            181 ;	_mcs51_genXINIT() end
+                            182 ;Z:\pn\projekt\zegar.c:5: char E = 0x08;
+                            183 ;     genAssign
+   003C 75*00 08            184 	mov	_E,#0x08
+                            185 ;Z:\pn\projekt\zegar.c:6: char RS = 0x04;
+                            186 ;     genAssign
+   003F 75*01 04            187 	mov	_RS,#0x04
+                            188 ;Z:\pn\projekt\zegar.c:25: int alarm_godz = 0;
+                            189 ;     genAssign
+   0042 E4                  190 	clr	a
+   0043 F5*0F               191 	mov	(_alarm_godz + 1),a
+   0045 F5*0E               192 	mov	_alarm_godz,a
+                            193 ;Z:\pn\projekt\zegar.c:26: int alarm_min = 0;
+                            194 ;     genAssign
+   0047 E4                  195 	clr	a
+   0048 F5*11               196 	mov	(_alarm_min + 1),a
+   004A F5*10               197 	mov	_alarm_min,a
+                            198 ;Z:\pn\projekt\zegar.c:27: int alarm_on =0;
+                            199 ;     genAssign
+   004C E4                  200 	clr	a
+   004D F5*13               201 	mov	(_alarm_on + 1),a
+   004F F5*12               202 	mov	_alarm_on,a
+                            203 ;Z:\pn\projekt\zegar.c:28: int stop = 0;
+                            204 ;     genAssign
+   0051 E4                  205 	clr	a
+   0052 F5*15               206 	mov	(_stop + 1),a
+   0054 F5*14               207 	mov	_stop,a
+                            208 ;Z:\pn\projekt\zegar.c:30: int dlugosc_sekundy = 23500;
+                            209 ;     genAssign
+   0056 75*16 CC            210 	mov	_dlugosc_sekundy,#0xCC
+   0059 75*17 5B            211 	mov	(_dlugosc_sekundy + 1),#0x5B
+                            212 ;Z:\pn\projekt\zegar.c:76: int key_set = 0;	//zmienna informujaca, o tym, ze wcisniety klawisz zostal przetworzony
+                            213 ;     genAssign
+   005C E4                  214 	clr	a
+   005D F5*19               215 	mov	(_key_set + 1),a
+   005F F5*18               216 	mov	_key_set,a
+                            217 	.area GSFINAL (CODE)
+   0000 02s00r33            218 	ljmp	__sdcc_program_startup
+                            219 ;--------------------------------------------------------
+                            220 ; Home
+                            221 ;--------------------------------------------------------
+                            222 	.area HOME    (CODE)
+                            223 	.area CSEG    (CODE)
+                            224 ;--------------------------------------------------------
+                            225 ; code
+                            226 ;--------------------------------------------------------
+                            227 	.area CSEG    (CODE)
+   0033                     228 __sdcc_program_startup:
+   0033 12s04rF9            229 	lcall	_main
+                            230 ;	return from main will lock up
+   0036 80 FE               231 	sjmp .
+                            232 ;------------------------------------------------------------
+                            233 ;Allocation info for local variables in function 'wyslij_polecenie8'
+                            234 ;------------------------------------------------------------
+                            235 ;------------------------------------------------------------
+                            236 ;Z:\pn\projekt\zegar.c:33: void wyslij_polecenie8(unsigned char polecenie)
+                            237 ;	-----------------------------------------
+                            238 ;	 function wyslij_polecenie8
+                            239 ;	-----------------------------------------
+   0038                     240 _wyslij_polecenie8:
+                    0002    241 	ar2 = 0x02
+                    0003    242 	ar3 = 0x03
+                    0004    243 	ar4 = 0x04
+                    0005    244 	ar5 = 0x05
+                    0006    245 	ar6 = 0x06
+                    0007    246 	ar7 = 0x07
+                    0000    247 	ar0 = 0x00
+                    0001    248 	ar1 = 0x01
+                            249 ;     genReceive
+   0038 AA 82               250 	mov	r2,dpl
+                            251 ;Z:\pn\projekt\zegar.c:35: P1=polecenie;
+                            252 ;     genAssign
+   003A 8A 90               253 	mov	_P1,r2
+                            254 ;Z:\pn\projekt\zegar.c:36: P1=polecenie | E; //gdzie E – jest mask¹ bitow¹ "ustawiaj¹c¹" liniê E – nale¿y j¹
+                            255 ;     genAssign
+   003C AB*00               256 	mov	r3,_E
+                            257 ;     genOr
+   003E EB                  258 	mov	a,r3
+   003F 4A                  259 	orl	a,r2
+   0040 F5 90               260 	mov	_P1,a
+                            261 ;Z:\pn\projekt\zegar.c:41: P1=polecenie & !E; //gdzie !E – jest zanegowana maska bitowa, zeruj¹c¹ linie E –
+                            262 ;     genNot
+   0042 E5*00               263 	mov	a,_E
+   0044 B4 01 00            264 	cjne	a,#0x01,00103$
+   0047                     265 00103$:
+   0047 E4                  266 	clr	a
+   0048 33                  267 	rlc	a
+                            268 ;     genAnd
+                            269 ;       Peephole 105   removed redundant mov
+   0049 FB                  270 	mov  r3,a
+   004A 5A                  271 	anl	a,r2
+   004B F5 90               272 	mov	_P1,a
+   004D                     273 00101$:
+   004D 22                  274 	ret
+                            275 ;------------------------------------------------------------
+                            276 ;Allocation info for local variables in function 'wyslij_polecenie4'
+                            277 ;------------------------------------------------------------
+                            278 ;------------------------------------------------------------
+                            279 ;Z:\pn\projekt\zegar.c:45: void wyslij_polecenie4(unsigned char polecenie)
+                            280 ;	-----------------------------------------
+                            281 ;	 function wyslij_polecenie4
+                            282 ;	-----------------------------------------
+   004E                     283 _wyslij_polecenie4:
+                            284 ;     genReceive
+   004E AA 82               285 	mov	r2,dpl
+                            286 ;Z:\pn\projekt\zegar.c:47: P1=polecenie & 0xf0; //najpierw starsza po³ówka bajtu
+                            287 ;     genAnd
+   0050 74 F0               288 	mov	a,#0xF0
+   0052 5A                  289 	anl	a,r2
+   0053 FB                  290 	mov	r3,a
+                            291 ;     genAssign
+   0054 8B 90               292 	mov	_P1,r3
+                            293 ;Z:\pn\projekt\zegar.c:48: P1=(polecenie & 0xf0) | E; //sygna³ „strob”
+                            294 ;     genAssign
+   0056 AC*00               295 	mov	r4,_E
+                            296 ;     genOr
+   0058 EC                  297 	mov	a,r4
+   0059 4B                  298 	orl	a,r3
+   005A F5 90               299 	mov	_P1,a
+                            300 ;Z:\pn\projekt\zegar.c:49: P1=(polecenie & 0xf0) & !E;
+                            301 ;     genNot
+   005C E5*00               302 	mov	a,_E
+   005E B4 01 00            303 	cjne	a,#0x01,00103$
+   0061                     304 00103$:
+   0061 E4                  305 	clr	a
+   0062 33                  306 	rlc	a
+                            307 ;     genAnd
+                            308 ;       Peephole 105   removed redundant mov
+   0063 FC                  309 	mov  r4,a
+   0064 5B                  310 	anl	a,r3
+   0065 F5 90               311 	mov	_P1,a
+                            312 ;Z:\pn\projekt\zegar.c:50: P1=(polecenie << 4) & 0xf0; //teraz m³odsza po³ówka bajtu
+                            313 ;    genLeftShift
+                            314 ;     genLeftShiftLiteral
+                            315 ;     genlshOne
+   0067 EA                  316 	mov	a,r2
+   0068 C4                  317 	swap	a
+   0069 54 F0               318 	anl	a,#0xf0
+   006B FA                  319 	mov	r2,a
+                            320 ;     genAnd
+   006C 53 02 F0            321 	anl	ar2,#0xF0
+                            322 ;     genAssign
+   006F 8A 90               323 	mov	_P1,r2
+                            324 ;Z:\pn\projekt\zegar.c:51: P1=((polecenie << 4) & 0xf0) | E; //sygna³ „strob”
+                            325 ;     genAssign
+   0071 AB*00               326 	mov	r3,_E
+                            327 ;     genOr
+   0073 EB                  328 	mov	a,r3
+   0074 4A                  329 	orl	a,r2
+   0075 F5 90               330 	mov	_P1,a
+                            331 ;Z:\pn\projekt\zegar.c:52: P1=((polecenie << 4) & 0xf0) & !E;
+                            332 ;     genAnd
+   0077 EC                  333 	mov	a,r4
+   0078 5A                  334 	anl	a,r2
+   0079 F5 90               335 	mov	_P1,a
+   007B                     336 00101$:
+   007B 22                  337 	ret
+                            338 ;------------------------------------------------------------
+                            339 ;Allocation info for local variables in function 'wyslij_dane'
+                            340 ;------------------------------------------------------------
+                            341 ;------------------------------------------------------------
+                            342 ;Z:\pn\projekt\zegar.c:55: void wyslij_dane(unsigned char dana)
+                            343 ;	-----------------------------------------
+                            344 ;	 function wyslij_dane
+                            345 ;	-----------------------------------------
+   007C                     346 _wyslij_dane:
+                            347 ;     genReceive
+   007C AA 82               348 	mov	r2,dpl
+                            349 ;Z:\pn\projekt\zegar.c:57: P1=(dana & 0xf0) | RS;
+                            350 ;     genAnd
+   007E 74 F0               351 	mov	a,#0xF0
+   0080 5A                  352 	anl	a,r2
+   0081 FB                  353 	mov	r3,a
+                            354 ;     genAssign
+   0082 AC*01               355 	mov	r4,_RS
+                            356 ;     genOr
+   0084 EC                  357 	mov	a,r4
+   0085 4B                  358 	orl	a,r3
+   0086 F5 90               359 	mov	_P1,a
+                            360 ;Z:\pn\projekt\zegar.c:58: P1=((dana & 0xf0) | E) | RS;
+                            361 ;     genAssign
+   0088 AC*00               362 	mov	r4,_E
+                            363 ;     genOr
+   008A EB                  364 	mov	a,r3
+   008B 42 04               365 	orl	ar4,a
+                            366 ;     genAssign
+   008D AD*01               367 	mov	r5,_RS
+                            368 ;     genOr
+   008F ED                  369 	mov	a,r5
+   0090 4C                  370 	orl	a,r4
+   0091 F5 90               371 	mov	_P1,a
+                            372 ;Z:\pn\projekt\zegar.c:59: P1=((dana & 0xf0) & !E) | RS;
+                            373 ;     genNot
+   0093 E5*00               374 	mov	a,_E
+   0095 B4 01 00            375 	cjne	a,#0x01,00103$
+   0098                     376 00103$:
+   0098 E4                  377 	clr	a
+   0099 33                  378 	rlc	a
+                            379 ;     genAnd
+                            380 ;       Peephole 105   removed redundant mov
+   009A FC                  381 	mov  r4,a
+   009B 52 03               382 	anl	ar3,a
+                            383 ;     genAssign
+   009D AD*01               384 	mov	r5,_RS
+                            385 ;     genOr
+   009F ED                  386 	mov	a,r5
+   00A0 4B                  387 	orl	a,r3
+   00A1 F5 90               388 	mov	_P1,a
+                            389 ;Z:\pn\projekt\zegar.c:60: P1=((dana << 4) & 0xf0) | RS;
+                            390 ;    genLeftShift
+                            391 ;     genLeftShiftLiteral
+                            392 ;     genlshOne
+   00A3 EA                  393 	mov	a,r2
+   00A4 C4                  394 	swap	a
+   00A5 54 F0               395 	anl	a,#0xf0
+   00A7 FA                  396 	mov	r2,a
+                            397 ;     genAnd
+   00A8 53 02 F0            398 	anl	ar2,#0xF0
+                            399 ;     genAssign
+   00AB AB*01               400 	mov	r3,_RS
+                            401 ;     genOr
+   00AD EB                  402 	mov	a,r3
+   00AE 4A                  403 	orl	a,r2
+   00AF F5 90               404 	mov	_P1,a
+                            405 ;Z:\pn\projekt\zegar.c:61: P1=(((dana << 4) & 0xf0) | E) | RS;
+                            406 ;     genAssign
+   00B1 AB*00               407 	mov	r3,_E
+                            408 ;     genOr
+   00B3 EA                  409 	mov	a,r2
+   00B4 42 03               410 	orl	ar3,a
+                            411 ;     genAssign
+   00B6 AD*01               412 	mov	r5,_RS
+                            413 ;     genOr
+   00B8 ED                  414 	mov	a,r5
+   00B9 4B                  415 	orl	a,r3
+   00BA F5 90               416 	mov	_P1,a
+                            417 ;Z:\pn\projekt\zegar.c:62: P1=(((dana << 4) & 0xf0) & !E) | RS;
+                            418 ;     genAnd
+   00BC EA                  419 	mov	a,r2
+   00BD 52 04               420 	anl	ar4,a
+                            421 ;     genAssign
+   00BF AA*01               422 	mov	r2,_RS
+                            423 ;     genOr
+   00C1 EA                  424 	mov	a,r2
+   00C2 4C                  425 	orl	a,r4
+   00C3 F5 90               426 	mov	_P1,a
+   00C5                     427 00101$:
+   00C5 22                  428 	ret
+                            429 ;------------------------------------------------------------
+                            430 ;Allocation info for local variables in function 'czekaj'
+                            431 ;------------------------------------------------------------
+                            432 ;------------------------------------------------------------
+                            433 ;Z:\pn\projekt\zegar.c:65: void czekaj(int d){
+                            434 ;	-----------------------------------------
+                            435 ;	 function czekaj
+                            436 ;	-----------------------------------------
+   00C6                     437 _czekaj:
+                            438 ;     genReceive
+   00C6 AA 82               439 	mov	r2,dpl
+   00C8 AB 83               440 	mov	r3,dph
+                            441 ;Z:\pn\projekt\zegar.c:67: for(i=0; i<d; i++){
+                            442 ;     genAssign
+   00CA 7C 00               443 	mov	r4,#0x00
+   00CC 7D 00               444 	mov	r5,#0x00
+   00CE                     445 00101$:
+                            446 ;     genCmpLt
+                            447 ;     genCmp
+   00CE C3                  448 	clr	c
+   00CF EC                  449 	mov	a,r4
+   00D0 9A                  450 	subb	a,r2
+   00D1 ED                  451 	mov	a,r5
+   00D2 64 80               452 	xrl	a,#0x80
+   00D4 8B F0               453 	mov	b,r3
+   00D6 63 F0 80            454 	xrl	b,#0x80
+   00D9 95 F0               455 	subb	a,b
+                            456 ;     genIfxJump
+                            457 ;       Peephole 108   removed ljmp by inverse jump logic
+   00DB 50 08               458 	jnc  00105$
+   00DD                     459 00109$:
+                            460 ;Z:\pn\projekt\zegar.c:70: _endasm;
+                            461 ;     genInline
+   00DD 00                  462 	                nop
+                            463 ;Z:\pn\projekt\zegar.c:67: for(i=0; i<d; i++){
+                            464 ;     genPlus
+                            465 ;     genPlusIncr
+                            466 ;	tail increment optimized
+   00DE 0C                  467 	inc	r4
+   00DF BC 00 EC            468 	cjne	r4,#0x00,00101$
+   00E2 0D                  469 	inc	r5
+                            470 ;       Peephole 132   changed ljmp to sjmp
+   00E3 80 E9               471 	sjmp 00101$
+   00E5                     472 00105$:
+   00E5 22                  473 	ret
+                            474 ;------------------------------------------------------------
+                            475 ;Allocation info for local variables in function 'func_isr'
+                            476 ;------------------------------------------------------------
+                            477 ;------------------------------------------------------------
+                            478 ;Z:\pn\projekt\zegar.c:82: void func_isr (void) interrupt 3
+                            479 ;	-----------------------------------------
+                            480 ;	 function func_isr
+                            481 ;	-----------------------------------------
+   00E6                     482 _func_isr:
+   00E6 C0 E0               483 	push	acc
+   00E8 C0 F0               484 	push	b
+   00EA C0 82               485 	push	dpl
+   00EC C0 83               486 	push	dph
+   00EE C0 D0               487 	push	psw
+   00F0 75 D0 00            488 	mov	psw,#0x00
+                            489 ;Z:\pn\projekt\zegar.c:85: t++;
+                            490 ;     genPlus
+                            491 ;     genPlusIncr
+   00F3 74 01               492 	mov	a,#0x01
+   00F5 25*1A               493 	add	a,_t
+   00F7 F5*1A               494 	mov	_t,a
+                            495 ;       Peephole 180   changed mov to clr
+   00F9 E4                  496 	clr  a
+   00FA 35*1B               497 	addc	a,(_t + 1)
+   00FC F5*1B               498 	mov	(_t + 1),a
+                            499 ;Z:\pn\projekt\zegar.c:86: if(t==dlugosc_sekundy){
+                            500 ;     genCmpEq
+   00FE E5*1A               501 	mov	a,_t
+                            502 ;       Peephole 132   changed ljmp to sjmp
+                            503 ;       Peephole 197   optimized misc jump sequence
+   0100 B5*16 15            504 	cjne a,_dlugosc_sekundy,00103$
+   0103 E5*1B               505 	mov  a,(_t + 1)
+   0105 B5*17 10            506 	cjne a,(_dlugosc_sekundy + 1),00103$
+                            507 ;00106$:
+                            508 ;       Peephole 200   removed redundant sjmp
+   0108                     509 00107$:
+                            510 ;Z:\pn\projekt\zegar.c:87: t=0;
+                            511 ;     genAssign
+   0108 E4                  512 	clr	a
+   0109 F5*1B               513 	mov	(_t + 1),a
+   010B F5*1A               514 	mov	_t,a
+                            515 ;Z:\pn\projekt\zegar.c:88: sek++;
+                            516 ;     genPlus
+                            517 ;     genPlusIncr
+   010D 74 01               518 	mov	a,#0x01
+   010F 25*0C               519 	add	a,_sek
+   0111 F5*0C               520 	mov	_sek,a
+                            521 ;       Peephole 180   changed mov to clr
+   0113 E4                  522 	clr  a
+   0114 35*0D               523 	addc	a,(_sek + 1)
+   0116 F5*0D               524 	mov	(_sek + 1),a
+   0118                     525 00103$:
+   0118 D0 D0               526 	pop	psw
+   011A D0 83               527 	pop	dph
+   011C D0 82               528 	pop	dpl
+   011E D0 F0               529 	pop	b
+   0120 D0 E0               530 	pop	acc
+   0122 32                  531 	reti
+                            532 ;------------------------------------------------------------
+                            533 ;Allocation info for local variables in function 'init'
+                            534 ;------------------------------------------------------------
+                            535 ;------------------------------------------------------------
+                            536 ;Z:\pn\projekt\zegar.c:96: void init()
+                            537 ;	-----------------------------------------
+                            538 ;	 function init
+                            539 ;	-----------------------------------------
+   0123                     540 _init:
+                            541 ;Z:\pn\projekt\zegar.c:98: SCON = 0x50;	//konfiguracja rs232 (L1, 8-bit, samoprzeladowalny)
+                            542 ;     genAssign
+   0123 75 98 50            543 	mov	_SCON,#0x50
+                            544 ;Z:\pn\projekt\zegar.c:100: TMOD &=	0x0F;	//konfiguracja licznika
+                            545 ;     genAnd
+   0126 53 89 0F            546 	anl	_TMOD,#0x0F
+                            547 ;Z:\pn\projekt\zegar.c:101: TMOD |=	0x20;	//czy uzywamy licznika 0 czy 1 tryb z samo przeladowaniem czy bez
+                            548 ;     genOr
+   0129 43 89 20            549 	orl	_TMOD,#0x20
+                            550 ;Z:\pn\projekt\zegar.c:103: TH1 = TL1 = 253;     //Wartosc startowa
+                            551 ;     genAssign
+   012C 75 8B FD            552 	mov	_TL1,#0xFD
+                            553 ;     genAssign
+   012F 75 8D FD            554 	mov	_TH1,#0xFD
+                            555 ;Z:\pn\projekt\zegar.c:104: TCON = 0x40;
+                            556 ;     genAssign
+   0132 75 88 40            557 	mov	_TCON,#0x40
+                            558 ;Z:\pn\projekt\zegar.c:105: PCON = 0x80;
+                            559 ;     genAssign
+   0135 75 87 80            560 	mov	_PCON,#0x80
+                            561 ;Z:\pn\projekt\zegar.c:106: IE =	0x88;
+                            562 ;     genAssign
+   0138 75 A8 88            563 	mov	_IE,#0x88
+                            564 ;Z:\pn\projekt\zegar.c:109: wyslij_polecenie8(0x30); //3
+                            565 ;     genCall
+   013B 75 82 30            566 	mov	dpl,#0x30
+   013E 12s00r38            567 	lcall	_wyslij_polecenie8
+                            568 ;Z:\pn\projekt\zegar.c:110: czekaj(100);
+                            569 ;     genCall
+                            570 ;       Peephole 182   used 16 bit load of dptr
+   0141 90 00 64            571 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0144 12s00rC6            572 	lcall	_czekaj
+                            573 ;Z:\pn\projekt\zegar.c:111: wyslij_polecenie8(0x30); //5
+                            574 ;     genCall
+   0147 75 82 30            575 	mov	dpl,#0x30
+   014A 12s00r38            576 	lcall	_wyslij_polecenie8
+                            577 ;Z:\pn\projekt\zegar.c:112: czekaj(100);
+                            578 ;     genCall
+                            579 ;       Peephole 182   used 16 bit load of dptr
+   014D 90 00 64            580 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0150 12s00rC6            581 	lcall	_czekaj
+                            582 ;Z:\pn\projekt\zegar.c:113: wyslij_polecenie8(0x30); //7
+                            583 ;     genCall
+   0153 75 82 30            584 	mov	dpl,#0x30
+   0156 12s00r38            585 	lcall	_wyslij_polecenie8
+                            586 ;Z:\pn\projekt\zegar.c:114: czekaj(100);
+                            587 ;     genCall
+                            588 ;       Peephole 182   used 16 bit load of dptr
+   0159 90 00 64            589 	mov  dptr,#(((0x00)<<8) + 0x64)
+   015C 12s00rC6            590 	lcall	_czekaj
+                            591 ;Z:\pn\projekt\zegar.c:115: wyslij_polecenie8(0x20); //9
+                            592 ;     genCall
+   015F 75 82 20            593 	mov	dpl,#0x20
+   0162 12s00r38            594 	lcall	_wyslij_polecenie8
+                            595 ;Z:\pn\projekt\zegar.c:116: czekaj(100);
+                            596 ;     genCall
+                            597 ;       Peephole 182   used 16 bit load of dptr
+   0165 90 00 64            598 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0168 12s00rC6            599 	lcall	_czekaj
+                            600 ;Z:\pn\projekt\zegar.c:117: wyslij_polecenie4(0x2F); //11
+                            601 ;     genCall
+   016B 75 82 2F            602 	mov	dpl,#0x2F
+   016E 12s00r4E            603 	lcall	_wyslij_polecenie4
+                            604 ;Z:\pn\projekt\zegar.c:118: czekaj(100);
+                            605 ;     genCall
+                            606 ;       Peephole 182   used 16 bit load of dptr
+   0171 90 00 64            607 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0174 12s00rC6            608 	lcall	_czekaj
+                            609 ;Z:\pn\projekt\zegar.c:119: wyslij_polecenie4(0x08); //13
+                            610 ;     genCall
+   0177 75 82 08            611 	mov	dpl,#0x08
+   017A 12s00r4E            612 	lcall	_wyslij_polecenie4
+                            613 ;Z:\pn\projekt\zegar.c:120: czekaj(100);
+                            614 ;     genCall
+                            615 ;       Peephole 182   used 16 bit load of dptr
+   017D 90 00 64            616 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0180 12s00rC6            617 	lcall	_czekaj
+                            618 ;Z:\pn\projekt\zegar.c:122: wyslij_polecenie4(0x0C); //15 -- mod na wylaczenie kursora
+                            619 ;     genCall
+   0183 75 82 0C            620 	mov	dpl,#0x0C
+   0186 12s00r4E            621 	lcall	_wyslij_polecenie4
+                            622 ;Z:\pn\projekt\zegar.c:124: czekaj(100);
+                            623 ;     genCall
+                            624 ;       Peephole 182   used 16 bit load of dptr
+   0189 90 00 64            625 	mov  dptr,#(((0x00)<<8) + 0x64)
+   018C 12s00rC6            626 	lcall	_czekaj
+                            627 ;Z:\pn\projekt\zegar.c:125: wyslij_polecenie4(0x06); //17
+                            628 ;     genCall
+   018F 75 82 06            629 	mov	dpl,#0x06
+   0192 12s00r4E            630 	lcall	_wyslij_polecenie4
+                            631 ;Z:\pn\projekt\zegar.c:126: czekaj(100);
+                            632 ;     genCall
+                            633 ;       Peephole 182   used 16 bit load of dptr
+   0195 90 00 64            634 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0198 12s00rC6            635 	lcall	_czekaj
+   019B                     636 00101$:
+   019B 22                  637 	ret
+                            638 ;------------------------------------------------------------
+                            639 ;Allocation info for local variables in function 'gotoXY'
+                            640 ;------------------------------------------------------------
+                            641 ;y                         Allocated to in memory with name '_gotoXY_PARM_2'
+                            642 ;x                         Allocated to registers r2 
+                            643 ;i                         Allocated to registers r3 
+                            644 ;------------------------------------------------------------
+                            645 ;Z:\pn\projekt\zegar.c:129: void gotoXY(unsigned char x, unsigned char y)
+                            646 ;	-----------------------------------------
+                            647 ;	 function gotoXY
+                            648 ;	-----------------------------------------
+   019C                     649 _gotoXY:
+                            650 ;     genReceive
+   019C AA 82               651 	mov	r2,dpl
+                            652 ;Z:\pn\projekt\zegar.c:132: if(y==0)
+                            653 ;     genCmpEq
+   019E E5*1C               654 	mov	a,_gotoXY_PARM_2
+                            655 ;       Peephole 162   removed sjmp by inverse jump logic
+   01A0 60 02               656 	jz   00108$
+   01A2                     657 00107$:
+                            658 ;       Peephole 132   changed ljmp to sjmp
+   01A2 80 04               659 	sjmp 00102$
+   01A4                     660 00108$:
+                            661 ;Z:\pn\projekt\zegar.c:134: i = 128;
+                            662 ;     genAssign
+   01A4 7B 80               663 	mov	r3,#0x80
+                            664 ;       Peephole 132   changed ljmp to sjmp
+   01A6 80 02               665 	sjmp 00103$
+   01A8                     666 00102$:
+                            667 ;Z:\pn\projekt\zegar.c:138: i = 192;
+                            668 ;     genAssign
+   01A8 7B C0               669 	mov	r3,#0xC0
+   01AA                     670 00103$:
+                            671 ;Z:\pn\projekt\zegar.c:140: i |= x;
+                            672 ;     genOr
+   01AA EA                  673 	mov	a,r2
+   01AB 42 03               674 	orl	ar3,a
+                            675 ;Z:\pn\projekt\zegar.c:141: wyslij_polecenie4(i);
+                            676 ;     genCall
+   01AD 8B 82               677 	mov	dpl,r3
+   01AF 12s00r4E            678 	lcall	_wyslij_polecenie4
+   01B2                     679 00104$:
+   01B2 22                  680 	ret
+                            681 ;------------------------------------------------------------
+                            682 ;Allocation info for local variables in function 'czas'
+                            683 ;------------------------------------------------------------
+                            684 ;------------------------------------------------------------
+                            685 ;Z:\pn\projekt\zegar.c:144: void czas(){
+                            686 ;	-----------------------------------------
+                            687 ;	 function czas
+                            688 ;	-----------------------------------------
+   01B3                     689 _czas:
+                            690 ;Z:\pn\projekt\zegar.c:146: if (sek==59)
+                            691 ;     genCmpEq
+   01B3 E5*0C               692 	mov	a,_sek
+   01B5 B4 3B 04            693 	cjne	a,#0x3B,00113$
+   01B8 E5*0D               694 	mov	a,(_sek + 1)
+                            695 ;       Peephole 162   removed sjmp by inverse jump logic
+   01BA 60 02               696 	jz   00114$
+   01BC                     697 00113$:
+                            698 ;       Peephole 132   changed ljmp to sjmp
+   01BC 80 3D               699 	sjmp 00106$
+   01BE                     700 00114$:
+                            701 ;Z:\pn\projekt\zegar.c:148: min++;
+                            702 ;     genPlus
+                            703 ;     genPlusIncr
+   01BE 74 01               704 	mov	a,#0x01
+   01C0 25*0A               705 	add	a,_min
+   01C2 F5*0A               706 	mov	_min,a
+                            707 ;       Peephole 180   changed mov to clr
+   01C4 E4                  708 	clr  a
+   01C5 35*0B               709 	addc	a,(_min + 1)
+   01C7 F5*0B               710 	mov	(_min + 1),a
+                            711 ;Z:\pn\projekt\zegar.c:149: sek = 0;
+                            712 ;     genAssign
+   01C9 E4                  713 	clr	a
+   01CA F5*0D               714 	mov	(_sek + 1),a
+   01CC F5*0C               715 	mov	_sek,a
+                            716 ;Z:\pn\projekt\zegar.c:151: if (min == 60) 
+                            717 ;     genCmpEq
+   01CE E5*0A               718 	mov	a,_min
+   01D0 B4 3C 04            719 	cjne	a,#0x3C,00115$
+   01D3 E5*0B               720 	mov	a,(_min + 1)
+                            721 ;       Peephole 162   removed sjmp by inverse jump logic
+   01D5 60 02               722 	jz   00116$
+   01D7                     723 00115$:
+                            724 ;       Peephole 132   changed ljmp to sjmp
+   01D7 80 3B               725 	sjmp 00108$
+   01D9                     726 00116$:
+                            727 ;Z:\pn\projekt\zegar.c:153: godz++;
+                            728 ;     genPlus
+                            729 ;     genPlusIncr
+   01D9 74 01               730 	mov	a,#0x01
+   01DB 25*08               731 	add	a,_godz
+   01DD F5*08               732 	mov	_godz,a
+                            733 ;       Peephole 180   changed mov to clr
+   01DF E4                  734 	clr  a
+   01E0 35*09               735 	addc	a,(_godz + 1)
+   01E2 F5*09               736 	mov	(_godz + 1),a
+                            737 ;Z:\pn\projekt\zegar.c:154: min = 0;
+                            738 ;     genAssign
+   01E4 E4                  739 	clr	a
+   01E5 F5*0B               740 	mov	(_min + 1),a
+   01E7 F5*0A               741 	mov	_min,a
+                            742 ;Z:\pn\projekt\zegar.c:155: if(godz == 24)
+                            743 ;     genCmpEq
+   01E9 E5*08               744 	mov	a,_godz
+   01EB B4 18 04            745 	cjne	a,#0x18,00117$
+   01EE E5*09               746 	mov	a,(_godz + 1)
+                            747 ;       Peephole 162   removed sjmp by inverse jump logic
+   01F0 60 02               748 	jz   00118$
+   01F2                     749 00117$:
+                            750 ;       Peephole 132   changed ljmp to sjmp
+   01F2 80 20               751 	sjmp 00108$
+   01F4                     752 00118$:
+                            753 ;Z:\pn\projekt\zegar.c:156: godz = 0;
+                            754 ;     genAssign
+   01F4 E4                  755 	clr	a
+   01F5 F5*09               756 	mov	(_godz + 1),a
+   01F7 F5*08               757 	mov	_godz,a
+                            758 ;       Peephole 132   changed ljmp to sjmp
+   01F9 80 19               759 	sjmp 00108$
+   01FB                     760 00106$:
+                            761 ;Z:\pn\projekt\zegar.c:163: sek = sek%59;
+                            762 ;     genAssign
+   01FB E4                  763 	clr	a
+   01FC F5*01               764 	mov	(__modsint_PARM_2 + 1),a
+   01FE 75*00 3B            765 	mov	__modsint_PARM_2,#0x3B
+                            766 ;     genCall
+   0201 85*0C 82            767 	mov	dpl,_sek
+   0204 85*0D 83            768 	mov	dph,(_sek + 1)
+   0207 12s00r00            769 	lcall	__modsint
+   020A E5 82               770 	mov	a,dpl
+   020C 85 83 F0            771 	mov	b,dph
+                            772 ;     genAssign
+   020F F5*0C               773 	mov	_sek,a
+   0211 85 F0*0D            774 	mov	(_sek + 1),b
+   0214                     775 00108$:
+   0214 22                  776 	ret
+                            777 ;------------------------------------------------------------
+                            778 ;Allocation info for local variables in function 'wyswietl_godz'
+                            779 ;------------------------------------------------------------
+                            780 ;------------------------------------------------------------
+                            781 ;Z:\pn\projekt\zegar.c:167: void wyswietl_godz()
+                            782 ;	-----------------------------------------
+                            783 ;	 function wyswietl_godz
+                            784 ;	-----------------------------------------
+   0215                     785 _wyswietl_godz:
+                            786 ;Z:\pn\projekt\zegar.c:169: czas();
+                            787 ;     genCall
+   0215 12s01rB3            788 	lcall	_czas
+                            789 ;Z:\pn\projekt\zegar.c:171: wyslij_dane('0' + godz / 10 );
+                            790 ;     genAssign
+   0218 E4                  791 	clr	a
+   0219 F5*01               792 	mov	(__divsint_PARM_2 + 1),a
+   021B 75*00 0A            793 	mov	__divsint_PARM_2,#0x0A
+                            794 ;     genCall
+   021E 85*08 82            795 	mov	dpl,_godz
+   0221 85*09 83            796 	mov	dph,(_godz + 1)
+   0224 12s00r00            797 	lcall	__divsint
+   0227 E5 82               798 	mov	a,dpl
+   0229 85 83 F0            799 	mov	b,dph
+                            800 ;     genPlus
+   022C 24 30               801 	add	a,#0x30
+   022E FA                  802 	mov	r2,a
+   022F E5 F0               803 	mov	a,b
+   0231 34 00               804 	addc	a,#0x00
+   0233 FB                  805 	mov	r3,a
+                            806 ;     genCast
+   0234 8A 82               807 	mov	dpl,r2
+                            808 ;     genCall
+   0236 12s00r7C            809 	lcall	_wyslij_dane
+                            810 ;Z:\pn\projekt\zegar.c:172: czekaj(100);
+                            811 ;     genCall
+                            812 ;       Peephole 182   used 16 bit load of dptr
+   0239 90 00 64            813 	mov  dptr,#(((0x00)<<8) + 0x64)
+   023C 12s00rC6            814 	lcall	_czekaj
+                            815 ;Z:\pn\projekt\zegar.c:173: wyslij_dane('0' + godz % 10 );
+                            816 ;     genAssign
+   023F E4                  817 	clr	a
+   0240 F5*01               818 	mov	(__modsint_PARM_2 + 1),a
+   0242 75*00 0A            819 	mov	__modsint_PARM_2,#0x0A
+                            820 ;     genCall
+   0245 85*08 82            821 	mov	dpl,_godz
+   0248 85*09 83            822 	mov	dph,(_godz + 1)
+   024B 12s00r00            823 	lcall	__modsint
+   024E E5 82               824 	mov	a,dpl
+   0250 85 83 F0            825 	mov	b,dph
+                            826 ;     genPlus
+   0253 24 30               827 	add	a,#0x30
+   0255 FA                  828 	mov	r2,a
+   0256 E5 F0               829 	mov	a,b
+   0258 34 00               830 	addc	a,#0x00
+   025A FB                  831 	mov	r3,a
+                            832 ;     genCast
+   025B 8A 82               833 	mov	dpl,r2
+                            834 ;     genCall
+   025D 12s00r7C            835 	lcall	_wyslij_dane
+                            836 ;Z:\pn\projekt\zegar.c:174: czekaj(100);
+                            837 ;     genCall
+                            838 ;       Peephole 182   used 16 bit load of dptr
+   0260 90 00 64            839 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0263 12s00rC6            840 	lcall	_czekaj
+                            841 ;Z:\pn\projekt\zegar.c:175: wyslij_dane(':');
+                            842 ;     genCall
+   0266 75 82 3A            843 	mov	dpl,#0x3A
+   0269 12s00r7C            844 	lcall	_wyslij_dane
+                            845 ;Z:\pn\projekt\zegar.c:176: czekaj(100);
+                            846 ;     genCall
+                            847 ;       Peephole 182   used 16 bit load of dptr
+   026C 90 00 64            848 	mov  dptr,#(((0x00)<<8) + 0x64)
+   026F 12s00rC6            849 	lcall	_czekaj
+                            850 ;Z:\pn\projekt\zegar.c:177: wyslij_dane('0' + min / 10 );
+                            851 ;     genAssign
+   0272 E4                  852 	clr	a
+   0273 F5*01               853 	mov	(__divsint_PARM_2 + 1),a
+   0275 75*00 0A            854 	mov	__divsint_PARM_2,#0x0A
+                            855 ;     genCall
+   0278 85*0A 82            856 	mov	dpl,_min
+   027B 85*0B 83            857 	mov	dph,(_min + 1)
+   027E 12s00r00            858 	lcall	__divsint
+   0281 E5 82               859 	mov	a,dpl
+   0283 85 83 F0            860 	mov	b,dph
+                            861 ;     genPlus
+   0286 24 30               862 	add	a,#0x30
+   0288 FA                  863 	mov	r2,a
+   0289 E5 F0               864 	mov	a,b
+   028B 34 00               865 	addc	a,#0x00
+   028D FB                  866 	mov	r3,a
+                            867 ;     genCast
+   028E 8A 82               868 	mov	dpl,r2
+                            869 ;     genCall
+   0290 12s00r7C            870 	lcall	_wyslij_dane
+                            871 ;Z:\pn\projekt\zegar.c:178: czekaj(100);
+                            872 ;     genCall
+                            873 ;       Peephole 182   used 16 bit load of dptr
+   0293 90 00 64            874 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0296 12s00rC6            875 	lcall	_czekaj
+                            876 ;Z:\pn\projekt\zegar.c:179: wyslij_dane('0' + min % 10 );
+                            877 ;     genAssign
+   0299 E4                  878 	clr	a
+   029A F5*01               879 	mov	(__modsint_PARM_2 + 1),a
+   029C 75*00 0A            880 	mov	__modsint_PARM_2,#0x0A
+                            881 ;     genCall
+   029F 85*0A 82            882 	mov	dpl,_min
+   02A2 85*0B 83            883 	mov	dph,(_min + 1)
+   02A5 12s00r00            884 	lcall	__modsint
+   02A8 E5 82               885 	mov	a,dpl
+   02AA 85 83 F0            886 	mov	b,dph
+                            887 ;     genPlus
+   02AD 24 30               888 	add	a,#0x30
+   02AF FA                  889 	mov	r2,a
+   02B0 E5 F0               890 	mov	a,b
+   02B2 34 00               891 	addc	a,#0x00
+   02B4 FB                  892 	mov	r3,a
+                            893 ;     genCast
+   02B5 8A 82               894 	mov	dpl,r2
+                            895 ;     genCall
+   02B7 12s00r7C            896 	lcall	_wyslij_dane
+                            897 ;Z:\pn\projekt\zegar.c:180: czekaj(100);
+                            898 ;     genCall
+                            899 ;       Peephole 182   used 16 bit load of dptr
+   02BA 90 00 64            900 	mov  dptr,#(((0x00)<<8) + 0x64)
+   02BD 12s00rC6            901 	lcall	_czekaj
+                            902 ;Z:\pn\projekt\zegar.c:181: wyslij_dane(':');
+                            903 ;     genCall
+   02C0 75 82 3A            904 	mov	dpl,#0x3A
+   02C3 12s00r7C            905 	lcall	_wyslij_dane
+                            906 ;Z:\pn\projekt\zegar.c:182: czekaj(100);
+                            907 ;     genCall
+                            908 ;       Peephole 182   used 16 bit load of dptr
+   02C6 90 00 64            909 	mov  dptr,#(((0x00)<<8) + 0x64)
+   02C9 12s00rC6            910 	lcall	_czekaj
+                            911 ;Z:\pn\projekt\zegar.c:183: wyslij_dane('0' + sek / 10 );
+                            912 ;     genAssign
+   02CC E4                  913 	clr	a
+   02CD F5*01               914 	mov	(__divsint_PARM_2 + 1),a
+   02CF 75*00 0A            915 	mov	__divsint_PARM_2,#0x0A
+                            916 ;     genCall
+   02D2 85*0C 82            917 	mov	dpl,_sek
+   02D5 85*0D 83            918 	mov	dph,(_sek + 1)
+   02D8 12s00r00            919 	lcall	__divsint
+   02DB E5 82               920 	mov	a,dpl
+   02DD 85 83 F0            921 	mov	b,dph
+                            922 ;     genPlus
+   02E0 24 30               923 	add	a,#0x30
+   02E2 FA                  924 	mov	r2,a
+   02E3 E5 F0               925 	mov	a,b
+   02E5 34 00               926 	addc	a,#0x00
+   02E7 FB                  927 	mov	r3,a
+                            928 ;     genCast
+   02E8 8A 82               929 	mov	dpl,r2
+                            930 ;     genCall
+   02EA 12s00r7C            931 	lcall	_wyslij_dane
+                            932 ;Z:\pn\projekt\zegar.c:184: czekaj(100);
+                            933 ;     genCall
+                            934 ;       Peephole 182   used 16 bit load of dptr
+   02ED 90 00 64            935 	mov  dptr,#(((0x00)<<8) + 0x64)
+   02F0 12s00rC6            936 	lcall	_czekaj
+                            937 ;Z:\pn\projekt\zegar.c:185: wyslij_dane('0' + sek % 10 );
+                            938 ;     genAssign
+   02F3 E4                  939 	clr	a
+   02F4 F5*01               940 	mov	(__modsint_PARM_2 + 1),a
+   02F6 75*00 0A            941 	mov	__modsint_PARM_2,#0x0A
+                            942 ;     genCall
+   02F9 85*0C 82            943 	mov	dpl,_sek
+   02FC 85*0D 83            944 	mov	dph,(_sek + 1)
+   02FF 12s00r00            945 	lcall	__modsint
+   0302 E5 82               946 	mov	a,dpl
+   0304 85 83 F0            947 	mov	b,dph
+                            948 ;     genPlus
+   0307 24 30               949 	add	a,#0x30
+   0309 FA                  950 	mov	r2,a
+   030A E5 F0               951 	mov	a,b
+   030C 34 00               952 	addc	a,#0x00
+   030E FB                  953 	mov	r3,a
+                            954 ;     genCast
+   030F 8A 82               955 	mov	dpl,r2
+                            956 ;     genCall
+   0311 12s00r7C            957 	lcall	_wyslij_dane
+                            958 ;Z:\pn\projekt\zegar.c:186: czekaj(100);
+                            959 ;     genCall
+                            960 ;       Peephole 182   used 16 bit load of dptr
+   0314 90 00 64            961 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0317 12s00rC6            962 	lcall	_czekaj
+                            963 ;Z:\pn\projekt\zegar.c:187: gotoXY(0,0);     
+                            964 ;     genAssign
+   031A 75*1C 00            965 	mov	_gotoXY_PARM_2,#0x00
+                            966 ;     genCall
+   031D 75 82 00            967 	mov	dpl,#0x00
+   0320 12s01r9C            968 	lcall	_gotoXY
+                            969 ;Z:\pn\projekt\zegar.c:188: czekaj(100);
+                            970 ;     genCall
+                            971 ;       Peephole 182   used 16 bit load of dptr
+   0323 90 00 64            972 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0326 12s00rC6            973 	lcall	_czekaj
+                            974 ;Z:\pn\projekt\zegar.c:189: czekaj(100);
+                            975 ;     genCall
+                            976 ;       Peephole 182   used 16 bit load of dptr
+   0329 90 00 64            977 	mov  dptr,#(((0x00)<<8) + 0x64)
+   032C 12s00rC6            978 	lcall	_czekaj
+   032F                     979 00101$:
+   032F 22                  980 	ret
+                            981 ;------------------------------------------------------------
+                            982 ;Allocation info for local variables in function 'alarm'
+                            983 ;------------------------------------------------------------
+                            984 ;r                         Allocated to registers r2 
+                            985 ;hz                        Allocated to registers 
+                            986 ;i                         Allocated to registers 
+                            987 ;j                         Allocated to registers 
+                            988 ;------------------------------------------------------------
+                            989 ;Z:\pn\projekt\zegar.c:192: void alarm(){
+                            990 ;	-----------------------------------------
+                            991 ;	 function alarm
+                            992 ;	-----------------------------------------
+   0330                     993 _alarm:
+                            994 ;Z:\pn\projekt\zegar.c:194: unsigned char r=0;
+                            995 ;     genAssign
+   0330 7A 00               996 	mov	r2,#0x00
+                            997 ;Z:\pn\projekt\zegar.c:199: while (alarm_godz == godz && alarm_min == min && alarm_on == 1 && stop == 0)
+   0332                     998 00113$:
+                            999 ;     genCmpEq
+   0332 E5*0E              1000 	mov	a,_alarm_godz
+   0334 B5*08 07           1001 	cjne	a,_godz,00139$
+   0337 E5*0F              1002 	mov	a,(_alarm_godz + 1)
+   0339 B5*09 02           1003 	cjne	a,(_godz + 1),00139$
+   033C 80 03              1004 	sjmp	00140$
+   033E                    1005 00139$:
+   033E 02s04r25           1006 	ljmp	00124$
+   0341                    1007 00140$:
+                           1008 ;     genCmpEq
+   0341 E5*10              1009 	mov	a,_alarm_min
+   0343 B5*0A 07           1010 	cjne	a,_min,00141$
+   0346 E5*11              1011 	mov	a,(_alarm_min + 1)
+   0348 B5*0B 02           1012 	cjne	a,(_min + 1),00141$
+   034B 80 03              1013 	sjmp	00142$
+   034D                    1014 00141$:
+   034D 02s04r25           1015 	ljmp	00124$
+   0350                    1016 00142$:
+                           1017 ;     genCmpEq
+   0350 E5*12              1018 	mov	a,_alarm_on
+   0352 B4 01 04           1019 	cjne	a,#0x01,00143$
+   0355 E5*13              1020 	mov	a,(_alarm_on + 1)
+                           1021 ;       Peephole 162   removed sjmp by inverse jump logic
+   0357 60 03              1022 	jz   00144$
+   0359                    1023 00143$:
+   0359 02s04r25           1024 	ljmp	00124$
+   035C                    1025 00144$:
+                           1026 ;     genCmpEq
+   035C E5*14              1027 	mov	a,_stop
+   035E 70 04              1028 	jnz	00145$
+   0360 E5*15              1029 	mov	a,(_stop + 1)
+                           1030 ;       Peephole 162   removed sjmp by inverse jump logic
+   0362 60 03              1031 	jz   00146$
+   0364                    1032 00145$:
+   0364 02s04r25           1033 	ljmp	00124$
+   0367                    1034 00146$:
+                           1035 ;Z:\pn\projekt\zegar.c:206: for(j=0;j<100;j++){
+                           1036 ;     genAssign
+   0367 8A 03              1037 	mov	ar3,r2
+                           1038 ;     genAssign
+   0369 7C 00              1039 	mov	r4,#0x00
+   036B 7D 00              1040 	mov	r5,#0x00
+   036D                    1041 00120$:
+                           1042 ;     genCmpLt
+                           1043 ;     genCmp
+   036D C3                 1044 	clr	c
+   036E EC                 1045 	mov	a,r4
+   036F 94 64              1046 	subb	a,#0x64
+   0371 ED                 1047 	mov	a,r5
+   0372 64 80              1048 	xrl	a,#0x80
+   0374 94 80              1049 	subb	a,#0x80
+   0376 E4                 1050 	clr	a
+   0377 33                 1051 	rlc	a
+   0378 FE                 1052 	mov	r6,a
+                           1053 ;     genAssign
+   0379 8B 02              1054 	mov	ar2,r3
+                           1055 ;     genIfx
+   037B EE                 1056 	mov	a,r6
+                           1057 ;     genIfxJump
+                           1058 ;       Peephole 110   removed ljmp by inverse jump logic
+   037C 60 1F              1059 	jz  00123$
+   037E                    1060 00147$:
+                           1061 ;Z:\pn\projekt\zegar.c:207: if (( r & 0x01) == 0) // maskowanie
+                           1062 ;     genAnd
+   037E 74 01              1063 	mov	a,#0x01
+   0380 5B                 1064 	anl	a,r3
+   0381 FF                 1065 	mov	r7,a
+                           1066 ;     genCmpEq
+                           1067 ;       Peephole 132   changed ljmp to sjmp
+                           1068 ;       Peephole 199   optimized misc jump sequence
+   0382 BF 00 04           1069 	cjne r7,#0x00,00102$
+                           1070 ;00148$:
+                           1071 ;       Peephole 200   removed redundant sjmp
+   0385                    1072 00149$:
+                           1073 ;Z:\pn\projekt\zegar.c:208: T1 = 1;
+                           1074 ;     genAssign
+   0385 D2 B4              1075 	setb	_T1
+                           1076 ;       Peephole 132   changed ljmp to sjmp
+   0387 80 02              1077 	sjmp 00103$
+   0389                    1078 00102$:
+                           1079 ;Z:\pn\projekt\zegar.c:210: T1 = 0;
+                           1080 ;     genAssign
+   0389 C2 B4              1081 	clr	_T1
+   038B                    1082 00103$:
+                           1083 ;Z:\pn\projekt\zegar.c:211: r++;
+                           1084 ;     genPlus
+                           1085 ;     genPlusIncr
+   038B 0B                 1086 	inc	r3
+                           1087 ;Z:\pn\projekt\zegar.c:212: for(i=0;i<hz;i++);
+                           1088 ;     genAssign
+   038C 7F 00              1089 	mov	r7,#0x00
+   038E                    1090 00116$:
+                           1091 ;     genCmpLt
+                           1092 ;     genCmp
+   038E BF 0A 00           1093 	cjne	r7,#0x0A,00150$
+   0391                    1094 00150$:
+                           1095 ;     genIfxJump
+                           1096 ;       Peephole 108   removed ljmp by inverse jump logic
+   0391 50 03              1097 	jnc  00122$
+   0393                    1098 00151$:
+                           1099 ;     genPlus
+                           1100 ;     genPlusIncr
+   0393 0F                 1101 	inc	r7
+                           1102 ;       Peephole 132   changed ljmp to sjmp
+   0394 80 F8              1103 	sjmp 00116$
+   0396                    1104 00122$:
+                           1105 ;Z:\pn\projekt\zegar.c:206: for(j=0;j<100;j++){
+                           1106 ;     genPlus
+                           1107 ;     genPlusIncr
+   0396 0C                 1108 	inc	r4
+   0397 BC 00 01           1109 	cjne	r4,#0x00,00152$
+   039A 0D                 1110 	inc	r5
+   039B                    1111 00152$:
+                           1112 ;       Peephole 132   changed ljmp to sjmp
+   039B 80 D0              1113 	sjmp 00120$
+   039D                    1114 00123$:
+                           1115 ;Z:\pn\projekt\zegar.c:217: if (( U12 & 0x08 )== 0 )
+                           1116 ;     genAssign
+   039D 90 80 00           1117 	mov	dptr,#_U12
+   03A0 E0                 1118 	movx	a,@dptr
+   03A1 FB                 1119 	mov	r3,a
+                           1120 ;     genAnd
+   03A2 53 03 08           1121 	anl	ar3,#0x08
+                           1122 ;     genCmpEq
+                           1123 ;       Peephole 132   changed ljmp to sjmp
+                           1124 ;       Peephole 199   optimized misc jump sequence
+   03A5 BB 00 15           1125 	cjne r3,#0x00,00105$
+                           1126 ;00153$:
+                           1127 ;       Peephole 200   removed redundant sjmp
+   03A8                    1128 00154$:
+                           1129 ;Z:\pn\projekt\zegar.c:219: stop=1;
+                           1130 ;     genAssign
+   03A8 E4                 1131 	clr	a
+   03A9 F5*15              1132 	mov	(_stop + 1),a
+   03AB 75*14 01           1133 	mov	_stop,#0x01
+                           1134 ;Z:\pn\projekt\zegar.c:220: alarm_on=0;
+                           1135 ;     genAssign
+   03AE E4                 1136 	clr	a
+   03AF F5*13              1137 	mov	(_alarm_on + 1),a
+   03B1 F5*12              1138 	mov	_alarm_on,a
+                           1139 ;Z:\pn\projekt\zegar.c:221: wyslij_polecenie4(0x01);
+                           1140 ;     genCall
+   03B3 75 82 01           1141 	mov	dpl,#0x01
+   03B6 C0 02              1142 	push	ar2
+   03B8 12s00r4E           1143 	lcall	_wyslij_polecenie4
+   03BB D0 02              1144 	pop	ar2
+   03BD                    1145 00105$:
+                           1146 ;Z:\pn\projekt\zegar.c:224: if (( U12 & 0x01 )== 0 )
+                           1147 ;     genAssign
+   03BD 90 80 00           1148 	mov	dptr,#_U12
+   03C0 E0                 1149 	movx	a,@dptr
+   03C1 FB                 1150 	mov	r3,a
+                           1151 ;     genAnd
+   03C2 53 03 01           1152 	anl	ar3,#0x01
+                           1153 ;     genCmpEq
+                           1154 ;       Peephole 132   changed ljmp to sjmp
+                           1155 ;       Peephole 199   optimized misc jump sequence
+   03C5 BB 00 24           1156 	cjne r3,#0x00,00107$
+                           1157 ;00155$:
+                           1158 ;       Peephole 200   removed redundant sjmp
+   03C8                    1159 00156$:
+                           1160 ;Z:\pn\projekt\zegar.c:226: alarm_godz =(alarm_godz +1)%24;
+                           1161 ;     genPlus
+                           1162 ;     genPlusIncr
+   03C8 74 01              1163 	mov	a,#0x01
+   03CA 25*0E              1164 	add	a,_alarm_godz
+   03CC FB                 1165 	mov	r3,a
+                           1166 ;       Peephole 180   changed mov to clr
+   03CD E4                 1167 	clr  a
+   03CE 35*0F              1168 	addc	a,(_alarm_godz + 1)
+   03D0 FC                 1169 	mov	r4,a
+                           1170 ;     genAssign
+   03D1 E4                 1171 	clr	a
+   03D2 F5*01              1172 	mov	(__modsint_PARM_2 + 1),a
+   03D4 75*00 18           1173 	mov	__modsint_PARM_2,#0x18
+                           1174 ;     genCall
+   03D7 8B 82              1175 	mov	dpl,r3
+   03D9 8C 83              1176 	mov	dph,r4
+   03DB C0 02              1177 	push	ar2
+   03DD 12s00r00           1178 	lcall	__modsint
+   03E0 E5 82              1179 	mov	a,dpl
+   03E2 85 83 F0           1180 	mov	b,dph
+   03E5 D0 02              1181 	pop	ar2
+                           1182 ;     genAssign
+   03E7 F5*0E              1183 	mov	_alarm_godz,a
+   03E9 85 F0*0F           1184 	mov	(_alarm_godz + 1),b
+   03EC                    1185 00107$:
+                           1186 ;Z:\pn\projekt\zegar.c:230: if (( U12 & 0x02 )== 0 )
+                           1187 ;     genAssign
+   03EC 90 80 00           1188 	mov	dptr,#_U12
+   03EF E0                 1189 	movx	a,@dptr
+   03F0 FB                 1190 	mov	r3,a
+                           1191 ;     genAnd
+   03F1 53 03 02           1192 	anl	ar3,#0x02
+                           1193 ;     genCmpEq
+                           1194 ;       Peephole 132   changed ljmp to sjmp
+                           1195 ;       Peephole 199   optimized misc jump sequence
+   03F4 BB 00 24           1196 	cjne r3,#0x00,00109$
+                           1197 ;00157$:
+                           1198 ;       Peephole 200   removed redundant sjmp
+   03F7                    1199 00158$:
+                           1200 ;Z:\pn\projekt\zegar.c:232: alarm_min = (alarm_min +1)%60;
+                           1201 ;     genPlus
+                           1202 ;     genPlusIncr
+   03F7 74 01              1203 	mov	a,#0x01
+   03F9 25*10              1204 	add	a,_alarm_min
+   03FB FB                 1205 	mov	r3,a
+                           1206 ;       Peephole 180   changed mov to clr
+   03FC E4                 1207 	clr  a
+   03FD 35*11              1208 	addc	a,(_alarm_min + 1)
+   03FF FC                 1209 	mov	r4,a
+                           1210 ;     genAssign
+   0400 E4                 1211 	clr	a
+   0401 F5*01              1212 	mov	(__modsint_PARM_2 + 1),a
+   0403 75*00 3C           1213 	mov	__modsint_PARM_2,#0x3C
+                           1214 ;     genCall
+   0406 8B 82              1215 	mov	dpl,r3
+   0408 8C 83              1216 	mov	dph,r4
+   040A C0 02              1217 	push	ar2
+   040C 12s00r00           1218 	lcall	__modsint
+   040F E5 82              1219 	mov	a,dpl
+   0411 85 83 F0           1220 	mov	b,dph
+   0414 D0 02              1221 	pop	ar2
+                           1222 ;     genAssign
+   0416 F5*10              1223 	mov	_alarm_min,a
+   0418 85 F0*11           1224 	mov	(_alarm_min + 1),b
+   041B                    1225 00109$:
+                           1226 ;Z:\pn\projekt\zegar.c:236: wyswietl_godz();
+                           1227 ;     genCall
+   041B C0 02              1228 	push	ar2
+   041D 12s02r15           1229 	lcall	_wyswietl_godz
+   0420 D0 02              1230 	pop	ar2
+   0422 02s03r32           1231 	ljmp	00113$
+   0425                    1232 00124$:
+   0425 22                 1233 	ret
+                           1234 ;------------------------------------------------------------
+                           1235 ;Allocation info for local variables in function 'wyswietl_alarm'
+                           1236 ;------------------------------------------------------------
+                           1237 ;------------------------------------------------------------
+                           1238 ;Z:\pn\projekt\zegar.c:248: void wyswietl_alarm()
+                           1239 ;	-----------------------------------------
+                           1240 ;	 function wyswietl_alarm
+                           1241 ;	-----------------------------------------
+   0426                    1242 _wyswietl_alarm:
+                           1243 ;Z:\pn\projekt\zegar.c:250: if(alarm_on == 1)
+                           1244 ;     genCmpEq
+   0426 E5*12              1245 	mov	a,_alarm_on
+   0428 B4 01 04           1246 	cjne	a,#0x01,00106$
+   042B E5*13              1247 	mov	a,(_alarm_on + 1)
+                           1248 ;       Peephole 162   removed sjmp by inverse jump logic
+   042D 60 03              1249 	jz   00107$
+   042F                    1250 00106$:
+   042F 02s04rF8           1251 	ljmp	00103$
+   0432                    1252 00107$:
+                           1253 ;Z:\pn\projekt\zegar.c:252: gotoXY(0,1); 
+                           1254 ;     genAssign
+   0432 75*1C 01           1255 	mov	_gotoXY_PARM_2,#0x01
+                           1256 ;     genCall
+   0435 75 82 00           1257 	mov	dpl,#0x00
+   0438 12s01r9C           1258 	lcall	_gotoXY
+                           1259 ;Z:\pn\projekt\zegar.c:253: wyslij_dane('0' + alarm_godz / 10 );
+                           1260 ;     genAssign
+   043B E4                 1261 	clr	a
+   043C F5*01              1262 	mov	(__divsint_PARM_2 + 1),a
+   043E 75*00 0A           1263 	mov	__divsint_PARM_2,#0x0A
+                           1264 ;     genCall
+   0441 85*0E 82           1265 	mov	dpl,_alarm_godz
+   0444 85*0F 83           1266 	mov	dph,(_alarm_godz + 1)
+   0447 12s00r00           1267 	lcall	__divsint
+   044A E5 82              1268 	mov	a,dpl
+   044C 85 83 F0           1269 	mov	b,dph
+                           1270 ;     genPlus
+   044F 24 30              1271 	add	a,#0x30
+   0451 FA                 1272 	mov	r2,a
+   0452 E5 F0              1273 	mov	a,b
+   0454 34 00              1274 	addc	a,#0x00
+   0456 FB                 1275 	mov	r3,a
+                           1276 ;     genCast
+   0457 8A 82              1277 	mov	dpl,r2
+                           1278 ;     genCall
+   0459 12s00r7C           1279 	lcall	_wyslij_dane
+                           1280 ;Z:\pn\projekt\zegar.c:254: czekaj(100);
+                           1281 ;     genCall
+                           1282 ;       Peephole 182   used 16 bit load of dptr
+   045C 90 00 64           1283 	mov  dptr,#(((0x00)<<8) + 0x64)
+   045F 12s00rC6           1284 	lcall	_czekaj
+                           1285 ;Z:\pn\projekt\zegar.c:255: wyslij_dane('0' + alarm_godz % 10 );
+                           1286 ;     genAssign
+   0462 E4                 1287 	clr	a
+   0463 F5*01              1288 	mov	(__modsint_PARM_2 + 1),a
+   0465 75*00 0A           1289 	mov	__modsint_PARM_2,#0x0A
+                           1290 ;     genCall
+   0468 85*0E 82           1291 	mov	dpl,_alarm_godz
+   046B 85*0F 83           1292 	mov	dph,(_alarm_godz + 1)
+   046E 12s00r00           1293 	lcall	__modsint
+   0471 E5 82              1294 	mov	a,dpl
+   0473 85 83 F0           1295 	mov	b,dph
+                           1296 ;     genPlus
+   0476 24 30              1297 	add	a,#0x30
+   0478 FA                 1298 	mov	r2,a
+   0479 E5 F0              1299 	mov	a,b
+   047B 34 00              1300 	addc	a,#0x00
+   047D FB                 1301 	mov	r3,a
+                           1302 ;     genCast
+   047E 8A 82              1303 	mov	dpl,r2
+                           1304 ;     genCall
+   0480 12s00r7C           1305 	lcall	_wyslij_dane
+                           1306 ;Z:\pn\projekt\zegar.c:256: czekaj(100);
+                           1307 ;     genCall
+                           1308 ;       Peephole 182   used 16 bit load of dptr
+   0483 90 00 64           1309 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0486 12s00rC6           1310 	lcall	_czekaj
+                           1311 ;Z:\pn\projekt\zegar.c:257: wyslij_dane(':');
+                           1312 ;     genCall
+   0489 75 82 3A           1313 	mov	dpl,#0x3A
+   048C 12s00r7C           1314 	lcall	_wyslij_dane
+                           1315 ;Z:\pn\projekt\zegar.c:258: czekaj(100);
+                           1316 ;     genCall
+                           1317 ;       Peephole 182   used 16 bit load of dptr
+   048F 90 00 64           1318 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0492 12s00rC6           1319 	lcall	_czekaj
+                           1320 ;Z:\pn\projekt\zegar.c:259: wyslij_dane('0' + alarm_min / 10 );
+                           1321 ;     genAssign
+   0495 E4                 1322 	clr	a
+   0496 F5*01              1323 	mov	(__divsint_PARM_2 + 1),a
+   0498 75*00 0A           1324 	mov	__divsint_PARM_2,#0x0A
+                           1325 ;     genCall
+   049B 85*10 82           1326 	mov	dpl,_alarm_min
+   049E 85*11 83           1327 	mov	dph,(_alarm_min + 1)
+   04A1 12s00r00           1328 	lcall	__divsint
+   04A4 E5 82              1329 	mov	a,dpl
+   04A6 85 83 F0           1330 	mov	b,dph
+                           1331 ;     genPlus
+   04A9 24 30              1332 	add	a,#0x30
+   04AB FA                 1333 	mov	r2,a
+   04AC E5 F0              1334 	mov	a,b
+   04AE 34 00              1335 	addc	a,#0x00
+   04B0 FB                 1336 	mov	r3,a
+                           1337 ;     genCast
+   04B1 8A 82              1338 	mov	dpl,r2
+                           1339 ;     genCall
+   04B3 12s00r7C           1340 	lcall	_wyslij_dane
+                           1341 ;Z:\pn\projekt\zegar.c:260: czekaj(100);
+                           1342 ;     genCall
+                           1343 ;       Peephole 182   used 16 bit load of dptr
+   04B6 90 00 64           1344 	mov  dptr,#(((0x00)<<8) + 0x64)
+   04B9 12s00rC6           1345 	lcall	_czekaj
+                           1346 ;Z:\pn\projekt\zegar.c:261: wyslij_dane('0' + alarm_min % 10 );
+                           1347 ;     genAssign
+   04BC E4                 1348 	clr	a
+   04BD F5*01              1349 	mov	(__modsint_PARM_2 + 1),a
+   04BF 75*00 0A           1350 	mov	__modsint_PARM_2,#0x0A
+                           1351 ;     genCall
+   04C2 85*10 82           1352 	mov	dpl,_alarm_min
+   04C5 85*11 83           1353 	mov	dph,(_alarm_min + 1)
+   04C8 12s00r00           1354 	lcall	__modsint
+   04CB E5 82              1355 	mov	a,dpl
+   04CD 85 83 F0           1356 	mov	b,dph
+                           1357 ;     genPlus
+   04D0 24 30              1358 	add	a,#0x30
+   04D2 FA                 1359 	mov	r2,a
+   04D3 E5 F0              1360 	mov	a,b
+   04D5 34 00              1361 	addc	a,#0x00
+   04D7 FB                 1362 	mov	r3,a
+                           1363 ;     genCast
+   04D8 8A 82              1364 	mov	dpl,r2
+                           1365 ;     genCall
+   04DA 12s00r7C           1366 	lcall	_wyslij_dane
+                           1367 ;Z:\pn\projekt\zegar.c:262: czekaj(100);
+                           1368 ;     genCall
+                           1369 ;       Peephole 182   used 16 bit load of dptr
+   04DD 90 00 64           1370 	mov  dptr,#(((0x00)<<8) + 0x64)
+   04E0 12s00rC6           1371 	lcall	_czekaj
+                           1372 ;Z:\pn\projekt\zegar.c:263: gotoXY(0,0);     
+                           1373 ;     genAssign
+   04E3 75*1C 00           1374 	mov	_gotoXY_PARM_2,#0x00
+                           1375 ;     genCall
+   04E6 75 82 00           1376 	mov	dpl,#0x00
+   04E9 12s01r9C           1377 	lcall	_gotoXY
+                           1378 ;Z:\pn\projekt\zegar.c:264: czekaj(100);
+                           1379 ;     genCall
+                           1380 ;       Peephole 182   used 16 bit load of dptr
+   04EC 90 00 64           1381 	mov  dptr,#(((0x00)<<8) + 0x64)
+   04EF 12s00rC6           1382 	lcall	_czekaj
+                           1383 ;Z:\pn\projekt\zegar.c:265: czekaj(100);
+                           1384 ;     genCall
+                           1385 ;       Peephole 182   used 16 bit load of dptr
+   04F2 90 00 64           1386 	mov  dptr,#(((0x00)<<8) + 0x64)
+   04F5 12s00rC6           1387 	lcall	_czekaj
+   04F8                    1388 00103$:
+   04F8 22                 1389 	ret
+                           1390 ;------------------------------------------------------------
+                           1391 ;Allocation info for local variables in function 'main'
+                           1392 ;------------------------------------------------------------
+                           1393 ;------------------------------------------------------------
+                           1394 ;Z:\pn\projekt\zegar.c:275: void main(void)
+                           1395 ;	-----------------------------------------
+                           1396 ;	 function main
+                           1397 ;	-----------------------------------------
+   04F9                    1398 _main:
+                           1399 ;Z:\pn\projekt\zegar.c:277: init();
+                           1400 ;     genCall
+   04F9 12s01r23           1401 	lcall	_init
+                           1402 ;Z:\pn\projekt\zegar.c:279: t=0;
+                           1403 ;     genAssign
+   04FC E4                 1404 	clr	a
+   04FD F5*1B              1405 	mov	(_t + 1),a
+   04FF F5*1A              1406 	mov	_t,a
+                           1407 ;Z:\pn\projekt\zegar.c:280: czekaj(100);
+                           1408 ;     genCall
+                           1409 ;       Peephole 182   used 16 bit load of dptr
+   0501 90 00 64           1410 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0504 12s00rC6           1411 	lcall	_czekaj
+                           1412 ;Z:\pn\projekt\zegar.c:281: wyslij_polecenie4(0x01);
+                           1413 ;     genCall
+   0507 75 82 01           1414 	mov	dpl,#0x01
+   050A 12s00r4E           1415 	lcall	_wyslij_polecenie4
+                           1416 ;Z:\pn\projekt\zegar.c:282: czekaj(100);
+                           1417 ;     genCall
+                           1418 ;       Peephole 182   used 16 bit load of dptr
+   050D 90 00 64           1419 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0510 12s00rC6           1420 	lcall	_czekaj
+                           1421 ;Z:\pn\projekt\zegar.c:283: czekaj(100);
+                           1422 ;     genCall
+                           1423 ;       Peephole 182   used 16 bit load of dptr
+   0513 90 00 64           1424 	mov  dptr,#(((0x00)<<8) + 0x64)
+   0516 12s00rC6           1425 	lcall	_czekaj
+                           1426 ;Z:\pn\projekt\zegar.c:284: czekaj(100);
+                           1427 ;     genCall
+                           1428 ;       Peephole 182   used 16 bit load of dptr
+   0519 90 00 64           1429 	mov  dptr,#(((0x00)<<8) + 0x64)
+   051C 12s00rC6           1430 	lcall	_czekaj
+                           1431 ;Z:\pn\projekt\zegar.c:286: godz =11;
+                           1432 ;     genAssign
+   051F E4                 1433 	clr	a
+   0520 F5*09              1434 	mov	(_godz + 1),a
+   0522 75*08 0B           1435 	mov	_godz,#0x0B
+                           1436 ;Z:\pn\projekt\zegar.c:287: min = 30;
+                           1437 ;     genAssign
+   0525 E4                 1438 	clr	a
+   0526 F5*0B              1439 	mov	(_min + 1),a
+   0528 75*0A 1E           1440 	mov	_min,#0x1E
+                           1441 ;Z:\pn\projekt\zegar.c:288: sek= 55;
+                           1442 ;     genAssign
+   052B E4                 1443 	clr	a
+   052C F5*0D              1444 	mov	(_sek + 1),a
+   052E 75*0C 37           1445 	mov	_sek,#0x37
+                           1446 ;Z:\pn\projekt\zegar.c:290: wyswietl_godz();
+                           1447 ;     genCall
+   0531 12s02r15           1448 	lcall	_wyswietl_godz
+   0534                    1449 00121$:
+                           1450 ;Z:\pn\projekt\zegar.c:295: if (alarm_on == 0)
+                           1451 ;     genCmpEq
+   0534 E5*12              1452 	mov	a,_alarm_on
+   0536 70 04              1453 	jnz	00135$
+   0538 E5*13              1454 	mov	a,(_alarm_on + 1)
+                           1455 ;       Peephole 162   removed sjmp by inverse jump logic
+   053A 60 03              1456 	jz   00136$
+   053C                    1457 00135$:
+   053C 02s05rC3           1458 	ljmp	00118$
+   053F                    1459 00136$:
+                           1460 ;Z:\pn\projekt\zegar.c:298: if (( U12 & 0x01 )== 0 )
+                           1461 ;     genAssign
+   053F 90 80 00           1462 	mov	dptr,#_U12
+   0542 E0                 1463 	movx	a,@dptr
+   0543 FA                 1464 	mov	r2,a
+                           1465 ;     genAnd
+   0544 53 02 01           1466 	anl	ar2,#0x01
+                           1467 ;     genCmpEq
+                           1468 ;       Peephole 132   changed ljmp to sjmp
+                           1469 ;       Peephole 199   optimized misc jump sequence
+   0547 BA 00 20           1470 	cjne r2,#0x00,00102$
+                           1471 ;00137$:
+                           1472 ;       Peephole 200   removed redundant sjmp
+   054A                    1473 00138$:
+                           1474 ;Z:\pn\projekt\zegar.c:300: godz =(godz +1)%24;
+                           1475 ;     genPlus
+                           1476 ;     genPlusIncr
+   054A 74 01              1477 	mov	a,#0x01
+   054C 25*08              1478 	add	a,_godz
+   054E FA                 1479 	mov	r2,a
+                           1480 ;       Peephole 180   changed mov to clr
+   054F E4                 1481 	clr  a
+   0550 35*09              1482 	addc	a,(_godz + 1)
+   0552 FB                 1483 	mov	r3,a
+                           1484 ;     genAssign
+   0553 E4                 1485 	clr	a
+   0554 F5*01              1486 	mov	(__modsint_PARM_2 + 1),a
+   0556 75*00 18           1487 	mov	__modsint_PARM_2,#0x18
+                           1488 ;     genCall
+   0559 8A 82              1489 	mov	dpl,r2
+   055B 8B 83              1490 	mov	dph,r3
+   055D 12s00r00           1491 	lcall	__modsint
+   0560 E5 82              1492 	mov	a,dpl
+   0562 85 83 F0           1493 	mov	b,dph
+                           1494 ;     genAssign
+   0565 F5*08              1495 	mov	_godz,a
+   0567 85 F0*09           1496 	mov	(_godz + 1),b
+   056A                    1497 00102$:
+                           1498 ;Z:\pn\projekt\zegar.c:304: if (( U12 & 0x02 )== 0 )
+                           1499 ;     genAssign
+   056A 90 80 00           1500 	mov	dptr,#_U12
+   056D E0                 1501 	movx	a,@dptr
+   056E FA                 1502 	mov	r2,a
+                           1503 ;     genAnd
+   056F 53 02 02           1504 	anl	ar2,#0x02
+                           1505 ;     genCmpEq
+                           1506 ;       Peephole 132   changed ljmp to sjmp
+                           1507 ;       Peephole 199   optimized misc jump sequence
+   0572 BA 00 20           1508 	cjne r2,#0x00,00104$
+                           1509 ;00139$:
+                           1510 ;       Peephole 200   removed redundant sjmp
+   0575                    1511 00140$:
+                           1512 ;Z:\pn\projekt\zegar.c:306: min = (min +1)%60;
+                           1513 ;     genPlus
+                           1514 ;     genPlusIncr
+   0575 74 01              1515 	mov	a,#0x01
+   0577 25*0A              1516 	add	a,_min
+   0579 FA                 1517 	mov	r2,a
+                           1518 ;       Peephole 180   changed mov to clr
+   057A E4                 1519 	clr  a
+   057B 35*0B              1520 	addc	a,(_min + 1)
+   057D FB                 1521 	mov	r3,a
+                           1522 ;     genAssign
+   057E E4                 1523 	clr	a
+   057F F5*01              1524 	mov	(__modsint_PARM_2 + 1),a
+   0581 75*00 3C           1525 	mov	__modsint_PARM_2,#0x3C
+                           1526 ;     genCall
+   0584 8A 82              1527 	mov	dpl,r2
+   0586 8B 83              1528 	mov	dph,r3
+   0588 12s00r00           1529 	lcall	__modsint
+   058B E5 82              1530 	mov	a,dpl
+   058D 85 83 F0           1531 	mov	b,dph
+                           1532 ;     genAssign
+   0590 F5*0A              1533 	mov	_min,a
+   0592 85 F0*0B           1534 	mov	(_min + 1),b
+   0595                    1535 00104$:
+                           1536 ;Z:\pn\projekt\zegar.c:309: if (( U12 & 0x04 )== 0 )
+                           1537 ;     genAssign
+   0595 90 80 00           1538 	mov	dptr,#_U12
+   0598 E0                 1539 	movx	a,@dptr
+   0599 FA                 1540 	mov	r2,a
+                           1541 ;     genAnd
+   059A 53 02 04           1542 	anl	ar2,#0x04
+                           1543 ;     genCmpEq
+                           1544 ;       Peephole 132   changed ljmp to sjmp
+                           1545 ;       Peephole 199   optimized misc jump sequence
+   059D BA 00 05           1546 	cjne r2,#0x00,00106$
+                           1547 ;00141$:
+                           1548 ;       Peephole 200   removed redundant sjmp
+   05A0                    1549 00142$:
+                           1550 ;Z:\pn\projekt\zegar.c:312: sek=0;
+                           1551 ;     genAssign
+   05A0 E4                 1552 	clr	a
+   05A1 F5*0D              1553 	mov	(_sek + 1),a
+   05A3 F5*0C              1554 	mov	_sek,a
+   05A5                    1555 00106$:
+                           1556 ;Z:\pn\projekt\zegar.c:315: if (( U12 & 0x08 )== 0 )
+                           1557 ;     genAssign
+   05A5 90 80 00           1558 	mov	dptr,#_U12
+   05A8 E0                 1559 	movx	a,@dptr
+   05A9 FA                 1560 	mov	r2,a
+                           1561 ;     genAnd
+   05AA 53 02 08           1562 	anl	ar2,#0x08
+                           1563 ;     genCmpEq
+   05AD BA 00 02           1564 	cjne	r2,#0x00,00143$
+   05B0 80 03              1565 	sjmp	00144$
+   05B2                    1566 00143$:
+   05B2 02s06r3B           1567 	ljmp	00119$
+   05B5                    1568 00144$:
+                           1569 ;Z:\pn\projekt\zegar.c:317: alarm_on=1;
+                           1570 ;     genAssign
+   05B5 E4                 1571 	clr	a
+   05B6 F5*13              1572 	mov	(_alarm_on + 1),a
+   05B8 75*12 01           1573 	mov	_alarm_on,#0x01
+                           1574 ;Z:\pn\projekt\zegar.c:318: stop = 0;
+                           1575 ;     genAssign
+   05BB E4                 1576 	clr	a
+   05BC F5*15              1577 	mov	(_stop + 1),a
+   05BE F5*14              1578 	mov	_stop,a
+   05C0 02s06r3B           1579 	ljmp	00119$
+   05C3                    1580 00118$:
+                           1581 ;Z:\pn\projekt\zegar.c:321: else if(alarm_on == 1)
+                           1582 ;     genCmpEq
+   05C3 E5*12              1583 	mov	a,_alarm_on
+   05C5 B4 01 04           1584 	cjne	a,#0x01,00145$
+   05C8 E5*13              1585 	mov	a,(_alarm_on + 1)
+                           1586 ;       Peephole 162   removed sjmp by inverse jump logic
+   05CA 60 03              1587 	jz   00146$
+   05CC                    1588 00145$:
+   05CC 02s06r3B           1589 	ljmp	00119$
+   05CF                    1590 00146$:
+                           1591 ;Z:\pn\projekt\zegar.c:323: if (( U12 & 0x01 )== 0 )
+                           1592 ;     genAssign
+   05CF 90 80 00           1593 	mov	dptr,#_U12
+   05D2 E0                 1594 	movx	a,@dptr
+   05D3 FA                 1595 	mov	r2,a
+                           1596 ;     genAnd
+   05D4 53 02 01           1597 	anl	ar2,#0x01
+                           1598 ;     genCmpEq
+                           1599 ;       Peephole 132   changed ljmp to sjmp
+                           1600 ;       Peephole 199   optimized misc jump sequence
+   05D7 BA 00 20           1601 	cjne r2,#0x00,00110$
+                           1602 ;00147$:
+                           1603 ;       Peephole 200   removed redundant sjmp
+   05DA                    1604 00148$:
+                           1605 ;Z:\pn\projekt\zegar.c:325: alarm_godz =(alarm_godz +1)%24;
+                           1606 ;     genPlus
+                           1607 ;     genPlusIncr
+   05DA 74 01              1608 	mov	a,#0x01
+   05DC 25*0E              1609 	add	a,_alarm_godz
+   05DE FA                 1610 	mov	r2,a
+                           1611 ;       Peephole 180   changed mov to clr
+   05DF E4                 1612 	clr  a
+   05E0 35*0F              1613 	addc	a,(_alarm_godz + 1)
+   05E2 FB                 1614 	mov	r3,a
+                           1615 ;     genAssign
+   05E3 E4                 1616 	clr	a
+   05E4 F5*01              1617 	mov	(__modsint_PARM_2 + 1),a
+   05E6 75*00 18           1618 	mov	__modsint_PARM_2,#0x18
+                           1619 ;     genCall
+   05E9 8A 82              1620 	mov	dpl,r2
+   05EB 8B 83              1621 	mov	dph,r3
+   05ED 12s00r00           1622 	lcall	__modsint
+   05F0 E5 82              1623 	mov	a,dpl
+   05F2 85 83 F0           1624 	mov	b,dph
+                           1625 ;     genAssign
+   05F5 F5*0E              1626 	mov	_alarm_godz,a
+   05F7 85 F0*0F           1627 	mov	(_alarm_godz + 1),b
+   05FA                    1628 00110$:
+                           1629 ;Z:\pn\projekt\zegar.c:329: if (( U12 & 0x02 )== 0 )
+                           1630 ;     genAssign
+   05FA 90 80 00           1631 	mov	dptr,#_U12
+   05FD E0                 1632 	movx	a,@dptr
+   05FE FA                 1633 	mov	r2,a
+                           1634 ;     genAnd
+   05FF 53 02 02           1635 	anl	ar2,#0x02
+                           1636 ;     genCmpEq
+                           1637 ;       Peephole 132   changed ljmp to sjmp
+                           1638 ;       Peephole 199   optimized misc jump sequence
+   0602 BA 00 20           1639 	cjne r2,#0x00,00112$
+                           1640 ;00149$:
+                           1641 ;       Peephole 200   removed redundant sjmp
+   0605                    1642 00150$:
+                           1643 ;Z:\pn\projekt\zegar.c:331: alarm_min = (alarm_min +1)%60;
+                           1644 ;     genPlus
+                           1645 ;     genPlusIncr
+   0605 74 01              1646 	mov	a,#0x01
+   0607 25*10              1647 	add	a,_alarm_min
+   0609 FA                 1648 	mov	r2,a
+                           1649 ;       Peephole 180   changed mov to clr
+   060A E4                 1650 	clr  a
+   060B 35*11              1651 	addc	a,(_alarm_min + 1)
+   060D FB                 1652 	mov	r3,a
+                           1653 ;     genAssign
+   060E E4                 1654 	clr	a
+   060F F5*01              1655 	mov	(__modsint_PARM_2 + 1),a
+   0611 75*00 3C           1656 	mov	__modsint_PARM_2,#0x3C
+                           1657 ;     genCall
+   0614 8A 82              1658 	mov	dpl,r2
+   0616 8B 83              1659 	mov	dph,r3
+   0618 12s00r00           1660 	lcall	__modsint
+   061B E5 82              1661 	mov	a,dpl
+   061D 85 83 F0           1662 	mov	b,dph
+                           1663 ;     genAssign
+   0620 F5*10              1664 	mov	_alarm_min,a
+   0622 85 F0*11           1665 	mov	(_alarm_min + 1),b
+   0625                    1666 00112$:
+                           1667 ;Z:\pn\projekt\zegar.c:340: if (( U12 & 0x08 )== 0 )
+                           1668 ;     genAssign
+   0625 90 80 00           1669 	mov	dptr,#_U12
+   0628 E0                 1670 	movx	a,@dptr
+   0629 FA                 1671 	mov	r2,a
+                           1672 ;     genAnd
+   062A 53 02 08           1673 	anl	ar2,#0x08
+                           1674 ;     genCmpEq
+                           1675 ;       Peephole 132   changed ljmp to sjmp
+                           1676 ;       Peephole 199   optimized misc jump sequence
+   062D BA 00 0B           1677 	cjne r2,#0x00,00119$
+                           1678 ;00151$:
+                           1679 ;       Peephole 200   removed redundant sjmp
+   0630                    1680 00152$:
+                           1681 ;Z:\pn\projekt\zegar.c:342: alarm_on=0;
+                           1682 ;     genAssign
+   0630 E4                 1683 	clr	a
+   0631 F5*13              1684 	mov	(_alarm_on + 1),a
+   0633 F5*12              1685 	mov	_alarm_on,a
+                           1686 ;Z:\pn\projekt\zegar.c:343: wyslij_polecenie4(0x01);
+                           1687 ;     genCall
+   0635 75 82 01           1688 	mov	dpl,#0x01
+   0638 12s00r4E           1689 	lcall	_wyslij_polecenie4
+   063B                    1690 00119$:
+                           1691 ;Z:\pn\projekt\zegar.c:352: wyswietl_godz();
+                           1692 ;     genCall
+   063B 12s02r15           1693 	lcall	_wyswietl_godz
+                           1694 ;Z:\pn\projekt\zegar.c:353: wyswietl_alarm();
+                           1695 ;     genCall
+   063E 12s04r26           1696 	lcall	_wyswietl_alarm
+                           1697 ;Z:\pn\projekt\zegar.c:354: alarm();
+                           1698 ;     genCall
+   0641 12s03r30           1699 	lcall	_alarm
+   0644 02s05r34           1700 	ljmp	00121$
+   0647                    1701 00123$:
+   0647 22                 1702 	ret
+                           1703 	.area CSEG    (CODE)
+                           1704 	.area XINIT   (CODE)

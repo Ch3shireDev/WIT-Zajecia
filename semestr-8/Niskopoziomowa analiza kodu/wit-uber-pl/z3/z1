@@ -1,0 +1,43 @@
+xdata at 0x8000 unsigned char U15;
+xdata at 0xFFFF unsigned char U10;
+
+#define SEG_A 0x02
+#define SEG_B 0x04
+#define SEG_C 0x40
+#define SEG_D 0x10
+#define SEG_E 0x08
+#define SEG_F 0x01
+#define SEG_G 0x20
+#define SEG_H 0x80
+
+
+#define cyfra_n 0
+#define cyfra_0 SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F
+#define cyfra_1 SEG_B | SEG_C
+#define cyfra_2 SEG_A | SEG_B | SEG_D | SEG_E | SEG_G
+#define cyfra_3 SEG_A | SEG_B | SEG_C | SEG_D | SEG_G
+#define cyfra_4 SEG_B | SEG_C | SEG_F | SEG_G
+#define cyfra_5 SEG_A | SEG_C | SEG_D | SEG_F | SEG_G
+#define cyfra_6 SEG_A | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G
+#define cyfra_7 SEG_A | SEG_B | SEG_C
+#define cyfra_8 SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G
+#define cyfra_9 SEG_A | SEG_B | SEG_C | SEG_D | SEG_F | SEG_G
+#define cyfra_a SEG_A | SEG_B | SEG_C | SEG_E | SEG_F | SEG_G
+#define cyfra_b SEG_C | SEG_D | SEG_E | SEG_F | SEG_G
+#define cyfra_c SEG_A | SEG_D | SEG_E | SEG_F
+#define cyfra_d SEG_B | SEG_C | SEG_D | SEG_E | SEG_G
+#define cyfra_e SEG_A | SEG_D | SEG_E | SEG_F | SEG_G
+#define cyfra_f SEG_A | SEG_E | SEG_F | SEG_G
+
+
+main (void)
+
+{
+
+for (;;)
+{
+ U14 = 0xdf;
+ U10 = 0x44
+}
+
+}

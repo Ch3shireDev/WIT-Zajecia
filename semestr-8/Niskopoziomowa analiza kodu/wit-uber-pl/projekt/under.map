@@ -1,0 +1,221 @@
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+.  .ABS.                           0000   0000 =      0. bytes (ABS,OVR)
+
+      Value  Global
+   --------  --------------------------------
+     0000    l_BSEG
+     0000    l_BSEG_BYTES
+     0000    l_HOME
+     0000    l_ISEG
+     0000    l_REG_BANK_1
+     0000    l_REG_BANK_2
+     0000    l_REG_BANK_3
+     0000    l_XINIT
+     0000    l_XISEG
+     0000    l_XSEG
+     0000    l__CODE
+     0000    s_BSEG
+     0000    s_REG_BANK_0
+     0000    s_XISEG
+     0000    s_XSEG
+     0000    s__CODE
+     0001    l_SSEG
+     0002    l_OSEG
+     0003    l_GSFINAL
+     0007    l_DSEG
+     0008    l_REG_BANK_0
+     0008    s_DSEG
+     0008    s_REG_BANK_1
+     000F    s_OSEG
+     0010    s_REG_BANK_2
+     0011    s_SSEG
+     0018    s_REG_BANK_3
+     0020    s_BSEG_BYTES
+     0041    l_GSINIT
+     0080    s_ISEG
+     072C    l_CSEG
+     4000    s_CSEG
+     472C    s_GSINIT
+     476D    s_GSFINAL
+     4770    s_HOME
+     4770    s_XINIT
+     8000    _U12
+     8000    _U15
+     FFFF    _U10
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+_CODE                              0000   0000 =      0. bytes (REL,CON)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+REG_BANK_0                         0000   0008 =      8. bytes (REL,OVR)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+REG_BANK_1                         0008   0000 =      0. bytes (REL,OVR)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+REG_BANK_2                         0010   0000 =      0. bytes (REL,OVR)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+REG_BANK_3                         0018   0000 =      0. bytes (REL,OVR)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bits  (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+BSEG                               0000   0000 =      0. bits  (REL,CON,BIT)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+BSEG_BYTES                         0020   0000 =      0. bytes (REL,CON)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+DSEG                               0008   0007 =      7. bytes (REL,CON)
+
+      Value  Global
+   --------  --------------------------------
+     0008    __godzina
+     000A    __minuta
+     000C    __czas
+     000E    _lcd_xy_PARM_2
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+OSEG                               000F   0002 =      2. bytes (REL,OVR)
+
+      Value  Global
+   --------  --------------------------------
+     000F    __divsint_PARM_2
+     000F    __divuint_PARM_2
+     000F    __mulint_PARM_2
+     000F    __mulsint_PARM_2
+     000F    __muluint_PARM_2
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+SSEG                               0011   0001 =      1. bytes (REL,CON)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+ISEG                               0080   0000 =      0. bytes (REL,CON)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+XSEG                               0000   0000 =      0. bytes (REL,CON,XDATA)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+XISEG                              0000   0000 =      0. bytes (REL,CON,XDATA)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+CSEG                               4000   072C =   1836. bytes (REL,CON,CODE)
+
+      Value  Global
+   --------  --------------------------------
+  0C:4038    _send_Command_8_bit
+  0C:4045    _send_Command_4_bit
+  0C:4068    _send_Date
+  0C:4099    _czekaj
+  0C:40C5    _lcd_init
+  0C:4120    _lcd_write
+  0C:415D    _lcd_czas
+  0C:418F    _lcd_clear
+  0C:41C0    _lcd_xy
+  0C:41E3    _znak
+  0C:4253    _zmien_czas
+  0C:43F3    _strefa
+  0C:4532    _czas
+  0C:4595    _main
+  0C:463B    _klaw
+  0C:467F    __mulint
+  0C:467F    __mulint_dummy
+  0C:467F    __mulsint
+  0C:467F    __muluint
+  0C:469C    __sdcc_external_startup
+  0C:46A0    __divuint
+  0C:46C9    __gptrget
+  0C:46F4    __divsint
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+GSINIT                             472C   0041 =     65. bytes (REL,CON,CODE)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+GSFINAL                            476D   0003 =      3. bytes (REL,CON,CODE)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+HOME                               4770   0000 =      0. bytes (REL,CON,CODE)
+
+Hexadecimal
+
+Area                               Addr   Size   Decimal Bytes (Attributes)
+--------------------------------   ----   ----   ------- ----- ------------
+XINIT                              4770   0000 =      0. bytes (REL,CON,CODE)
+ASxxxx Linker V01.70 + NoICE + SDCC Feb 1999,  page 1.
+
+Files Linked	  [ module(s) ]
+
+under           
+
+Libraries Linked		       [   object  file   ]
+
+n:\sdcc\share\sdcc\lib\small/libint.lib    [          _mulint ]
+n:\sdcc\share\sdcc\lib\small/libsdcc.lib    [         _startup ]
+n:\sdcc\share\sdcc\lib\small/libint.lib    [         _divuint ]
+n:\sdcc\share\sdcc\lib\small/libsdcc.lib    [         _gptrget ]
+n:\sdcc\share\sdcc\lib\small/libint.lib    [         _divsint ]
+
+ASxxxx Linker V01.70 + NoICE + SDCC Feb 1999,  page 2.
+
+User Base Address Definitions
+
+CSEG = 0x4000
+XSEG = 0x0000
+ISEG = 0x0080
+BSEG = 0x0000
+
+
