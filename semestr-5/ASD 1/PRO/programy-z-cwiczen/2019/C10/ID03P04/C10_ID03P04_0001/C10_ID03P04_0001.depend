@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1575445557 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\main.cpp
+	"Application.h"
+
+1575446716 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+	"MyA.h"
+	"MyA11.h"
+
+1575445127 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\myutility.h
+	<iostream>
+
+1575448524 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\application.cpp
+	"Application.h"
+
+1575445171 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1575448959 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\mya.h
+	<iostream>
+	"MyUtility.h"
+
+1575446306 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\mya.cpp
+	"MyA.h"
+
+1575448344 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\mya11.h
+	"MyA.h"
+
+1575448489 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\mya11.cpp
+	"MyA11.h"
+

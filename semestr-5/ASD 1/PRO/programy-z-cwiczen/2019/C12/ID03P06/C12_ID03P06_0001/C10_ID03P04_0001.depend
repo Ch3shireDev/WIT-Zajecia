@@ -1,0 +1,86 @@
+# depslib dependency file v1.0
+1575445000 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\main.cpp
+	<iostream>
+	"Application.h"
+
+1575445045 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+
+1575445127 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\myutility.h
+	<iostream>
+
+1575445189 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\application.cpp
+	"Application.h"
+
+1575445171 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1575445171 source:\\sz240\temp\pro\c12_id03p06_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1575445127 \\sz240\temp\pro\c12_id03p06_0001\include\myutility.h
+	<iostream>
+
+1575445413 source:\\sz240\temp\pro\c12_id03p06_0001\main.cpp
+	<iostream>
+	"Application.h"
+
+1576668750 \\sz240\temp\pro\c12_id03p06_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+	"Animal.h"
+
+1576668520 \\sz240\temp\pro\c12_id03p06_0001\include\animal.h
+	"MyUtility.h"
+
+1576668577 source:\\sz240\temp\pro\c12_id03p06_0001\src\animal.cpp
+	"Animal.h"
+
+1576668717 source:\\sz240\temp\pro\c12_id03p06_0001\src\application.cpp
+	"Application.h"
+
+1575445413 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\main.cpp
+	<iostream>
+	"Application.h"
+
+1576672268 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+	"Animal.h"
+	"Spider.h"
+	"Vulture.h"
+
+1575445127 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\include\myutility.h
+	<iostream>
+
+1576671727 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\include\animal.h
+	"MyUtility.h"
+
+1576671712 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\src\animal.cpp
+	"Animal.h"
+
+1576673259 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\src\application.cpp
+	"Application.h"
+
+1575445171 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1576671987 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\include\spider.h
+	"Animal.h"
+
+1576671831 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\src\spider.cpp
+	"Spider.h"
+
+1576672281 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\include\vulture.h
+	"Animal.h"
+
+1576672368 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p06\c12_id03p06_0001\src\vulture.cpp
+	"Vulture.h"
+

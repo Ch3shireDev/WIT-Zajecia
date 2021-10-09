@@ -1,0 +1,68 @@
+# depslib dependency file v1.0
+1575445000 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\main.cpp
+	<iostream>
+	"Application.h"
+
+1575445045 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+
+1575445127 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\myutility.h
+	<iostream>
+
+1575445189 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\application.cpp
+	"Application.h"
+
+1575445171 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1575445171 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1575445127 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\include\myutility.h
+	<iostream>
+
+1575445413 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\main.cpp
+	<iostream>
+	"Application.h"
+
+1578487108 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+	"A.h"
+	"B1.h"
+	"B2.h"
+	"C1.h"
+
+1578488398 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\src\application.cpp
+	"Application.h"
+
+1578488254 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\include\a.h
+	"MyUtility.h"
+
+1578488279 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\src\a.cpp
+	"A.h"
+
+1578488352 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\include\b1.h
+	"A.h"
+
+1578488107 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\include\c1.h
+	"B1.h"
+	"B2.h"
+
+1578487957 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\src\b1.cpp
+	"B1.h"
+
+1578488188 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\src\c1.cpp
+	"C1.h"
+
+1578488363 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\include\b2.h
+	"A.h"
+
+1578487938 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c13\id03p06\c13_id03p06_0001\src\b2.cpp
+	"B2.h"
+

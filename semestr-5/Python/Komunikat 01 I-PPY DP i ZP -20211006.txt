@@ -1,0 +1,15 @@
+Szanowni Studenci,
+
+Bardzo proszê o przygotowanie œrodowiska pracy zdalnej na w³asnych komputerach. Z doœwiadczenia wiem, ¿e praca na pulpicie zdalnym ALEXANDER.wsisiz.edu.pl jest ma³o wiarygodna.
+
+Proszê zainstalowaæ nastêpuj¹ce oprogramowanie:
+
+1. "Anaconda Python Individual Edition"(https://repo.anaconda.com/archive/Anaconda3-2021.05-Windows-x86_64.exe). 
+Proszê nastêpnie sprawdziæ, czy otwiera siê aplikacja Jupyter Notebook (w przegl¹darce). Bêdziemy pracowali na dokumentach typu Jupyter Notebook.
+
+2. Edytor tekstowy (ja u¿ywam Notepad++)
+
+3. Dostêp do FTP Szkolnego w celu pobierania dokumentacji i materia³ów.
+
+pozdrawiam,
+Rafa³ Kowalski

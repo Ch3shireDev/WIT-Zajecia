@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1575445000 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\main.cpp
+	<iostream>
+	"Application.h"
+
+1575445045 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+
+1575445127 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\myutility.h
+	<iostream>
+
+1575445189 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\application.cpp
+	"Application.h"
+
+1575445171 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1575445171 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p06\c10_id03p06_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1575445127 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p06\c10_id03p06_0001\include\myutility.h
+	<iostream>
+
+1575445413 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p06\c10_id03p06_0001\main.cpp
+	<iostream>
+	"Application.h"
+
+1575460191 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p06\c10_id03p06_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+	"MyA.h"
+	"MyA11.h"
+
+1575462385 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p06\c10_id03p06_0001\include\mya.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+
+1575461829 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p06\c10_id03p06_0001\include\mya11.h
+	"MyA.h"
+
+1575460442 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p06\c10_id03p06_0001\src\mya.cpp
+	"MyA.h"
+
+1575461931 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p06\c10_id03p06_0001\src\mya11.cpp
+	"MyA11.h"
+
+1575462394 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p06\c10_id03p06_0001\src\application.cpp
+	"Application.h"
+

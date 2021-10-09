@@ -1,0 +1,31 @@
+Szanowni Studenci,
+
+Przedstawiam Pañstwu zasady zaliczenia przedmiotu:
+==================================================
+
+Sprawdzian 1: 30 punktów
+------------------------
+> Test wyboru, z³o¿ony z pytañ jedno lub wielokrotnego wyboru (20 minut).
+> Materia³ obejmuje znajomoœæ podstawowych struktur danych i ich podstawowych metod.
+> termin przeprowadzenia:
+  grupy DP: 7 spotkanie
+  grupy ZP: 5 spotkanie
+
+Sprawdzian 2: 70 punktów
+------------------------
+> Pisanie procedur i funkcji na podstawie treœci wylosowanych zadañ (60 minut).
+> Materia³ obejmuje znajomoœæ ca³ego przerobionego programu zajêæ.
+> termin przeprowadzenia:
+  grupy DP: 12 spotkanie
+  grupy ZP:  9 spotkanie
+  
+  
+Kalkulator ocen koñcowych (Progowa_liczba_punktów: ocena)
+> 51: 3,0 (dostateczny)
+> 61: 3,5 (ponad dostateczny)
+> 71: 4,0 (dobry)
+> 81: 4,5 (ponad dobry)
+> 91: 5,0 (bardzo dobry)
+
+pozdrawiam,
+Rafa³ Kowalski

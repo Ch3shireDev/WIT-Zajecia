@@ -1,0 +1,79 @@
+# depslib dependency file v1.0
+1573033491 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c06\id03p05\c06_id03p05_0001\main.cpp
+	"MyApplication.h"
+
+1573036891 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c06\id03p05\c06_id03p05_0001\src\myapplication.cpp
+	"MyApplication.h"
+
+1573037225 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c06\id03p05\c06_id03p05_0001\include\myapplication.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+	"TabInt01.h"
+
+1573034376 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c06\id03p05\c06_id03p05_0001\include\myutility.h
+	<iostream>
+	<ctime>
+
+1573034486 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c06\id03p05\c06_id03p05_0001\src\myutility.cpp
+	"MyUtility.h"
+
+1573037118 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c06\id03p05\c06_id03p05_0001\include\tabint01.h
+	<iostream>
+	<ctime>
+
+1573037136 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c06\id03p05\c06_id03p05_0001\src\tabint01.cpp
+	"TabInt01.h"
+
+1573033491 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c07\id03p05\c07_id03p05_0001\main.cpp
+	"MyApplication.h"
+
+1573642115 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c07\id03p05\c07_id03p05_0001\include\myapplication.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+	"TabInt01.h"
+
+1573034376 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c07\id03p05\c07_id03p05_0001\include\myutility.h
+	<iostream>
+	<ctime>
+
+1573641726 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c07\id03p05\c07_id03p05_0001\include\tabint01.h
+	<iostream>
+	<ctime>
+
+1573034486 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c07\id03p05\c07_id03p05_0001\src\myutility.cpp
+	"MyUtility.h"
+
+1573641939 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c07\id03p05\c07_id03p05_0001\src\tabint01.cpp
+	"TabInt01.h"
+
+1573640769 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c07\id03p05\c07_id03p05_0001\src\myapplication.cpp
+	"MyApplication.h"
+
+1573033491 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c08\id03p05\c08_id03p05_0001\main.cpp
+	"MyApplication.h"
+
+1574242445 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c08\id03p05\c08_id03p05_0001\include\myapplication.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+	"TabInt01.h"
+
+1573034376 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c08\id03p05\c08_id03p05_0001\include\myutility.h
+	<iostream>
+	<ctime>
+
+1574246754 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c08\id03p05\c08_id03p05_0001\include\tabint01.h
+	<iostream>
+	<ctime>
+
+1573034486 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c08\id03p05\c08_id03p05_0001\src\myutility.cpp
+	"MyUtility.h"
+
+1574245762 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c08\id03p05\c08_id03p05_0001\src\tabint01.cpp
+	"TabInt01.h"
+
+1574245677 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c08\id03p05\c08_id03p05_0001\src\myapplication.cpp
+	"MyApplication.h"
+

@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1575445000 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\main.cpp
+	<iostream>
+	"Application.h"
+
+1575445045 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+
+1575445127 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\include\myutility.h
+	<iostream>
+
+1575445189 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\application.cpp
+	"Application.h"
+
+1575445171 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c10\id03p04\c10_id03p04_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1575445171 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\src\myutility.cpp
+	"MyUtility.h"
+	"MyUtility.h"
+
+1575445127 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\include\myutility.h
+	<iostream>
+
+1575445413 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\main.cpp
+	<iostream>
+	"Application.h"
+
+1576665679 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\include\application.h
+	<iostream>
+	<ctime>
+	"MyUtility.h"
+	"Animal.h"
+	"Vulture.h"
+	"Spider.h"
+
+1576665227 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\include\animal.h
+	"MyUtility.h"
+
+1576665185 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\src\animal.cpp
+	"Animal.h"
+
+1576666274 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\src\application.cpp
+	"Application.h"
+
+1576665262 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\include\vulture.h
+	"Animal.h"
+
+1576664985 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\src\vulture.cpp
+	"Vulture.h"
+
+1576665590 n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\include\spider.h
+	"Animal.h"
+
+1576665723 source:n:\wsisiz\cwiczenia\pro\2019\01_dzienne\c12\id03p05\c12_id03p05_0001\src\spider.cpp
+	"Spider.h"
+
