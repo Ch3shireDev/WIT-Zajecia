@@ -1,0 +1,47 @@
+<karta>
+	<dane nr="1">
+		<osoba> 
+			<nazwisko>Babacki</nazwisko>
+			<imie>Adrian</imie>
+			<imie>Karol</imie>
+			<nazwisko_rod>Cacyki</nazwisko_rod>
+			<imie_matki>Joanna</imie_matki>
+			<imie_ojca>Karol</imie_ojca>
+			<data_ur>1987-05-03</data_ur>
+			<miejsce_ur>Warszawa</miejsce_ur>
+			<NIP>321-423-56-65</NIP>
+			<PESEL>346327474247</PESEL>
+			<plec>2</plec>
+			<stan_cyw>Kawaler</stan_cyw>
+			<nr_wpisu>23-43254</nr_wpisu>
+		</osoba>
+		
+		<adres_zameld>
+			<ulica>Iksicka</ulica>
+			<nr_dom>12</nr_dom>
+			<nr_lokalu>27</nr_lokalu>
+			<miasto>Warszawa</miasto>
+			<kod_poczt>03-452</kod_poczt>
+			<panstwo>Polska</panstwo>
+		</adres_zameld>
+
+		<adres_zamieszk>
+			<ulica>Iksicka</ulica>
+			<nr_dom>12</nr_dom>
+			<nr_lokalu>27</nr_lokalu>
+			<miasto>Warszawa</miasto>
+			<kod_poczt>03-452</kod_poczt>
+		</adres_zamieszk>
+		
+		<adres_koresp>
+			<ulica>Iksicka</ulica>
+			<nr_dom>12</nr_dom>
+			<nr_lokalu>27</nr_lokalu>
+			<miasto>Warszawa</miasto>
+			<kod_poczt>03-452</kod_poczt>
+		</adres_koresp>
+		
+		
+		
+	</dane>
+</karta>
