@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cv>
+    <description>
+        <imie>Igor</imie>
+        <nazwisko>Nowicki</nazwisko>
+        <email>igor.nowicki@gmail.com</email>
+        <phone>+48 123 456 789</phone>
+        <birthdate>25.01.1991</birthdate>
+        <address>Plac Defilad 1, Warszawa</address>
+        <tytul>Programista C#</tytul>
+        <details>
+        Jestem inżynierem oprogramowania z ponad 3-letnim doświadczeniem w pisaniu aplikacji komercyjnych. Posiadam umiejętność tworzenia innowacyjnych i nowoczesnych rozwiązań biznesowych dla firm o globalnym zasięgu. Szukam pracy, gdzie będę mógł dalej rozwijać swoje umiejętności.
+    </details>
+    </description>
+    <experience>
+        <element>
+            <date-from>08.2018</date-from>
+            <date-to></date-to>
+            <title>Programista C#</title>
+            <company>Open Code / Warszawa</company>
+            <responsibilities>
+                <resp>Praca z użyciem technologii WPF, WinForms, REST, SOAP, SQL Server</resp>
+                <resp>Wsparcie w procesie diagnozy i naprawiania błędów oprogramowania</resp>
+                <resp>Wykonywanie code review i zapewnianie feedbacku programistom</resp>
+                <resp>Pisanie testów jednostkowych i integracyjnych w oparciu o NUnit</resp>
+                <resp>Konfigurowanie i automatyzowanie procesów CI w Jenkins</resp>
+                <resp>Wytwarzanie oprogramowania z wykorzystaniem metodyki SCRUM (w zespołach 3-4 osobowych)</resp>
+            </responsibilities>
+        </element>
+    </experience>
+    <education>
+        <education-element>
+            <date-from>10.2015</date-from>
+            <date-to>06.2020</date-to>
+            <description-short>Studia na kierunku: informatyka</description-short>
+            <description-long>Specjalizacja: Systemy informatyczne</description-long>
+        </education-element>
+    </education>
+    <skills>
+        <skill>Obsługa ASP.NET</skill>
+        <skill>Znajomość narzędzi Postman i SoapUI</skill>
+        <skill>Znajomość środowiska SQL Server Management Studio (SSMS)</skill>
+        <skill>Znajomość środowiska Visual Studio oraz edytora Visual Code</skill>
+        <skill>Znajomość MS Office</skill>
+        <skill>Myślenie analityczne</skill>
+        <skill>Praca zespołowa</skill>
+        <skill>Kreatywność i inicjatywa</skill>
+        <skill>Otwartość na nowe rozwiązania</skill>
+    </skills>
+    <hobbies>
+        <hobby>Gry komputerowe</hobby>
+        <hobby>Pozycjonowanie stron</hobby>
+        <hobby>Budowa przyjaznych UI</hobby>
+    </hobbies>
+    <programming>
+        <language>C#</language>
+        <language>Python</language>
+        <language>Typescript/Javascript</language>
+        <language>C/C++</language>
+        <language>SQL</language>
+        <language>XML, XSL, XSD</language>
+        <language>Docker, Kubernetes</language>
+    </programming>
+    <tools>
+        <tool>Visual Studio 2019</tool>
+        <tool>Visual Code</tool>
+        <tool>SSMS</tool>
+    </tools>
+    <certificates>
+        <certificate>Oracle Java Certifications</certificate>
+        <certificate>Associate Professional</certificate>
+    </certificates>
+    <languages>
+        <language>angielski-zaawansowany (B2)</language>
+    </languages>
+</cv>

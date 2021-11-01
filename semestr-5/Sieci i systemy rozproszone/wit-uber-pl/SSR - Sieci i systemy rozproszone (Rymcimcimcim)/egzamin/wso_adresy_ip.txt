@@ -1,0 +1,81 @@
+Wyklad WSO 20.VI.2k1
+(ostatni - z nieKrusiem)
+zgodnie z prosba, przedrukowalem moje (niewyrazne) notatki
+(mam nadzieje, ze nie ma literowek, szczegolnie w "broadcast")
+milej zabawy, Emil
+---------------------------
+
+Zad 1
+20 i 50 kompow
+
+  a. b.c.0-95
+198.10.5
+
+dokonac podzialu na podsieci,
+podac numery podsieci, maski, zakres przyznanych IP, adres broadcast i routera
+
+odp z tablicy:
+IP podsieci
+198.10.5.0      i 198.10.5.64
+
+Maska
+255.255.255.192 i 255.255.255.224
+
+IP hostow
+198.10.5.2-51   i 198.10.5.65(-85?)
+
+Broadcast
+198.105.63      i 198.10.5.95
+
+Router
+198.10.5.1      i 198.10.5.68 (86?)
+
+Rezerwa
+52-62           i 86-94
+
+notatki do zadania:
+zaczac od maski
+Kompow - max
+50     - 64  
+20     - 32
+
+(256-64=192 i 256-32=224, a 64 i 32 to odpowiednie 2^n)
+
+-------------------------------------------------------
+Zad 2
+
+a.b.c.96-191
+kompow:
+61 => 64 
+25 => 32
+
+odp z tablicy
+maska
+255...192 i 255...224
+
+IP hostow
+a.b.c.130-190 i a.b.c.98-122
+
+Broadcast
+a.b.c.191 i a.b.c.127
+
+Router
+a.b.c.129 i a.b.c.97
+-------------------------------------------------------
+Zad 3
+IP 198.10.5.96
+maska 255.255.255.224
+czy moze byc numerem hosta?
+jakie nie moga byc numerami hosta?
+
+odp:
+
+|  224   |  
+|11100000|  
+  |  32  |  
+
+0,32,64,...   31,63,...   nie moga byc hostami
+-------------------------------------------------------
+
+to tyle, jak ktos mialby wiecej / ciag dalszy to by mogl podeslac
+
