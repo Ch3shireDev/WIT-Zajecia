@@ -4,28 +4,28 @@
 
 Wydzielić z sieci klasy C o adresie 192.168.1.0 trzy **jak najmniejsze** podsieci, w taki sposób, aby w pierwszej umieścić 50, w drugiej 30, a w trzeciej 120 komputerów. **Uwaga: podana kolejność nie może być zmieniona!** Dla każdej podsieci należy podać: adres, maskę (w wersji kropkowo-dziesiętnej), adres broadcast i pełny zakres adresów hostów.
 
-### Rozwiązanie
+## Rozwiązanie
 
 Tworzymy podsieci o rozmiarach 64, 64 oraz 128 adresów.
 
-| Adres sieci   | Maska podsieci  | Broadcast     | Zakres adresów hostów |
-| ------------- | --------------- | ------------- | --------------------- |
-| 192.168.1.0   | 255.255.255.192 | 192.168.1.63  | 192.168.1.1-62        |
-| 192.168.1.64  | 255.255.255.192 | 192.168.1.127 | 192.168.1.65-126      |
-| 192.168.1.128 | 255.255.255.128 | 192.168.1.255 | 192.168.1.129-254     |
+| Adres sieci   | Maska podsieci  | Broadcast     | Zakres adresów    |
+| ------------- | --------------- | ------------- | ----------------- |
+| 192.168.1.0   | 255.255.255.192 | 192.168.1.63  | 192.168.1.0-63    |
+| 192.168.1.64  | 255.255.255.192 | 192.168.1.127 | 192.168.1.64-127  |
+| 192.168.1.128 | 255.255.255.128 | 192.168.1.255 | 192.168.1.128-255 |
 
 ## Zadanie 2
 
 Z trzech sieci klasy C o adresach 192.168.4.0, 192.168.5.0 i 192.168.6.0 należy utworzyć dwa bloki adresów w taki sposób, aby w jednym z nich mieścić 250, a w drugim 500 komputerów. Dla każdego bloku należy podać: adres początkowy i maskę (oddzielone ukośnikiem), adres broadcast i pełny zakres adresów hostów.
 
-### Rozwiązanie
+## Rozwiązanie
 
 Łączymy dwie sieci 192.168.4.0 oraz 192.168.5.0 w jedną sieć o adresie 192.168.4.0/23 - adres sieci ma w części hostowej same zera, mamy 512 adresów obok siebie, zatem mamy sieć IP. Pozostałą sieć 192.168.6.0/24 zostawiamy. 
 
 | Adres początkowy i maska | Adres broadcast | Zakres hostów               |
 | ------------------------ | --------------- | --------------------------- |
-| 192.168.4.0 / 23         | 192.168.5.255   | 192.168.4.1 - 192.168.5.254 |
-| 192.168.6.0 / 24         | 192.168.6.255   | 192.168.6.1 - 192.168.6.254 |
+| 192.168.4.0 / 23         | 192.168.5.255   | 192.168.4.0 - 192.168.5.255 |
+| 192.168.6.0 / 24         | 192.168.6.255   | 192.168.6.0 - 192.168.6.255 |
 
 ## Zadanie 3
 
@@ -35,7 +35,7 @@ Poniższy rysunek przestawia schemat przykładowego środowiska sieciowego:
 
 Należy tak wpisać odpowiednie wartości w puste pola poniższej tabeli, aby utworzyć tablicę trasowania routera Q.
 
-### Rozwiązanie
+## Rozwiązanie
 
 | Adres sieci docelowej | Maska           | Adres następnego routera | Fizyczny interfejs wyjściowy |
 | --------------------- | --------------- | ------------------------ | ---------------------------- |
@@ -47,7 +47,7 @@ Należy tak wpisać odpowiednie wartości w puste pola poniższej tabeli, aby ut
 
 Rozważmy trzy procesy, każdy działający na innej maszynie. Każda maszyna ma lokalny zegar. Przy założeniu braku korekty czasu, proces P1 wysyła komunikat A w chwili 33. Komunikat ten odbierany jest przez proces P2, w chwili 28. Następnie proces P2 w chwili 32 wysyła komunikat B do procesu P3. Proces P3 odbiera ten komunikat w chwili 38. Wszystkie czasy są podane według zegarów lokalnych. Czasy których maszyn należy skorygować, oraz jakie będą czasy wysłania i odebrania komunikatów po dokonaniu logicznej synchronizacji czasu maszyn zgodnie z algorytmem Lamporta?
 
-### Rozwiązanie
+## Rozwiązanie
 
 Stan początkowy:
 
