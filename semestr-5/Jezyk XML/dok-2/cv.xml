@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cv xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cv.xsd">
+    <dane_osobowe>
+        <imie typ="pierwsze">Jerzy</imie>
+        <imie typ="drugie">Adam</imie>
+        <nazwisko>Kowalski</nazwisko>
+        <adres>
+            <ulica>Newelska</ulica>
+            <nr>6</nr>
+            <miasto>Warszawa</miasto>
+        </adres>
+    </dane_osobowe>
+    <wyksztalcenie>
+        <szkola>
+            <nazwa>WIT</nazwa>
+            <adres>
+                <ulica>Puławska</ulica>
+                <nr>1</nr>
+            </adres>
+        </szkola>
+        <szkola>
+            <nazwa>WIT2</nazwa>
+            <adres>
+                <ulica>Puławska</ulica>
+                <nr>1</nr>
+            </adres>
+        </szkola>
+    </wyksztalcenie>
+</cv>

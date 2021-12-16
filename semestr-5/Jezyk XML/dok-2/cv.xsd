@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<xsd:schema version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xsd:complexType name="ctAdres">
+        <xsd:sequence>
+            <xsd:element name="ulica" type="xsd:string" />
+            <xsd:element name="nr" type="xsd:string" />
+            <xsd:element name="miasto" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ctDaneOsobowe">
+        <xsd:sequence>
+            <xsd:element name="imie" maxOccurs="2">
+                <xsd:complexType>
+                    <xsd:simpleContent>
+                        <xsd:extension base="xsd:string">
+                            <xsd:attribute name="typ" type="xsd:string" />
+                        </xsd:extension>
+                    </xsd:simpleContent>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="nazwisko" type="xsd:string" />
+            <xsd:element name="adres" type="ctAdres" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ctWyksztalcenie">
+        <xsd:sequence>
+            <xsd:element name="szkola" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="nazwa" type="xsd:string" />
+                        <xsd:element name="adres" type="ctAdres" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="cv">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="dane_osobowe" type="ctDaneOsobowe" />
+                <xsd:element name="wyksztalcenie" type="ctWyksztalcenie" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

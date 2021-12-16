@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klient nr="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="2.xsd">
+	<imie>Karol</imie>
+	<imie>Marek</imie>
+	<nazwisko>Jonakowski</nazwisko>
+	<data_urodzenia>1978-10-30</data_urodzenia>
+	<pesel>78092002511</pesel>
+	<wiek>20</wiek>
+	<typ></typ>
+	<szkola></szkola>
+	<rodzice>
+		<ojciec>Tomasz</ojciec>
+		<matka>Tamara</matka>
+	</rodzice>
+</klient>

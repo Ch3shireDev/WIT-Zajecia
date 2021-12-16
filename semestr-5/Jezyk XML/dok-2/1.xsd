@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+	<xsd:element name="klient">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="imie" type="xsd:string" maxOccurs="2"/>
+				<xsd:element name="nazwisko" type="xsd:string"/> 
+				<xsd:element name="data_urodzenia" type="xsd:date"/>
+				<xsd:element name="pesel">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="\d{11}"/>
+						</xsd:restriction>
+					</xsd:simpleType> 
+				</xsd:element>
+				<xsd:element name="wiek">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:integer">
+							<xsd:minInclusive value="0"/>
+							<xsd:maxInclusive value="100"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

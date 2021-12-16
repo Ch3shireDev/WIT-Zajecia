@@ -1,0 +1,722 @@
+<!DOCTYPE html><html><head>
+      <title>specyfikacja_wymagan_v0_0_4_0</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Cheshire Cat\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.1\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\Cheshire Cat\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.1\node_modules\@shd101wyy\mume\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="specyfikacja-wymaga%C5%84-dla-projektu-samochody-masa-bruttoowe-wersja-004">Specyfikacja wymaga&#x144; dla projektu Samochody Masa bruttoowe, wersja 0.0.4</h1>
+
+<h2 class="mume-header" id="autor-igor-nowicki">Autor: Igor Nowicki</h2>
+
+<h2 class="mume-header" id="1-opis-systemu">1. Opis systemu</h2>
+
+<p>System s&#x142;u&#x17C;y do przechowywania definicji pojazd&#xF3;w Masa bruttoowych i ich zespo&#x142;&#xF3;w, wraz z informacjami o za&#x142;adunku. Przewidziana jest mo&#x17C;liwo&#x15B;&#x107; przechowywania pojazd&#xF3;w r&#xF3;&#x17C;nego rodzaju (samochody z przestrzeni&#x105; &#x142;adunkow&#x105;, ci&#x105;gniki siod&#x142;owe, przyczepy, naczepy), z r&#xF3;&#x17C;nego rodzaju przestrzeniami &#x142;adunkowymi (zdefiniowane jako skrzyniowa, kontenerowa, cysterna). Program przewiduje mechanizm przechowywania danych na temat pojazdu pomi&#x119;dzy sesjami poprzez zapis i odczyt z i do pliku dyskowego w formacie JSON.</p>
+<p>Program realizuje nast&#x119;puj&#x105;ce dzia&#x142;ania:</p>
+<ul>
+<li>Logowanie i wylogowanie operatora</li>
+<li>Logowanie i wylogowanie administratora</li>
+<li>Wczytanie i zapis stanu z repozytorium z i do pami&#x119;ci</li>
+<li>zapis stanu systemu z pami&#x119;ci do repozytorium</li>
+<li>wprowadzenie nowego pojazdu</li>
+<li>skasowanie istniej&#x105;cego pojazdu</li>
+<li>zarz&#x105;dzanie pojazdami przez operatora:
+<ul>
+<li>dodawanie pojazd&#xF3;w</li>
+<li>edycja pojazd&#xF3;w</li>
+<li>usuwanie pojazd&#xF3;w</li>
+<li>wy&#x15B;wietlanie danych o pojazdach</li>
+<li>&#x142;&#x105;czenie i roz&#x142;&#x105;czanie pojazd&#xF3;w w zespo&#x142;y pojazd&#xF3;w wed&#x142;ug zdefiniowanych zasad</li>
+<li>&#x142;adunek i roz&#x142;adunek pojazd&#xF3;w z przestrzeni&#x105; &#x142;adunkow&#x105; wed&#x142;ug zdefiniowanych zasad</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="2-model-proces%C3%B3w-biznesowych">2. Model proces&#xF3;w biznesowych</h2>
+
+<h3 class="mume-header" id="diagramy-klas">Diagramy klas</h3>
+
+<div class="mermaid">classDiagram
+    Engine --* Vehicle
+    Vehicle *-- Storage
+   
+    Storage &lt;|-- ContainerStorage
+    Storage &lt;|-- BoxStorage
+    Storage &lt;|-- TankStorage
+
+    &lt;&lt;abstract&gt;&gt; Vehicle
+
+    class Engine{
+      +Name: string
+      +Capacity: int
+      +HorsePower: int
+    }
+
+    class ContainerStorage{
+      +MaxItemsCount: int
+      +Items: List&lt;ContainerItem&gt;
+    }
+
+    class BoxStorage{
+      +Width: int
+      +Height: int
+      +Length: int
+      +Items: List&lt;BoxItem&gt;
+    }
+
+    class TankStorage{
+      +MaxVolume: int
+      +Volume: int
+      +Items: List&lt;LiquidItem&gt;
+    }
+
+    class Item{
+      +Name : string
+      +GrossMass : float
+    }
+
+    class LiquidItem{
+      +Volume : float
+    }
+
+    class BoxItem{
+      +Width: int
+      +Height: int
+      +Length: int
+    }
+
+    &lt;&lt;abstract&gt;&gt; Item
+
+    ContainerStorage -- ContainerItem
+    BoxStorage -- BoxItem
+    TankStorage -- LiquidItem
+    ContainerItem --|&gt; Item
+    BoxItem --|&gt; Item
+    LiquidItem --|&gt; Item
+
+    class Vehicle{
+      +Id : int
+      +Name : string
+      +VIN : string
+      +Year : int
+      +Engine : Engine
+      +CargoSpace : Storage
+    }
+
+</div><div class="mermaid">classDiagram
+
+    class ILoadable{
+      +Load: (Item)
+      +Unload: ()
+    }
+
+    &lt;&lt;interface&gt;&gt; ILoadable
+
+    class ITrailerable{
+      +Hook(Trailer) : void
+      +Unhook() : ITrailer
+    }
+    &lt;&lt;interface&gt;&gt; ITrailerable
+
+    class ISemiTrailerable{
+      +Hook(SemiTrailer) : void
+      +Unhook() : ISemiTrailer
+    }
+
+    &lt;&lt;interface&gt;&gt; ISemiTrailerable
+
+    TrailerCar --|&gt; ITrailerable
+    Trailer .. TrailerCar
+    Trailer --|&gt; Vehicle
+    Truck --|&gt; Vehicle
+    Truck  --|&gt;  ISemiTrailerable
+    SemiTrailer --|&gt; Vehicle
+    SemiTrailer .. Truck
+    CargoSpaceCar --|&gt; Vehicle
+    TrailerCar --|&gt; Vehicle
+
+    ILoadable &lt;|-- Trailer
+    ILoadable &lt;|-- CargoSpaceCar
+    ILoadable &lt;|-- SemiTrailer
+
+  
+    class Vehicle{
+      +Id : int
+      +Name : string
+      +VIN : string
+      +Year : int
+      +Engine : Engine
+      +CargoSpace : Storage
+    }
+</div><h3 class="mume-header" id="diagramy-przypadk%C3%B3w-u%C5%BCycia">Diagramy przypadk&#xF3;w u&#x17C;ycia</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="734px" preserveAspectRatio="none" style="width:1416px;height:734px;background:#FFFFFF;" version="1.1" viewBox="0 0 1416 734" width="1416px" zoomAndPan="magnify"><defs><filter height="300%" id="f5qfpxmibso60" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[0736e11ead106a492c88d05216811f3b]
+cluster Administracja--><rect fill="#FFFFFF" filter="url(#f5qfpxmibso60)" height="173" style="stroke:#000000;stroke-width:1.5;" width="590.5" x="136" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="94" x="384.25" y="23.5332">Administracja</text><!--MD5=[71a6c8c2cda617d31c96bfbf6302a9eb]
+cluster Autoryzacja--><rect fill="#FFFFFF" filter="url(#f5qfpxmibso60)" height="174" style="stroke:#000000;stroke-width:1.5;" width="234" x="486" y="204"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="80" x="563" y="220.5332">Autoryzacja</text><!--MD5=[bfa5d85992937b48781fc48340d8ae2b]
+cluster Zarządzanie magazynem--><rect fill="#FFFFFF" filter="url(#f5qfpxmibso60)" height="320" style="stroke:#000000;stroke-width:1.5;" width="1256.5" x="147.5" y="402"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="168" x="691.75" y="418.5332">Zarz&#x105;dzanie magazynem</text><ellipse cx="260.1585" cy="129.0317" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="108.1585" ry="24.0317" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="170.6585" y="132.7602">Wy&#x15B;wietla list&#x119; u&#x17C;ytkownik&#xF3;w</text><ellipse cx="602.7512" cy="139.8502" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="107.2512" ry="23.8502" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="514.2512" y="143.5788">Dodaje nowego u&#x17C;ytkownika</text><ellipse cx="602.8351" cy="61.867" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="82.3351" ry="18.867" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="542.8351" y="65.5955">Usuwa u&#x17C;ytkownika</text><ellipse cx="602.7628" cy="261.1526" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="91.2628" ry="20.6526" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="532.2628" y="264.8811">Loguje si&#x119; do systemu</text><ellipse cx="602.9506" cy="339.0901" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="100.9506" ry="22.5901" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="163" x="521.4506" y="342.8186">Wylogowuje si&#x119; z systemu</text><ellipse cx="260.011" cy="545.2022" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="96.511" ry="21.7022" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153" x="183.511" y="548.9307">Wy&#x15B;wietla list&#x119; pojazd&#xF3;w</text><ellipse cx="602.8478" cy="685.8696" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="84.8478" ry="19.3696" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="539.8478" y="689.5981">Dodaje nowy pojazd</text><ellipse cx="603.1531" cy="614.9306" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="70.1531" ry="16.4306" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="556.1531" y="619.4472">&#x141;&#x105;czy pojazdy</text><ellipse cx="603.0069" cy="544.9014" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="77.5069" ry="17.9014" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="546.8567" y="549.216">Roz&#x142;&#x105;cza pojazdy</text><ellipse cx="603.091" cy="464.9182" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="120.091" ry="26.4182" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="500.591" y="468.6467">Wy&#x15B;wietla informacje o poje&#x17A;dzie</text><ellipse cx="956.6904" cy="670.9381" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="95.1904" ry="21.4381" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="881.6904" y="674.6666">Uzupe&#x142;nia dane pojazdu</text><ellipse cx="956.457" cy="541.7914" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="69.457" ry="16.2914" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="910.457" y="546.308">Usuwa pojazd</text><ellipse cx="1287.837" cy="541.9674" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="97.837" ry="21.9674" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="1209.837" y="545.6959">Przeprowadza za&#x142;adunek</text><ellipse cx="1288.0583" cy="461.9117" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="100.0583" ry="22.4117" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="1207.5583" y="465.6402">Przeprowadza roz&#x142;adunek</text><ellipse cx="956.3945" cy="465.1789" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="116.3945" ry="25.6789" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="857.8945" y="468.9074">Wy&#x15B;wietla informacje o &#x142;adunku</text><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
+entity admin--><ellipse cx="47.5" cy="243" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M47.5,251 L47.5,278 M34.5,259 L60.5,259 M47.5,278 L34.5,293 M47.5,278 L60.5,293 " fill="none" filter="url(#f5qfpxmibso60)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="6" y="313.0332">Administrator</text><!--MD5=[8fc3522a43f8c7199df5e09e5bb0188e]
+entity user--><ellipse cx="260" cy="278" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M260,286 L260,313 M247,294 L273,294 M260,313 L247,328 M260,313 L273,328 " fill="none" filter="url(#f5qfpxmibso60)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="226" y="348.0332">U&#x17C;ytkownik</text><!--MD5=[0050c6625e3b42e2857ba4d8ed699679]
+entity operator--><ellipse cx="47.5" cy="362" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M47.5,370 L47.5,397 M34.5,378 L60.5,378 M47.5,397 L34.5,412 M47.5,397 L60.5,412 " fill="none" filter="url(#f5qfpxmibso60)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="19" y="432.0332">Operator</text><!--MD5=[31278c4c352e8aa61eec19ec7f7e5854]
+link admin to user--><path d="M89.09,281.75 C122.34,287.28 169.66,295.15 205.92,301.17 " fill="none" id="admin-to-user" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="207.22,294.3,225.81,304.48,204.93,308.11,207.22,294.3" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bd01c5106916100bd45902b0665d83d9]
+link operator to user--><path d="M76.02,383.02 C109.23,369.77 165.77,347.2 207.24,330.66 " fill="none" id="operator-to-user" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="204.76,324.11,225.93,323.2,209.95,337.11,204.76,324.11" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9b08ad6b92f36423f52dda65f3ac219a]
+link admin to A1--><path d="M89.09,246.85 C128.99,219.17 189.14,177.45 226.14,151.79 " fill="none" id="admin-A1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e2abf82482e8f055e91fb9f96e417b21]
+reverse link A1 to Dodaje nowego użytkownika--><path d="M372.36,132.59 C412.21,133.88 456.98,135.32 496.33,136.59 " fill="none" id="A1-backto-Dodaje nowego u&#x17C;ytkownika" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="367.03,132.42,375.8999,136.7007,372.0275,132.5771,376.1512,128.7047,367.03,132.42" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="130.4951">&#xAB;extend&#xBB;</text><!--MD5=[4cab03ca8b9d2cefc2835b1184e57f71]
+reverse link A1 to Usuwa użytkownika--><path d="M346.4,112.22 C406.49,100.41 485.54,84.88 539.73,74.23 " fill="none" id="A1-backto-Usuwa u&#x17C;ytkownika" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="341.38,113.21,350.9799,115.4104,346.2873,112.2514,349.4462,107.5588,341.38,113.21" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="88.4951">&#xAB;extend&#xBB;</text><!--MD5=[b4c1f582698cbe5af94e4db049bdf197]
+link user to Loguje się do systemu--><path d="M294.01,305.26 C347.07,297.63 452.76,282.44 525.4,272.01 " fill="none" id="user-Loguje si&#x119; do systemu" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9485f9f5b29810dab05be70f078a4b67]
+link user to Wylogowuje się z systemu--><path d="M294.01,312.81 C343.06,316.98 437.09,324.98 508.4,331.04 " fill="none" id="user-Wylogowuje si&#x119; z systemu" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0f0122ef41a976e28a99d424ef3b24eb]
+link operator to M1--><path d="M76.02,413.74 C116.03,442.44 189.89,495.43 230.46,524.53 " fill="none" id="operator-M1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ca1222f75ae55e890942bd07971edad2]
+reverse link M1 to M2--><path d="M302.44,567.27 C345.49,589.83 415.2,624.76 478,649 C500.01,657.5 524.82,665.25 546.44,671.44 " fill="none" id="M1-backto-M2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="297.85,564.86,303.9544,572.589,302.2755,567.187,307.6775,565.5081,297.85,564.86" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="611.4951">&#xAB;extend&#xBB;</text><!--MD5=[074a00d3cb79d78216d7e33d42e45ac3]
+reverse link M1 to M3--><path d="M336.65,560.53 C401.3,573.8 492.63,592.55 549.53,604.23 " fill="none" id="M1-backto-M3" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="331.66,559.5,339.659,565.2459,336.5556,560.5163,341.2852,557.4129,331.66,559.5" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="569.4951">&#xAB;extend&#xBB;</text><!--MD5=[62fddd67ff81236738a6632d28fe4680]
+reverse link M1 to M4--><path d="M361.93,545 C414.25,545 477.13,545 525.41,545 " fill="none" id="M1-backto-M4" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="356.89,545,365.9014,548.9743,361.89,544.9857,365.8785,540.9743,356.89,545" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="541.4951">&#xAB;extend&#xBB;</text><!--MD5=[a94d6b8ea3007bebf26e9db698ba2209]
+reverse link M1 to M5--><path d="M332.06,528.33 C386.85,515.47 462.71,497.68 520.07,484.22 " fill="none" id="M1-backto-M5" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="327.15,529.48,336.8257,531.3186,332.0178,528.338,334.9985,523.5301,327.15,529.48" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="497.4951">&#xAB;extend&#xBB;</text><!--MD5=[b3b803c5df486b3adcfd1685c2914e4b]
+reverse link M2 to M6--><path d="M691.86,682.25 C744,680.03 810.05,677.21 862.99,674.95 " fill="none" id="M2-backto-M6" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="686.86,682.46,696.023,686.071,691.8554,682.2459,695.6805,678.0783,686.86,682.46" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="755" y="673.4951">&#xAB;extend&#xBB;</text><!--MD5=[0cc8c3d25cda78a56a8e6093439baa69]
+reverse link M5 to M7--><path d="M694.27,484.78 C761.19,499.43 849.97,518.88 904.88,530.91 " fill="none" id="M5-backto-M7" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="689.09,483.64,697.0243,489.475,693.9739,484.711,698.7379,481.6607,689.09,483.64" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="755" y="495.4951">&#xAB;extend&#xBB;</text><!--MD5=[be159da7244b5a08668d9df7c00e50ab]
+link M5 to M10--><path d="M723,465 C758.97,465 798.5,465 834.6,465 " fill="none" id="M5-to-M10" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="839.9,465,830.9,461,834.9,465,830.9,469,839.9,465" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="754" y="461.4951">&#xAB;include&#xBB;</text><!--MD5=[73989b7eb50d73c5b10fdca252f31109]
+reverse link M10 to M8--><path d="M1041.79,484.7 C1096.95,497.59 1168.05,514.2 1219.47,526.22 " fill="none" id="M10-backto-M8" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1036.84,483.54,1044.6846,489.495,1041.7071,484.6852,1046.5169,481.7077,1036.84,483.54" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="1104" y="498.4951">&#xAB;extend&#xBB;</text><!--MD5=[484972f31cfc637cb929249edeeba24e]
+reverse link M10 to M9--><path d="M1078.5,463.9 C1114.51,463.57 1153.54,463.22 1187.98,462.9 " fill="none" id="M10-backto-M9" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1073.21,463.95,1082.244,467.8727,1078.2098,463.9071,1082.1754,459.873,1073.21,463.95" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="1104" y="460.4951">&#xAB;extend&#xBB;</text><!--MD5=[9f3287e43cf76531095b53f7a4afb0f1]
+@startuml
+
+left to right direction
+
+  actor "Administrator" as admin
+  actor "Użytkownik" as user
+  actor "Operator" as operator
+admin - -|> user
+operator - -|> user
+
+rectangle "Administracja" {
+  usecase "Wyświetla listę użytkowników" as A1
+  admin - - A1
+  A1 <- - (Dodaje nowego użytkownika) : <<extend>>
+  A1 <- - (Usuwa użytkownika) : <<extend>>
+}
+
+
+
+rectangle "Autoryzacja" {
+  user - - (Loguje się do systemu)
+  user - - (Wylogowuje się z systemu)
+}
+
+rectangle "Zarządzanie magazynem" {
+  usecase "Wyświetla listę pojazdów" as M1
+  usecase "Dodaje nowy pojazd" as M2
+  usecase "Łączy pojazdy" as M3
+  usecase "Rozłącza pojazdy" as M4
+  usecase "Wyświetla informacje o pojeździe" as M5
+  usecase "Uzupełnia dane pojazdu" as M6
+  usecase "Usuwa pojazd" as M7
+  usecase "Przeprowadza załadunek" as M8
+  usecase "Przeprowadza rozładunek" as M9
+  usecase "Wyświetla informacje o ładunku" as M10
+  
+  operator - - M1
+
+  M1 <- - M2 : <<extend>>
+  M1 <- - M3 : <<extend>>
+  M1 <- - M4 : <<extend>>
+  M1 <- - M5 : <<extend>>
+
+  M2 <- - M6 : <<extend>>
+  M5 <- - M7 : <<extend>>
+  M5 - -> M10 : <<include>>
+  M10 <- - M8 : <<extend>>
+  M10 <- - M9 : <<extend>>
+
+}
+
+
+
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></p><h3 class="mume-header" id="21-obiekty-biznesowe">2.1. OBIEKTY BIZNESOWE</h3>
+
+<h4 class="mume-header" id="pojazd-vehicle">Pojazd (Vehicle)</h4>
+
+<p>Opis: Abstrakcyjny obiekt opisuj&#x105;cy dowoln&#x105; jednostk&#x119; je&#x17C;d&#x17C;&#x105;c&#x105;. Wyszczeg&#xF3;lnione s&#x105; nast&#x119;puj&#x105;ce obiekty pochodne:</p>
+<ul>
+<li>samoch&#xF3;d z przestrzeni&#x105; &#x142;adunkow&#x105; (CargoSpaceCar)</li>
+<li>samoch&#xF3;d typu przyczepowowego (TrailerCar)</li>
+<li>przyczepa (Trailer)</li>
+<li>ci&#x105;gnik siod&#x142;owy (Truck)</li>
+<li>naczepa (SemiTrailer)</li>
+</ul>
+<p>Ka&#x17C;dy pojazd opisywany jest zestawem parametr&#xF3;w:</p>
+<ul>
+<li>Id (int) - Identyfikator (liczba ca&#x142;kowita dodatnia)</li>
+<li>Name (string) - Nazwa (tekst na podstawie pozycji katalogowej producenta)</li>
+<li>VIN (string) - Vehicle Identification Number (15 lub 17 znak&#xF3;w alfanumerycznych)</li>
+<li>Year - Rok produkcji (czterocyfrowa liczba ca&#x142;kowita w zakresie od roku 1900 do roku bie&#x17C;&#x105;cego)</li>
+<li>Engine - Parametry silnika (wymagane dla pojazd&#xF3;w silnikowych, brak dla pojazd&#xF3;w bezsilnikowych. Opis przedstawiony poni&#x17C;ej)</li>
+<li>CargoSpace - przestrze&#x144; &#x142;adunkowa (wymagane dla przyczepy i naczepy)</li>
+</ul>
+<h4 class="mume-header" id="silnik-engine">Silnik (Engine)</h4>
+
+<p>Opis: Obiekt definiowany wewn&#x105;trz pojazdu silnikowego. Definiowany nast&#x119;puj&#x105;cymi parametrami:</p>
+<ul>
+<li>Nazwa (tekst na podstawie pozycji katalogowej producenta)</li>
+<li>Pojemno&#x15B;&#x107; (liczba ca&#x142;kowita dodatnia, cm3)</li>
+<li>Liczba koni mechanicznych (liczba ca&#x142;kowita dodatnia)</li>
+</ul>
+<h4 class="mume-header" id="przestrze%C5%84-%C5%82adunkowa-storage">Przestrze&#x144; &#x142;adunkowa (Storage)</h4>
+
+<p>Opis: Abstrakcyjny obiekt definiowany wewn&#x105;trz pojazdu z kt&#xF3;rego dziedzicz&#x105; opisane poni&#x17C;ej typy przestrzeni &#x142;adunkowej.</p>
+<h4 class="mume-header" id="towar-item">Towar (Item)</h4>
+
+<p>Abstrakcyjny obiekt opisuj&#x105;cy dowoln&#x105; jednostk&#x119; towarow&#x105;. Wyszczeg&#xF3;lnione s&#x105; nast&#x119;puj&#x105;ce obiekty pochodne:</p>
+<ul>
+<li>BoxItem - Towar typu skrzyniowego</li>
+<li>ContainerItem - Towar typu kontenerowego</li>
+<li>LiquidItem - Towar typu p&#x142;ynnego</li>
+</ul>
+<h4 class="mume-header" id="skrzyniowa-przestrze%C5%84-%C5%82adunkowa-boxstorage">Skrzyniowa przestrze&#x144; &#x142;adunkowa (BoxStorage)</h4>
+
+<p>Opis: Typ przestrzeni &#x142;adunkowej. Umo&#x17C;liwia za&#x142;adunek towaru typu skrzyniowego. Opisywany nast&#x119;puj&#x105;cymi parametrami:</p>
+<ul>
+<li>Width - Szeroko&#x15B;&#x107; (w centymetrach, liczba ca&#x142;kowita dodatnia)</li>
+<li>Height - Wysoko&#x15B;&#x107; (w centymetrach, liczba ca&#x142;kowita dodatnia)</li>
+<li>Length - D&#x142;ugo&#x15B;&#x107; (w centymetrach, liczba ca&#x142;kowita dodatnia)</li>
+<li>Items - Lista towar&#xF3;w typu skrzyniowego.</li>
+</ul>
+<h4 class="mume-header" id="towar-typu-skrzyniowego-boxitem">Towar typu skrzyniowego (BoxItem)</h4>
+
+<p>Typ towaru, &#x142;adowany do skrzyniowej przestrzeni &#x142;adunkowej.</p>
+<ul>
+<li>Nazwa (Name) (tekst na podstawie pozycji katalogowej producenta)</li>
+<li>Masa brutto (GrossMass) (liczba zmiennoprzecinkowa, w tonach).</li>
+<li>Width - Szeroko&#x15B;&#x107; (w cm)</li>
+<li>Height - Wysoko&#x15B;&#x107; (w cm)</li>
+<li>Length - D&#x142;ugo&#x15B;&#x107; (w cm)</li>
+</ul>
+<h4 class="mume-header" id="kontenerowa-przestrze%C5%84-%C5%82adunkowa-containerstorage">Kontenerowa przestrze&#x144; &#x142;adunkowa (ContainerStorage)</h4>
+
+<p>Opis: Typ przestrzeni &#x142;adunkowej. Umo&#x17C;liwia za&#x142;adunek towaru typu kontenerowego. Opisywany nast&#x119;puj&#x105;cymi parametrami:</p>
+<ul>
+<li>MaxItemsCount - Maksymalna liczba kontener&#xF3;w (liczba ca&#x142;kowita dodatnia)</li>
+<li>Items - Lista kontener&#xF3;w</li>
+</ul>
+<h4 class="mume-header" id="towar-typu-kontenerowego-containeritem">Towar typu kontenerowego (ContainerItem)</h4>
+
+<p>Typ towaru, &#x142;adowany do kontenerowej przestrzeni &#x142;adunkowej.<br>
+Opisywany nast&#x119;puj&#x105;cymi parametrami:</p>
+<ul>
+<li>Name - Nazwa (tekst na podstawie pozycji katalogowej producenta)</li>
+<li>GrossMass - Masa brutto (liczba zmiennoprzecinkowa, w tonach).</li>
+</ul>
+<h4 class="mume-header" id="cysternowa-przestrze%C5%84-%C5%82adunkowa-tankstorage">Cysternowa przestrze&#x144; &#x142;adunkowa (TankStorage)</h4>
+
+<p>Opis: Typ przestrzeni &#x142;adunkowej. Umo&#x17C;liwia za&#x142;adunek towaru typu p&#x142;ynnego. Opisywany list&#x105; parametr&#xF3;w:</p>
+<ul>
+<li>Capacity - Pojemno&#x15B;&#x107; (w litrach, opisywana liczb&#x105; ca&#x142;kowit&#x105; dodatni&#x105;)</li>
+<li>Item - Towar typu p&#x142;ynnego.</li>
+</ul>
+<h4 class="mume-header" id="towar-typu-p%C5%82ynnego-liquiditem">Towar typu p&#x142;ynnego (LiquidItem)</h4>
+
+<p>Typ towaru, &#x142;adowany do cysternowej przestrzeni &#x142;adunkowej.<br>
+Opisywany list&#x105; parametr&#xF3;w:</p>
+<ul>
+<li>Name - Nazwa (tekst na podstawie pozycji katalogowej producenta)</li>
+<li>GrossMass - Masa brutto (liczba zmiennoprzecinkowa, w tonach).</li>
+<li>Volume - Obj&#x119;to&#x15B;&#x107; (w litrach, opisywana liczb&#x105; ca&#x142;kowit&#x105; dodatni&#x105;)</li>
+</ul>
+<h4 class="mume-header" id="pojazd-silnikowy">Pojazd silnikowy</h4>
+
+<p>Opis: Szczeg&#xF3;lny rodzaj pojazdu. Parametry silnika s&#x105; wymagane do uzupe&#x142;nienia. Jest mo&#x17C;liwo&#x15B;&#x107; podczepienia przyczepy.</p>
+<h4 class="mume-header" id="ci%C4%85gnik-siod%C5%82owy">Ci&#x105;gnik siod&#x142;owy</h4>
+
+<p>Opis: Szczeg&#xF3;lny rodzaj pojazdu. Parametry silnika s&#x105; wymagane do uzupe&#x142;nienia. Jest mo&#x17C;liwo&#x15B;&#x107; podczepienia naczepy.</p>
+<h4 class="mume-header" id="przyczepa">Przyczepa</h4>
+
+<p>Opis: Szczeg&#xF3;lny rodzaj pojazdu. Wymagana do uzupe&#x142;nienia przestrze&#x144; &#x142;adunkowa. Mo&#x17C;liwa do podczepienia przez pojazd samobie&#x17C;ny.</p>
+<h3 class="mume-header" id="22-aktorzy-biznesowi">2.2. AKTORZY BIZNESOWI</h3>
+
+<p>Aktorzy biznesowi przetwarzaj&#x105; obiekty biznesowe lub s&#x105; z nimi w interakcji. Warto zauwa&#x17C;y&#x107;, &#x17C;e mog&#x105; oni odzwierciedla&#x107; nie tylko konkretnych pracownik&#xF3;w firmy (a raczej role, jakie pe&#x142;ni&#x105; w tej firmie), ale tak&#x17C;e np. zewn&#x119;trzne systemy bior&#x105;ce udzia&#x142; w procesie biznesowym. Szablon opisu aktora mo&#x17C;e wygl&#x105;da&#x107; nast&#x119;puj&#x105;co:</p>
+<p>ID:  A1<br>
+Nazwa: Operator<br>
+Opis: Podstawowy u&#x17C;ytkownik aplikacji. Mo&#x17C;e przegl&#x105;da&#x107; listy pojazd&#xF3;w i informacje na temat ka&#x17C;dego z pojazd&#xF3;w. Mo&#x17C;e przeprowadza&#x107; za&#x142;adunek i roz&#x142;adunek pojazd&#xF3;w oraz &#x142;&#x105;czenie i roz&#x142;&#x105;czanie zespo&#x142;&#xF3;w pojazd&#xF3;w.</p>
+<p>ID:  A2<br>
+Nazwa: Administrator<br>
+Opis: U&#x17C;ytkownik z uprawnieniami administratora. Mo&#x17C;e zarz&#x105;dza&#x107; u&#x17C;ytkownikami systemu &#x2013; dodawa&#x107;, usuwa&#x107;, edytowa&#x107; informacje i wy&#x15B;wietla&#x107; list&#x119; zarejestrowanych u&#x17C;ytkownik&#xF3;w i administrator&#xF3;w systemu.</p>
+<h3 class="mume-header" id="23-regu%C5%82y-biznesowe">2.3. REGU&#x141;Y BIZNESOWE</h3>
+
+<p>Ta cz&#x119;&#x15B;&#x107; dokumentu ma na celu zebranie w jednym miejscu zidentyfikowanych regu&#x142; biznesowych, czyli stwierdze&#x144; definiuj&#x105;cych lub ograniczaj&#x105;cych pewne aspekty dzia&#x142;alno&#x15B;ci danego przedsi&#x119;biorstwa. Szablon opisu regu&#x142;y biznesowej mo&#x17C;e wygl&#x105;da&#x107; nast&#x119;puj&#x105;co:</p>
+<p>ID Definicja regu&#x142;y Typ &#x179;r&#xF3;d&#x142;o<br>
+R1 Cysterna mo&#x17C;e by&#x107; za&#x142;adowana jednym rodzajem p&#x142;ynu. ograniczenie Rozmowa w trakcie zaj&#x119;&#x107;<br>
+R2 Ilo&#x15B;&#x107; &#x142;adunku nie mo&#x17C;e przekracza&#x107; maksymalnej &#x142;adowno&#x15B;ci przestrzeni &#x142;adunkowej ograniczenie Rozmowa w trakcie zaj&#x119;&#x107;</p>
+<h3 class="mume-header" id="24-procesy-biznesowe">2.4. PROCESY BIZNESOWE</h3>
+
+<p>W tym rozdziale nale&#x17C;y umie&#x15B;ci&#x107; (opracowane w dowolnym narz&#x119;dziu) wybrane procesy biznesowe w notacji BPMN realizowane w danym przedsi&#x119;biorstwie. Procesy powinny odnosi&#x107; si&#x119; do wszystkich opisanych powy&#x17C;ej obiekt&#xF3;w, aktor&#xF3;w i regu&#x142; biznesowych. Mo&#x17C;na te&#x17C; do&#x142;&#x105;czy&#x107; procesy jako za&#x142;&#x105;cznik do dokumentu.</p>
+<h2 class="mume-header" id="3-wymagania-funkcjonalne">3. WYMAGANIA FUNKCJONALNE</h2>
+
+<p>Rozdzia&#x142; zawiera spis wymaga&#x144; funkcjonalnych dla tworzonego produktu informatycznego.</p>
+<p>ID:  F1<br>
+Nazwa: Zarz&#x105;dzanie informacjami o pojazdach<br>
+Priorytet: Wysoki<br>
+Proces biznesowy: U&#x17C;ytkownik mo&#x17C;e zarz&#x105;dza&#x107; pojazdami.<br>
+Opis: U&#x17C;ytkownik mo&#x17C;e:</p>
+<ul>
+<li>wy&#x15B;wietla&#x107; list&#x119; pojazd&#xF3;w,</li>
+<li>wy&#x15B;wietla&#x107; dane pojedynczego pojazdu,</li>
+<li>stworzy&#x107; nowy pojazd,</li>
+<li>zaktualizowa&#x107; dane pojazdu,</li>
+<li>skasowa&#x107; pojazd z listy,</li>
+<li>z&#x142;&#x105;czy&#x107; pojazd typu ci&#x105;gnikowego z przyczep&#x105;</li>
+<li>z&#x142;&#x105;czy&#x107; pojazd typu siod&#x142;owego z naczep&#x105;</li>
+<li>przeprowadzi&#x107; za&#x142;adunek pojazdu</li>
+<li>przeprowadzi&#x107; roz&#x142;adunek pojazdu</li>
+</ul>
+<p>Na etapie tworzenia lub aktualizacji pojazdu u&#x17C;ytkownik uzupe&#x142;nia nast&#x119;puj&#x105;ce informacje:</p>
+<ul>
+<li>rodzaj pojazdu</li>
+<li>og&#xF3;lne parametry pojazdu (wyszczeg&#xF3;lnione w obiektach biznesowych)</li>
+<li>obecno&#x15B;&#x107;, rodzaj oraz dane na temat silnika (jw.)</li>
+<li>obecno&#x15B;&#x107;, rodzaj oraz dane na temat przestrzeni towarowej (jw.)<br>
+ID:  F2<br>
+Nazwa: Zapis i odczyt z pliku<br>
+Priorytet: Wysoki<br>
+Proces biznesowy: U&#x17C;ytkownik mo&#x17C;e zapisa&#x107;/odczyta&#x107; dane do/z pliku.<br>
+Opis: U&#x17C;ytkownik mo&#x17C;e zapisa&#x107; bie&#x17C;&#x105;cy stan magazynu w formie pliku tekstowego. U&#x17C;ytkownik mo&#x17C;e wczyta&#x107; stan magazynu z pliku tekstowego.<br>
+ID:  F3<br>
+Nazwa: Autoryzacja u&#x17C;ytkownika<br>
+Priorytet: Wysoki<br>
+Proces biznesowy: U&#x17C;ytkownik autoryzuje si&#x119; przed rozpocz&#x119;ciem pracy.<br>
+Opis: U&#x17C;ytkownik loguje si&#x119; na jedno z wielu kont. Dost&#x119;pne s&#x105; konta administratora oraz konta operatora.<br>
+ID:  F4<br>
+Nazwa: Zarz&#x105;dzanie informacjami o u&#x17C;ytkownikach przez administratora systemu<br>
+Priorytet: Wysoki<br>
+Proces biznesowy: Administrator mo&#x17C;e zarz&#x105;dza&#x107; u&#x17C;ytkownikami w systemie.<br>
+Opis: Administrator mo&#x17C;e wy&#x15B;wietla&#x107; list&#x119; u&#x17C;ytkownik&#xF3;w zarejestrowanych w systemie. Administrator mo&#x17C;e wy&#x15B;wietla&#x107; szczeg&#xF3;&#x142;owe informacje na temat u&#x17C;ytkownik&#xF3;w. Administrator mo&#x17C;e edytowa&#x107; informacje o u&#x17C;ytkowniku. Administrator mo&#x17C;e kasowa&#x107; u&#x17C;ytkownik&#xF3;w.</li>
+</ul>
+<h2 class="mume-header" id="4-wymagania-niefunkcjonalne">4. WYMAGANIA NIEFUNKCJONALNE</h2>
+
+<p>W tym rozdziale nale&#x17C;y umie&#x15B;ci&#x107; wszystkie wymagania niefunkcjonalne pami&#x119;taj&#x105;c, aby tak je sformu&#x142;owa&#x107;, aby w przysz&#x142;o&#x15B;ci by&#x142;a mo&#x17C;liwo&#x15B;&#x107; ich weryfikacji.</p>
+<p>ID:  N1<br>
+Nazwa: Platforma Windows 10<br>
+Priorytet: Wysoki<br>
+Proces biznesowy: Program ma dzia&#x142;a&#x107; na platformie Windows 10.<br>
+Opis: Program jest projektowany pod k&#x105;tem u&#x17C;ywania na komputerach z systemem Windows 10. System musi by&#x107; przystosowany do uruchomienia administracji (wymagana zainstalowana wersja Java Virtual Machine).<br>
+ID:  N2<br>
+Nazwa: Interfejs graficzny<br>
+Priorytet: Wysoki<br>
+Proces biznesowy: Interfejs programu ma by&#x107; w postaci graficznej (GUI).<br>
+Opis: Interfejs programu jest projektowany jako graficzny, z wykorzystaniem biblioteki Swing.<br>
+ID:  N3<br>
+Nazwa: Pami&#x119;&#x107; trwa&#x142;a<br>
+Priorytet: Wysoki<br>
+Proces biznesowy: Informacje o systemie maj&#x105; by&#x107; przechowywane pomi&#x119;dzy sesjami w pliku JSON.<br>
+Opis: Musi by&#x107; mo&#x17C;liwe przechowywanie informacji na temat bie&#x17C;&#x105;cego stanu magazynu. Stan magazynu musi by&#x107; przechowywany w postaci pliku tekstowego w formacie JSON we wskazanym przez u&#x17C;ytkownika miejscu w systemie plik&#xF3;w. Stan magazynu musi by&#x107; mo&#x17C;liwy do wczytania oraz zapisu w czasie pracy programu.</p>
+<h2 class="mume-header" id="6-projekt-interfejsu-u%C5%BCytkownika">6. PROJEKT INTERFEJSU U&#x17B;YTKOWNIKA</h2>
+
+<p>W tym rozdziale nale&#x17C;y umie&#x15B;ci&#x107; projekt interfejsu u&#x17C;ytkownika dla min. 5 przypadk&#xF3;w u&#x17C;ycia, szczeg&#xF3;&#x142;owo opisanych za pomoc&#x105; formularzy w poprzednim rozdziale.</p>
+<h2 class="mume-header" id="7-model-systemu">7. MODEL SYSTEMU</h2>
+
+<p>W tym rozdziale nale&#x17C;y umie&#x15B;ci&#x107; informacje dotycz&#x105;ce modelu danych wykorzystywanego w projektowanym systemie. Najbardziej pomocne mog&#x105; by&#x107; tutaj diagramy klas. Mo&#x17C;na w tym miejscu umie&#x15B;ci&#x107; tak&#x17C;e informacje (diagramy) na temat struktury bazy danych przechowuj&#x105;cej dane w systemie.</p>
+
+      </div>
+      
+      
+    
+    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
+    
+    
+    
+    
+    
+  
+    </body></html>

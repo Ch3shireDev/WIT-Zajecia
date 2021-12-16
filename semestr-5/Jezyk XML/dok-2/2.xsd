@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:group name="wyksztalcenie">
+		<xsd:sequence>
+			<xsd:element name="typ" />
+			<xsd:element name="szkola" />
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:complexType name="rodzice">
+		<xsd:sequence>
+			<xsd:element name="ojciec" type="xsd:string" />
+			<xsd:element name="matka" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="klient">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="imie" type="xsd:string" maxOccurs="2" />
+				<xsd:element name="nazwisko" type="xsd:string" />
+				<xsd:element name="data_urodzenia" type="xsd:date" />
+				<xsd:element name="pesel">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:pattern value="\d{11}" />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="wiek">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:integer">
+							<xsd:minInclusive value="0" />
+							<xsd:maxInclusive value="100" />
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:group ref="wyksztalcenie" />
+				<xsd:element name="rodzice" type="rodzice" />
+			</xsd:sequence>
+			<xsd:attribute name="nr" type="xsd:integer" />
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="1_e.xsl"?>
+<klient>
+	<imie>Karol</imie>
+	<nazwisko>Jonakowski</nazwisko>
+	<data_urodzenia>1978-10-30</data_urodzenia>
+	<pesel>78092002511</pesel>
+	<wiek>20</wiek>
+</klient>

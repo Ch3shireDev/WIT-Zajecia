@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="2_a.xsl"?>
+<klienci>
+	<klient typ="Odbiorca">
+		<imie>Karol</imie>
+		<nazwisko>Jonakowski</nazwisko>
+		<data_urodzenia>1978-10-30</data_urodzenia>
+		<pesel>78092002511</pesel>
+		<wiek>25</wiek>
+		<kolor>#ffb997</kolor>
+		<obraz>https://media.istockphoto.com/photos/large-bird-costume-with-pet-person-picture-id108224244</obraz>
+	</klient>
+	<klient typ="Dostawca">
+		<imie>Marian</imie>
+		<nazwisko>Kaczmarek</nazwisko>
+		<data_urodzenia>1981-11-10</data_urodzenia>
+		<pesel>81111003521</pesel>
+		<wiek>22</wiek>
+		<kolor>#F67E7D</kolor>
+		<obraz>https://pbs.twimg.com/media/CwC5L0-UEAAMcMe.jpg</obraz>
+	</klient>
+	<klient typ="Odbiorca">
+		<imie>Adam</imie>
+		<nazwisko>Miernik</nazwisko>
+		<data_urodzenia>1967-09-12</data_urodzenia>
+		<pesel>67091203521</pesel>
+		<wiek>37</wiek>
+		<kolor>#74546A</kolor>
+		<obraz>https://m.media-amazon.com/images/M/MV5BZDYyZTM4MDYtOGVjZi00ZjZhLWFmMTktODRhYWY2ODJmYTIxXkEyXkFqcGdeQXVyMTExMTAxNjA2._V1_QL75_UY281_CR155,0,190,281_.jpg</obraz>
+	</klient>
+</klienci>
