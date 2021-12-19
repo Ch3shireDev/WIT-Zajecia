@@ -1,8 +1,8 @@
-# Specyfikacja wymagań dla projektu Samochody Masa bruttoowe, wersja 0.0.4
+# Specyfikacja wymagań dla projektu Samochody ciężarowe, wersja 0.0.5
 ## Autor: Igor Nowicki
 
 ## 1. Opis systemu
-System służy do przechowywania definicji pojazdów Masa bruttoowych i ich zespołów, wraz z informacjami o załadunku. Przewidziana jest możliwość przechowywania pojazdów różnego rodzaju (samochody z przestrzenią ładunkową, ciągniki siodłowe, przyczepy, naczepy), z różnego rodzaju przestrzeniami ładunkowymi (zdefiniowane jako skrzyniowa, kontenerowa, cysterna). Program przewiduje mechanizm przechowywania danych na temat pojazdu pomiędzy sesjami poprzez zapis i odczyt z i do pliku dyskowego w formacie JSON. 
+System służy do przechowywania definicji pojazdów ciężarowych i ich zespołów, wraz z informacjami o załadunku. Przewidziana jest możliwość przechowywania pojazdów różnego rodzaju (samochody z przestrzenią ładunkową, ciągniki siodłowe, przyczepy, naczepy), z różnego rodzaju przestrzeniami ładunkowymi (zdefiniowane jako skrzyniowa, kontenerowa, cysterna). Program przewiduje mechanizm przechowywania danych na temat pojazdu pomiędzy sesjami poprzez zapis i odczyt z i do pliku dyskowego w formacie JSON. 
 
 Program realizuje następujące działania:
 - Logowanie i wylogowanie operatora
@@ -26,20 +26,68 @@ Program realizuje następujące działania:
 
 ```mermaid
 classDiagram
-    Engine --* Vehicle
-    Vehicle *-- Storage
-   
-    Storage <|-- ContainerStorage
-    Storage <|-- BoxStorage
-    Storage <|-- TankStorage
+    Engine --* "1" MotorizedVehicle
+    Vehicle <|-- MotorizedVehicle
+    Vehicle <|-- NonMotorizedVehicle
+    MotorizedVehicle <|-- CargoSpaceCar
+    NonMotorizedVehicle <|-- Trailer
+    NonMotorizedVehicle <|-- SemiTrailer
+    MotorizedVehicle <|-- Truck
+    MotorizedVehicle <|-- TrailerCar
+    CargoSpaceCar --|> ILoadable
+    ILoadable *--> "1" Storage
+    NonMotorizedVehicle --|> ILoadable
+    Truck --|> ISemiTrailerable
+    TrailerCar --|> ITrailerable
 
+    <<interface>> ILoadable
     <<abstract>> Vehicle
+    <<abstract>> MotorizedVehicle
+    <<abstract>> NonMotorizedVehicle
+
+    class Vehicle{
+      +Id : int
+      +Name : string
+      +VIN : string
+      +Year : int
+    }
 
     class Engine{
       +Name: string
       +Capacity: int
       +HorsePower: int
     }
+
+    class MotorizedVehicle{
+      +Engine : Engine
+    }
+
+    class ITrailerable{
+      +Hook(Trailer) : void
+      +Unhook() : ITrailer
+    }
+    <<interface>> ITrailerable
+
+    class ISemiTrailerable{
+      +Hook(SemiTrailer) : void
+      +Unhook() : ISemiTrailer
+    }
+
+    <<interface>> ISemiTrailerable
+
+    class Storage{
+      +GetItems(): List<Item>
+    }
+
+    Storage <|-- ContainerStorage
+    Storage <|-- BoxStorage
+    Storage <|-- TankStorage
+    Storage --> ContainerStorage
+    Storage --> BoxStorage
+    Storage --> TankStorage
+    %%ISemiTrailerable --> SemiTrailer
+    %%ITrailerable --> Trailer
+
 
     class ContainerStorage{
       +MaxItemsCount: int
@@ -76,70 +124,13 @@ classDiagram
 
     <<abstract>> Item
 
-    ContainerStorage -- ContainerItem
-    BoxStorage -- BoxItem
-    TankStorage -- LiquidItem
+    ContainerStorage o-- "0..1" ContainerItem
+    BoxStorage o-- "0..*" BoxItem
+    TankStorage o-- "0..1" LiquidItem
     ContainerItem --|> Item
     BoxItem --|> Item
     LiquidItem --|> Item
 
-    class Vehicle{
-      +Id : int
-      +Name : string
-      +VIN : string
-      +Year : int
-      +Engine : Engine
-      +CargoSpace : Storage
-    }
-
-```
-
-```mermaid
-classDiagram
-
-    class ILoadable{
-      +Load: (Item)
-      +Unload: ()
-    }
-
-    <<interface>> ILoadable
-
-    class ITrailerable{
-      +Hook(Trailer) : void
-      +Unhook() : ITrailer
-    }
-    <<interface>> ITrailerable
-
-    class ISemiTrailerable{
-      +Hook(SemiTrailer) : void
-      +Unhook() : ISemiTrailer
-    }
-
-    <<interface>> ISemiTrailerable
-
-    TrailerCar --|> ITrailerable
-    Trailer .. TrailerCar
-    Trailer --|> Vehicle
-    Truck --|> Vehicle
-    Truck  --|>  ISemiTrailerable
-    SemiTrailer --|> Vehicle
-    SemiTrailer .. Truck
-    CargoSpaceCar --|> Vehicle
-    TrailerCar --|> Vehicle
-
-    ILoadable <|-- Trailer
-    ILoadable <|-- CargoSpaceCar
-    ILoadable <|-- SemiTrailer
-
-  
-    class Vehicle{
-      +Id : int
-      +Name : string
-      +VIN : string
-      +Year : int
-      +Engine : Engine
-      +CargoSpace : Storage
-    }
 ```
 
 ### Diagramy przypadków użycia
@@ -156,10 +147,11 @@ admin --|> user
 operator --|> user
 
 rectangle "Administracja" {
-  usecase "Wyświetla listę użytkowników" as A1
+  usecase "Zarządza użytkownikami" as A1
   admin -- A1
   A1 <-- (Dodaje nowego użytkownika) : <<extend>>
   A1 <-- (Usuwa użytkownika) : <<extend>>
+  A1 --> (Wyświetla listę użytkowników) : <<include>>
 }
 
 
@@ -170,30 +162,27 @@ rectangle "Autoryzacja" {
 }
 
 rectangle "Zarządzanie magazynem" {
-  usecase "Wyświetla listę pojazdów" as M1
-  usecase "Dodaje nowy pojazd" as M2
-  usecase "Łączy pojazdy" as M3
-  usecase "Rozłącza pojazdy" as M4
-  usecase "Wyświetla informacje o pojeździe" as M5
-  usecase "Uzupełnia dane pojazdu" as M6
-  usecase "Usuwa pojazd" as M7
-  usecase "Przeprowadza załadunek" as M8
-  usecase "Przeprowadza rozładunek" as M9
-  usecase "Wyświetla informacje o ładunku" as M10
+  usecase "Zarządza pojazdami" as M1
+  usecase "Zarządza pojazdem" as M2
+  usecase "Zarządza ładunkiem" as M3
+  ' usecase "Wyświetla informacje o ładunku" as M10
   
   operator -- M1
-
   M1 <-- M2 : <<extend>>
-  M1 <-- M3 : <<extend>>
-  M1 <-- M4 : <<extend>>
-  M1 <-- M5 : <<extend>>
-
-  M2 <-- M6 : <<extend>>
-  M5 <-- M7 : <<extend>>
-  M5 --> M10 : <<include>>
-  M10 <-- M8 : <<extend>>
-  M10 <-- M9 : <<extend>>
-
+  M1 <-- (Łączy pojazdy) : <<extend>>
+  M1 <-- (Rozłącza pojazdy) : <<extend>>
+  M1 <-- (Dodaje pojazd) : <<extend>>
+  M1 <-- (Usuwa pojazd) : <<extend>>
+  M1 --> (Wyświetla informacje o pojazdach) : <<include>>
+  M2 --> (Wyświetla informacje o pojazdzie) : <<include>>
+  M2 <--  (Uzupełnia dane o pojeździe) : <<extend>>
+  (Dodaje pojazd) -->  (Uzupełnia dane o pojeździe) : <<include>>
+  M3 --> M2 : <<extend>>
+  M3 --> (Wyświetla informacje o ładunku) : <<include>>
+  (Dodaje ładunek) --> (Uzupełnia dane o ładunku) : <<include>>
+  '  (Wyświetla informacje o ładunku) <-- (Wyświetla informacje o pojazdzie)  : <<include>>
+  M3 <-- (Dodaje ładunek) : <<extend>>
+  M3 <-- (Usuwa ładunek) : <<extend>>
 }
 
 

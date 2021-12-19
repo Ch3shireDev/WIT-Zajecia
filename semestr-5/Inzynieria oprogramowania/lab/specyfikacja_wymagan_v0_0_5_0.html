@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>specyfikacja_wymagan_v0_0_4_0</title>
+      <title>specyfikacja_wymagan_v0_0_5_0</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -261,7 +261,7 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <h1 class="mume-header" id="specyfikacja-wymaga%C5%84-dla-projektu-samochody-ci%C4%99%C5%BCarowe-wersja-004">Specyfikacja wymaga&#x144; dla projektu Samochody ci&#x119;&#x17C;arowe, wersja 0.0.4</h1>
+      <h1 class="mume-header" id="specyfikacja-wymaga%C5%84-dla-projektu-samochody-ci%C4%99%C5%BCarowe-wersja-005">Specyfikacja wymaga&#x144; dla projektu Samochody ci&#x119;&#x17C;arowe, wersja 0.0.5</h1>
 
 <h2 class="mume-header" id="autor-igor-nowicki">Autor: Igor Nowicki</h2>
 
@@ -292,20 +292,63 @@ pre[data-line] .line-highlight[data-end]:after {
 <h3 class="mume-header" id="diagramy-klas">Diagramy klas</h3>
 
 <div class="mermaid">classDiagram
-    Engine --* Vehicle
-    Vehicle *-- Storage
-   
-    Storage &lt;|-- ContainerStorage
-    Storage &lt;|-- BoxStorage
-    Storage &lt;|-- TankStorage
+    Engine --* &quot;1&quot; MotorizedVehicle
+    Vehicle &lt;|-- MotorizedVehicle
+    Vehicle &lt;|-- NonMotorizedVehicle
+    MotorizedVehicle &lt;|-- CargoSpaceCar
+    NonMotorizedVehicle &lt;|-- Trailer
+    NonMotorizedVehicle &lt;|-- SemiTrailer
+    MotorizedVehicle &lt;|-- Truck
+    MotorizedVehicle &lt;|-- TrailerCar
+    CargoSpaceCar --|&gt; ILoadable
+    ILoadable *-- &quot;1&quot; Storage
+    NonMotorizedVehicle --|&gt; ILoadable
+    Truck --|&gt; ISemiTrailerable
+    TrailerCar --|&gt; ITrailerable
 
+    &lt;&lt;interface&gt;&gt; ILoadable
     &lt;&lt;abstract&gt;&gt; Vehicle
+    &lt;&lt;abstract&gt;&gt; MotorizedVehicle
+    &lt;&lt;abstract&gt;&gt; NonMotorizedVehicle
+
+    class Vehicle{
+      +Id : int
+      +Name : string
+      +VIN : string
+      +Year : int
+    }
 
     class Engine{
       +Name: string
       +Capacity: int
       +HorsePower: int
     }
+
+    class MotorizedVehicle{
+      +Engine : Engine
+    }
+
+    class ITrailerable{
+      +Hook(Trailer) : void
+      +Unhook() : ITrailer
+    }
+    &lt;&lt;interface&gt;&gt; ITrailerable
+
+    class ISemiTrailerable{
+      +Hook(SemiTrailer) : void
+      +Unhook() : ISemiTrailer
+    }
+
+    &lt;&lt;interface&gt;&gt; ISemiTrailerable
+
+    class Storage{
+      +GetItems(): List&lt;Item&gt;
+    }
+
+    Storage &lt;|-- ContainerStorage
+    Storage &lt;|-- BoxStorage
+    Storage &lt;|-- TankStorage
+
 
     class ContainerStorage{
       +MaxItemsCount: int
@@ -342,93 +385,46 @@ pre[data-line] .line-highlight[data-end]:after {
 
     &lt;&lt;abstract&gt;&gt; Item
 
-    ContainerStorage -- ContainerItem
-    BoxStorage -- BoxItem
-    TankStorage -- LiquidItem
+    ContainerStorage *-- &quot;0..1&quot; ContainerItem
+    BoxStorage *-- &quot;0..*&quot; BoxItem
+    TankStorage *-- &quot;0..1&quot; LiquidItem
     ContainerItem --|&gt; Item
     BoxItem --|&gt; Item
     LiquidItem --|&gt; Item
 
-    class Vehicle{
-      +Id : int
-      +Name : string
-      +VIN : string
-      +Year : int
-      +Engine : Engine
-      +CargoSpace : Storage
-    }
-
-</div><div class="mermaid">classDiagram
-
-    class ILoadable{
-      +Load: (Item)
-      +Unload: ()
-    }
-
-    &lt;&lt;interface&gt;&gt; ILoadable
-
-    class ITrailerable{
-      +Hook(Trailer) : void
-      +Unhook() : ITrailer
-    }
-    &lt;&lt;interface&gt;&gt; ITrailerable
-
-    class ISemiTrailerable{
-      +Hook(SemiTrailer) : void
-      +Unhook() : ISemiTrailer
-    }
-
-    &lt;&lt;interface&gt;&gt; ISemiTrailerable
-
-    TrailerCar --|&gt; ITrailerable
-    Trailer .. TrailerCar
-    Trailer --|&gt; Vehicle
-    Truck --|&gt; Vehicle
-    Truck  --|&gt;  ISemiTrailerable
-    SemiTrailer --|&gt; Vehicle
-    SemiTrailer .. Truck
-    CargoSpaceCar --|&gt; Vehicle
-    TrailerCar --|&gt; Vehicle
-
-    ILoadable &lt;|-- Trailer
-    ILoadable &lt;|-- CargoSpaceCar
-    ILoadable &lt;|-- SemiTrailer
-
-  
-    class Vehicle{
-      +Id : int
-      +Name : string
-      +VIN : string
-      +Year : int
-      +Engine : Engine
-      +CargoSpace : Storage
-    }
 </div><h3 class="mume-header" id="diagramy-przypadk%C3%B3w-u%C5%BCycia">Diagramy przypadk&#xF3;w u&#x17C;ycia</h3>
 
-<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="734px" preserveAspectRatio="none" style="width:1416px;height:734px;background:#FFFFFF;" version="1.1" viewBox="0 0 1416 734" width="1416px" zoomAndPan="magnify"><defs><filter height="300%" id="f5qfpxmibso60" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[0736e11ead106a492c88d05216811f3b]
-cluster Administracja--><rect fill="#FFFFFF" filter="url(#f5qfpxmibso60)" height="173" style="stroke:#000000;stroke-width:1.5;" width="590.5" x="136" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="94" x="384.25" y="23.5332">Administracja</text><!--MD5=[71a6c8c2cda617d31c96bfbf6302a9eb]
-cluster Autoryzacja--><rect fill="#FFFFFF" filter="url(#f5qfpxmibso60)" height="174" style="stroke:#000000;stroke-width:1.5;" width="234" x="486" y="204"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="80" x="563" y="220.5332">Autoryzacja</text><!--MD5=[bfa5d85992937b48781fc48340d8ae2b]
-cluster Zarządzanie magazynem--><rect fill="#FFFFFF" filter="url(#f5qfpxmibso60)" height="320" style="stroke:#000000;stroke-width:1.5;" width="1256.5" x="147.5" y="402"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="168" x="691.75" y="418.5332">Zarz&#x105;dzanie magazynem</text><ellipse cx="260.1585" cy="129.0317" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="108.1585" ry="24.0317" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="170.6585" y="132.7602">Wy&#x15B;wietla list&#x119; u&#x17C;ytkownik&#xF3;w</text><ellipse cx="602.7512" cy="139.8502" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="107.2512" ry="23.8502" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="514.2512" y="143.5788">Dodaje nowego u&#x17C;ytkownika</text><ellipse cx="602.8351" cy="61.867" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="82.3351" ry="18.867" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="542.8351" y="65.5955">Usuwa u&#x17C;ytkownika</text><ellipse cx="602.7628" cy="261.1526" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="91.2628" ry="20.6526" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="532.2628" y="264.8811">Loguje si&#x119; do systemu</text><ellipse cx="602.9506" cy="339.0901" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="100.9506" ry="22.5901" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="163" x="521.4506" y="342.8186">Wylogowuje si&#x119; z systemu</text><ellipse cx="260.011" cy="545.2022" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="96.511" ry="21.7022" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153" x="183.511" y="548.9307">Wy&#x15B;wietla list&#x119; pojazd&#xF3;w</text><ellipse cx="602.8478" cy="685.8696" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="84.8478" ry="19.3696" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="539.8478" y="689.5981">Dodaje nowy pojazd</text><ellipse cx="603.1531" cy="614.9306" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="70.1531" ry="16.4306" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="556.1531" y="619.4472">&#x141;&#x105;czy pojazdy</text><ellipse cx="603.0069" cy="544.9014" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="77.5069" ry="17.9014" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="546.8567" y="549.216">Roz&#x142;&#x105;cza pojazdy</text><ellipse cx="603.091" cy="464.9182" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="120.091" ry="26.4182" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="500.591" y="468.6467">Wy&#x15B;wietla informacje o poje&#x17A;dzie</text><ellipse cx="956.6904" cy="670.9381" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="95.1904" ry="21.4381" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="881.6904" y="674.6666">Uzupe&#x142;nia dane pojazdu</text><ellipse cx="956.457" cy="541.7914" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="69.457" ry="16.2914" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="910.457" y="546.308">Usuwa pojazd</text><ellipse cx="1287.837" cy="541.9674" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="97.837" ry="21.9674" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="1209.837" y="545.6959">Przeprowadza za&#x142;adunek</text><ellipse cx="1288.0583" cy="461.9117" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="100.0583" ry="22.4117" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="1207.5583" y="465.6402">Przeprowadza roz&#x142;adunek</text><ellipse cx="956.3945" cy="465.1789" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="116.3945" ry="25.6789" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="857.8945" y="468.9074">Wy&#x15B;wietla informacje o &#x142;adunku</text><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
-entity admin--><ellipse cx="47.5" cy="243" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M47.5,251 L47.5,278 M34.5,259 L60.5,259 M47.5,278 L34.5,293 M47.5,278 L60.5,293 " fill="none" filter="url(#f5qfpxmibso60)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="6" y="313.0332">Administrator</text><!--MD5=[8fc3522a43f8c7199df5e09e5bb0188e]
-entity user--><ellipse cx="260" cy="278" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M260,286 L260,313 M247,294 L273,294 M260,313 L247,328 M260,313 L273,328 " fill="none" filter="url(#f5qfpxmibso60)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="226" y="348.0332">U&#x17C;ytkownik</text><!--MD5=[0050c6625e3b42e2857ba4d8ed699679]
-entity operator--><ellipse cx="47.5" cy="362" fill="#FEFECE" filter="url(#f5qfpxmibso60)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M47.5,370 L47.5,397 M34.5,378 L60.5,378 M47.5,397 L34.5,412 M47.5,397 L60.5,412 " fill="none" filter="url(#f5qfpxmibso60)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="19" y="432.0332">Operator</text><!--MD5=[31278c4c352e8aa61eec19ec7f7e5854]
-link admin to user--><path d="M89.09,281.75 C122.34,287.28 169.66,295.15 205.92,301.17 " fill="none" id="admin-to-user" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="207.22,294.3,225.81,304.48,204.93,308.11,207.22,294.3" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bd01c5106916100bd45902b0665d83d9]
-link operator to user--><path d="M76.02,383.02 C109.23,369.77 165.77,347.2 207.24,330.66 " fill="none" id="operator-to-user" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="204.76,324.11,225.93,323.2,209.95,337.11,204.76,324.11" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9b08ad6b92f36423f52dda65f3ac219a]
-link admin to A1--><path d="M89.09,246.85 C128.99,219.17 189.14,177.45 226.14,151.79 " fill="none" id="admin-A1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e2abf82482e8f055e91fb9f96e417b21]
-reverse link A1 to Dodaje nowego użytkownika--><path d="M372.36,132.59 C412.21,133.88 456.98,135.32 496.33,136.59 " fill="none" id="A1-backto-Dodaje nowego u&#x17C;ytkownika" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="367.03,132.42,375.8999,136.7007,372.0275,132.5771,376.1512,128.7047,367.03,132.42" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="130.4951">&#xAB;extend&#xBB;</text><!--MD5=[4cab03ca8b9d2cefc2835b1184e57f71]
-reverse link A1 to Usuwa użytkownika--><path d="M346.4,112.22 C406.49,100.41 485.54,84.88 539.73,74.23 " fill="none" id="A1-backto-Usuwa u&#x17C;ytkownika" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="341.38,113.21,350.9799,115.4104,346.2873,112.2514,349.4462,107.5588,341.38,113.21" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="88.4951">&#xAB;extend&#xBB;</text><!--MD5=[b4c1f582698cbe5af94e4db049bdf197]
-link user to Loguje się do systemu--><path d="M294.01,305.26 C347.07,297.63 452.76,282.44 525.4,272.01 " fill="none" id="user-Loguje si&#x119; do systemu" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9485f9f5b29810dab05be70f078a4b67]
-link user to Wylogowuje się z systemu--><path d="M294.01,312.81 C343.06,316.98 437.09,324.98 508.4,331.04 " fill="none" id="user-Wylogowuje si&#x119; z systemu" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0f0122ef41a976e28a99d424ef3b24eb]
-link operator to M1--><path d="M76.02,413.74 C116.03,442.44 189.89,495.43 230.46,524.53 " fill="none" id="operator-M1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ca1222f75ae55e890942bd07971edad2]
-reverse link M1 to M2--><path d="M302.44,567.27 C345.49,589.83 415.2,624.76 478,649 C500.01,657.5 524.82,665.25 546.44,671.44 " fill="none" id="M1-backto-M2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="297.85,564.86,303.9544,572.589,302.2755,567.187,307.6775,565.5081,297.85,564.86" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="611.4951">&#xAB;extend&#xBB;</text><!--MD5=[074a00d3cb79d78216d7e33d42e45ac3]
-reverse link M1 to M3--><path d="M336.65,560.53 C401.3,573.8 492.63,592.55 549.53,604.23 " fill="none" id="M1-backto-M3" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="331.66,559.5,339.659,565.2459,336.5556,560.5163,341.2852,557.4129,331.66,559.5" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="569.4951">&#xAB;extend&#xBB;</text><!--MD5=[62fddd67ff81236738a6632d28fe4680]
-reverse link M1 to M4--><path d="M361.93,545 C414.25,545 477.13,545 525.41,545 " fill="none" id="M1-backto-M4" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="356.89,545,365.9014,548.9743,361.89,544.9857,365.8785,540.9743,356.89,545" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="541.4951">&#xAB;extend&#xBB;</text><!--MD5=[a94d6b8ea3007bebf26e9db698ba2209]
-reverse link M1 to M5--><path d="M332.06,528.33 C386.85,515.47 462.71,497.68 520.07,484.22 " fill="none" id="M1-backto-M5" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="327.15,529.48,336.8257,531.3186,332.0178,528.338,334.9985,523.5301,327.15,529.48" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="497.4951">&#xAB;extend&#xBB;</text><!--MD5=[b3b803c5df486b3adcfd1685c2914e4b]
-reverse link M2 to M6--><path d="M691.86,682.25 C744,680.03 810.05,677.21 862.99,674.95 " fill="none" id="M2-backto-M6" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="686.86,682.46,696.023,686.071,691.8554,682.2459,695.6805,678.0783,686.86,682.46" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="755" y="673.4951">&#xAB;extend&#xBB;</text><!--MD5=[0cc8c3d25cda78a56a8e6093439baa69]
-reverse link M5 to M7--><path d="M694.27,484.78 C761.19,499.43 849.97,518.88 904.88,530.91 " fill="none" id="M5-backto-M7" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="689.09,483.64,697.0243,489.475,693.9739,484.711,698.7379,481.6607,689.09,483.64" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="755" y="495.4951">&#xAB;extend&#xBB;</text><!--MD5=[be159da7244b5a08668d9df7c00e50ab]
-link M5 to M10--><path d="M723,465 C758.97,465 798.5,465 834.6,465 " fill="none" id="M5-to-M10" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="839.9,465,830.9,461,834.9,465,830.9,469,839.9,465" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="754" y="461.4951">&#xAB;include&#xBB;</text><!--MD5=[73989b7eb50d73c5b10fdca252f31109]
-reverse link M10 to M8--><path d="M1041.79,484.7 C1096.95,497.59 1168.05,514.2 1219.47,526.22 " fill="none" id="M10-backto-M8" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1036.84,483.54,1044.6846,489.495,1041.7071,484.6852,1046.5169,481.7077,1036.84,483.54" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="1104" y="498.4951">&#xAB;extend&#xBB;</text><!--MD5=[484972f31cfc637cb929249edeeba24e]
-reverse link M10 to M9--><path d="M1078.5,463.9 C1114.51,463.57 1153.54,463.22 1187.98,462.9 " fill="none" id="M10-backto-M9" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1073.21,463.95,1082.244,467.8727,1078.2098,463.9071,1082.1754,459.873,1073.21,463.95" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="1104" y="460.4951">&#xAB;extend&#xBB;</text><!--MD5=[9f3287e43cf76531095b53f7a4afb0f1]
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="1179px" preserveAspectRatio="none" style="width:1090px;height:1179px;background:#FFFFFF;" version="1.1" viewBox="0 0 1090 1179" width="1090px" zoomAndPan="magnify"><defs><filter height="300%" id="f1a836dfunihuf" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[0736e11ead106a492c88d05216811f3b]
+cluster Administracja--><rect fill="#FFFFFF" filter="url(#f1a836dfunihuf)" height="256" style="stroke:#000000;stroke-width:1.5;" width="570" x="136" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="94" x="374" y="23.5332">Administracja</text><!--MD5=[71a6c8c2cda617d31c96bfbf6302a9eb]
+cluster Autoryzacja--><rect fill="#FFFFFF" filter="url(#f1a836dfunihuf)" height="174" style="stroke:#000000;stroke-width:1.5;" width="234" x="465" y="287"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="80" x="542" y="303.5332">Autoryzacja</text><!--MD5=[bfa5d85992937b48781fc48340d8ae2b]
+cluster Zarządzanie magazynem--><rect fill="#FFFFFF" filter="url(#f1a836dfunihuf)" height="682" style="stroke:#000000;stroke-width:1.5;" width="931.5" x="146.5" y="485"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="168" x="528.25" y="501.5332">Zarz&#x105;dzanie magazynem</text><ellipse cx="247.1904" cy="177.9381" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="95.1904" ry="21.4381" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="172.1904" y="181.6666">Zarz&#x105;dza u&#x17C;ytkownikami</text><ellipse cx="581.7512" cy="222.8502" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="107.2512" ry="23.8502" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="493.2512" y="226.5788">Dodaje nowego u&#x17C;ytkownika</text><ellipse cx="581.8351" cy="144.867" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="82.3351" ry="18.867" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="521.8351" y="148.5955">Usuwa u&#x17C;ytkownika</text><ellipse cx="582.1585" cy="67.0317" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="108.1585" ry="24.0317" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="492.6585" y="70.7602">Wy&#x15B;wietla list&#x119; u&#x17C;ytkownik&#xF3;w</text><ellipse cx="581.7628" cy="344.1526" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="91.2628" ry="20.6526" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="511.2628" y="347.8811">Loguje si&#x119; do systemu</text><ellipse cx="581.9506" cy="422.0901" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="100.9506" ry="22.5901" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="163" x="500.4506" y="425.8186">Wylogowuje si&#x119; z systemu</text><ellipse cx="247.0066" cy="678.2013" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="84.0066" ry="19.2013" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="185.0066" y="681.9298">Zarz&#x105;dza pojazdami</text><ellipse cx="581.7516" cy="906.9503" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="82.7516" ry="18.9503" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="521.2516" y="910.6788">Zarz&#x105;dza pojazdem</text><ellipse cx="246.9267" cy="1019.7853" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="84.4267" ry="19.2853" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="184.4267" y="1023.5139">Zarz&#x105;dza &#x142;adunkiem</text><ellipse cx="582.1531" cy="677.9306" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="70.1531" ry="16.4306" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="535.1531" y="682.4472">&#x141;&#x105;czy pojazdy</text><ellipse cx="582.0069" cy="607.9014" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="77.5069" ry="17.9014" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="525.8567" y="612.216">Roz&#x142;&#x105;cza pojazdy</text><ellipse cx="581.8567" cy="538.0713" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="70.8567" ry="16.5713" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="533.8567" y="542.5879">Dodaje pojazd</text><ellipse cx="581.957" cy="835.7914" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="69.457" ry="16.2914" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="535.957" y="840.308">Usuwa pojazd</text><ellipse cx="581.8762" cy="756.9752" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="122.8762" ry="26.9752" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="211" x="476.3762" y="760.7038">Wy&#x15B;wietla informacje o pojazdach</text><ellipse cx="942.091" cy="933.9182" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="120.091" ry="26.4182" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="839.591" y="937.6467">Wy&#x15B;wietla informacje o pojazdzie</text><ellipse cx="942.0397" cy="821.8079" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="104.5397" ry="23.3079" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="171" x="856.5397" y="825.5365">Uzupe&#x142;nia dane o poje&#x17A;dzie</text><ellipse cx="581.8945" cy="987.1789" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="116.3945" ry="25.6789" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="483.3945" y="990.9074">Wy&#x15B;wietla informacje o &#x142;adunku</text><ellipse cx="582.1111" cy="1134.2222" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="74.1111" ry="17.2222" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="529.6111" y="1138.7388">Dodaje &#x142;adunek</text><ellipse cx="941.9506" cy="1116.0901" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="100.9506" ry="22.5901" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="163" x="860.4506" y="1119.8186">Uzupe&#x142;nia dane o &#x142;adunku</text><ellipse cx="582.1476" cy="1064.9295" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="72.6476" ry="16.9295" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="531.6476" y="1069.4461">Usuwa &#x142;adunek</text><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
+entity admin--><ellipse cx="47.5" cy="326" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M47.5,334 L47.5,361 M34.5,342 L60.5,342 M47.5,361 L34.5,376 M47.5,361 L60.5,376 " fill="none" filter="url(#f1a836dfunihuf)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="6" y="396.0332">Administrator</text><!--MD5=[8fc3522a43f8c7199df5e09e5bb0188e]
+entity user--><ellipse cx="247" cy="361" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M247,369 L247,396 M234,377 L260,377 M247,396 L234,411 M247,396 L260,411 " fill="none" filter="url(#f1a836dfunihuf)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="213" y="431.0332">U&#x17C;ytkownik</text><!--MD5=[0050c6625e3b42e2857ba4d8ed699679]
+entity operator--><ellipse cx="47.5" cy="445" fill="#FEFECE" filter="url(#f1a836dfunihuf)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M47.5,453 L47.5,480 M34.5,461 L60.5,461 M47.5,480 L34.5,495 M47.5,480 L60.5,495 " fill="none" filter="url(#f1a836dfunihuf)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="19" y="515.0332">Operator</text><!--MD5=[31278c4c352e8aa61eec19ec7f7e5854]
+link admin to user--><path d="M89.42,365.25 C119.45,370.57 160.5,377.85 193.03,383.61 " fill="none" id="admin-to-user" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="194.51,376.77,212.98,387.15,192.06,390.55,194.51,376.77" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bd01c5106916100bd45902b0665d83d9]
+link operator to user--><path d="M76.38,465.14 C106.98,452.13 156.78,430.95 194.52,414.89 " fill="none" id="operator-to-user" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="191.85,408.42,213,407.04,197.33,421.31,191.85,408.42" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9b08ad6b92f36423f52dda65f3ac219a]
+link admin to A1--><path d="M89.42,320.7 C129.87,283.84 190.31,228.76 223,198.96 " fill="none" id="admin-A1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e2abf82482e8f055e91fb9f96e417b21]
+reverse link A1 to Dodaje nowego użytkownika--><path d="M334.2,189.65 C381.88,196.09 441.11,204.1 489.6,210.65 " fill="none" id="A1-backto-Dodaje nowego u&#x17C;ytkownika" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="329.04,188.95,337.4343,194.1012,333.9964,189.6089,338.4887,186.171,329.04,188.95" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="192.4951">&#xAB;extend&#xBB;</text><!--MD5=[4cab03ca8b9d2cefc2835b1184e57f71]
+reverse link A1 to Usuwa użytkownika--><path d="M339.22,168.96 C391.58,163.77 456.53,157.33 505.93,152.44 " fill="none" id="A1-backto-Usuwa u&#x17C;ytkownika" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="334.19,169.46,343.5442,172.542,339.165,168.9611,342.7459,164.5819,334.19,169.46" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="157.4951">&#xAB;extend&#xBB;</text><!--MD5=[2b1bc2c56b36ca322c1d425e99c15fde]
+link A1 to Wyświetla listę użytkowników--><path d="M299.2,160 C321.53,152.21 348.03,143.06 372,135 C419.62,119 473.53,101.47 514.67,88.22 " fill="none" id="A1-to-Wy&#x15B;wietla list&#x119; u&#x17C;ytkownik&#xF3;w" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="519.62,86.63,509.8278,85.575,514.8597,88.1596,512.2751,93.1915,519.62,86.63" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="373" y="114.4951">&#xAB;include&#xBB;</text><!--MD5=[b4c1f582698cbe5af94e4db049bdf197]
+link user to Loguje się do systemu--><path d="M281.15,388.12 C332.97,380.5 434.52,365.55 505,355.18 " fill="none" id="user-Loguje si&#x119; do systemu" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9485f9f5b29810dab05be70f078a4b67]
+link user to Wylogowuje się z systemu--><path d="M281.15,395.89 C328.85,400.04 418.72,407.87 487.67,413.87 " fill="none" id="user-Wylogowuje si&#x119; z systemu" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[0f0122ef41a976e28a99d424ef3b24eb]
+link operator to M1--><path d="M76.38,505.37 C117.42,547.14 192.99,624.05 227.7,659.37 " fill="none" id="operator-M1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ca1222f75ae55e890942bd07971edad2]
+reverse link M1 to M2--><path d="M264.87,700.88 C297.01,742.54 371.52,830.15 457,870 C477.87,879.73 501.91,887.6 523.23,893.54 " fill="none" id="M1-backto-M2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="261.71,696.75,264.0086,706.3269,264.751,700.719,270.3589,701.4613,261.71,696.75" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="812.4951">&#xAB;extend&#xBB;</text><!--MD5=[138fb70c89b48c89cf884135feb11180]
+reverse link M1 to Łączy pojazdy--><path d="M336.44,678 C391.35,678 460.91,678 511.79,678 " fill="none" id="M1-backto-&#x141;&#x105;czy pojazdy" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="331.17,678,340.17,682,336.17,678,340.17,674,331.17,678" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="674.4951">&#xAB;extend&#xBB;</text><!--MD5=[888ba360b3c562a76d21ce5c33f00f43]
+reverse link M1 to Rozłącza pojazdy--><path d="M314.18,664.09 C375.48,651.2 465.71,632.23 523.92,620 " fill="none" id="M1-backto-Roz&#x142;&#x105;cza pojazdy" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="309.08,665.16,318.711,667.2201,313.9727,664.1299,317.0629,659.3917,309.08,665.16" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="637.4951">&#xAB;extend&#xBB;</text><!--MD5=[7cdf5afd272bb649d40afe97d5bb4b92]
+reverse link M1 to Dodaje pojazd--><path d="M283.08,657.42 C323.81,634.19 393.53,596.47 457,572 C480.64,562.89 507.69,555.17 530.48,549.4 " fill="none" id="M1-backto-Dodaje pojazd" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="278.26,660.18,288.0566,659.1669,282.5959,657.6901,284.0727,652.2294,278.26,660.18" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="581.4951">&#xAB;extend&#xBB;</text><!--MD5=[3f69e3f9761ee438e5475a6f7e851bd6]
+reverse link M1 to Usuwa pojazd--><path d="M278.08,699.07 C317.56,725.92 389.75,772.29 457,801 C480.45,811.01 507.61,819.05 530.52,824.88 " fill="none" id="M1-backto-Usuwa pojazd" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="273.9,696.22,279.0836,704.5944,278.0314,699.0362,283.5896,697.9841,273.9,696.22" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="756.4951">&#xAB;extend&#xBB;</text><!--MD5=[02de8d4c8ca2339f757678acd1d1d012]
+link M1 to Wyświetla informacje o pojazdach--><path d="M305.62,691.67 C357.23,703.91 433.67,722.05 492.94,736.11 " fill="none" id="M1-to-Wy&#x15B;wietla informacje o pojazdach" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="497.89,737.28,490.062,731.3032,493.0261,736.1213,488.208,739.0854,497.89,737.28" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="373" y="705.4951">&#xAB;include&#xBB;</text><!--MD5=[8a5e6e98c0fdb49415de66f32a4ba0c0]
+link M2 to Wyświetla informacje o pojazdzie--><path d="M661.12,912.89 C708.46,916.46 769.77,921.09 822.93,925.1 " fill="none" id="M2-to-Wy&#x15B;wietla informacje o pojazdzie" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="828.05,925.48,819.372,920.8224,823.0638,925.1085,818.7777,928.8003,828.05,925.48" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="736" y="915.4951">&#xAB;include&#xBB;</text><!--MD5=[576563eee3d6426b1bfc6c58810f87eb]
+reverse link M2 to Uzupełnia dane o pojeździe--><path d="M645.71,892.11 C708.19,877.28 804.01,854.53 869.43,838.99 " fill="none" id="M2-backto-Uzupe&#x142;nia dane o poje&#x17A;dzie" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="640.52,893.34,650.202,895.1454,645.3839,892.1813,648.348,887.3632,640.52,893.34" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="737" y="856.4951">&#xAB;extend&#xBB;</text><!--MD5=[8bf8a18902be01f1c84d604d4bd94cb1]
+link Dodaje pojazd to Uzupełnia dane o pojeździe--><path d="M643.93,546.21 C667.06,551.22 692.89,559.24 714,572 C810.62,630.41 890.34,742.42 923.9,794.33 " fill="none" id="Dodaje pojazd-to-Uzupe&#x142;nia dane o poje&#x17A;dzie" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="926.62,798.56,925.1179,788.8264,923.9162,794.3541,918.3885,793.1524,926.62,798.56" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="736" y="583.4951">&#xAB;include&#xBB;</text><!--MD5=[cb724f46cd6f651e30d5ba56d4374639]
+link M3 to M2--><path d="M291.37,1003.38 C333.46,987.46 399.27,963.09 457,944 C478.82,936.78 503,929.43 524.17,923.19 " fill="none" id="M3-to-M2" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="529.21,921.72,519.4454,920.4347,524.415,923.137,521.7126,928.1067,529.21,921.72" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="949.4951">&#xAB;extend&#xBB;</text><!--MD5=[13548e62af109bdaee1f83e1995c5f40]
+link M3 to Wyświetla informacje o ładunku--><path d="M324.82,1012.39 C368,1008.11 422.65,1002.69 470.37,997.96 " fill="none" id="M3-to-Wy&#x15B;wietla informacje o &#x142;adunku" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="475.56,997.45,466.2049,994.3707,470.5851,997.9503,467.0055,1002.3306,475.56,997.45" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="373" y="998.4951">&#xAB;include&#xBB;</text><!--MD5=[c92dac8df06dd828a0ab09bdf9d6dfa3]
+link Dodaje ładunek to Uzupełnia dane o ładunku--><path d="M654.59,1130.4 C707.08,1127.76 779.12,1124.14 837.82,1121.19 " fill="none" id="Dodaje &#x142;adunek-to-Uzupe&#x142;nia dane o &#x142;adunku" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="843.1,1120.92,833.9059,1117.3889,838.1066,1121.1775,834.318,1125.3783,843.1,1120.92" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="736" y="1119.4951">&#xAB;include&#xBB;</text><!--MD5=[7d0757e773f05c044c9337d80006cb48]
+reverse link Wyświetla informacje o ładunku to Wyświetla informacje o pojazdzie--><path d="M684,972.05 C733.46,964.73 792.8,955.94 841.99,948.66 " fill="none" id="Wy&#x15B;wietla informacje o &#x142;adunku-backto-Wy&#x15B;wietla informacje o pojazdzie" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="678.94,972.8,688.426,975.4488,683.8869,972.0729,687.2627,967.5338,678.94,972.8" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="736" y="953.4951">&#xAB;include&#xBB;</text><!--MD5=[06352eadbcca0b8944ba4e301e060012]
+reverse link M3 to Dodaje ładunek--><path d="M293.11,1038.98 C335.09,1056.23 399.62,1081.7 457,1100 C481.35,1107.76 508.73,1115.39 531.55,1121.44 " fill="none" id="M3-backto-Dodaje &#x142;adunek" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="288.36,1037.02,295.1668,1044.1381,292.9855,1038.9187,298.2048,1036.7373,288.36,1037.02" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="1067.4951">&#xAB;extend&#xBB;</text><!--MD5=[c54adef3be1326c5f74094c858d2b04c]
+reverse link M3 to Usuwa ładunek--><path d="M325.52,1030.48 C384.29,1038.42 464.01,1049.19 518.68,1056.58 " fill="none" id="M3-backto-Usuwa &#x142;adunek" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="320.26,1029.76,328.6417,1034.9318,325.2148,1030.4311,329.7154,1027.0042,320.26,1029.76" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="374" y="1033.4951">&#xAB;extend&#xBB;</text><!--MD5=[b6a44898fbb413de97fb112808af713a]
 @startuml
 
 left to right direction
@@ -440,10 +436,11 @@ admin - -|> user
 operator - -|> user
 
 rectangle "Administracja" {
-  usecase "Wyświetla listę użytkowników" as A1
+  usecase "Zarządza użytkownikami" as A1
   admin - - A1
   A1 <- - (Dodaje nowego użytkownika) : <<extend>>
   A1 <- - (Usuwa użytkownika) : <<extend>>
+  A1 - -> (Wyświetla listę użytkowników) : <<include>>
 }
 
 
@@ -454,30 +451,79 @@ rectangle "Autoryzacja" {
 }
 
 rectangle "Zarządzanie magazynem" {
-  usecase "Wyświetla listę pojazdów" as M1
-  usecase "Dodaje nowy pojazd" as M2
-  usecase "Łączy pojazdy" as M3
-  usecase "Rozłącza pojazdy" as M4
-  usecase "Wyświetla informacje o pojeździe" as M5
-  usecase "Uzupełnia dane pojazdu" as M6
-  usecase "Usuwa pojazd" as M7
-  usecase "Przeprowadza załadunek" as M8
-  usecase "Przeprowadza rozładunek" as M9
-  usecase "Wyświetla informacje o ładunku" as M10
+  usecase "Zarządza pojazdami" as M1
+  usecase "Zarządza pojazdem" as M2
+  usecase "Zarządza ładunkiem" as M3
+  ' usecase "Wyświetla informacje o ładunku" as M10
   
   operator - - M1
-
   M1 <- - M2 : <<extend>>
-  M1 <- - M3 : <<extend>>
-  M1 <- - M4 : <<extend>>
-  M1 <- - M5 : <<extend>>
+  M1 <- - (Łączy pojazdy) : <<extend>>
+  M1 <- - (Rozłącza pojazdy) : <<extend>>
+  M1 <- - (Dodaje pojazd) : <<extend>>
+  M1 <- - (Usuwa pojazd) : <<extend>>
+  M1 - -> (Wyświetla informacje o pojazdach) : <<include>>
+  M2 - -> (Wyświetla informacje o pojazdzie) : <<include>>
+  M2 <- -  (Uzupełnia dane o pojeździe) : <<extend>>
+  (Dodaje pojazd) - ->  (Uzupełnia dane o pojeździe) : <<include>>
+  M3 - -> M2 : <<extend>>
+  M3 - -> (Wyświetla informacje o ładunku) : <<include>>
+  (Dodaje ładunek) - -> (Uzupełnia dane o ładunku) : <<include>>
+   (Wyświetla informacje o ładunku) <- - (Wyświetla informacje o pojazdzie)  : <<include>>
+  M3 <- - (Dodaje ładunek) : <<extend>>
+  M3 <- - (Usuwa ładunek) : <<extend>>
+}
 
-  M2 <- - M6 : <<extend>>
-  M5 <- - M7 : <<extend>>
-  M5 - -> M10 : <<include>>
-  M10 <- - M8 : <<extend>>
-  M10 <- - M9 : <<extend>>
 
+
+@enduml
+
+@startuml
+
+left to right direction
+
+  actor "Administrator" as admin
+  actor "Użytkownik" as user
+  actor "Operator" as operator
+admin - -|> user
+operator - -|> user
+
+rectangle "Administracja" {
+  usecase "Zarządza użytkownikami" as A1
+  admin - - A1
+  A1 <- - (Dodaje nowego użytkownika) : <<extend>>
+  A1 <- - (Usuwa użytkownika) : <<extend>>
+  A1 - -> (Wyświetla listę użytkowników) : <<include>>
+}
+
+
+
+rectangle "Autoryzacja" {
+  user - - (Loguje się do systemu)
+  user - - (Wylogowuje się z systemu)
+}
+
+rectangle "Zarządzanie magazynem" {
+  usecase "Zarządza pojazdami" as M1
+  usecase "Zarządza pojazdem" as M2
+  usecase "Zarządza ładunkiem" as M3
+  
+  operator - - M1
+  M1 <- - M2 : <<extend>>
+  M1 <- - (Łączy pojazdy) : <<extend>>
+  M1 <- - (Rozłącza pojazdy) : <<extend>>
+  M1 <- - (Dodaje pojazd) : <<extend>>
+  M1 <- - (Usuwa pojazd) : <<extend>>
+  M1 - -> (Wyświetla informacje o pojazdach) : <<include>>
+  M2 - -> (Wyświetla informacje o pojazdzie) : <<include>>
+  M2 <- -  (Uzupełnia dane o pojeździe) : <<extend>>
+  (Dodaje pojazd) - ->  (Uzupełnia dane o pojeździe) : <<include>>
+  M3 - -> M2 : <<extend>>
+  M3 - -> (Wyświetla informacje o ładunku) : <<include>>
+  (Dodaje ładunek) - -> (Uzupełnia dane o ładunku) : <<include>>
+   (Wyświetla informacje o ładunku) <- - (Wyświetla informacje o pojazdzie)  : <<include>>
+  M3 <- - (Dodaje ładunek) : <<extend>>
+  M3 <- - (Usuwa ładunek) : <<extend>>
 }
 
 

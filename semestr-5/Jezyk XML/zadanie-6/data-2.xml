@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="stylesheet-2.xsl"?>
+<zestawienia>
+    <zestawienie typ="ks">
+        <okres>2004</okres>
+        <tytul>Zesatwienie przychodów i rozchodów</tytul>
+    </zestawienie>
+    <zestawienie typ="ka">
+        <okres>2004</okres>
+        <tytul>Wpływy na konto firmowe</tytul>
+    </zestawienie>
+    <zestawienie typ="ks">
+        <okres>2003</okres>
+        <tytul>Zesatwienie przychodów i rozchodów</tytul>
+    </zestawienie>
+    <zestawienie typ="ka">
+        <okres>2003</okres>
+        <tytul>Wpływy na konto firmowe</tytul>
+    </zestawienie>
+    <zestawienie typ="ma">
+        <okres>2004</okres>
+        <tytul>Atrakcyjność corocznych akcji promocyjnych</tytul>
+    </zestawienie>
+    <zestawienie typ="ka">
+        <okres>2002</okres>
+        <tytul>Wpływy na konto firmowe</tytul>
+    </zestawienie>
+    <zestawienie typ="ka">
+        <okres>2001</okres>
+        <tytul>Wpływy na konto firmowe</tytul>
+    </zestawienie>
+</zestawienia>

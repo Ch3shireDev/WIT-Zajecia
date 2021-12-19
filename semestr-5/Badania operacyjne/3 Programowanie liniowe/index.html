@@ -1,0 +1,539 @@
+<!DOCTYPE html><html><head>
+      <title>solution</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Cheshire Cat\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.1\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="bop-programowanie-liniowe-numer-36">BOP - Programowanie liniowe (numer 36)</h1>
+
+<h2 class="mume-header" id="problem-1">Problem 1</h2>
+
+<p>Zak&#x142;ad produkcyjny wytwarza dwa wyroby: W1 i W2. Do ich produkcji s&#x105; potrzebne maszyny trzech typ&#xF3;w: M1, M2 i M3, przy czym ka&#x17C;dy wyr&#xF3;b wymaga u&#x17C;ycia (kolejno) wszystkich typ&#xF3;w maszyn. Czas wytwarzania tysi&#x105;ca sztuk wyrobu Wi na maszynie typu Mj jest podany w tabeli (w godzinach):</p>
+<table>
+<thead>
+<tr>
+<th>Wyr&#xF3;b/Maszyna</th>
+<th>M1</th>
+<th>M2</th>
+<th>M3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W1</td>
+<td>4</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>W2</td>
+<td>3</td>
+<td>8</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>W okresie planowania maszyny M1 s&#x105; dost&#x119;pne przez 35, M2 przez 40 i M3 przez 60 godzin. Przewiduje si&#x119;, &#x17C;e wyroby b&#x119;d&#x105; przynosi&#x142;y zysk jednostkowy c1 = 4 i c2 = 5 (z&#x142;otych za sztuk&#x119;). Nale&#x17C;y opracowa&#x107; plan produkcji wyrob&#xF3;w W1 i W2 zapewniaj&#x105;cy najwi&#x119;kszy zysk (wielko&#x15B;&#x107; produkcji nie musi by&#x107; ca&#x142;kowit&#x105; wielokrotno&#x15B;ci&#x105; tysi&#x119;cy sztuk).</p>
+<h3 class="mume-header" id="podpunkt-a">Podpunkt A</h3>
+
+<p>A. Sformu&#x142;owa&#x107; zadanie programowania liniowego ZPL1, kt&#xF3;rego rozwi&#x105;zaniem jest szukany plan produkcji.</p>
+<pre data-role="codeBlock" data-info="ampl" class="language-ampl"><code># Zapis w j&#x119;zyku AMPL
+var w1 &gt;= 0;
+var w2 &gt;= 0;
+
+maximize funkcja_celu:
+4*w1 + 5*w2;
+
+subject to ograniczenie1:
+4*w1 + 3*w2 &lt;= 35;
+subject to ograniczenie2:
+1*w1 + 8*w2 &lt;= 40;
+subject to ograniczenie3:
+2*w1 + 6*w2 &lt;= 60;
+</code></pre><h3 class="mume-header" id="podpunkt-b">Podpunkt B</h3>
+
+<p>B. Rozwi&#x105;za&#x107; zadanie ZPL1:</p>
+<ol>
+<li>Narysowa&#x107; obszar rozwi&#x105;za&#x144; dopuszczalnych i zaznaczy&#x107; jego punkty wierzcho&#x142;kowe i kraw&#x119;dzie. Narysowa&#x107; dwie lub trzy proste sta&#x142;ej warto&#x15B;ci funkcji celu dla r&#xF3;&#x17C;nych warto&#x15B;ci tej funkcji, zaznaczy&#x107; kierunek wzrostu warto&#x15B;ci funkcji celu i wskaza&#x107; na tej podstawie punkt Q1g odpowiadaj&#x105;cy rozwi&#x105;zaniu optymalnemu. Obliczy&#x107; wsp&#xF3;&#x142;rz&#x119;dne tego punktu i warto&#x15B;&#x107; funkcji celu.</li>
+</ol>
+<p>Obszar rozwi&#x105;za&#x144; dopuszczalnych:</p>
+<p><img src="./problem_1_1.png" alt></p>
+<p>Punkty wierzcho&#x142;kowe dla ogranicze&#x144;:</p>
+<ul>
+<li>ograniczenie 1 (czerwone) - od (0,11.667) do (8.75,0), przeci&#x119;cie w (5.517, 4.31) z ograniczeniem 2, przeci&#x119;cie w (1.667,9.444) z ograniczeniem 3</li>
+<li>ograniczenie 2 (niebieskie) - od (0,5) do (40,0), przeci&#x119;cie w (24,2) z ograniczeniem 3</li>
+<li>ograniczenie 3 (zielone) - od (0,10) do (30,0)</li>
+</ul>
+<p>Punkt optymalny (najdalszy od punktu (0,0)) jest w (2.963,4.63).</p>
+<p>Linia sta&#x142;ej warto&#x15B;ci funkcji celu dla zysku = 30 (czerwona):</p>
+<p><img src="./problem_1_2.png" alt><br>
+Linia sta&#x142;ej warto&#x15B;ci funkcji celu dla zysku = 60 (czerwona) :</p>
+<p><img src="./problem_1_3.png" alt></p>
+<p>Linia sta&#x142;ej warto&#x15B;ci funkcji celu dla zysku = 43.62 (czerwona) :</p>
+<p><img src="./problem_1_4.png" alt></p>
+<p>Punkt Q1G = (5.517, 4.31)<br>
+Warto&#x15B;&#x107; maksymalna funkcji celu: 43.62</p>
+<ol start="2">
+<li>Zadanie programowania liniowego ZPL1 zapisa&#x107; w pliku (tekstowym), a nast&#x119;pnie wyznaczy&#x107; jego rozwi&#x105;zanie optymalne za pomoc&#x105; AMPL. Otrzymane rozwi&#x105;zanie Q1 nale&#x17C;y por&#xF3;wna&#x107; z rozwi&#x105;zaniem Q1g otrzymanym w p. B1.</li>
+</ol>
+<pre data-role="codeBlock" data-info class="language-"><code>ampl: model problem_1.mod;
+ampl: solve;
+MINOS 5.51: optimal solution found.
+2 iterations, objective 43.62068966
+ampl: display w1, w2;
+w1 = 5.51724
+w2 = 4.31034
+</code></pre><pre data-role="codeBlock" data-info class="language-"><code>Q1 = 43.62068966
+</code></pre><h3 class="mume-header" id="podpunkt-c">Podpunkt C</h3>
+
+<p>C. Sprawdzi&#x107;, czy w przypadku zmiany zysku jednostkowego c1 z 4 z&#x142; na 15 z&#x142; plan produkcji Q1 wyznaczony w p. B pozostanie nadal rozwi&#x105;zaniem optymalnym. W przypadku odpowiedzi negatywnej nale&#x17C;y poda&#x107;, jaki plan produkcji Q1C sta&#x142;by si&#x119; optymalnym przy danych warto&#x15B;ciach c1 i c2 i o ile wi&#x119;kszy zysk by zapewnia&#x142; w por&#xF3;wnaniu z planem Q1.</p>
+<p>Nowy model dla c1 = 15:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>var w1 &gt;= 0;
+var w2 &gt;= 0;
+
+maximize funkcja_celu:
+15*w1 + 5*w2;
+
+subject to ograniczenie1:
+4*w1 + 3*w2 &lt;= 35;
+subject to ograniczenie2:
+1*w1 + 8*w2 &lt;= 40;
+subject to ograniczenie3:
+2*w1 + 6*w2 &lt;= 60;
+</code></pre><p>Wynik:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>ampl: model problem_1c.mod
+ampl: solve
+ampl? ;
+MINOS 5.51: optimal solution found.
+1 iterations, objective 131.25
+ampl: display w1, w2;
+w1 = 8.75
+w2 = 0
+</code></pre><p>Odpowied&#x17A;: plan produkcji si&#x119; zmieni, nowy punkt Q1C = (8.75, 0) z zyskiem 131.25. Poprzedni punkt Q1 = (5.51724, 4.31034) przyni&#xF3;s&#x142;by mniejszy zysk r&#xF3;wny 104.3103. R&#xF3;&#x17C;nica w zyskach wynosi 26.9397.</p>
+<h3 class="mume-header" id="podpunkt-d">Podpunkt D</h3>
+
+<p>Dla ka&#x17C;dego typu maszyn <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> wyznaczy&#x107; eksperymentalnie dodatkowy zysk <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">&#x394;</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\Delta_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord">&#x394;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (w stosunku do osi&#x105;ganego przy planie Q1), jaki mo&#x17C;na by uzyska&#x107; za dodatkow&#x105; godzin&#x119; pracy maszyn typu <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span>. Zwi&#x119;kszy&#x107; o 100 godzin dost&#x119;pno&#x15B;&#x107; maszyny zapewniaj&#x105;cej najwi&#x119;kszy dodatkowy zysk, wyznaczy&#x107; rozwi&#x105;zanie optymalne w tym przypadku, na wykresie zakreskowa&#x107; obszar rozwi&#x105;za&#x144; dopuszczalnych oraz zaznaczy&#x107; znalezione rozwi&#x105;zanie optymalne. Jak zmieni&#x142; si&#x119; maksymalny zysk w por&#xF3;wnaniu do zysku dla planu Q1?</p>
+<p>Dla maszyny M1:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>var w1 &gt;= 0;
+var w2 &gt;= 0;
+
+maximize funkcja_celu:
+4*w1 + 5*w2;
+
+subject to ograniczenie1:
+4*w1 + 3*w2 &lt;= 36; # dodana 1 godzina do M1
+subject to ograniczenie2:
+1*w1 + 8*w2 &lt;= 40;
+subject to ograniczenie3:
+2*w1 + 6*w2 &lt;= 60;
+</code></pre><p>Dla maszyny M2:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>var w1 &gt;= 0;
+var w2 &gt;= 0;
+
+maximize funkcja_celu:
+4*w1 + 5*w2;
+
+subject to ograniczenie1:
+4*w1 + 3*w2 &lt;= 35;
+subject to ograniczenie2:
+1*w1 + 8*w2 &lt;= 41; # dodana 1 godzina do M2
+subject to ograniczenie3:
+2*w1 + 6*w2 &lt;= 60;
+</code></pre><p>Dla maszyny M3:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>var w1 &gt;= 0;
+var w2 &gt;= 0;
+
+maximize funkcja_celu:
+4*w1 + 5*w2;
+
+subject to ograniczenie1:
+4*w1 + 3*w2 &lt;= 35;
+subject to ograniczenie2:
+1*w1 + 8*w2 &lt;= 40;
+subject to ograniczenie3:
+2*w1 + 6*w2 &lt;= 61; # dodana 1 godzina do M3
+</code></pre><p>Wyniki:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>Q1D1 = 44.5517241
+Delta_1 = 44.5517241 - 43.62068966 = 0.93103444
+Q1D2 = 43.89655172
+Delta_2 = 43.89655172 - 43.62068966 = 0.27586206
+Q1D3 = 43.62068966
+Delta_3 = 43.62068966 - 43.62068966 = 0
+</code></pre><p>Zatem dodanie pojedynczej godziny do maszyny M1 daje najwi&#x119;kszy zysk.</p>
+<p>Rozwi&#x105;zania dla maszyny M1 z dodatkowymi 100 godzinami.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>var w1 &gt;= 0;
+var w2 &gt;= 0;
+
+maximize funkcja_celu:
+4*w1 + 5*w2;
+
+subject to ograniczenie1:
+4*w1 + 3*w2 &lt;= 135; # dodane 100 godzin do M1
+subject to ograniczenie2:
+1*w1 + 8*w2 &lt;= 40;
+subject to ograniczenie3:
+2*w1 + 6*w2 &lt;= 60;
+</code></pre><p>Wynik: zysk 120, dla punktu (30, 0).</p>
+<p>Rysunek (ograniczenie 1 - czerwone, ograniczenie 2 - niebieskie, ograniczenie 3 - zielone, linia koszt&#xF3;w dla zysku = 120 - fioletowa, punkt optimum - czerwone k&#xF3;&#x142;ko):</p>
+<p><img src="./problem_1_d2.png" alt></p>
+<h2 class="mume-header" id="problem-2">Problem 2</h2>
+
+<p>Problem 2 jest podobny do Problemu 1, z tym &#x17C;e dotyczy produkowania czterech r&#xF3;&#x17C;nych wyrob&#xF3;w. Dosz&#x142;a mo&#x17C;liwo&#x15B;&#x107; produkowania na tych samych maszynach przy tym samym czasie ich pracy dodatkowych wyrob&#xF3;w W3 i W4 (opr&#xF3;cz wyrob&#xF3;w W1 i W2); wyroby W3 i W4 b&#x119;d&#x105; przynosi&#x142;y zysk jednostkowy c3 = 6 i c4 = 5 (z&#x142;otych za sztuk&#x119;). Czas wytwarzania partii tysi&#x105;ca sztuk wyrob&#xF3;w W3 i W4 jest nast&#x119;puj&#x105;cy (w<br>
+godzinach):</p>
+<table>
+<thead>
+<tr>
+<th>Wyr&#xF3;b/Maszyna</th>
+<th>M1</th>
+<th>M2</th>
+<th>M3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W3</td>
+<td>3</td>
+<td>8</td>
+<td>6</td>
+</tr>
+<tr>
+<td>W4</td>
+<td>1</td>
+<td>4</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>Nale&#x17C;y opracowa&#x107; plan produkcji Q2 czterech wyrob&#xF3;w W1, W2, W3 i W4 zapewniaj&#x105;cy najwi&#x119;kszy zysk, pos&#x142;uguj&#x105;c si&#x119; modelem utworzonym w AMPL. Wyznaczony plan Q2 i odpowiadaj&#x105;c&#x105; mu warto&#x15B;&#x107; funkcji celu por&#xF3;wna&#x107; z planem optymalnym Q1 dla Problemu 1 sprawdzaj&#x105;c, czy zysk ca&#x142;kowity zmniejszy&#x142; si&#x119; czy zwi&#x119;kszy&#x142;, czy wyroby W3 i W4 zosta&#x142;y w&#x142;&#x105;czone do planu produkcji Q2 i czy charakter zmian zysku jest logicznie uzasadniony.</p>
+<p>Model:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>var w1 &gt;= 0;
+var w2 &gt;= 0;
+var w3 &gt;= 0;
+var w4 &gt;= 0;
+
+maximize funkcja_celu:
+4*w1 + 5*w2 + 6*w3 + 5*w4;
+
+subject to ograniczenie1:
+4*w1 + 3*w2 + 3*w3 + 1*w4 &lt;= 35;
+subject to ograniczenie2:
+1*w1 + 8*w2 + 8*w3 + 4*w4 &lt;= 40;
+subject to ograniczenie3:
+2*w1 + 6*w2 + 6*w3 + 6*w4 &lt;= 60;
+</code></pre><p>Wynik:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>ampl: model problem_2.mod
+ampl: solve;
+MINOS 5.51: optimal solution found.
+3 iterations, objective 65.90909091
+ampl: display w1,w2,w3,w4;
+w1 = 6.81818
+w2 = 0
+w3 = 0
+w4 = 7.72727
+</code></pre><p>Zysk ca&#x142;kowity: Q2 = 65.90909091 dla produkcji (6.81818, 0, 0, 7.72727). W por&#xF3;wnaniu do Q1 = 43.62068966 dodatkowy zysk jest r&#xF3;wny 22.28840125.</p>
+<p>Zysk ca&#x142;kowity w oczywisty spos&#xF3;b si&#x119; zwi&#x119;kszy&#x142; - nie m&#xF3;g&#x142; si&#x119; zmniejszy&#x107;, m&#xF3;g&#x142; co najwy&#x17C;ej by&#x107; ten sam dla w3 = 0, w4 = 0. Nale&#x17C;y usun&#x105;&#x107; wyr&#xF3;b w2 oraz doda&#x107; wyr&#xF3;b w4 do produkcji.</p>
+<h3 class="mume-header" id="problem-3">Problem 3</h3>
+
+<p>Sformu&#x142;owa&#x107; zadanie programowania matematycznego (ZPL3) dla Problemu r&#xF3;&#x17C;ni&#x105;cego si&#x119; od Problemu 1 w nast&#x119;puj&#x105;cy spos&#xF3;b:</p>
+<ol>
+<li>maszyny nie &quot;s&#x105; dost&#x119;pne&quot; lecz &quot;musz&#x105; by&#x107; obci&#x105;&#x17C;one&quot; produkcj&#x105; wyrob&#xF3;w W1 i W2 przynajmniej przez podany czas (35, 40 i 60 godzin);</li>
+<li>wsp&#xF3;&#x142;czynniki c1 i c2 wyra&#x17C;aj&#x105; nie zysk jednostkowy, lecz koszt jednostkowy;</li>
+<li>trzeba znale&#x17A;&#x107; plan produkcji o najni&#x17C;szym koszcie ca&#x142;kowitym.</li>
+</ol>
+<p>Na rysunku wykonanym w p. B 1 zaznaczy&#x107; obszar rozwi&#x105;za&#x144; dopuszczalnych zadania 3 i w oparciu o wyznaczony kierunek wzrostu warto&#x15B;ci funkcji celu wskaza&#x107; punkt Q3g b&#x119;d&#x105;cy rozwi&#x105;zaniem optymalnym zadania 3. Rozwi&#x105;za&#x107; zadanie ZPL3 pos&#x142;uguj&#x105;c si&#x119; modelem utworzonym w AMPL i por&#xF3;wna&#x107; otrzymane rozwi&#x105;zanie optymalne Q3 z rozwi&#x105;zaniem Q3g.</p>
+<p>Nowy model zadania:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>var w1 &gt;= 0;
+var w2 &gt;= 0;
+
+minimize funkcja_celu:
+4*w1 + 5*w2;
+
+subject to ograniczenie1:
+4*w1 + 3*w2 &gt;= 35;
+subject to ograniczenie2:
+1*w1 + 8*w2 &gt;= 40;
+subject to ograniczenie3:
+2*w1 + 6*w2 &gt;= 60;
+</code></pre><p>Rysunek pogl&#x105;dowy (ograniczenie 1: czerwony, ograniczenie 2: niebieski, ograniczenie 3: zielony, linia koszt&#xF3;w: fioletowa):</p>
+<p><img src="problem_3.png" alt></p>
+<p>Wyznaczony graficznie punkt optymalny koszt&#xF3;w ma warto&#x15B;&#x107; Q3G = 53.9 dla punktu (1.667, 9.444).</p>
+<p>Wyznaczony numerycznie punkt optymalny koszt&#xF3;w:</p>
+<pre data-role="codeBlock" data-info class="language-"><code>ampl: model problem_3.mod;
+ampl: solve;
+MINOS 5.51: optimal solution found.
+1 iterations, objective 53.88888889
+ampl: display w1, w2;
+w1 = 1.66667
+w2 = 9.44444
+</code></pre><p>Wynik to Q3 = 53.89 dla punktu (1.67, 9.44).</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
