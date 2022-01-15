@@ -69,6 +69,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             bool? result = editor.ShowDialog();
             if (result == true) vehicle.Vehicle = editor.GetVehicle();
             Model.Save();
+            RefreshVehiclesList();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)

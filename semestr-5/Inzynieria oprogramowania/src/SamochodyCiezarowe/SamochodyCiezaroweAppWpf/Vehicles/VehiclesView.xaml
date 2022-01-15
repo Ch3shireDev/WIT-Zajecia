@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="VehiclesView" Height="531" Width="998"
+        Title="VehiclesView" Height="531" Width="1206"
         DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" KeyDown="Window_KeyDown">
     <Window.Resources>
     </Window.Resources>
@@ -22,10 +22,10 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition />
-                <RowDefinition Height="60" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid>
-                <ListView x:Name="VehiclesList" Margin="10" ItemsSource="{Binding Vehicles}">
+                <ListView x:Name="VehiclesList" Margin="10,10,10,0" ItemsSource="{Binding Vehicles}">
                     <ListView.ContextMenu>
                         <ContextMenu>
                             <MenuItem x:Name="AddVehicleMenuItem" Header="Dodaj" Click="AddVehicleMenuItem_Click" />
@@ -41,7 +41,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Nr id." DisplayMemberBinding="{Binding Vehicle.Id}" Width="40" />
-                            <GridViewColumn Header="Nazwa" Width="200">
+                            <GridViewColumn Header="Nazwa" Width="250">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Vehicle.Name}" HorizontalAlignment="Center"
@@ -79,6 +79,13 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
 
+                            </GridViewColumn>
+                            <GridViewColumn Header="Stan" Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding TrailerDescription, Mode=OneWay}" HorizontalAlignment="Center"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                         </GridView>
                     </ListView.View>

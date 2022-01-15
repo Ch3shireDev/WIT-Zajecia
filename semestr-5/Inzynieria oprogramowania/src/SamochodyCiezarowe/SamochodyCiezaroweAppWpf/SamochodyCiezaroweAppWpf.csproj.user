@@ -7,6 +7,26 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Vehicles\Editor\ConnectTrailerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vehicles\Editor\ItemEditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vehicles\Editor\ItemsEditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Vehicles\Editor\ConnectTrailerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vehicles\Editor\ItemEditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vehicles\Editor\ItemsEditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Vehicles\Editor\VehicleEditor.xaml">
       <SubType>Designer</SubType>
     </Page>

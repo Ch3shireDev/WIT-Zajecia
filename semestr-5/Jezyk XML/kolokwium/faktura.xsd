@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="faktura">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="numer" type="xsd:string"/>
+                <xsd:element name="sprzedawca">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="nazwa" type="xsd:string"/>
+                            <xsd:element name="adres">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="ulica" type="xsd:string"/>
+                                        <xsd:element name="numer" type="xsd:string"/>
+                                        <xsd:element name="kod-pocztowy" type="xsd:string"/>
+                                        <xsd:element name="miejscowosc" type="xsd:string"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="nip" type="xsd:string"/>
+                            <xsd:element name="regon" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="odbiorca">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="nazwa" type="xsd:string"/>
+                            <xsd:element name="adres">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="ulica" type="xsd:string"/>
+                                        <xsd:element name="numer" type="xsd:string"/>
+                                        <xsd:element name="kod-pocztowy" type="xsd:string"/>
+                                        <xsd:element name="miejscowosc" type="xsd:string"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                            <xsd:element name="nip" type="xsd:string"/>
+                            <xsd:element name="regon" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="data-wystawienia" type="xsd:date"></xsd:element>
+                <xsd:element name="data-sprzedazy" type="xsd:date"></xsd:element>
+                <xsd:element name="termin-zaplaty" type="xsd:date"></xsd:element>
+                <xsd:element name="sposob-zaplaty" type="xsd:string"></xsd:element>
+                <xsd:element name="towary">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="towar" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="nazwa" type="xsd:string"/>
+                                        <xsd:element name="jm" type="xsd:string"/>
+                                        <xsd:element name="ilosc" type="xsd:anySimpleType"/>
+                                        <xsd:element name="cena-netto" type="xsd:decimal"/>
+                                        <xsd:element name="wartosc-netto" type="xsd:decimal"/>
+                                        <xsd:element name="stawka-vat" type="xsd:string"/>
+                                        <xsd:element name="wartosc-z-vat" type="xsd:decimal"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="do-zaplaty-cyfrowo" type="xsd:decimal"></xsd:element>
+                <xsd:element name="do-zaplaty-slownie" type="xsd:string"></xsd:element>
+                <xsd:element name="odbiorca-faktury" type="xsd:string"></xsd:element>
+                <xsd:element name="wystawca-faktury" type="xsd:string"></xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

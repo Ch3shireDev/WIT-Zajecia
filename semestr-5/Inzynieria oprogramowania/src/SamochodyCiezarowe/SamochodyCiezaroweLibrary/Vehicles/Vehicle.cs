@@ -15,16 +15,23 @@ namespace SamochodyCiezaroweLibrary.Vehicles
         {
             Id = vehicle.Id;
             Name = vehicle.Name;
+            VIN = vehicle.VIN;
+            Year = vehicle.Year;
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
         public string VIN { get; set; }
         public int Year { get; set; } = 2000;
-        public Engine Engine { get; set; }
+        //public Engine Engine { get; set; }
         public Storage Storage { get; set; }
         public abstract VehicleType VehicleType { get; }
         [JsonIgnore]
         public abstract string TypeDescription { get; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

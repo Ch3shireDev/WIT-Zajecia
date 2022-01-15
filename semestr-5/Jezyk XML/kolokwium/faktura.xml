@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="faktura.xsl"?>
+<faktura 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+xsi:noNamespaceSchemaLocation="faktura.xsd"
+>
+    <numer>2340</numer>
+    <sprzedawca>
+        <nazwa>PPHU ICE-NET</nazwa>
+        <adres>
+            <ulica>ul. Reymonta</ulica>
+            <numer>12/78</numer>
+            <kod-pocztowy>18-400</kod-pocztowy>
+            <miejscowosc>Łomża</miejscowosc>
+        </adres>
+        <nip>718-340-23-00</nip>
+        <regon>67890982</regon>
+    </sprzedawca>
+    <odbiorca>
+        <nazwa>ZHU ZURT</nazwa>
+        <adres>
+            <ulica>ul. Piękna</ulica>
+            <numer>34</numer>
+            <kod-pocztowy>18-400</kod-pocztowy>
+            <miejscowosc>Łomża</miejscowosc>
+        </adres>
+        <nip>567-733-77-22</nip>
+        <regon>65736279</regon>
+    </odbiorca>
+    <data-wystawienia>2003-10-27</data-wystawienia>
+    <data-sprzedazy>2003-10-27</data-sprzedazy>
+    <termin-zaplaty>2003-11-27</termin-zaplaty>
+    <sposob-zaplaty>gotówka</sposob-zaplaty>
+    <towary>
+        <towar>
+            <nazwa>MS Windows XP HE OEM</nazwa>
+            <jm>szt.</jm>
+            <ilosc>1</ilosc>
+            <cena-netto>320.00</cena-netto>
+            <wartosc-netto>320.00</wartosc-netto>
+            <stawka-vat>22%</stawka-vat>
+            <wartosc-z-vat>390.40</wartosc-z-vat>
+        </towar>
+        <towar>
+            <nazwa>MS Office XP BOX</nazwa>
+            <jm>szt.</jm>
+            <ilosc>2</ilosc>
+            <cena-netto>1600.00</cena-netto>
+            <wartosc-netto>3200.00</wartosc-netto>
+            <stawka-vat>22%</stawka-vat>
+            <wartosc-z-vat>3904.00</wartosc-z-vat>
+        </towar>
+        <towar>
+            <nazwa>MS Word 2002 OEM</nazwa>
+            <jm>szt.</jm>
+            <ilosc>1</ilosc>
+            <cena-netto>420.00</cena-netto>
+            <wartosc-netto>420.00</wartosc-netto>
+            <stawka-vat>22%</stawka-vat>
+            <wartosc-z-vat>512.40</wartosc-z-vat>
+        </towar>
+    </towary>
+    <do-zaplaty-cyfrowo>4806.80</do-zaplaty-cyfrowo>
+    <do-zaplaty-slownie>cztery tysiące osiemset sześć złotych 80/100</do-zaplaty-slownie>
+    <odbiorca-faktury>Marian Kaniewski</odbiorca-faktury>
+    <wystawca-faktury>Adrian Batycki</wystawca-faktury>
+</faktura>

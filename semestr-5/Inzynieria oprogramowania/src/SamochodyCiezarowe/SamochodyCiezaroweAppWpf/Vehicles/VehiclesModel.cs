@@ -18,7 +18,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             Vehicles = Vehicles.Select(v => v.Vehicle).ToList()
         };
 
-        public ObservableCollection<VehicleProxy> Vehicles { get; set; } = new();
+        public ObservableCollection<VehicleProxy> Vehicles => VehiclesSingleton.Instance.Vehicles;
 
         public void Save()
         {
@@ -33,7 +33,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
                 Vehicles.Clear();
                 foreach (Vehicle vehicle in data.Vehicles) Vehicles.Add(new VehicleProxy(vehicle));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }

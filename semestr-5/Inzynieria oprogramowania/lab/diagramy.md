@@ -68,7 +68,7 @@ classDiagram
       +Engine : Engine
       +CargoSpace : Storage
     }
-
+    
 ```
 
 ```mermaid

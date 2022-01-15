@@ -9,6 +9,11 @@
                  <Setter Property="TextAlignment" Value="Left"></Setter>
                  <Setter Property="VerticalAlignment" Value="Center"></Setter>
              </Style>
+             <Style TargetType="Button">
+                 <Setter Property="Height" Value="40"></Setter>
+                 <Setter Property="Margin" Value="10"></Setter>
+                 <Setter Property="Padding" Value="20,10"></Setter>
+             </Style>
          </ResourceDictionary>
     </Application.Resources>
 </Application>

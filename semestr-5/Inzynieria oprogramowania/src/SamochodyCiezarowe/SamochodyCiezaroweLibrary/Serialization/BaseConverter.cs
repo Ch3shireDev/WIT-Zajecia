@@ -7,7 +7,7 @@ namespace SamochodyCiezaroweLibrary.Serialization
 {
     public class BaseConverter : JsonConverter
     {
-        private static readonly JsonSerializerSettings SpecifiedSubclassConversion =
+        private static readonly JsonSerializerSettings conversion =
             new() { ContractResolver = new BaseSpecifiedConcreteClassConverter() };
 
         public override bool CanWrite => false;
@@ -19,13 +19,20 @@ namespace SamochodyCiezaroweLibrary.Serialization
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            JObject jo = JObject.Load(reader);
-            switch ((VehicleType)jo["VehicleType"].Value<int>())
+            JObject json = JObject.Load(reader);
+            string jsonData = json.ToString();
+            switch ((VehicleType)json["VehicleType"].Value<int>())
             {
                 case VehicleType.Car:
-                    return JsonConvert.DeserializeObject<CargoSpaceCar>(jo.ToString(), SpecifiedSubclassConversion);
+                    return JsonConvert.DeserializeObject<CargoSpaceCar>(jsonData, conversion);
                 case VehicleType.Trailer:
-                    return JsonConvert.DeserializeObject<Trailer>(jo.ToString(), SpecifiedSubclassConversion);
+                    return JsonConvert.DeserializeObject<Trailer>(jsonData, conversion);
+                case VehicleType.SemiTrailer:
+                    return JsonConvert.DeserializeObject<SemiTrailer>(jsonData, conversion);
+                case VehicleType.TrailerCar:
+                    return JsonConvert.DeserializeObject<TrailerCar>(jsonData, conversion);
+                case VehicleType.Truck:
+                    return JsonConvert.DeserializeObject<Truck>(jsonData, conversion);
                 default:
                     throw new Exception();
             }
