@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
-using SamochodyCiezaroweAppWpf.Persistence;
 using SamochodyCiezaroweLibrary;
+using SamochodyCiezaroweLibrary.Persistence;
 using SamochodyCiezaroweLibrary.Vehicles;
 
 namespace SamochodyCiezaroweAppWpf.Vehicles

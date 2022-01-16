@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SamochodyCiezaroweLibrary;
+using SamochodyCiezaroweLibrary.Storages;
 using SamochodyCiezaroweLibrary.Vehicles;
 
 namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
@@ -11,23 +12,26 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         {
             Vehicle = new VehicleBuilder().Build(vehicleProxy.Vehicle);
             SelectedVehicleType = VehicleTypes.FirstOrDefault(x => x.GetType() == Vehicle.GetType());
+            SelectedStorageType = StorageTypes.FirstOrDefault(s => s.GetType() == (Vehicle as ILoadable)?.Storage.GetType());
             SetEngine();
         }
 
         public string SelectedTrailerName => GetSelectedTrailerName();
-        
         public Vehicle Vehicle { get; set; }
         public Engine Engine { get; set; }
         public Vehicle SelectedVehicleType { get; set; }
 
         public List<Vehicle> VehicleTypes { get; } = Helpers.GetAvailableVehicles();
+        public List<Storage> StorageTypes { get; } = Helpers.GetAvailableStorages();
+
+        public Storage SelectedStorageType { get; set; }
 
         private TrailerConnector TrailerConnector => new(VehiclesSingleton.Instance.Vehicles);
         public bool IsTrailerable => Vehicle is ITrailerable;
         public bool IsConnected => GetIsConnected();
         public bool IsSemiTrailerable => Vehicle is ISemiTrailerable;
 
-        bool GetIsConnected()
+        private bool GetIsConnected()
         {
             if (Vehicle is ITrailerable trailerable) return trailerable.TrailerId != 0;
             if (Vehicle is ISemiTrailerable semiTrailerable) return semiTrailerable.SemiTrailerId != 0;
@@ -39,11 +43,6 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
             if (Vehicle is ITrailerable trailerable) return VehiclesSingleton.Instance.GetNameById(trailerable.TrailerId);
             if (Vehicle is ISemiTrailerable semiTrailerable) return VehiclesSingleton.Instance.GetNameById(semiTrailerable.SemiTrailerId);
             return "-";
-        }
-
-        public Vehicle GetVehicle()
-        {
-            return Vehicle;
         }
 
         public void SetVehicleType()
@@ -84,6 +83,13 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
                     TrailerConnector.Unhook(semitrailerable);
                     break;
             }
+        }
+
+        public void SetStorage()
+        {
+            if (Vehicle is not ILoadable loadable) return;
+            if (loadable.Storage.GetType() == SelectedStorageType.GetType()) return;
+            loadable.Storage = new StorageBuilder().Build(SelectedStorageType);
         }
     }
 }

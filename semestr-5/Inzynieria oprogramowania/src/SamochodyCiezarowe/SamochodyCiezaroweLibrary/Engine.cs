@@ -2,7 +2,10 @@
 {
     public class Engine
     {
-        public Engine(){}
+        public Engine()
+        {
+        }
+
         public Engine(Engine engine)
         {
             Name = engine.Name;

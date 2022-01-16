@@ -39,7 +39,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             VehicleEditor editor = new(vehicle);
             bool? result = editor.ShowDialog();
             if (result == false) Model.RemoveVehicle(vehicle);
-            else vehicle.Vehicle = editor.GetVehicle();
+            else vehicle.Vehicle = editor.Vehicle;
             RefreshVehiclesList();
             Model.Save();
         }
@@ -67,7 +67,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             if (VehiclesList.SelectedValue is not VehicleProxy vehicle) return;
             VehicleEditor editor = new(vehicle);
             bool? result = editor.ShowDialog();
-            if (result == true) vehicle.Vehicle = editor.GetVehicle();
+            if (result == true) vehicle.Vehicle = editor.Vehicle;
             Model.Save();
             RefreshVehiclesList();
         }

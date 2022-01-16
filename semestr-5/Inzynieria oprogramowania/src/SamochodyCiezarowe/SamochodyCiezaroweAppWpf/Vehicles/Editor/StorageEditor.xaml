@@ -1,0 +1,41 @@
+﻿<Window x:Class="SamochodyCiezaroweAppWpf.Vehicles.Editor.StorageEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="StorageEditor" Height="450" Width="800"
+        DataContext="{Binding StorageModel, RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0,0" Grid.RowSpan="1">
+            <ListView x:Name="ItemsListView" Margin="0,0,0,0" ItemsSource="{Binding Items}" SelectedValue="{Binding SelectedItem}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="L.p." Width="50" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Nazwa" Width="200" DisplayMemberBinding="{Binding Item.Name}"/>
+                        <GridViewColumn Header="Całkowita masa" Width="100" DisplayMemberBinding="{Binding GrossMass}"/>
+                        <GridViewColumn Header="Wymiary" Width="100" DisplayMemberBinding="{Binding Dimensions}"/>
+                        <GridViewColumn Header="Opis" Width="400" DisplayMemberBinding="{Binding Item.Description}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="SaveButton" Grid.Column="2" Content="Zapisz" Click="SaveButton_Click" />
+            <Button x:Name="AddGoodsButton" Grid.Column="0" Content="Nowy towar" Click="AddGoodsButton_Click" />
+            <Button x:Name="EditGoodsButton" Grid.Column="1" Content="Edytuj towar" Click="EditGoodsButton_Click" />
+            <Button x:Name="CancelButton" Grid.Column="3" Content="Porzuć" Click="CancelButton_Click" />
+        </Grid>
+
+    </Grid>
+</Window>

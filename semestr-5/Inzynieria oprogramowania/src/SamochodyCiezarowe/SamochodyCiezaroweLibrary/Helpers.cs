@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SamochodyCiezaroweLibrary.Storages;
 using SamochodyCiezaroweLibrary.Vehicles;
 
 namespace SamochodyCiezaroweLibrary
@@ -16,6 +17,16 @@ namespace SamochodyCiezaroweLibrary
                 new TrailerCar(),
                 new Truck()
             }.OrderBy(x => x.VehicleType).ToList();
+        }
+
+        public static List<Storage> GetAvailableStorages()
+        {
+            return new List<Storage>
+            {
+                new BoxStorage(),
+                new ContainerStorage(),
+                new TankStorage()
+            };
         }
     }
 }

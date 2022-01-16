@@ -1,7 +1,22 @@
-﻿namespace SamochodyCiezaroweLibrary.Items
+﻿using SamochodyCiezaroweLibrary.Serialization;
+
+namespace SamochodyCiezaroweLibrary.Items
 {
-    public class LiquidItem
+    public class LiquidItem : Item
     {
-        public float Volume { get; set; }
+        public LiquidItem(){}
+        public LiquidItem(LiquidItem item) : base(item)
+        {
+            Volume = item.Volume;
+        }
+
+        public decimal Volume { get; set; }
+
+        public override string GetDimensions()
+        {
+            return $"{Volume} dm3";
+        }
+
+        public override ItemType ItemType => ItemType.LiquidItem;
     }
 }

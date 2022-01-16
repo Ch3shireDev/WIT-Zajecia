@@ -33,7 +33,7 @@ namespace SamochodyCiezaroweLibrary
             return TrailerStatus.Undefined;
         }
 
-        string GetTrailerDescription()
+        private string GetTrailerDescription()
         {
             switch (TrailerStatus)
             {

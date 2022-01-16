@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using SamochodyCiezaroweLibrary.Items;
 
 namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 {
     /// <summary>
-    /// Interaction logic for ItemEditor.xaml
+    ///     Interaction logic for ItemEditor.xaml
     /// </summary>
     public partial class ItemEditor : Window
     {
-        public ItemEditor()
+        public ItemEditor(Item item)
         {
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            ShowInTaskbar = false;
+            Model = new ItemEditorModel(item);
             InitializeComponent();
         }
+
+        public ItemEditorModel Model { get; set; }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -34,6 +29,11 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         {
             DialogResult = false;
             Close();
+        }
+
+        public Item GetItem()
+        {
+            return Model.Item;
         }
     }
 }

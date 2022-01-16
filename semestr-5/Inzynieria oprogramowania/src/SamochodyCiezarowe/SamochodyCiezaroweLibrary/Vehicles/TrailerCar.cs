@@ -20,7 +20,7 @@
         }
 
         public override VehicleType VehicleType => VehicleType.TrailerCar;
-        public override string TypeDescription => "Ciągnik siodłowy";
+        public override string TypeDescription => "Samochód ciężarowy";
 
         public Trailer Trailer { get; private set; }
 

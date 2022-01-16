@@ -16,6 +16,9 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
     {
         public VehicleEditor(VehicleProxy vehicleProxy)
         {
+            Owner = Application.Current.MainWindow;
+            WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            ShowInTaskbar = false;
             Model = new VehicleEditorModel(vehicleProxy);
             InitializeComponent();
             SetVehicleType();
@@ -25,10 +28,8 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 
         public VehicleEditorModel Model { get; set; }
 
-        public Vehicle GetVehicle()
-        {
-            return Model.GetVehicle();
-        }
+        public Vehicle Vehicle => Model.Vehicle;
+
 
         private void VehicleEditorSaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -101,6 +102,11 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 
         private bool GetStorageSpaceIsEnabled()
         {
+            return Model.SelectedVehicleType is ILoadable;
+        }
+
+        private bool GetStorageSpaceButtonIsEnabled()
+        {
             return Model.SelectedVehicleType is ILoadable || Model.IsConnected;
         }
 
@@ -111,7 +117,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
             DisconnectTrailer.Visibility = GetDisconnectTrailerVisibility();
             SemiTrailerGrid.Visibility = GetSelectSemiTrailerVisibility();
             DisconnectSemiTrailer.Visibility = GetDisconnectSemiTrailerVisibility();
-            StorageSpaceButton.IsEnabled = GetStorageSpaceIsEnabled();
+            StorageSpaceButton.IsEnabled = GetStorageSpaceButtonIsEnabled();
             Refresh(VehicleNameTextBox);
             Refresh(VehicleVINTextBox);
             Refresh(VehicleYearTextBox);
@@ -120,6 +126,8 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
             Refresh(EnginePowerTextBox);
             SelectedTrailerNameText3.Text = Model.SelectedTrailerName;
             SelectedTrailerNameText4.Text = Model.SelectedTrailerName;
+            StorageSpaceLabel.IsEnabled = GetStorageSpaceIsEnabled();
+            StorageSpaceComboBox.IsEnabled = GetStorageSpaceIsEnabled();
         }
 
         private void Refresh(FrameworkElement textBox)
@@ -193,8 +201,22 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 
         private void StorageSpaceButton_Click(object sender, RoutedEventArgs e)
         {
-            var window = new ItemsEditor();
-            var result = window.ShowDialog();
+            ILoadable loadable = null;
+            if (Vehicle is ILoadable) loadable = Vehicle as ILoadable;
+            else if (Vehicle is ITrailerable trailerable)
+                loadable = VehiclesSingleton.Instance.GetVehicle(trailerable.TrailerId) as ILoadable;
+            else if (Vehicle is ISemiTrailerable semiTrailerable)
+                loadable = VehiclesSingleton.Instance.GetVehicle(semiTrailerable.SemiTrailerId) as ILoadable;
+            if (loadable == null) return;
+            StorageEditor window = new(loadable);
+            bool? result = window.ShowDialog();
+            if (result != true) return;
+            loadable.Storage = window.GetStorage();
+        }
+
+        private void StorageSpaceComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Model.SetStorage();
         }
     }
 }

@@ -74,7 +74,8 @@
 
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Vehicle.TypeDescription}" HorizontalAlignment="Center"
+                                        <TextBlock Text="{Binding Vehicle.TypeDescription}"
+                                                   HorizontalAlignment="Center"
                                                    TextAlignment="Center" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -83,7 +84,8 @@
                             <GridViewColumn Header="Stan" Width="200">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding TrailerDescription, Mode=OneWay}" HorizontalAlignment="Center"></TextBlock>
+                                        <TextBlock Text="{Binding TrailerDescription, Mode=OneWay}"
+                                                   HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

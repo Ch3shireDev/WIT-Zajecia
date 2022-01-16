@@ -1,27 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using System.Windows;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
-using SamochodyCiezaroweLibrary;
-using SamochodyCiezaroweLibrary.Vehicles;
 
-namespace SamochodyCiezaroweAppWpf.Persistence
+namespace SamochodyCiezaroweLibrary.Persistence
 {
-    public class PersistentData
-    {
-        public List<Vehicle> Vehicles { get; set; }
-    }
-
-    public interface IPersistentStorage
-    {
-        void Save(PersistentData data);
-        PersistentData Load();
-    }
-
     public class PersistentStorage : IPersistentStorage
     {
         public PersistentStorage(string filename)
@@ -40,7 +23,7 @@ namespace SamochodyCiezaroweAppWpf.Persistence
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Nie można zapisać danych w {Filename}. Informacja o błędzie: {e.Message}");
+                throw new Exception($"Nie można zapisać danych w {Filename}. Informacja o błędzie: {e.Message}");
             }
         }
 
@@ -57,5 +40,4 @@ namespace SamochodyCiezaroweAppWpf.Persistence
             }
         }
     }
-
 }

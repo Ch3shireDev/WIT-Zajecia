@@ -13,7 +13,7 @@
     <Compile Update="Vehicles\Editor\ItemEditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Vehicles\Editor\ItemsEditor.xaml.cs">
+    <Compile Update="Vehicles\Editor\StorageEditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -24,7 +24,7 @@
     <Page Update="Vehicles\Editor\ItemEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Vehicles\Editor\ItemsEditor.xaml">
+    <Page Update="Vehicles\Editor\StorageEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Vehicles\Editor\VehicleEditor.xaml">

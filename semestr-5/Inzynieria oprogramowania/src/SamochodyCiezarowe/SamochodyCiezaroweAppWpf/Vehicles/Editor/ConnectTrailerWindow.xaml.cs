@@ -17,6 +17,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         }
 
         public ConnectTrailerModel Model { get; set; }
+
         public Vehicle GetVehicle()
         {
             return Model.GetVehicle();
@@ -47,8 +48,10 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         {
             Vehicles = vehicles;
         }
+
         public List<VehicleProxy> Vehicles { get; set; }
         public VehicleProxy SelectedVehicle { get; set; }
+
         public Vehicle GetVehicle()
         {
             return SelectedVehicle?.Vehicle;
