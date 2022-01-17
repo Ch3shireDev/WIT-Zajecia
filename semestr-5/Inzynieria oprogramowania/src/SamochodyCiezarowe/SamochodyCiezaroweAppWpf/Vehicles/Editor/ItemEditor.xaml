@@ -29,9 +29,9 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="Szerokość" Margin="10"></Label>
-                <Label Grid.Row="1" Content="Długość" Margin="10"></Label>
-                <Label Grid.Row="2" Content="Wysokość" Margin="10"></Label>
+                <Label Grid.Row="0" Content="Szerokość (cm)" Margin="10"></Label>
+                <Label Grid.Row="1" Content="Długość (cm)" Margin="10"></Label>
+                <Label Grid.Row="2" Content="Wysokość (cm)" Margin="10"></Label>
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="10" Text="{Binding Width}"></TextBox>
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Text="{Binding Length}"></TextBox>
                 <TextBox Grid.Row="2" Grid.Column="1" Margin="10" Text="{Binding Height}"></TextBox>
@@ -49,8 +49,8 @@
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Nazwa" Margin="10"></Label>
                 <Label Grid.Row="1" Content="Typ" Margin="10"></Label>
-                <Label Grid.Row="2" Content="Całkowita masa" Margin="10"></Label>
-                <Label Grid.Row="3" Content="Objętość" Margin="10" IsEnabled="{Binding IsLiquidItem, Mode=OneWay}"></Label>
+                <Label Grid.Row="2" Content="Całkowita masa (kg)" Margin="10"></Label>
+                <Label Grid.Row="3" Content="Objętość (dm3)" Margin="10" IsEnabled="{Binding IsLiquidItem, Mode=OneWay}"></Label>
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="10" Text="{Binding Item.Name}"></TextBox>
                 <Label Grid.Row="1" Grid.Column="1" Content="{Binding ItemTypeDescription}" Margin="10"></Label>
                 <TextBox Grid.Row="2" Grid.Column="1" Margin="10" Text="{Binding Item.GrossMass}"></TextBox>

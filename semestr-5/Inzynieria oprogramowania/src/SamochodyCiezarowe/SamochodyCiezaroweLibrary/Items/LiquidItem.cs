@@ -1,5 +1,4 @@
-﻿using SamochodyCiezaroweLibrary.Serialization;
-
+﻿
 namespace SamochodyCiezaroweLibrary.Items
 {
     public class LiquidItem : Item
@@ -16,7 +15,6 @@ namespace SamochodyCiezaroweLibrary.Items
         {
             return $"{Volume} dm3";
         }
-
-        public override ItemType ItemType => ItemType.LiquidItem;
+        
     }
 }

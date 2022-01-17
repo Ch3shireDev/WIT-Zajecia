@@ -40,14 +40,27 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 
         public string GetSelectedTrailerName()
         {
-            if (Vehicle is ITrailerable trailerable) return VehiclesSingleton.Instance.GetNameById(trailerable.TrailerId);
-            if (Vehicle is ISemiTrailerable semiTrailerable) return VehiclesSingleton.Instance.GetNameById(semiTrailerable.SemiTrailerId);
+            if (Vehicle is ITrailerable trailerable)
+            {
+                VehicleProxy vehicle = VehiclesSingleton.Instance.GetVehicleProxy(trailerable.TrailerId);
+                if (vehicle == null) return "-";
+                return $"{vehicle.Vehicle.Name} ({vehicle.StorageDescription})";
+            }
+
+            if (Vehicle is ISemiTrailerable semiTrailerable)
+            {
+                VehicleProxy vehicle = VehiclesSingleton.Instance.GetVehicleProxy(semiTrailerable.SemiTrailerId);
+                if (vehicle == null) return "-";
+                return $"{vehicle.Vehicle.Name} ({vehicle.StorageDescription})";
+            }
+
             return "-";
         }
 
         public void SetVehicleType()
         {
             Vehicle = new VehicleBuilder().BuildFromType(SelectedVehicleType, Vehicle);
+            if (Vehicle is ILoadable loadable) loadable.Storage = new StorageBuilder().Build(SelectedStorageType);
             SetEngine();
         }
 

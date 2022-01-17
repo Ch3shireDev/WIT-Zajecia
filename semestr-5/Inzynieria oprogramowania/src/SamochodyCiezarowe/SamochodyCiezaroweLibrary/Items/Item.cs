@@ -1,9 +1,6 @@
-﻿using Newtonsoft.Json;
-using SamochodyCiezaroweLibrary.Serialization;
-
+﻿
 namespace SamochodyCiezaroweLibrary.Items
 {
-    [JsonConverter(typeof(ItemConverter))]
     public abstract class Item
     {
         protected Item(){}
@@ -17,7 +14,6 @@ namespace SamochodyCiezaroweLibrary.Items
         public decimal GrossMass { get; set; } = 1;
         public abstract string GetDimensions();
         public string Description { get; set; } = "Opis towaru. Tutaj podać rozwinięte informacje.";
-
-        public abstract ItemType ItemType { get; }
+        
     }
 }

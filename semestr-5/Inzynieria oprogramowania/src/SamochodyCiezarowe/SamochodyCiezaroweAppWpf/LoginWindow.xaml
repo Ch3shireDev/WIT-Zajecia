@@ -1,0 +1,41 @@
+﻿<Window x:Class="SamochodyCiezaroweAppWpf.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SamochodyCiezaroweAppWpf"
+        mc:Ignorable="d"
+        Title="LoginWindow">
+    <Window.Resources>
+<Style TargetType="Label">
+    <Setter Value="10" Property="Margin"></Setter>
+</Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="MinWidth" Value="200"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Content="Użytkownik"></Label>
+        <Label  Grid.Row="1" Grid.Column="0" Content="Hasło"></Label>
+        <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+        <Grid Row="2" ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="Zaloguj"></Button>
+            <Button Grid.Column="1" Content="Zamknij"></Button>
+        </Grid>
+    </Grid>
+</Window>

@@ -19,8 +19,7 @@ namespace SamochodyCiezaroweLibrary.Vehicles
             ParentId = semiTrailer.ParentId;
             Storage = new StorageBuilder().Build(semiTrailer.Storage);
         }
-
-        public override VehicleType VehicleType => VehicleType.SemiTrailer;
+        
         public override string TypeDescription => "Naczepa";
         public int ParentId { get; set; }
 

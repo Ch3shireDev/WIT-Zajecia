@@ -22,8 +22,7 @@ namespace SamochodyCiezaroweLibrary.Vehicles
         {
             Storage = new StorageBuilder().Build(vehicle.Storage);
         }
-
-        public override VehicleType VehicleType => VehicleType.Car;
+        
         public override string TypeDescription => "Samochód z przestrzenią ładunkową";
         public Storage Storage { get; set; } = new BoxStorage();
 

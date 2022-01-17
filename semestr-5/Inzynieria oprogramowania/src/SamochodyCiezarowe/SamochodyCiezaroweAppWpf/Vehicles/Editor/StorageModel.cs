@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using SamochodyCiezaroweLibrary.Items;
 using SamochodyCiezaroweLibrary.Storages;
@@ -29,6 +31,8 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 
         public Item GetNewItem()
         {
+            if (Vehicle.Storage.IsSingle && Items.Count > 0)
+                throw new Exception($"{Vehicle.Storage.StorageDescription} nie pozwala na przechowywanie więcej niż jednego typu towaru!");
             return new ItemBuilder().Build(Vehicle.Storage);
         }
 
@@ -37,6 +41,11 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
             Storage storage = new StorageBuilder().Build(Vehicle.Storage);
             storage.Items = Items.Select(ip => ip.Item).ToList();
             return storage;
+        }
+
+        public void DeleteItem(ItemProxy selectedItem)
+        {
+            Items.Remove(selectedItem);
         }
     }
 }

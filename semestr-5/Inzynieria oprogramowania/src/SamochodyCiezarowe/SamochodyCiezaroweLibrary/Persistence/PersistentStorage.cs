@@ -1,42 +1,34 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using Newtonsoft.Json;
 
 namespace SamochodyCiezaroweLibrary.Persistence
 {
     public class PersistentStorage : IPersistentStorage
     {
-        public PersistentStorage(string filename)
-        {
-            Filename = filename;
-        }
-
-        private string Filename { get; }
-
-        public void Save(PersistentData data)
+        public void Save(PersistentData data, StreamWriter writer)
         {
             try
             {
-                string json = JsonConvert.SerializeObject(data);
-                File.WriteAllText(Filename, json, Encoding.UTF8);
+                string json = JsonConvert.SerializeObject(data, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
+                writer.Write(json);
             }
             catch (Exception e)
             {
-                throw new Exception($"Nie można zapisać danych w {Filename}. Informacja o błędzie: {e.Message}");
+                throw new Exception($"Nie można zapisać danych. Informacja o błędzie: {e.Message}", e);
             }
         }
 
-        public PersistentData Load()
+        public PersistentData Load(StreamReader reader)
         {
             try
             {
-                string json = File.ReadAllText(Filename);
-                return JsonConvert.DeserializeObject<PersistentData>(json);
+                string json = reader.ReadToEnd();
+                return JsonConvert.DeserializeObject<PersistentData>(json, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
             }
             catch (Exception e)
             {
-                throw new Exception($"Nie można odczytać danych z {Filename}. Informacja o błędzie: {e.Message}", e);
+                throw new Exception($"Nie można odczytać danych. Informacja o błędzie: {e.Message}", e);
             }
         }
     }

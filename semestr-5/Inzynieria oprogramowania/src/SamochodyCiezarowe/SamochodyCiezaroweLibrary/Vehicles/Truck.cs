@@ -18,8 +18,7 @@
         {
             SemiTrailerId = truck.SemiTrailerId;
         }
-
-        public override VehicleType VehicleType => VehicleType.Truck;
+        
         public override string TypeDescription => "Ciągnik siodłowy";
 
         public int SemiTrailerId { set; get; }

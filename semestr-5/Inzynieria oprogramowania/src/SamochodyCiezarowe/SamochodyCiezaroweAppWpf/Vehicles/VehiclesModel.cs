@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using SamochodyCiezaroweLibrary;
@@ -11,7 +12,8 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
 {
     public class VehiclesModel
     {
-        public IPersistentStorage PersistentStorage = new PersistentStorage("data.json");
+        //private readonly string filename = "data.json";
+        public IPersistentStorage PersistentStorage = new PersistentStorage();
 
         private PersistentData PersistentData => new()
         {
@@ -20,16 +22,21 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
 
         public ObservableCollection<VehicleProxy> Vehicles => VehiclesSingleton.Instance.Vehicles;
 
-        public void Save()
+        public void Save(string filename)
         {
-            PersistentStorage.Save(PersistentData);
+            using FileStream filestream = File.Create(filename);
+            using StreamWriter stream = new(filestream);
+            PersistentStorage.Save(PersistentData, stream);
         }
 
-        public void Load()
+        public void Load(string filename)
         {
             try
             {
-                PersistentData data = PersistentStorage.Load();
+                using FileStream filestream = File.Open(filename, FileMode.Open, FileAccess.Read);
+                using StreamReader stream = new(filestream);
+                PersistentData data = PersistentStorage.Load(stream);
+
                 Vehicles.Clear();
                 foreach (Vehicle vehicle in data.Vehicles) Vehicles.Add(new VehicleProxy(vehicle));
             }
@@ -37,6 +44,8 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             {
                 MessageBox.Show(e.Message);
             }
+
+            RefreshConnections();
         }
 
         public VehicleProxy AddNewVehicle()
@@ -55,6 +64,32 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
         public void RemoveVehicles(IEnumerable<VehicleProxy> vehicles)
         {
             foreach (VehicleProxy vehicle in vehicles) Vehicles.Remove(vehicle);
+        }
+
+        public void RefreshConnections()
+        {
+            Dictionary<int, VehicleProxy> vehiclesSet = Vehicles.ToDictionary(vp => vp.Vehicle.Id, vp => vp);
+
+            foreach (VehicleProxy vehicle in Vehicles)
+            {
+                int parentId = vehicle.ParentId;
+
+                if (parentId > 0)
+                {
+                    if (!vehiclesSet.ContainsKey(parentId)) vehicle.ParentId = 0;
+                    VehicleProxy parent = vehiclesSet[parentId];
+                    if (parent.ChildId != vehicle.Id) vehicle.ParentId = 0;
+                }
+
+                int childId = vehicle.ChildId;
+
+                if (childId > 0)
+                {
+                    if (!vehiclesSet.ContainsKey(childId)) vehicle.ChildId = 0;
+                    VehicleProxy child = vehiclesSet[childId];
+                    if (child.ParentId != vehicle.Id) vehicle.ChildId = 0;
+                }
+            }
         }
     }
 }

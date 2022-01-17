@@ -4,17 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="VehiclesView" Height="531" Width="1206"
+        Title="Samochody Ciężarowe" Height="531" Width="1393"
         DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" KeyDown="Window_KeyDown">
     <Window.Resources>
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="20">
             <MenuItem Header="Program">
-                <MenuItem Header="Wczytaj" />
+                <MenuItem x:Name="LoadMenuItem" Header="Wczytaj" Click="LoadMenuItem_Click" />
+                <MenuItem x:Name="SaveMenuItem" Header="Zapisz" Click="SaveMenuItem_Click" />
+                <MenuItem x:Name="LogoutMenuItem" Header="Wyloguj" Click="LogoutMenuItem_Click" />
+                <MenuItem x:Name="ExitMenuItem" Header="Zakończ" Click="ExitMenuItem_Click" />
             </MenuItem>
-            <MenuItem Header="Pojazdy">
-                <MenuItem Header="Dodaj pojazd" />
+            <MenuItem  Header="Pojazdy">
+                <MenuItem Header="Dodaj pojazd" x:Name="AddVehicleMenuItemDockPanel"/>
+                <MenuItem x:Name="EditVehicleMenuItemDockPanel" Header="Edytuj pojazd" />
+                <MenuItem x:Name="DeleteVehicleMenuItemDockPanel" Header="Usuń pojazd" />
             </MenuItem>
         </Menu>
         <Grid>
@@ -81,10 +86,18 @@
                                 </GridViewColumn.CellTemplate>
 
                             </GridViewColumn>
-                            <GridViewColumn Header="Stan" Width="200">
+                            <GridViewColumn Header="Stan" Width="150">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding TrailerDescription, Mode=OneWay}"
+                                                   HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Ładunek" Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding StorageDescription, Mode=OneWay}"
                                                    HorizontalAlignment="Center" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>

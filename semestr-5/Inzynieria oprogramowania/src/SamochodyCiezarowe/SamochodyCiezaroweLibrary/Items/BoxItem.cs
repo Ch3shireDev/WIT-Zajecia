@@ -1,5 +1,4 @@
-﻿using SamochodyCiezaroweLibrary.Serialization;
-
+﻿
 namespace SamochodyCiezaroweLibrary.Items
 {
     public class BoxItem : Item
@@ -20,7 +19,6 @@ namespace SamochodyCiezaroweLibrary.Items
         {
             return $"{Width} cm, {Height} cm, {Length} cm";
         }
-
-        public override ItemType ItemType => ItemType.BoxItem;
+        
     }
 }

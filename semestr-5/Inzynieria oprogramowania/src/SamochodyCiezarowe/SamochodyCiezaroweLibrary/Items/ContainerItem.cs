@@ -1,5 +1,4 @@
-﻿using SamochodyCiezaroweLibrary.Serialization;
-
+﻿
 namespace SamochodyCiezaroweLibrary.Items
 {
     public class ContainerItem : Item
@@ -13,7 +12,6 @@ namespace SamochodyCiezaroweLibrary.Items
         {
             return "-";
         }
-
-        public override ItemType ItemType => ItemType.ContainerItem;
+        
     }
 }

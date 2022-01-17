@@ -16,7 +16,7 @@ namespace SamochodyCiezaroweLibrary
                 new Trailer(),
                 new TrailerCar(),
                 new Truck()
-            }.OrderBy(x => x.VehicleType).ToList();
+            }.ToList();
         }
 
         public static List<Storage> GetAvailableStorages()

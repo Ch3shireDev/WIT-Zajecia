@@ -1,7 +1,6 @@
 ﻿using System;
-using SamochodyCiezaroweLibrary.Vehicles;
 
-namespace SamochodyCiezaroweLibrary
+namespace SamochodyCiezaroweLibrary.Vehicles
 {
     public class VehicleProxy
     {
@@ -15,6 +14,51 @@ namespace SamochodyCiezaroweLibrary
         public bool IsSemiTrailer => Vehicle is SemiTrailer;
 
         public string TrailerDescription => GetTrailerDescription();
+        public string StorageDescription => GetStorageDescription();
+
+        public int Id
+        {
+            get => Vehicle.Id;
+            set => Vehicle.Id = value;
+        }
+
+        public int ParentId
+        {
+            get
+            {
+                if (Vehicle is Trailer trailer) return trailer.ParentId;
+                if (Vehicle is SemiTrailer semiTrailer) return semiTrailer.ParentId;
+                return 0;
+            }
+            set
+            {
+                if (Vehicle is Trailer trailer) trailer.ParentId = value;
+                if (Vehicle is SemiTrailer semiTrailer) semiTrailer.ParentId = value;
+            }
+        }
+
+        public int ChildId
+        {
+            get
+            {
+                if (Vehicle is ITrailerable trailerable) return trailerable.TrailerId;
+                if (Vehicle is ISemiTrailerable semiTrailerable) return semiTrailerable.SemiTrailerId;
+                return 0;
+            }
+            set
+            {
+                if (Vehicle is ITrailerable trailerable) trailerable.TrailerId = value;
+                if (Vehicle is ISemiTrailerable semiTrailerable) semiTrailerable.SemiTrailerId = value;
+            }
+        }
+
+        private string GetStorageDescription()
+        {
+            if (Vehicle is ILoadable loadable) return loadable.Storage.StorageDescription;
+            if (Vehicle is ITrailerable trailerable) return trailerable.TrailerId > 0 ? "Przyczepa" : "Brak";
+            if (Vehicle is ISemiTrailerable semiTrailerable) return semiTrailerable.SemiTrailerId > 0 ? "Naczepa" : "Brak";
+            return "-";
+        }
         public bool IsConnected => TrailerStatus == TrailerStatus.Connected;
         public TrailerStatus TrailerStatus => GetTrailerStatus();
 

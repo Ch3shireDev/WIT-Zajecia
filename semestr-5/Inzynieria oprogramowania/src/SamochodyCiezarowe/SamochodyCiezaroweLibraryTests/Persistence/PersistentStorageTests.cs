@@ -1,6 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 using SamochodyCiezaroweLibrary.Items;
 using SamochodyCiezaroweLibrary.Persistence;
 using SamochodyCiezaroweLibrary.Storages;
@@ -14,35 +15,43 @@ namespace SamochodyCiezaroweLibraryTests.Persistence
         [TestMethod]
         public void LoadTest()
         {
-            string json = @"{""Vehicles"": [
-        {
-            ""VehicleType"": 1,
-            ""ParentId"": 0,
-            ""Storage"": {
-                ""StorageType"": 1,
-                ""Items"": [{
-                        ""ItemType"": 1,
-                        ""Name"": ""Nowy towar"",
-                        ""GrossMass"": 1.0,
-                        ""Description"": ""Opis towaru. Tutaj podać rozwinięte informacje.""
+            PersistentData poco = new()
+            {
+                Vehicles = new List<Vehicle>
+                {
+                    new Trailer
+                    {
+                        Storage = new ContainerStorage
+                        {
+                            Items = new List<Item>
+                            {
+                                new ContainerItem()
+                            }
+                        }
                     }
-                ]
-            },
-            ""Id"": 4,
-            ""Name"": ""Nowy samochód"",
-            ""VIN"": ""123456"",
-            ""Year"": 2000
-        }]}";
+                }
+            };
 
-            PersistentData persistentData = JsonConvert.DeserializeObject<PersistentData>(json);
+            PersistentStorage persistentStorage = new();
+
+            using MemoryStream memoryStreamIn = new();
+            using StreamWriter streamwriter = new(memoryStreamIn);
+            persistentStorage.Save(poco, streamwriter);
+            streamwriter.Close();
+
+            using MemoryStream memorystreamout = new(memoryStreamIn.GetBuffer());
+            using StreamReader streamreader = new(memorystreamout);
+            PersistentData persistentData = persistentStorage.Load(streamreader);
+            streamreader.Close();
+
             Assert.IsNotNull(persistentData);
 
             Vehicle vehicle = persistentData.Vehicles.First();
-            Assert.AreEqual(1, (int)vehicle.VehicleType);
+            Assert.IsTrue(vehicle is  Trailer);
             Storage storage = (vehicle as ILoadable)?.Storage;
-            Assert.AreEqual(1, (int)storage.StorageType);
+            Assert.IsTrue(storage is ContainerStorage);
             Item item = storage.Items.First();
-            Assert.AreEqual(1, item.ItemType);
+            Assert.IsTrue(item is ContainerItem);
         }
     }
 }

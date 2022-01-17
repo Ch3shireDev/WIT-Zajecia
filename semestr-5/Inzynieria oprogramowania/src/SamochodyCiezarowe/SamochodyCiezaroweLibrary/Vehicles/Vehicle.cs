@@ -1,9 +1,5 @@
-﻿using Newtonsoft.Json;
-using SamochodyCiezaroweLibrary.Serialization;
-
-namespace SamochodyCiezaroweLibrary.Vehicles
+﻿namespace SamochodyCiezaroweLibrary.Vehicles
 {
-    [JsonConverter(typeof(VehicleConverter))]
     public abstract class Vehicle
     {
         protected Vehicle()
@@ -22,9 +18,7 @@ namespace SamochodyCiezaroweLibrary.Vehicles
         public string Name { get; set; }
         public string VIN { get; set; }
         public int Year { get; set; } = 2000;
-        public abstract VehicleType VehicleType { get; }
-
-        [JsonIgnore] public abstract string TypeDescription { get; }
+        public abstract string TypeDescription { get; }
 
         public override string ToString()
         {

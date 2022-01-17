@@ -19,8 +19,7 @@ namespace SamochodyCiezaroweLibrary.Vehicles
             ParentId = trailer.ParentId;
             Storage = new StorageBuilder().Build(trailer.Storage);
         }
-
-        public override VehicleType VehicleType => VehicleType.Trailer;
+        
         public override string TypeDescription => "Przyczepa";
         public int ParentId { get; set; }
 

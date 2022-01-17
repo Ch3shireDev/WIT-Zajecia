@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using SamochodyCiezaroweLibrary.Items;
-using SamochodyCiezaroweLibrary.Serialization;
 
 namespace SamochodyCiezaroweLibrary.Storages
 {
@@ -16,6 +15,6 @@ namespace SamochodyCiezaroweLibrary.Storages
         }
 
         public override string StorageDescription => "Przestrzeń skrzyniowa";
-        public override StorageType StorageType => StorageType.BoxStorage;
+        public override bool IsSingle => false;
     }
 }

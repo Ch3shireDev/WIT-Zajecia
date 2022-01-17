@@ -1,4 +1,5 @@
-﻿using SamochodyCiezaroweLibrary.Serialization;
+﻿using System.Linq;
+using SamochodyCiezaroweLibrary.Items;
 
 namespace SamochodyCiezaroweLibrary.Storages
 {
@@ -10,9 +11,10 @@ namespace SamochodyCiezaroweLibrary.Storages
 
         public TankStorage(TankStorage storage)
         {
+            Items = storage.Items.Select(item => new LiquidItem(item as LiquidItem) as Item).ToList();
         }
 
         public override string StorageDescription => "Cysterna";
-        public override StorageType StorageType => StorageType.TankStorage;
+        public override bool IsSingle => true;
     }
 }

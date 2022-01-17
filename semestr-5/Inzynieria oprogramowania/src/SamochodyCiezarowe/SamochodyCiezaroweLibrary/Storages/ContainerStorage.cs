@@ -1,4 +1,5 @@
-﻿using SamochodyCiezaroweLibrary.Serialization;
+﻿using System.Linq;
+using SamochodyCiezaroweLibrary.Items;
 
 namespace SamochodyCiezaroweLibrary.Storages
 {
@@ -10,9 +11,10 @@ namespace SamochodyCiezaroweLibrary.Storages
 
         public ContainerStorage(ContainerStorage storage)
         {
+            Items = storage.Items.Select(item => new ContainerItem(item as ContainerItem) as Item).ToList();
         }
 
         public override string StorageDescription => "Przestrzeń kontenerowa";
-        public override StorageType StorageType => StorageType.ContainerStorage;
+        public override bool IsSingle => true;
     }
 }
