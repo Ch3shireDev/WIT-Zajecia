@@ -1,21 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using SamochodyCiezaroweLibrary;
+using SamochodyCiezaroweLibrary.Users;
 using SamochodyCiezaroweLibrary.Vehicles;
 
 namespace SamochodyCiezaroweAppWpf.Vehicles
 {
-    public class VehiclesSingleton
+
+    public class DataSingleton
     {
-        public ObservableCollection<VehicleProxy> Vehicles = new();
+        public static DataSingleton Instance { get; } = new DataSingleton();
 
-        private VehiclesSingleton()
-        {
-        }
+        public ObservableCollection<VehicleProxy> Vehicles { get; } = new();
+        public ObservableCollection<UserProxy> Users { get; } = new();
 
-        public static VehiclesSingleton Instance { get; } = new();
+    }
 
+    public class VehiclesService
+    {
+        public ObservableCollection<VehicleProxy> Vehicles => DataSingleton.Instance.Vehicles;
+        
         public VehicleProxy GetVehicleProxy(int id)
         {
             return Vehicles.FirstOrDefault(proxy => proxy.Vehicle.Id == id);

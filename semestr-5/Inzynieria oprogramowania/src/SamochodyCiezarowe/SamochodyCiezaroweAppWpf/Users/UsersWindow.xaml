@@ -6,19 +6,38 @@
         xmlns:local="clr-namespace:SamochodyCiezaroweAppWpf.Users"
         mc:Ignorable="d"
         Title="UsersWindow" Width="800"
-        DataContext="{Binding Model, RelativeSource={RelativeSource Self}}">
+        DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid>
-            <ListView MinHeight="400">
+            <ListView x:Name="UsersListView" MinHeight="400" ItemsSource="{Binding Users}" HorizontalContentAlignment="Stretch" Margin="10" SelectedItem="{Binding SelectedUser}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="L.p." Width="50"></GridViewColumn>
-                        <GridViewColumn Header="Nazwa" Width="400"></GridViewColumn>
-                        <GridViewColumn Header="Typ" Width="250"></GridViewColumn>
+                        <GridViewColumn Header="L.p." Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Id, Mode=OneWay}" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Nazwa" Width="400">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name, Mode=OneWay}" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Typ" Width="250" >
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Description, Mode=OneWay}" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -27,8 +46,15 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Content="Dodaj użytkownika"></Button>
+            <Button x:Name="AddOperatorButton" Content="Dodaj operatora" Grid.Column="0" Click="AddOperatorButton_Click"></Button>
+            <Button x:Name="AddAdministratorButton" Content="Dodaj administratora" Grid.Column="1" Click="AddAdministratorButton_Click"></Button>
+            <Button x:Name="EditUserButton" Content="Edytuj użytkownika" Grid.Column="2" Click="EditUserButton_Click"></Button>
+            <Button x:Name="DeleteUserButton" Content="Usuń użytkownika" Grid.Column="3" Click="DeleteUserButton_Click"></Button>
+            <Button Content="Zamknij" Grid.Column="4" x:Name="CloseButton" Click="CloseButton_Click"></Button>
         </Grid>
     </Grid>
 </Window>

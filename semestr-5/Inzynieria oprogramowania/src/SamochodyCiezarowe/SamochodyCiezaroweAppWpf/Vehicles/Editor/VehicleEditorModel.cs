@@ -26,7 +26,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 
         public Storage SelectedStorageType { get; set; }
 
-        private TrailerConnector TrailerConnector => new(VehiclesSingleton.Instance.Vehicles);
+        private TrailerConnector TrailerConnector => new(new VehiclesService().Vehicles);
         public bool IsTrailerable => Vehicle is ITrailerable;
         public bool IsConnected => GetIsConnected();
         public bool IsSemiTrailerable => Vehicle is ISemiTrailerable;
@@ -42,14 +42,14 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         {
             if (Vehicle is ITrailerable trailerable)
             {
-                VehicleProxy vehicle = VehiclesSingleton.Instance.GetVehicleProxy(trailerable.TrailerId);
+                VehicleProxy vehicle = new VehiclesService().GetVehicleProxy(trailerable.TrailerId);
                 if (vehicle == null) return "-";
                 return $"{vehicle.Vehicle.Name} ({vehicle.StorageDescription})";
             }
 
             if (Vehicle is ISemiTrailerable semiTrailerable)
             {
-                VehicleProxy vehicle = VehiclesSingleton.Instance.GetVehicleProxy(semiTrailerable.SemiTrailerId);
+                VehicleProxy vehicle = new VehiclesService().GetVehicleProxy(semiTrailerable.SemiTrailerId);
                 if (vehicle == null) return "-";
                 return $"{vehicle.Vehicle.Name} ({vehicle.StorageDescription})";
             }
@@ -72,7 +72,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 
         public List<VehicleProxy> GetTrailersList()
         {
-            return VehiclesSingleton.Instance.GetTrailersList();
+            return new VehiclesService().GetTrailersList();
         }
 
         public void Connect(Trailer selectedTrailer)

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using SamochodyCiezaroweLibrary;
 using SamochodyCiezaroweLibrary.Vehicles;
 
 namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
@@ -204,9 +203,9 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
             ILoadable loadable = null;
             if (Vehicle is ILoadable) loadable = Vehicle as ILoadable;
             else if (Vehicle is ITrailerable trailerable)
-                loadable = VehiclesSingleton.Instance.GetVehicle(trailerable.TrailerId) as ILoadable;
+                loadable = new VehiclesService().GetVehicle(trailerable.TrailerId) as ILoadable;
             else if (Vehicle is ISemiTrailerable semiTrailerable)
-                loadable = VehiclesSingleton.Instance.GetVehicle(semiTrailerable.SemiTrailerId) as ILoadable;
+                loadable = new VehiclesService().GetVehicle(semiTrailerable.SemiTrailerId) as ILoadable;
             if (loadable == null) return;
             StorageEditor window = new(loadable);
             bool? result = window.ShowDialog();

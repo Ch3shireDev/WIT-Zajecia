@@ -15,9 +15,7 @@ namespace SamochodyCiezaroweLibraryTests.Persistence
         [TestMethod]
         public void LoadTest()
         {
-            PersistentData poco = new()
-            {
-                Vehicles = new List<Vehicle>
+            List<Vehicle> poco  = new List<Vehicle>
                 {
                     new Trailer
                     {
@@ -29,10 +27,10 @@ namespace SamochodyCiezaroweLibraryTests.Persistence
                             }
                         }
                     }
-                }
+                
             };
 
-            PersistentStorage persistentStorage = new();
+            PersistentStorage<List<Vehicle>> persistentStorage = new();
 
             using MemoryStream memoryStreamIn = new();
             using StreamWriter streamwriter = new(memoryStreamIn);
@@ -41,12 +39,12 @@ namespace SamochodyCiezaroweLibraryTests.Persistence
 
             using MemoryStream memorystreamout = new(memoryStreamIn.GetBuffer());
             using StreamReader streamreader = new(memorystreamout);
-            PersistentData persistentData = persistentStorage.Load(streamreader);
+            var persistentData = persistentStorage.Load(streamreader);
             streamreader.Close();
 
             Assert.IsNotNull(persistentData);
 
-            Vehicle vehicle = persistentData.Vehicles.First();
+            Vehicle vehicle = persistentData.First();
             Assert.IsTrue(vehicle is  Trailer);
             Storage storage = (vehicle as ILoadable)?.Storage;
             Assert.IsTrue(storage is ContainerStorage);

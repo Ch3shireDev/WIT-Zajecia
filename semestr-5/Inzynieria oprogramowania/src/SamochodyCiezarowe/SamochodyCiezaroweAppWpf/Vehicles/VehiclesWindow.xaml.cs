@@ -12,15 +12,14 @@ using SamochodyCiezaroweLibrary.Vehicles;
 namespace SamochodyCiezaroweAppWpf.Vehicles
 {
     /// <summary>
-    ///     Interaction logic for VehiclesView.xaml
+    ///     Interaction logic for VehiclesWindow.xaml
     /// </summary>
-    public partial class VehiclesView : Window
+    public partial class VehiclesWindow : Window
     {
-        private readonly string filename = "data.json";
+        //private readonly string filename = "data.json";
 
-        public VehiclesView()
+        public VehiclesWindow()
         {
-            Model.Load(filename);
             InitializeComponent();
             VehiclesList.SelectionChanged += (s, e) => VehiclesList.ScrollIntoView(VehiclesList.SelectedItem);
             Title = $"Samochody Ciężarowe v{Assembly.GetEntryAssembly()?.GetName().Version}";
@@ -47,7 +46,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             if (result == false) Model.RemoveVehicle(vehicle);
             else vehicle.Vehicle = editor.Vehicle;
             RefreshVehiclesList();
-            Model.Save(filename);
+            //Model.Save(filename);
         }
 
         private void RefreshVehiclesList()
@@ -100,7 +99,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             {
                 AddExtension = true,
                 DefaultExt = "json",
-                FileName = $"{DateTime.Now:s}.json"
+                FileName = $"{DateTime.Now:yyyy-MM-ddTHH-mm-ss}.json"
             };
             if (dialog.ShowDialog(this) == true) Model.Save(dialog.FileName);
         }

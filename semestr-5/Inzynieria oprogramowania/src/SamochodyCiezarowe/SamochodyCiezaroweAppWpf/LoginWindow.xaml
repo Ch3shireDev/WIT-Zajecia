@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SamochodyCiezaroweAppWpf"
         mc:Ignorable="d"
-        Title="LoginWindow">
+        Title="LoginWindow" SizeToContent="WidthAndHeight" ShowInTaskbar="False" DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" KeyDown="Window_KeyDown">
     <Window.Resources>
 <Style TargetType="Label">
     <Setter Value="10" Property="Margin"></Setter>
@@ -13,6 +13,12 @@
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="10"></Setter>
             <Setter Property="MinWidth" Value="200"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="MinWidth" Value="200"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
         </Style>
     </Window.Resources>
     <Grid>
@@ -27,15 +33,15 @@
         </Grid.ColumnDefinitions>
         <Label Content="Użytkownik"></Label>
         <Label  Grid.Row="1" Grid.Column="0" Content="Hasło"></Label>
-        <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
-        <TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+        <TextBox x:Name="UsernameTextbox" Grid.Row="0" Grid.Column="1" Text="{Binding Username}" TabIndex="0"></TextBox>
+        <PasswordBox x:Name="Password" Grid.Row="1" Grid.Column="1" TabIndex="1"></PasswordBox>
         <Grid Row="2" ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Content="Zaloguj"></Button>
-            <Button Grid.Column="1" Content="Zamknij"></Button>
+            <Button x:Name="LoginButton" Content="Zaloguj" Click="LoginButton_Click" TabIndex="2"></Button>
+            <Button x:Name="ExitButton" Grid.Column="1" Content="Zamknij" Click="ExitButton_Click" TabIndex="3"></Button>
         </Grid>
     </Grid>
 </Window>

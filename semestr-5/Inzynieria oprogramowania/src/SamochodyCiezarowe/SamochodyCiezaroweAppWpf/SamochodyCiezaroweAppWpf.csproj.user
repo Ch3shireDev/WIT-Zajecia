@@ -10,6 +10,9 @@
     <Compile Update="LoginWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Users\UserEditorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Users\UsersWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -27,6 +30,9 @@
     <Page Update="LoginWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Users\UserEditorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Users\UsersWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -42,7 +48,7 @@
     <Page Update="Vehicles\Editor\VehicleEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Vehicles\VehiclesView.xaml">
+    <Page Update="Vehicles\VehiclesWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

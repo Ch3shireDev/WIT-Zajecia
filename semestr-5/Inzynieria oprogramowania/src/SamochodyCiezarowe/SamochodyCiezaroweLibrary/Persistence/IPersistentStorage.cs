@@ -2,9 +2,9 @@
 
 namespace SamochodyCiezaroweLibrary.Persistence
 {
-    public interface IPersistentStorage
+    public interface IPersistentStorage<T>
     {
-        void Save(PersistentData data, StreamWriter writer);
-        PersistentData Load(StreamReader reader);
+        void Save(T data, StreamWriter writer);
+        T Load(StreamReader reader);
     }
 }

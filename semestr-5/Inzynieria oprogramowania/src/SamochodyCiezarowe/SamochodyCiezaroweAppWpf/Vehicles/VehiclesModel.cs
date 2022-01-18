@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
-using SamochodyCiezaroweLibrary;
 using SamochodyCiezaroweLibrary.Persistence;
 using SamochodyCiezaroweLibrary.Vehicles;
 
@@ -13,20 +12,22 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
     public class VehiclesModel
     {
         //private readonly string filename = "data.json";
-        public IPersistentStorage PersistentStorage = new PersistentStorage();
+        public IPersistentStorage<List<Vehicle>> PersistentStorage = new PersistentStorage<List<Vehicle>>();
 
         private PersistentData PersistentData => new()
         {
             Vehicles = Vehicles.Select(v => v.Vehicle).ToList()
         };
 
-        public ObservableCollection<VehicleProxy> Vehicles => VehiclesSingleton.Instance.Vehicles;
+        public ObservableCollection<VehicleProxy> Vehicles => new VehiclesService().Vehicles;
+
+        private List<Vehicle> vehicles => Vehicles.Select(v => v.Vehicle).ToList();
 
         public void Save(string filename)
         {
             using FileStream filestream = File.Create(filename);
             using StreamWriter stream = new(filestream);
-            PersistentStorage.Save(PersistentData, stream);
+            PersistentStorage.Save(vehicles, stream);
         }
 
         public void Load(string filename)
@@ -35,10 +36,10 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             {
                 using FileStream filestream = File.Open(filename, FileMode.Open, FileAccess.Read);
                 using StreamReader stream = new(filestream);
-                PersistentData data = PersistentStorage.Load(stream);
+                List<Vehicle> data = PersistentStorage.Load(stream);
 
                 Vehicles.Clear();
-                foreach (Vehicle vehicle in data.Vehicles) Vehicles.Add(new VehicleProxy(vehicle));
+                foreach (Vehicle vehicle in data) Vehicles.Add(new VehicleProxy(vehicle));
             }
             catch (Exception e)
             {

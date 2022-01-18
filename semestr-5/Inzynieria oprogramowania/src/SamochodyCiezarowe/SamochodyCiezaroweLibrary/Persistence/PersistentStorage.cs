@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 
 namespace SamochodyCiezaroweLibrary.Persistence
 {
-    public class PersistentStorage : IPersistentStorage
+    public class PersistentStorage<T> : IPersistentStorage<T>
     {
-        public void Save(PersistentData data, StreamWriter writer)
+        public void Save(T data, StreamWriter writer)
         {
             try
             {
@@ -19,12 +19,12 @@ namespace SamochodyCiezaroweLibrary.Persistence
             }
         }
 
-        public PersistentData Load(StreamReader reader)
+        public T Load(StreamReader reader)
         {
             try
             {
                 string json = reader.ReadToEnd();
-                return JsonConvert.DeserializeObject<PersistentData>(json, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
+                return JsonConvert.DeserializeObject<T>(json, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
             }
             catch (Exception e)
             {
