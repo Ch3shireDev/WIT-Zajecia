@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
-using SamochodyCiezaroweLibrary;
+using System.Windows.Input;
 using SamochodyCiezaroweLibrary.Vehicles;
 
-namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
+namespace SamochodyCiezaroweAppWpf.Vehicles
 {
     /// <summary>
     ///     Interaction logic for ConnectTrailerWindow.xaml
@@ -14,6 +15,8 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         {
             Model = new ConnectTrailerModel(vehicles);
             InitializeComponent();
+            if (vehicles.FirstOrDefault()?.IsTrailer == true) Title = "Wybierz przyczepę";
+            Title = "Wybierz naczepę";
         }
 
         public ConnectTrailerModel Model { get; set; }
@@ -24,6 +27,11 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         }
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
+        {
+            Save();
+        }
+
+        private void Save()
         {
             if (Model.GetVehicle() == null)
             {
@@ -37,8 +45,19 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            Cancel();
+        }
+
+        private void Cancel()
+        {
             DialogResult = false;
             Close();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) Save();
+            if (e.Key == Key.Escape) Cancel();
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Input;
 using SamochodyCiezaroweLibrary.Users;
 
 namespace SamochodyCiezaroweAppWpf.Users
@@ -38,6 +39,11 @@ namespace SamochodyCiezaroweAppWpf.Users
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            Save();
+        }
+
+        private void Save()
+        {
             string passwordA = PasswordBoxA.Password;
             string passwordB = PasswordBoxB.Password;
             Model.Username = UsernameTextBox.Text;
@@ -58,8 +64,19 @@ namespace SamochodyCiezaroweAppWpf.Users
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
+            Cancel();
+        }
+
+        private void Cancel()
+        {
             DialogResult = false;
             Close();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) Save();
+            if (e.Key == Key.Escape) Cancel();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using SamochodyCiezaroweLibrary.Items;
 
-namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
+namespace SamochodyCiezaroweAppWpf.Vehicles
 {
     public class ItemEditorModel
     {

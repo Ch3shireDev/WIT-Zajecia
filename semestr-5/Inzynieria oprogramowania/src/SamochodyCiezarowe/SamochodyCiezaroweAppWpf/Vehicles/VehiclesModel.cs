@@ -30,7 +30,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             PersistentStorage.Save(vehicles, stream);
         }
 
-        public void Load(string filename)
+        public void Load(string filename, bool verbose = true)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                if (verbose) MessageBox.Show(e.Message);
             }
 
             RefreshConnections();

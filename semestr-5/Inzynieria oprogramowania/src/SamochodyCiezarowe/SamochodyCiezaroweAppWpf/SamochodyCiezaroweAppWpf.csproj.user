@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
+  <PropertyGroup>
+    <_LastSelectedProfileId>D:\Users\Cheshire\Documents\GitHub\WIT-Zajecia\semestr-5\Inzynieria oprogramowania\src\SamochodyCiezarowe\SamochodyCiezaroweAppWpf\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
     <ApplicationDefinition Update="App.xaml">
       <SubType>Designer</SubType>
@@ -16,13 +18,13 @@
     <Compile Update="Users\UsersWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Vehicles\Editor\ConnectTrailerWindow.xaml.cs">
+    <Compile Update="Vehicles\ConnectTrailerWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Vehicles\Editor\ItemEditor.xaml.cs">
+    <Compile Update="Vehicles\ItemEditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Vehicles\Editor\StorageEditor.xaml.cs">
+    <Compile Update="Vehicles\StorageEditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -36,16 +38,16 @@
     <Page Update="Users\UsersWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Vehicles\Editor\ConnectTrailerWindow.xaml">
+    <Page Update="Vehicles\ConnectTrailerWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Vehicles\Editor\ItemEditor.xaml">
+    <Page Update="Vehicles\ItemEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Vehicles\Editor\StorageEditor.xaml">
+    <Page Update="Vehicles\StorageEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Vehicles\Editor\VehicleEditor.xaml">
+    <Page Update="Vehicles\VehicleEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Vehicles\VehiclesWindow.xaml">

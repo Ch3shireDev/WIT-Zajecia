@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using SamochodyCiezaroweLibrary.Items;
 using SamochodyCiezaroweLibrary.Storages;
 using SamochodyCiezaroweLibrary.Vehicles;
 
-namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
+namespace SamochodyCiezaroweAppWpf.Vehicles
 {
     public class StorageModel
     {

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SamochodyCiezaroweAppWpf.Users"
         mc:Ignorable="d"
-        Title="UsersWindow" Width="800"
+        Title="Panel administracyjny" Width="800"
         DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" SizeToContent="WidthAndHeight">
     <Grid>
         <Grid.RowDefinitions>

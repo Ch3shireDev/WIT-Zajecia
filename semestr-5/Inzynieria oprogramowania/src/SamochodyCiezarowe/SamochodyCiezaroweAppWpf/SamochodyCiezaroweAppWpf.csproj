@@ -15,13 +15,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Vehicles\Editor\VehicleEditor.xaml.cs">
+    <Compile Update="Vehicles\VehicleEditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Vehicles\Editor\VehicleEditor.xaml">
+    <Page Update="Vehicles\VehicleEditor.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

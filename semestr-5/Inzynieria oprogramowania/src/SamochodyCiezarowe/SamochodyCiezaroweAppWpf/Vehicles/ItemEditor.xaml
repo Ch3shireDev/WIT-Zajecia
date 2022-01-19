@@ -1,11 +1,10 @@
-﻿<Window x:Class="SamochodyCiezaroweAppWpf.Vehicles.Editor.ItemEditor"
+﻿<Window x:Class="SamochodyCiezaroweAppWpf.Vehicles.ItemEditor"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        Title="ItemEditor" Height="401" Width="710"
-        DataContext="{Binding Model, RelativeSource={RelativeSource Self}}"
+        mc:Ignorable="d" Height="401" Width="710"
+        DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" KeyDown="Window_KeyDown"
         >
     <Grid>
         <Grid.RowDefinitions>

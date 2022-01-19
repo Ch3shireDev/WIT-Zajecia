@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Samochody Ciężarowe" Height="531" Width="1393"
-        DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" KeyDown="Window_KeyDown">
+        DataContext="{Binding Model, RelativeSource={RelativeSource Self}}">
     <Window.Resources>
     </Window.Resources>
     <DockPanel>
@@ -17,9 +17,9 @@
                 <MenuItem x:Name="ExitMenuItem" Header="Zakończ" Click="ExitMenuItem_Click" />
             </MenuItem>
             <MenuItem  Header="Pojazdy">
-                <MenuItem Header="Dodaj pojazd" x:Name="AddVehicleMenuItemDockPanel"/>
-                <MenuItem x:Name="EditVehicleMenuItemDockPanel" Header="Edytuj pojazd" />
-                <MenuItem x:Name="DeleteVehicleMenuItemDockPanel" Header="Usuń pojazd" />
+                <MenuItem Header="Dodaj pojazd" x:Name="AddVehicleMenuItemDockPanel" Click="AddVehicleMenuItemDockPanel_Click"/>
+                <MenuItem x:Name="EditVehicleMenuItemDockPanel" Header="Edytuj pojazd" Click="EditVehicleMenuItemDockPanel_Click" />
+                <MenuItem x:Name="DeleteVehicleMenuItemDockPanel" Header="Usuń pojazd" Click="DeleteVehicleMenuItemDockPanel_Click" />
             </MenuItem>
         </Menu>
         <Grid>

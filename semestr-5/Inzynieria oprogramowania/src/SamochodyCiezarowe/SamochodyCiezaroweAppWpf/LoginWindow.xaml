@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SamochodyCiezaroweAppWpf"
         mc:Ignorable="d"
-        Title="LoginWindow" SizeToContent="WidthAndHeight" ShowInTaskbar="False" DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" KeyDown="Window_KeyDown">
+        Title="Samochody Ciężarowe - Logowanie" SizeToContent="WidthAndHeight" ShowInTaskbar="False" DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" KeyDown="Window_KeyDown">
     <Window.Resources>
 <Style TargetType="Label">
     <Setter Value="10" Property="Margin"></Setter>

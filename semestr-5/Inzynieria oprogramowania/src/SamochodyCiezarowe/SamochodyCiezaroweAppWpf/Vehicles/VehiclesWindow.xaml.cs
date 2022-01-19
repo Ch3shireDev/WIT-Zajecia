@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
-using SamochodyCiezaroweAppWpf.Vehicles.Editor;
 using SamochodyCiezaroweLibrary.Vehicles;
 
 namespace SamochodyCiezaroweAppWpf.Vehicles
@@ -16,14 +15,17 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
     /// </summary>
     public partial class VehiclesWindow : Window
     {
-        //private readonly string filename = "data.json";
+        private readonly string savefile = "data.json";
 
         public VehiclesWindow()
         {
+            Model.Load(savefile, false);
             InitializeComponent();
             VehiclesList.SelectionChanged += (s, e) => VehiclesList.ScrollIntoView(VehiclesList.SelectedItem);
-            Title = $"Samochody Ciężarowe v{Assembly.GetEntryAssembly()?.GetName().Version}";
+            Title = $"Samochody Ciężarowe v{Version}";
         }
+
+        private string Version => Assembly.GetEntryAssembly()?.GetName().Version?.ToString() ?? "1.0";
 
         public VehiclesModel Model { get; set; } = new();
 
@@ -37,16 +39,63 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             AddVehicle();
         }
 
+        private void AddVehicleMenuItemDockPanel_Click(object sender, RoutedEventArgs e)
+        {
+            AddVehicle();
+        }
+
         private void AddVehicle()
         {
-            VehicleProxy vehicle = Model.AddNewVehicle();
-            VehiclesList.SelectedValue = vehicle;
+            try
+            {
+                VehicleProxy vehicle = Model.AddNewVehicle();
+                VehiclesList.SelectedValue = vehicle;
+                VehicleEditor editor = new(vehicle);
+                bool? result = editor.ShowDialog();
+                if (result == false) Model.RemoveVehicle(vehicle);
+                else vehicle.Vehicle = editor.Vehicle;
+                RefreshVehiclesList();
+                Model.Save(savefile);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void EditVehicleMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            EditVehicle();
+        }
+
+        private void EditVehicleMenuItemDockPanel_Click(object sender, RoutedEventArgs e)
+        {
+            EditVehicle();
+        }
+
+        private void EditVehicle()
+        {
+            if (VehiclesList.SelectedValue is not VehicleProxy vehicle) return;
             VehicleEditor editor = new(vehicle);
-            bool? result = editor.ShowDialog();
-            if (result == false) Model.RemoveVehicle(vehicle);
-            else vehicle.Vehicle = editor.Vehicle;
+            if (editor.ShowDialog() == true) vehicle.Vehicle = editor.Vehicle;
+            Model.Save(savefile);
             RefreshVehiclesList();
-            //Model.Save(filename);
+        }
+
+        private void DeleteVehicleMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteVehicle();
+        }
+
+        private void DeleteVehicleMenuItemDockPanel_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteVehicle();
+        }
+
+        private void DeleteVehicle()
+        {
+            IEnumerable<VehicleProxy> vehicles = VehiclesList.SelectedItems.Cast<VehicleProxy>();
+            Model.RemoveVehicles(vehicles.ToList());
         }
 
         private void RefreshVehiclesList()
@@ -57,35 +106,20 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             Model.RefreshConnections();
         }
 
-        private void DeleteVehicleMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            IEnumerable<VehicleProxy> vehicles = VehiclesList.SelectedItems.Cast<VehicleProxy>();
-            Model.RemoveVehicles(vehicles.ToList());
-        }
-
-        private void EditVehicleMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            EditVehicle();
-        }
-
-        private void EditVehicle()
-        {
-            if (VehiclesList.SelectedValue is not VehicleProxy vehicle) return;
-            VehicleEditor editor = new(vehicle);
-            bool? result = editor.ShowDialog();
-            if (result == true) vehicle.Vehicle = editor.Vehicle;
-            //Model.Save();
-            RefreshVehiclesList();
-        }
-
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.N && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control) AddVehicle();
-        }
-
         private void LoadMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Load();
+        }
+
+        private void Load()
+        {
+            OpenFileDialog dialog = new()
+            {
+                AddExtension = true,
+                CheckFileExists = true
+            };
+            if (dialog.ShowDialog(this) == true) Model.Load(dialog.FileName);
+            RefreshVehiclesList();
         }
 
         private void SaveMenuItem_Click(object sender, RoutedEventArgs e)
@@ -102,21 +136,15 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
                 FileName = $"{DateTime.Now:yyyy-MM-ddTHH-mm-ss}.json"
             };
             if (dialog.ShowDialog(this) == true) Model.Save(dialog.FileName);
-        }
-
-        private void Load()
-        {
-            OpenFileDialog dialog = new()
-            {
-                AddExtension = true,
-                CheckFileExists = true
-            };
-            if (dialog.ShowDialog(this) == true) Model.Load(dialog.FileName);
-            RefreshVehiclesList();
+            Model.Save(savefile);
         }
 
         private void LogoutMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            Model.Save(savefile);
+            LoginWindow window = new();
+            window.Show();
+            Close();
         }
 
         private void ExitMenuItem_Click(object sender, RoutedEventArgs e)
@@ -124,6 +152,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             MessageBoxResult dialog = MessageBox.Show(this, "Czy zapisać pracę?", Title, MessageBoxButton.YesNoCancel);
             if (dialog == MessageBoxResult.Cancel) return;
             if (dialog == MessageBoxResult.Yes) Save();
+            Model.Save(savefile);
             Environment.Exit(0);
         }
     }

@@ -4,7 +4,7 @@ using SamochodyCiezaroweLibrary;
 using SamochodyCiezaroweLibrary.Storages;
 using SamochodyCiezaroweLibrary.Vehicles;
 
-namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
+namespace SamochodyCiezaroweAppWpf.Vehicles
 {
     public class VehicleEditorModel
     {
@@ -73,6 +73,10 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         public List<VehicleProxy> GetTrailersList()
         {
             return new VehiclesService().GetTrailersList();
+        }
+        public List<VehicleProxy> GetSemiTrailersList()
+        {
+            return new VehiclesService().GetSemiTrailersList();
         }
 
         public void Connect(Trailer selectedTrailer)

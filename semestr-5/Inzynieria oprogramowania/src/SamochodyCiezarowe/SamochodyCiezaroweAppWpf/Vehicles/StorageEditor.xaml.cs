@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Windows;
+using System.Windows.Input;
 using SamochodyCiezaroweLibrary.Items;
 using SamochodyCiezaroweLibrary.Storages;
 using SamochodyCiezaroweLibrary.Vehicles;
 
-namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
+namespace SamochodyCiezaroweAppWpf.Vehicles
 {
     /// <summary>
     ///     Interaction logic for StorageEditor.xaml
@@ -14,8 +15,6 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
     {
         public StorageEditor(ILoadable loadableVehicle)
         {
-            Owner = Application.Current.MainWindow;
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ShowInTaskbar = false;
             StorageModel = new StorageModel(loadableVehicle);
             InitializeComponent();
@@ -26,6 +25,11 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         public ItemProxy SelectedItem => StorageModel.SelectedItem;
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Save();
+        }
+
+        private void Save()
         {
             DialogResult = true;
             Close();
@@ -66,6 +70,11 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Cancel();
+        }
+
+        private void Cancel()
         {
             DialogResult = false;
             Close();
@@ -115,6 +124,12 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
         private void DeleteGoodsButton_Click(object sender, RoutedEventArgs e)
         {
             DeleteGoods();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) Save();
+            if (e.Key == Key.Escape) Cancel();
         }
     }
 }

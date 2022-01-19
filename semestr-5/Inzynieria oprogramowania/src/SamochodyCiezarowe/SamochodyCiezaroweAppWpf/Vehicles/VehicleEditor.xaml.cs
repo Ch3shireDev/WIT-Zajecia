@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using SamochodyCiezaroweLibrary.Vehicles;
 
-namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
+namespace SamochodyCiezaroweAppWpf.Vehicles
 {
     /// <summary>
     ///     Interaction logic for VehicleEditor.xaml
@@ -15,8 +15,6 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
     {
         public VehicleEditor(VehicleProxy vehicleProxy)
         {
-            Owner = Application.Current.MainWindow;
-            WindowStartupLocation = WindowStartupLocation.CenterOwner;
             ShowInTaskbar = false;
             Model = new VehicleEditorModel(vehicleProxy);
             InitializeComponent();
@@ -155,8 +153,12 @@ namespace SamochodyCiezaroweAppWpf.Vehicles.Editor
 
         private void SetSemiTrailerButton_Click(object sender, RoutedEventArgs ev)
         {
-            VehiclesModel vehicleModel = new();
-            List<VehicleProxy> semiTrailers = vehicleModel.Vehicles.Where(vehicle => vehicle.IsSemiTrailer).ToList();
+            var semiTrailers = Model.GetSemiTrailersList();
+            if (semiTrailers.Count == 0)
+            {
+                MessageBox.Show("Nie istnieją żadne naczepy w systemie. Należy utworzyć przynajmniej jedną naczepę.");
+                return;
+            }
             ConnectTrailerWindow dialog = new(semiTrailers);
             bool? result = dialog.ShowDialog();
             if (result != true) return;
