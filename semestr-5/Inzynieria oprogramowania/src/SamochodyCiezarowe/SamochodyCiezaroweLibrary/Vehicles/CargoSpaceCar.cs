@@ -25,16 +25,6 @@ namespace SamochodyCiezaroweLibrary.Vehicles
         
         public override string TypeDescription => "Samochód z przestrzenią ładunkową";
         public Storage Storage { get; set; } = new BoxStorage();
-
-        public void Load(Item item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Unload()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class StorageBuilder
