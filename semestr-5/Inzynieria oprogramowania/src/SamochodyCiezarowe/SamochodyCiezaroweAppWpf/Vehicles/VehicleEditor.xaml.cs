@@ -113,7 +113,7 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             TrailerGrid.Visibility = GetSelectTrailerVisibility();
             DisconnectTrailer.Visibility = GetDisconnectTrailerVisibility();
             SemiTrailerGrid.Visibility = GetSelectSemiTrailerVisibility();
-            DisconnectSemiTrailer.Visibility = GetDisconnectSemiTrailerVisibility();
+            DisconnectSemiTrailerGrid.Visibility = GetDisconnectSemiTrailerVisibility();
             StorageSpaceButton.IsEnabled = GetStorageSpaceButtonIsEnabled();
             Refresh(VehicleNameTextBox);
             Refresh(VehicleVINTextBox);
@@ -153,12 +153,18 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
 
         private void SetSemiTrailerButton_Click(object sender, RoutedEventArgs ev)
         {
+            SetTrailer();
+        }
+
+        private void SetTrailer()
+        {
             var semiTrailers = Model.GetSemiTrailersList();
             if (semiTrailers.Count == 0)
             {
                 MessageBox.Show("Nie istnieją żadne naczepy w systemie. Należy utworzyć przynajmniej jedną naczepę.");
                 return;
             }
+
             ConnectTrailerWindow dialog = new(semiTrailers);
             bool? result = dialog.ShowDialog();
             if (result != true) return;
@@ -188,6 +194,11 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
         }
 
         private void DisconnectSemiTrailerButton_Click(object sender, RoutedEventArgs e)
+        {
+            DisconnectSemiTrailer();
+        }
+
+        private void DisconnectSemiTrailer()
         {
             try
             {

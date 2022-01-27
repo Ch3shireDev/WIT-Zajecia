@@ -177,7 +177,7 @@
 
                 </Label>
             </Grid>
-            <Grid x:Name="DisconnectSemiTrailer" Grid.Row="4">
+            <Grid x:Name="DisconnectSemiTrailerGrid" Grid.Row="4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>

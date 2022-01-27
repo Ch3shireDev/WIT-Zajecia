@@ -1,4 +1,4 @@
-﻿namespace SamochodyCiezaroweLibrary
+﻿namespace SamochodyCiezaroweLibrary.Vehicles
 {
     public class Engine
     {
