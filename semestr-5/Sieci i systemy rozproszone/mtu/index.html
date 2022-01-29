@@ -25,8 +25,8 @@
 
     <div class="container shadow py-3 px-5 m-auto mt-5">
 
-        <p class="font-monospace"> W sieć, dla której MTU=576 (protokół X25) wysyłany jest komunikat ICMP zawierający 1950 bajtów danych. Zakłada się, że nagłówek IP ma standardową długość 20 oktetów, a za nagłówkiem IP jest nagłówek ICMP o długości 8 oktetów. Określić długość
-            i przesunięcie każdego z powstałych fragmentów stosując notację długość@przesunięcieMF/LF.</p>
+        <p class="font-monospace"> W sieć, dla której MTU=<span id="mtu-text">576</span> (protokół X25) wysyłany jest komunikat ICMP zawierający <span id="data-text">1950</span> bajtów danych. Zakłada się, że nagłówek IP ma standardową długość <span id="header-text">20</span> oktetów,
+            a za nagłówkiem IP jest nagłówek ICMP o długości <span id="icmp-text">8</span> oktetów. Określić długość i przesunięcie każdego z powstałych fragmentów stosując notację długość@przesunięcieMF/LF.</p>
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="mtu-label">MTU</span>
@@ -79,6 +79,11 @@
                 let total_size = parseInt($('#total-size').val());
                 let headers = parseInt($('#headers').val());
                 let icmp = parseInt($('#icmp').val());
+
+                $('#mtu-text').text(mtu);
+                $('#data-text').text(total_size);
+                $('#header-text').text(headers);
+                $('#icmp-text').text(icmp);
 
                 $('#answer').empty()
                 get_message_fragments(mtu, headers, total_size, icmp).forEach(function(x) {
