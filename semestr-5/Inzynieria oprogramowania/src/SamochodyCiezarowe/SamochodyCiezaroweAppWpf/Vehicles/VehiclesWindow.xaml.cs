@@ -133,7 +133,8 @@ namespace SamochodyCiezaroweAppWpf.Vehicles
             {
                 AddExtension = true,
                 DefaultExt = "json",
-                FileName = $"{DateTime.Now:yyyy-MM-ddTHH-mm-ss}.json"
+                FileName = $"{DateTime.Now:yyyy-MM-ddTHH-mm-ss}.json",
+                Filter = "Pliki json (*.json)|Wszystkie pliki (*.*)"
             };
             if (dialog.ShowDialog(this) == true) Model.Save(dialog.FileName);
             Model.Save(savefile);

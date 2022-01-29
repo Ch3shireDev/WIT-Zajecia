@@ -1,0 +1,1 @@
+# Skonstruować potok wypisujący aktualną liczbę nasłuchujących na lokalnej maszynie serwerów aplikacji działających na bazie UDP. Wskazówka: polecenie tail –n +3 wyświetla strumień wejściowy od 3 wiersza w dół.

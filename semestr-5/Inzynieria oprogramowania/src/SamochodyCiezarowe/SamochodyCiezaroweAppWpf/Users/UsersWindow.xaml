@@ -54,7 +54,7 @@
             <Button x:Name="AddAdministratorButton" Content="Dodaj administratora" Grid.Column="1" Click="AddAdministratorButton_Click"></Button>
             <Button x:Name="EditUserButton" Content="Edytuj użytkownika" Grid.Column="2" Click="EditUserButton_Click"></Button>
             <Button x:Name="DeleteUserButton" Content="Usuń użytkownika" Grid.Column="3" Click="DeleteUserButton_Click"></Button>
-            <Button Content="Zamknij" Grid.Column="4" x:Name="CloseButton" Click="CloseButton_Click"></Button>
+            <Button Content="Wyloguj" Grid.Column="4" x:Name="CloseButton" Click="CloseButton_Click"></Button>
         </Grid>
     </Grid>
 </Window>

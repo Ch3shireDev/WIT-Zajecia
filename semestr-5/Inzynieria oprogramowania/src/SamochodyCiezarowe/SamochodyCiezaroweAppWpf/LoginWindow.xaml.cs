@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using SamochodyCiezaroweAppWpf.Users;
@@ -14,6 +16,7 @@ namespace SamochodyCiezaroweAppWpf
     {
         public LoginWindow()
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             Model.Load();
             InitializeComponent();
             UsernameTextbox.Focus();

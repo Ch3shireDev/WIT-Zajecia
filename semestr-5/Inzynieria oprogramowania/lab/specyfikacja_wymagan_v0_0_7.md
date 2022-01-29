@@ -428,54 +428,284 @@ Item -- ItemProxy
 
 ## Diagramy sekwencji
 
-### Add Vehicle
+### Logowanie do systemu
 
 ```plantuml
 @startuml
-actor Operator
-participant "vehiclesWindow:VehiclesWindow" as VehiclesWindow
-participant "vehiclesModel:VehiclesModel" as VehiclesModel
+actor User
+participant "LoginWindow" as LW
+participant "LoginModel" as LM
+participant UserService as US
 
-activate VehiclesWindow
-VehiclesWindow -> VehiclesModel : <<extend>>
-VehiclesWindow -> VehiclesModel: addVehicle()
-deactivate VehiclesWindow
+activate US
+User -> LW : Start()
+activate LW
+LW -> LM : new Model()
+activate LM
+LW <-- LM : model
+User -> LW : Login()
+LW -> LM : GetUser()
+activate LM
+LM -> US : Authorize()
+US -> US : FindUser()
+alt użytkownik istnieje
+US -> US : Verify(password, user.hash, user.salt)
+alt hasło poprawne
+LM <-- US : return user
+LW <-- LM : return user
+alt user.type == administrator
+User <-- LW : ShowOperatorsWindow()
+else user.type == operator
+User <-- LW : ShowVehiclesWindow()
+end group
+
+else hasło niepoprawne
+LM <-- US : throw new Exception("Niepoprawne hasło")
+LW <-- LM : throw
+User <-- LW : ShowMessageBox("Niepoprawne hasło.")
+end group
+
+else użytkownik nie istnieje
+LM <-- US : throw Exception("Niepoprawna nazwa użytkownika")
+LW <-- LM : throw
+User <-- LW : ShowMessageBox("Użytkownik nie istnieje")
+end group
+deactivate LM
+deactivate LW
+
+@enduml
+```
+
+### Dodaj operatora
+
+```plantuml
+@startuml
+actor Administrator as A
+participant UsersWindow as UW
+participant UserEditorWindow as UEW
+participant UserEditorModel as UEM
+participant UserService as US
+
+activate UW
+A -> UW : AddOperator()
+UW -> UEW : new UserEditorWindow()
+activate UEW
+UEW -> UEM : new UserEditorModel()
+activate UEM
+UEW <-- UEM : model
+UEW -> UEM : model.CreateOperator()
+alt correct credentials
+UEM -> US : CreateOperator()
+activate US
+US  --> UEM : return true
+deactivate US
+UEM --> UEW : return
+UEW -> UEW : Save()
+UEW --> UW : return true
+else incorrect credentials
+UEM --> UEW : throw new Exception("Hasło nie może być puste")
+deactivate UEM
+UEW --> UW : throw new Exception()
+UW --> A : ShowError()
+end group
+
+A <-- UW
+
+@enduml
+```
+
+### Dodaj samochód
+
+```plantuml
+@startuml
+actor Operator as O
+participant VehiclesWindow as VW
+participant VehiclesModel as VM
+participant VehicleEditorWindow as VEW
+participant VehicleEditorModel as VEM
+
+activate VW
+VW -> VM : new VehiclesModel()
+activate VM
+VM --> VW : model
+O -> VW : AddVehicle()
+VW -> VM : model.AddVehicle()
+VM --> VW : vehicle
+VW -> VEW : new VehicleEditorWindow(vehicle)
+activate VEW
+VEW -> VEM : new VehicleEditorModel(vehicle)
+activate VEM
+VEW <-- VEM : model
+O -> VEW : set vehicle data
+VEW -> VEM : Update()
+alt operator accepts
+VEW --> VW : return true
+else operator cancels
+VEW --> VW : return false
+VW -> VM : model.RemoveVehicle(vehicle)
+end group
+deactivate VEW
+deactivate VEM
+VW -> VW : Save()
+VW -> VW : Refresh()
+VW --> O : show new vehicles list
+deactivate VW
+deactivate VM
+
+@enduml
+```
+
+### Usuń samochody
+
+```plantuml
+@startuml
+actor Operator as O
+participant VehiclesWindow as VW
+participant VehiclesModel as VM
+
+activate VW
+VW -> VM : new VehiclesModel()
+activate VM
+VM -> VM : new Vehicles()
+VM -> VW : model
+VW -> VM : Load()
+VM -> VM : Load()
+activate VM
+deactivate VM
+O -> VW : DeleteVehicles()
+alt selectedVehicles.count() > 0
+VW -> VM : model.RemoveVehicles(selectedVehicles)
+activate VM
+VM -> VM : Vehicles.Remove(selectedVehicles)
+O <-- VW : vehicle
+VM -> VW : return
+VW -> VW : Save()
+VW -> VW : Refresh()
+VW -> O : show new vehicles list
+deactivate VM
+else
+VW -> O : ShowError()
+end group
+@enduml
+```
+
+### Łącz pojazdy
+
+```plantuml
+@startuml
+actor Operator as O
+participant VehicleEditorWindow as VEW
+participant VehicleEditorModel as VEM
+participant ConnectTrailerWindow as CTW
+
+activate VEW
+VEW -> VEM : new VehicleEditorModel()
+activate VEM
+VEW <-- VEM : model
+O -> VEW : SetTrailer()
+VEW -> VEM : model.GetTrailersList()
+activate VEM
+VEM -> VEM : GetTrailersList()
+VEM --> VEW : trailersList
+VEW -> CTW : new ConnectTrailerWindow(trailersList)
+alt user selects
+CTW --> VEW : return true
+alt connection is possible
+VEW -> VEM : model.Connect(selectedTrailer)
+VEW -> VEW : Refresh()
+else connection is not possible
+VEW --> O : ShowError()
+end group
+else user cancels
+CTW --> VEW : return false
+end group
+VEW --> O : return
+@enduml
+```
+
+### Rozłącz pojazdy
+
+```plantuml
+@startuml
+actor Operator as O
+participant VehicleEditorWindow as VEW
+participant VehicleEditorModel as VEM
+participant TrailerConnector as TC
+
+activate VEW
+VEW -> VEM : new VehicleEditorModel()
+activate VEM
+VEW <-- VEM : model
+O -> VEW : SetTrailer()
+VEW -> VEM : model.Disconnect()
+VEM -> TC : new TrailerConnector()
+activate TC
+TC --> VEM : connector
+VEM -> TC : Unhook(vehicle)
+alt success
+TC --> VEM : return true
+VEW -> VEW : Save()
+VEW -> VEW : Refresh()
+VEM --> VEW : return true
+VEW --> O
+else failure
+TC --> VEM : throw new Exception()
+VEM --> VEW : throw new Exception()
+VEW --> O : ShowError()
+end group
+deactivate TC
+@enduml
+```
+
+### Przeprowadź załadunek przestrzeni ładunkowej
+
+```plantuml
+@startuml
+actor Operator as O
+participant VehicleEditorWindow as VEW
+participant StorageEditorWindow as SEW
+participant StorageEditorModel as SEM
+participant ItemEditorWindow as IEW
+participant ItemEditorModel as IEM
+
+activate VEW
+O -> VEW : OpenStorageEditor()
+VEW -> SEW : new StorageEditorWindow(vehicle)
+activate SEW
+SEW -> SEM : new StorageEditorModel(vehicle)
+activate SEM
+SEW <-- SEM : model
+O -> SEW : AddGoods()
+SEW -> SEM : GetNewItem()
+SEM --> SEW : item
+SEW -> IEW : new ItemEditorWindow(storage)
+activate IEW
+IEW -> IEM : new ItemEditorModel(storage)
+activate IEM
+O -> IEW : set item data
+IEW -> IEM : UpdateItem(item)
+IEM --> IEW : return
+alt user accepts
+IEW --> SEW : return true
+SEW -> SEM : model.AddItem(item)
+SEW -> SEW : Refresh()
+else user cancels
+IEW --> SEW : return false
+end group
+
+alt user accepts
+SEW --> VEW : return true
+else user cancels
+SEW --> VEW : return false
+end group
+
+VEW -> VEW : Save()
+
+
 @enduml
 ```
 
 
-
-### Get Vehicle
-
-![](images/get_vehicle.png)
-
-### Connect Trailer
-
-![](images/connect_trailer.png)
-
-### Save
-
-![](images/save.png)
-
-### Add Item
-
-![](images/add_item.png)
-
-### Add Goods
-
-![](images/add_goods.png)
-
-### Disconnect Trailer
-
-![](images/disconnect_trailer.png)
-
-## Set Storage
-
-![](images/set_storage.png)
-
-### Change password
-
-![](images/change_password.png)
 
 ## Diagramy maszyny stanowej i czynności
 
@@ -483,20 +713,16 @@ deactivate VehiclesWindow
 
 ```mermaid
 stateDiagram-v2
-start: Ekran logowania
-vehicles: Ekran z listą pojazdów
-operators: Ekran z listą operatorów
-finish: Zakończenie programu
-start_error: Informacja o błędzie logowania
+start: Logowanie
+vehicles: Wyświetlanie listy pojazdów
+operators: Wyświetlanie listy operatorów
+finish: Zamknięcie programu
 [*] --> start
 start --> vehicles : Logowanie operatora 
 start --> operators : Logowanie administratora
-start --> start_error : Błąd logowania
-start_error --> start : Powrót do ekranu logowania
+start --> start : Błąd logowania
 operators --> start: Wylogowanie administratora
 vehicles --> start: Wylogowanie operatora
-vehicles --> finish: Zakończenie programu
-operators --> finish: Zakończenie programu
 start --> finish: Zakończenie programu
 finish --> [*]
 ```
@@ -505,49 +731,32 @@ finish --> [*]
 
 ```mermaid
 stateDiagram-v2
-operators_list: Lista operatorów
-add_operator: Dodaj operatora
-edit_operator: Edytuj operatora
-save_operator: Zapisz operatora
-delete_operator: Usuń operatora
-cancel_operator: Anuluj dodawanie operatora
+operators_list: Wyświetlanie listy operatorów
+edit_operator: Edycja operatora
 
 [*] --> operators_list: Logowanie jako administrator
-operators_list --> add_operator: Dodaj operatora
+operators_list --> edit_operator: Dodaj operatora
 operators_list --> edit_operator: Edytuj operatora
-edit_operator --> save_operator: Zapisz operatora
-edit_operator --> cancel_operator: Anuluj edycję operatora
-add_operator --> save_operator: Zapisz operatora
-add_operator --> cancel_operator: Anuluj dodawanie operatora
-save_operator --> operators_list: Powrót do listy operatorów
-operators_list --> delete_operator: Usuń operatora
-delete_operator --> operators_list: Powrót do listy operatorów
-cancel_operator --> operators_list: Powrót do listy operatorów
+edit_operator --> operators_list: Zapisz operatora
+operators_list --> operators_list: Usuń operatora
+edit_operator --> operators_list: Anuluj edycję
 ```
 
 ### Okno operatora pojazdów
 
 ```mermaid
 stateDiagram-v2
-vehicles_list: Lista pojazdów
-add_vehicle: Dodaj pojazd
-edit_vehicle: Edytuj pojazd
-save_vehicle: Zapisz pojazd
-delete_vehicle: Usuń pojazd
-cancel_vehicle: Anuluj dodawanie pojazdu
-join_trailer: Połącz pojazdy
-disjoin_trailer: Rozłacz pojazdy
+vehicles_list: Wyświetlanie listy pojazdów
+edit_vehicle: Edytowanie pojazdu
+join_trailer: Łączenie pojazdów
+disjoin_trailer: Rozłączanie pojazdów
 
 [*] --> vehicles_list: Logowanie jako operator
-vehicles_list --> add_vehicle: Dodaj pojazd
-add_vehicle --> edit_vehicle: Edytuj pojazd
+vehicles_list --> edit_vehicle: Dodaj pojazd
 vehicles_list --> edit_vehicle: Edytuj pojazd
-edit_vehicle --> save_vehicle: Zapisz pojazd
-save_vehicle --> vehicles_list: Powrót do listy pojazdów
-edit_vehicle --> cancel_vehicle: Anuluj edycję pojazdu
-cancel_vehicle --> vehicles_list: Powrót do listy pojazdów
-vehicles_list --> delete_vehicle: Usuń pojazd
-delete_vehicle --> vehicles_list: Powrót do listy pojazdów
+edit_vehicle --> vehicles_list: Zapisz pojazd
+edit_vehicle --> vehicles_list: Anuluj edycję pojazdu
+vehicles_list --> vehicles_list: Usuń pojazd
 edit_vehicle --> join_trailer: Połącz z pojazdem
 join_trailer --> edit_vehicle: Edytuj pojazd
 edit_vehicle --> disjoin_trailer: Rozłącz z pojazdem
@@ -558,20 +767,14 @@ disjoin_trailer --> edit_vehicle: Edytuj pojazd
 
 ```mermaid
 stateDiagram-v2
-edit_vehicle: Edytuj pojazd
-add_item: Dodaj towar
-edit_item: Edytuj towar
-save_item: Zapisz towar
-cancel_item: Anuluj dodawanie towaru
-show_storage: Wyświetl przestrzeń ładunkową
+edit_vehicle: Edycja pojazdu
+edit_item: Edycja towaru
+show_storage: Wyświetlanie przestrzeni ładunkowej
 
 [*] --> edit_vehicle: Edycja pojazdu
 edit_vehicle --> show_storage: Otwórz przestrzeń ładunkową
-show_storage --> add_item: Dodawanie towaru
+show_storage --> edit_item: Dodawanie towaru
 show_storage --> edit_item: Edycja towaru
-add_item --> edit_item: Edycja towaru
-edit_item --> save_item: Zapisz towar
-save_item --> show_storage: Powrót do przestrzeni ładunkowej
-edit_item --> cancel_item: Anuluj dodawanie towaru
-cancel_item --> show_storage: Powrót do przestrzeni ładunkowej
+edit_item --> show_storage: Zapisz towar
+edit_item --> show_storage: Anuluj dodawanie towaru
 ```
