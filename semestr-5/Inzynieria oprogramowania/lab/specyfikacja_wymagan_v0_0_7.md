@@ -2,7 +2,7 @@
 
 ## Autor: Igor Nowicki
 
-## 1\. Opis systemu
+## Opis systemu
 
 System służy do przechowywania definicji pojazdów ciężarowych i ich zespołów, wraz z informacjami o załadunku. Przewidziana jest możliwość przechowywania pojazdów różnego rodzaju (samochody z przestrzenią ładunkową, ciągniki siodłowe, przyczepy, naczepy), z różnego rodzaju przestrzeniami ładunkowymi (zdefiniowane jako skrzyniowa, kontenerowa, cysterna). Program przewiduje mechanizm przechowywania danych na temat pojazdu pomiędzy sesjami poprzez zapis i odczyt z i do pliku dyskowego w formacie JSON.
 
@@ -46,7 +46,7 @@ Program realizuje następujące działania:
 - Operator - użytkownik z możliwością zarządzania bazą danych pojazdów.
 - Administrator - użytkownik z możliwością zarządzania bazą danych użytkowników.
 
-### 2.1\. OBIEKTY BIZNESOWE
+### Obiekty Biznesowe
 
 #### Pojazd (Vehicle)
 
@@ -54,24 +54,24 @@ Opis: Abstrakcyjny obiekt określających dowolną jednostkę jeżdżącą.
 
 Każdy pojazd opisywany jest zestawem parametrów:
 
-- Id (int) - Identyfikator (liczba całkowita dodatnia)
-- Name (string) - Nazwa (tekst na podstawie pozycji katalogowej producenta)
-- VIN (string) - Vehicle Identification Number (15 lub 17 znaków alfanumerycznych)
-- Year - Rok produkcji (czterocyfrowa liczba całkowita w zakresie od roku 1900 do roku bieżącego)
+- Id (liczba całkowita) - Identyfikator (liczba całkowita dodatnia).
+- Name (tekst) - Nazwa (tekst na podstawie pozycji katalogowej producenta).
+- VIN (tekst) - Vehicle Identification Number (15 lub 17 znaków alfanumerycznych).
+- Year - Rok produkcji (czterocyfrowa liczba całkowita w zakresie od roku 1900 do roku bieżącego).
 
 #### Pojazd silnikowy (MotorizedVehicle)
 
 Opis: Abstrakcyjny obiekt dziedziczący z Pojazdu, opisujący dowolny pojazd posiadający silnik.
 
-- Engine (Engine) - parametry silnika (poniżej)
+- Engine (Engine) - parametry silnika (poniżej).
 
 #### Silnik (Engine)
 
 Opis: Obiekt definiowany wewnątrz pojazdu silnikowego. Definiowany następującymi parametrami:
 
-- Name (string) - Nazwa (tekst na podstawie pozycji katalogowej producenta)
-- Capacity (int) - Pojemność (liczba całkowita dodatnia, cm3)
-- Power (int) - Liczba koni mechanicznych (liczba całkowita dodatnia)
+- Name (tekst) - Nazwa (tekst na podstawie pozycji katalogowej producenta).
+- Capacity (liczba całkowita) - Pojemność (liczba całkowita dodatnia, cm3).
+- Power (liczba całkowita) - Liczba koni mechanicznych (liczba całkowita dodatnia).
 
 ### Pojazd bezsilnikowy (NonMotorizedVehicle)
 
@@ -87,7 +87,7 @@ Opis: Interfejs zawierający przestrzeń ładunkową dla pojazdu.
 
 Opis: Abstrakcyjny obiekt definiowany wewnątrz pojazdu z którego dziedziczą opisane poniżej typy przestrzeni ładunkowej.
 
-- StorageDescription (string) - Opis przestrzeni ładunkowej. Definiowany na poziomie definicji klasy.
+- StorageDescription (tekst) - Opis przestrzeni ładunkowej. Definiowany na poziomie definicji klasy.
 - Items (List of Items) - Lista towarów.
 - IsSingle (bool) - Czy przestrzeń ładunkowa może zawierać jeden typ towarów.
 
@@ -101,19 +101,19 @@ Abstrakcyjny obiekt opisujący dowolną jednostkę towarową. Wyszczególnione s
 
 Parametry:
 
-- Name (string) - Nazwa towaru
+- Name (tekst) - Nazwa towaru
 - GrossMass (decimal) - Waga brutto towaru
-- Description (string) - Opis towaru
+- Description (tekst) - Opis towaru
 
 Metody:
 
-- GetDimensions (string) - abstrakcyjna funkcja definiowana na poziomie funkcji pochodnych zwracająca opis fizycznej przestrzeni zajmowanej przez towar.
+- GetDimensions (tekst) - abstrakcyjna funkcja definiowana na poziomie funkcji pochodnych zwracająca opis fizycznej przestrzeni zajmowanej przez towar.
 
 #### Skrzyniowa przestrzeń ładunkowa (BoxStorage)
 
 Opis: Typ przestrzeni ładunkowej. Umożliwia załadunek towaru typu skrzyniowego.
 
-- StorageDescription (string) - parametr, zwraca "Przestrzeń skrzyniowa"
+- StorageDescription (tekst) - parametr, zwraca "Przestrzeń skrzyniowa"
 - IsSingle (bool) - zwraca "fałsz"
 
 #### Towar typu skrzyniowego (BoxItem)
@@ -130,7 +130,7 @@ Typ towaru, ładowany do skrzyniowej przestrzeni ładunkowej.
 
 Opis: Typ przestrzeni ładunkowej. Umożliwia załadunek towaru typu kontenerowego. Opisywany następującymi parametrami:
 
-- StorageDescription (string) - parametr, zwraca "Przestrzeń kontenerowa"
+- StorageDescription (tekst) - parametr, zwraca "Przestrzeń kontenerowa"
 - IsSingle (bool) - parametr, zwraca "prawda"
 
 #### Towar typu kontenerowego (ContainerItem)
@@ -143,7 +143,7 @@ Typ towaru, ładowany do kontenerowej przestrzeni ładunkowej. Metody:
 
 Opis: Typ przestrzeni ładunkowej. Umożliwia załadunek towaru typu płynnego.
 
-- StorageDescription (string) - parametr, zwraca "Cysterna".
+- StorageDescription (tekst) - parametr, zwraca "Cysterna".
 
 #### Towar typu płynnego (LiquidItem)
 
@@ -202,10 +202,10 @@ W tym rozdziale należy umieścić wszystkie wymagania niefunkcjonalne pamiętaj
 ID | Nazwa                           | Priorytet | Proces biznesowy
 -- | ------------------------------- | --------- | ------------------------------------------------------------------------------
 N1 | Platforma Windows 10            | Wysoki    | Program ma działać na platformie Windows 10
-N1 | Windows Presentation Foundation | Wysoki    | Program ma zostać zaprojektowany dla platformy Windows Presentation Foundation
-N2 | Interfejs graficzny             | Wysoki    | Interfejs programu ma być w postaci graficznej (GUI)
-N3 | Wymagania zapisu                | Wysoki    | Program ma automatycznie zapisywać stan magazynu przy zmianach
-N3 | Wymagania odczytu               | Wysoki    | Program ma automatycznie wczytywać stan magazynu przy zmianach
+N2 | Windows Presentation Foundation | Wysoki    | Program ma zostać zaprojektowany dla platformy Windows Presentation Foundation
+N3 | Interfejs graficzny             | Wysoki    | Interfejs programu ma być w postaci graficznej (GUI)
+N4 | Wymagania zapisu                | Wysoki    | Program ma automatycznie zapisywać stan magazynu przy zmianach
+N5 | Wymagania odczytu               | Wysoki    | Program ma automatycznie wczytywać stan magazynu przy zmianach
 
 ## Diagramy Use Case
 
@@ -377,6 +377,7 @@ class TankStorage{
 }
 
 class Item{
+  <<abstract>> Item
   +Name : string
   +GrossMass : float
 }
@@ -384,8 +385,8 @@ class Item{
 class LiquidItem{
     + LiquidItem();
     + LiquidItem(LiquidItem item) ;
-    +  Volume: decimal;
-    + string GetDimensions();
+    + Volume: decimal;
+    + GetDimensions(): string;
 }
 
 class BoxItem{
@@ -394,40 +395,55 @@ class BoxItem{
   +Length: int
 }
 
-    <<abstract>> Item
+ContainerStorage -- ContainerItem
+BoxStorage -- BoxItem
+TankStorage -- LiquidItem
+ContainerItem --|> Item
+BoxItem --|> Item
+LiquidItem --|> Item
 
-    ContainerStorage -- ContainerItem
-    BoxStorage -- BoxItem
-    TankStorage -- LiquidItem
-    ContainerItem --|> Item
-    BoxItem --|> Item
-    LiquidItem --|> Item
-
-    class Vehicle{
-      +Id : int
-      +Name : string
-      +VIN : string
-      +Year : int
-      +Engine : Engine
-      +CargoSpace : Storage
-    }
+class Vehicle{
+  +Id : int
+  +Name : string
+  +VIN : string
+  +Year : int
+  +Engine : Engine
+  +CargoSpace : Storage
+}
 
 class ItemProxy{
-    + int Id ;
-    + ItemProxy(Item item);
-    + Item Item;
-    + string Name => Item.Name;
-    + string GrossMass;
-    + string Dimensions => GetDimensions();
-    + string TypeDescription => GetTypeDescription();
-    - string GetTypeDescription();
-    - string GetDimensions();
+    +Id: int
+    +ItemProxy(Item item)
+    +Item: Item
+    +Name: string
+    +GrossMass: string
+    +Dimensions: string
+    +TypeDescription: string
+    -GetTypeDescription(): string
+    -GetDimensions(): string
 }
 
 Item -- ItemProxy
 ```
 
 ## Diagramy sekwencji
+
+### Add Vehicle
+
+```plantuml
+@startuml
+actor Operator
+participant "vehiclesWindow:VehiclesWindow" as VehiclesWindow
+participant "vehiclesModel:VehiclesModel" as VehiclesModel
+
+activate VehiclesWindow
+VehiclesWindow -> VehiclesModel : <<extend>>
+VehiclesWindow -> VehiclesModel: addVehicle()
+deactivate VehiclesWindow
+@enduml
+```
+
+
 
 ### Get Vehicle
 

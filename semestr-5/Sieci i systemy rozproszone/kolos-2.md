@@ -68,15 +68,17 @@ Utworzyć polecenie systemu Linux wypisujące interfejsy przez które pakiet **o
 
 ```bash
 # Unix
-ping -R
+ping -R xxx.xxx.xxx.xxx
 # Windows
-ping -r 9
+ping -r 9 xxx.xxx.xxx.xxx
+# pole options
 ```
 
 ## Zadanie 5
 
 Utworzyć polecenie systemu Linux wypisujące interfejsy, przez które pakiet **wpływa** do routerów znajdujących się na trasie do wskazanego komputera. **Podać adresy tych interfejsów**. Z jakiego pola nagłówka IP korzysta to polecenie?
 
-```
-tracert -d -4
+```bash
+traceroute xxx.xxx.xxx.xxx
+# korzysta z ttl
 ```
