@@ -1,0 +1,23 @@
+Created by Modgraf v4.2
+
+skierowany
+
+s a 6 0
+s b 11 0
+s c 13 0
+a	d	100 6.0
+a	h	100 7.0
+b	d	100 7.0
+b	g	100 7.0
+c	d	100 6.0
+c	e	100 2.0
+c	f	100 3.0
+d	f	100 3.0
+d	g	100 7.0
+d	h	100 7.0
+e	d	100 4.0
+e	f	100 4.0
+e	h	100 2.0
+f t 6 0
+g t 13 0
+h t 10 0

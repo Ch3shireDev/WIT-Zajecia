@@ -1,0 +1,53 @@
+﻿<Window x:Class="SamochodyCiezaroweAppWpf.Vehicles.StorageEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Edytor przestrzeni ładunkowej" Height="450" Width="800"
+        DataContext="{Binding StorageModel, RelativeSource={RelativeSource Self}}" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0,0" Grid.RowSpan="1">
+            <ListView x:Name="ItemsListView" Margin="0,0,0,0" ItemsSource="{Binding Items}" SelectedValue="{Binding SelectedItem}">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="AddItemContextMenu" Header="Dodaj towar" Click="AddItemContextMenu_Click"></MenuItem>
+                        <MenuItem x:Name="EditItemContextMenu" Header="Edytuj towar" Click="EditItemContextMenu_Click"></MenuItem>
+                        <MenuItem x:Name="DeleteItemContextMenu" Header="Usuń towar" Click="DeleteItemContextMenu_Click"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="L.p." Width="50" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Nazwa" Width="200" DisplayMemberBinding="{Binding Item.Name}"/>
+                        <GridViewColumn Header="Całkowita masa" Width="100" DisplayMemberBinding="{Binding GrossMass}"/>
+                        <GridViewColumn Header="Wymiary" Width="100" DisplayMemberBinding="{Binding Dimensions}"/>
+                        <GridViewColumn Header="Opis" Width="400" DisplayMemberBinding="{Binding Item.Description}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="1" x:Name="SaveButton" Grid.Column="0" Content="Zapisz" Click="SaveButton_Click" />
+            <Button x:Name="AddGoodsButton" Grid.Column="0" Content="Nowy towar" Click="AddGoodsButton_Click" />
+            <Button x:Name="EditGoodsButton" Grid.Column="1" Content="Edytuj towar" Click="EditGoodsButton_Click" />
+            <Button x:Name="DeleteGoodsButton" Grid.Column="2" Content="Usuń towar" Click="DeleteGoodsButton_Click" />
+            <Button x:Name="CancelButton" Grid.Row="1" Grid.Column="4" Content="Porzuć" Click="CancelButton_Click" />
+        </Grid>
+
+    </Grid>
+</Window>

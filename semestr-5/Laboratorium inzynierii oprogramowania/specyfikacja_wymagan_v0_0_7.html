@@ -1,0 +1,1401 @@
+<!DOCTYPE html><html><head>
+      <title>specyfikacja_wymagan_v0_0_7</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Cheshire Cat\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.1\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      <script type="text/javascript" src="file:///c:\Users\Cheshire Cat\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.1\node_modules\@shd101wyy\mume\dependencies\mermaid\mermaid.min.js" charset="UTF-8"></script>
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="specyfikacja-wymaga%C5%84-dla-projektu-samochody-ci%C4%99%C5%BCarowe-wersja-007">Specyfikacja wymaga&#x144; dla projektu Samochody ci&#x119;&#x17C;arowe, wersja 0.0.7</h1>
+
+<h2 class="mume-header" id="autor-igor-nowicki">Autor: Igor Nowicki</h2>
+
+<h2 class="mume-header" id="opis-systemu">Opis systemu</h2>
+
+<p>System s&#x142;u&#x17C;y do przechowywania definicji pojazd&#xF3;w ci&#x119;&#x17C;arowych i ich zespo&#x142;&#xF3;w, wraz z informacjami o za&#x142;adunku. Przewidziana jest mo&#x17C;liwo&#x15B;&#x107; przechowywania pojazd&#xF3;w r&#xF3;&#x17C;nego rodzaju (samochody z przestrzeni&#x105; &#x142;adunkow&#x105;, ci&#x105;gniki siod&#x142;owe, przyczepy, naczepy), z r&#xF3;&#x17C;nego rodzaju przestrzeniami &#x142;adunkowymi (zdefiniowane jako skrzyniowa, kontenerowa, cysterna). Program przewiduje mechanizm przechowywania danych na temat pojazdu pomi&#x119;dzy sesjami poprzez zapis i odczyt z i do pliku dyskowego w formacie JSON.</p>
+<p>Program realizuje nast&#x119;puj&#x105;ce dzia&#x142;ania:</p>
+<ul>
+<li>
+<p>Logowanie i wylogowanie operatora</p>
+</li>
+<li>
+<p>Logowanie i wylogowanie administratora</p>
+</li>
+<li>
+<p>Wczytanie stanu systemu z repozytorium do pami&#x119;ci</p>
+</li>
+<li>
+<p>Zapis stanu systemu z pami&#x119;ci do repozytorium</p>
+</li>
+<li>
+<p>Wprowadzenie nowego pojazdu</p>
+</li>
+<li>
+<p>Skasowanie istniej&#x105;cego pojazdu</p>
+</li>
+<li>
+<p>Zarz&#x105;dzanie pojazdami przez operatora:</p>
+<ul>
+<li>dodawanie pojazd&#xF3;w</li>
+<li>edycja pojazd&#xF3;w</li>
+<li>usuwanie pojazd&#xF3;w</li>
+<li>wy&#x15B;wietlanie danych o pojazdach</li>
+<li>&#x142;&#x105;czenie i roz&#x142;&#x105;czanie pojazd&#xF3;w w zespo&#x142;y pojazd&#xF3;w wed&#x142;ug zdefiniowanych zasad</li>
+<li>&#x142;adunek i roz&#x142;adunek pojazd&#xF3;w z przestrzeni&#x105; &#x142;adunkow&#x105; wed&#x142;ug zdefiniowanych zasad</li>
+</ul>
+</li>
+<li>
+<p>Zarz&#x105;dzanie operatorami przez administratora:</p>
+<ul>
+<li>dodawanie operator&#xF3;w</li>
+<li>edycja operator&#xF3;w</li>
+<li>usuwanie operator&#xF3;w</li>
+<li>wy&#x15B;wietlanie danych o operatorach</li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="s%C5%82ownik-dziedziny-problemu">S&#x142;ownik dziedziny problemu</h2>
+
+<ul>
+<li>Pojazd (Vehicle) - abstrakcyjny obiekt okre&#x15B;laj&#x105;cych dowoln&#x105; jednostk&#x119; je&#x17C;d&#x17C;&#x105;c&#x105;.</li>
+<li>Pojazd silnikowy (Motorized Vehicle) - abstrakcyjny obiekt dziedzicz&#x105;cy z Pojazdu, opisuj&#x105;cy dowolny pojazd posiadaj&#x105;cy silnik.</li>
+<li>Pojazd bezsilnikowy (Non Motorized Vehicle) - abstrakcyjny obiekt dziedzicz&#x105;cy z Pojazdu, opisuj&#x105;cy dowolny pojazd nieposiadaj&#x105;cy silnika.</li>
+<li>Pojazd &#x142;adunkowy (Loadable) - abstrakcyjny pojazd posiadaj&#x105;cy mo&#x17C;liwo&#x15B;&#x107; przechowywania &#x142;adunku.</li>
+<li>Pojazd przyczepowy (Trailerable) - abstrakcyjny pojazd posiadaj&#x105;cy mo&#x17C;liwo&#x15B;&#x107; doczepienia przyczepy.</li>
+<li>Pojazd naczepowy (Semi-Trailerable) - abstrakcyjny pojazd posiadaj&#x105;cy mo&#x17C;liwo&#x15B;&#x107; doczepienia naczepy.</li>
+<li>Przyczepa (Trailer) - pojazd bezsilnikowy, &#x142;adunkowy, z mo&#x17C;liwo&#x15B;ci&#x105; bycia przyczepionym do pojazdu przyczepowego.</li>
+<li>Naczepa (SemiTrailer) - pojazd bezsilnikowy, &#x142;adunkowy, z mo&#x17C;liwo&#x15B;ci&#x105; bycia przyczepionym do pojazdu naczepowego.</li>
+<li>Ci&#x105;gnik siod&#x142;owy (Truck) - pojazd silnikowy, naczepowy.</li>
+<li>Samoch&#xF3;d ci&#x119;&#x17C;arowy (TrailerCar) - pojazd silnikowy, przyczepowy.</li>
+<li>Samoch&#xF3;d z przestrzeni&#x105; &#x142;adunkow&#x105; (Cargo Space Car) - pojazd silnikowy, &#x142;adunkowy.</li>
+<li>Operator - u&#x17C;ytkownik z mo&#x17C;liwo&#x15B;ci&#x105; zarz&#x105;dzania baz&#x105; danych pojazd&#xF3;w.</li>
+<li>Administrator - u&#x17C;ytkownik z mo&#x17C;liwo&#x15B;ci&#x105; zarz&#x105;dzania baz&#x105; danych u&#x17C;ytkownik&#xF3;w.</li>
+</ul>
+<h3 class="mume-header" id="obiekty-biznesowe">Obiekty Biznesowe</h3>
+
+<h4 class="mume-header" id="pojazd-vehicle">Pojazd (Vehicle)</h4>
+
+<p>Opis: Abstrakcyjny obiekt okre&#x15B;laj&#x105;cych dowoln&#x105; jednostk&#x119; je&#x17C;d&#x17C;&#x105;c&#x105;.</p>
+<p>Ka&#x17C;dy pojazd opisywany jest zestawem parametr&#xF3;w:</p>
+<ul>
+<li>Id (liczba ca&#x142;kowita) - Identyfikator (liczba ca&#x142;kowita dodatnia).</li>
+<li>Name (tekst) - Nazwa (tekst na podstawie pozycji katalogowej producenta).</li>
+<li>VIN (tekst) - Vehicle Identification Number (15 lub 17 znak&#xF3;w alfanumerycznych).</li>
+<li>Year - Rok produkcji (czterocyfrowa liczba ca&#x142;kowita w zakresie od roku 1900 do roku bie&#x17C;&#x105;cego).</li>
+</ul>
+<h4 class="mume-header" id="pojazd-silnikowy-motorizedvehicle">Pojazd silnikowy (MotorizedVehicle)</h4>
+
+<p>Opis: Abstrakcyjny obiekt dziedzicz&#x105;cy z Pojazdu, opisuj&#x105;cy dowolny pojazd posiadaj&#x105;cy silnik.</p>
+<ul>
+<li>Engine (Engine) - parametry silnika (poni&#x17C;ej).</li>
+</ul>
+<h4 class="mume-header" id="silnik-engine">Silnik (Engine)</h4>
+
+<p>Opis: Obiekt definiowany wewn&#x105;trz pojazdu silnikowego. Definiowany nast&#x119;puj&#x105;cymi parametrami:</p>
+<ul>
+<li>Name (tekst) - Nazwa (tekst na podstawie pozycji katalogowej producenta).</li>
+<li>Capacity (liczba ca&#x142;kowita) - Pojemno&#x15B;&#x107; (liczba ca&#x142;kowita dodatnia, cm3).</li>
+<li>Power (liczba ca&#x142;kowita) - Liczba koni mechanicznych (liczba ca&#x142;kowita dodatnia).</li>
+</ul>
+<h3 class="mume-header" id="pojazd-bezsilnikowy-nonmotorizedvehicle">Pojazd bezsilnikowy (NonMotorizedVehicle)</h3>
+
+<p>Opis: Abstrakcyjny obiekt dziedzicz&#x105;cy z Pojazdu, opisuj&#x105;cy dowolny pojazd nieposiadaj&#x105;cy silnika.</p>
+<h3 class="mume-header" id="pojazd-%C5%82adunkowy-loadable">Pojazd &#x142;adunkowy (Loadable)</h3>
+
+<p>Opis: Interfejs zawieraj&#x105;cy przestrze&#x144; &#x142;adunkow&#x105; dla pojazdu.</p>
+<ul>
+<li>Storage (Storage) - Przestrze&#x144; &#x142;adunkowa (poni&#x17C;ej)</li>
+</ul>
+<h4 class="mume-header" id="przestrze%C5%84-%C5%82adunkowa-storage">Przestrze&#x144; &#x142;adunkowa (Storage)</h4>
+
+<p>Opis: Abstrakcyjny obiekt definiowany wewn&#x105;trz pojazdu z kt&#xF3;rego dziedzicz&#x105; opisane poni&#x17C;ej typy przestrzeni &#x142;adunkowej.</p>
+<ul>
+<li>StorageDescription (tekst) - Opis przestrzeni &#x142;adunkowej. Definiowany na poziomie definicji klasy.</li>
+<li>Items (List of Items) - Lista towar&#xF3;w.</li>
+<li>IsSingle (bool) - Czy przestrze&#x144; &#x142;adunkowa mo&#x17C;e zawiera&#x107; jeden typ towar&#xF3;w.</li>
+</ul>
+<h4 class="mume-header" id="towar-item">Towar (Item)</h4>
+
+<p>Abstrakcyjny obiekt opisuj&#x105;cy dowoln&#x105; jednostk&#x119; towarow&#x105;. Wyszczeg&#xF3;lnione s&#x105; nast&#x119;puj&#x105;ce obiekty pochodne:</p>
+<ul>
+<li>BoxItem - Towar typu skrzyniowego</li>
+<li>ContainerItem - Towar typu kontenerowego</li>
+<li>LiquidItem - Towar typu p&#x142;ynnego</li>
+</ul>
+<p>Parametry:</p>
+<ul>
+<li>Name (tekst) - Nazwa towaru</li>
+<li>GrossMass (decimal) - Waga brutto towaru</li>
+<li>Description (tekst) - Opis towaru</li>
+</ul>
+<p>Metody:</p>
+<ul>
+<li>GetDimensions (tekst) - abstrakcyjna funkcja definiowana na poziomie funkcji pochodnych zwracaj&#x105;ca opis fizycznej przestrzeni zajmowanej przez towar.</li>
+</ul>
+<h4 class="mume-header" id="skrzyniowa-przestrze%C5%84-%C5%82adunkowa-boxstorage">Skrzyniowa przestrze&#x144; &#x142;adunkowa (BoxStorage)</h4>
+
+<p>Opis: Typ przestrzeni &#x142;adunkowej. Umo&#x17C;liwia za&#x142;adunek towaru typu skrzyniowego.</p>
+<ul>
+<li>StorageDescription (tekst) - parametr, zwraca &quot;Przestrze&#x144; skrzyniowa&quot;</li>
+<li>IsSingle (bool) - zwraca &quot;fa&#x142;sz&quot;</li>
+</ul>
+<h4 class="mume-header" id="towar-typu-skrzyniowego-boxitem">Towar typu skrzyniowego (BoxItem)</h4>
+
+<p>Typ towaru, &#x142;adowany do skrzyniowej przestrzeni &#x142;adunkowej.</p>
+<ul>
+<li>Nazwa (Name) (tekst na podstawie pozycji katalogowej producenta)</li>
+<li>Masa brutto (GrossMass) (liczba zmiennoprzecinkowa, w tonach).</li>
+<li>Width - Szeroko&#x15B;&#x107; (w cm)</li>
+<li>Height - Wysoko&#x15B;&#x107; (w cm)</li>
+<li>Length - D&#x142;ugo&#x15B;&#x107; (w cm)</li>
+</ul>
+<h4 class="mume-header" id="kontenerowa-przestrze%C5%84-%C5%82adunkowa-containerstorage">Kontenerowa przestrze&#x144; &#x142;adunkowa (ContainerStorage)</h4>
+
+<p>Opis: Typ przestrzeni &#x142;adunkowej. Umo&#x17C;liwia za&#x142;adunek towaru typu kontenerowego. Opisywany nast&#x119;puj&#x105;cymi parametrami:</p>
+<ul>
+<li>StorageDescription (tekst) - parametr, zwraca &quot;Przestrze&#x144; kontenerowa&quot;</li>
+<li>IsSingle (bool) - parametr, zwraca &quot;prawda&quot;</li>
+</ul>
+<h4 class="mume-header" id="towar-typu-kontenerowego-containeritem">Towar typu kontenerowego (ContainerItem)</h4>
+
+<p>Typ towaru, &#x142;adowany do kontenerowej przestrzeni &#x142;adunkowej. Metody:</p>
+<ul>
+<li>GetDimensions() - zwraca &quot;-&quot; (standardowy wymiar kontenera)</li>
+</ul>
+<h4 class="mume-header" id="cysternowa-przestrze%C5%84-%C5%82adunkowa-tankstorage">Cysternowa przestrze&#x144; &#x142;adunkowa (TankStorage)</h4>
+
+<p>Opis: Typ przestrzeni &#x142;adunkowej. Umo&#x17C;liwia za&#x142;adunek towaru typu p&#x142;ynnego.</p>
+<ul>
+<li>StorageDescription (tekst) - parametr, zwraca &quot;Cysterna&quot;.</li>
+</ul>
+<h4 class="mume-header" id="towar-typu-p%C5%82ynnego-liquiditem">Towar typu p&#x142;ynnego (LiquidItem)</h4>
+
+<p>Typ towaru, &#x142;adowany do cysternowej przestrzeni &#x142;adunkowej. Opisywany list&#x105; parametr&#xF3;w:</p>
+<ul>
+<li>Volume - Obj&#x119;to&#x15B;&#x107; (w litrach, opisywana liczb&#x105; ca&#x142;kowit&#x105; dodatni&#x105;)</li>
+</ul>
+<h3 class="mume-header" id="aktorzy-biznesowi">Aktorzy Biznesowi</h3>
+
+<p>Aktorzy biznesowi przetwarzaj&#x105; obiekty biznesowe lub s&#x105; z nimi w interakcji.</p>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Nazwa</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Operator</td>
+<td>Podstawowy u&#x17C;ytkownik aplikacji. Mo&#x17C;e przegl&#x105;da&#x107; listy pojazd&#xF3;w i informacje na temat ka&#x17C;dego z pojazd&#xF3;w. Mo&#x17C;e przeprowadza&#x107; za&#x142;adunek i roz&#x142;adunek pojazd&#xF3;w oraz &#x142;&#x105;czenie i roz&#x142;&#x105;czanie zespo&#x142;&#xF3;w pojazd&#xF3;w.</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Administrator</td>
+<td>U&#x17C;ytkownik z uprawnieniami administratora. Mo&#x17C;e zarz&#x105;dza&#x107; u&#x17C;ytkownikami systemu &#x2013; dodawa&#x107;, usuwa&#x107;, edytowa&#x107; informacje i wy&#x15B;wietla&#x107; list&#x119; zarejestrowanych u&#x17C;ytkownik&#xF3;w i administrator&#xF3;w systemu.</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="regu%C5%82y-biznesowe">Regu&#x142;y Biznesowe</h3>
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Definicja regu&#x142;y</th>
+<th>Typ</th>
+<th>&#x179;r&#xF3;d&#x142;o</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Do skrzyniowej przestrzeni &#x142;adunkowej mo&#x17C;na &#x142;adowa&#x107; jedynie towary typu skrzyniowego</td>
+<td>ograniczenie</td>
+<td>Definicja</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Do kontenerowej przestrzeni &#x142;adunkowej mo&#x17C;na &#x142;adowa&#x107; jedynie towary typu kontenerowego</td>
+<td>ograniczenie</td>
+<td>Definicja</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Do cysternowej przestrzeni &#x142;adunkowej mo&#x17C;na &#x142;adowa&#x107; jedynie towary typu p&#x142;ynnego</td>
+<td>ograniczenie</td>
+<td>Definicja</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>Skrzyniowa przestrze&#x144; &#x142;adunkowa mo&#x17C;e przechowywa&#x107; wiele towar&#xF3;w.</td>
+<td>definicja</td>
+<td>Rozmowa w trakcie zaj&#x119;&#x107;</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>Kontenerowa przestrze&#x144; &#x142;adunkowa mo&#x17C;e przechowywa&#x107; tylko jeden towar.</td>
+<td>ograniczenie</td>
+<td>Rozmowa w trakcie zaj&#x119;&#x107;</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>Cysterna mo&#x17C;e by&#x107; za&#x142;adowana jednym rodzajem p&#x142;ynu.</td>
+<td>ograniczenie</td>
+<td>Rozmowa w trakcie zaj&#x119;&#x107;</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Przyczep&#x119; mo&#x17C;na przyczepi&#x107; jedynie do pojazdu typu przyczepowego</td>
+<td>ograniczenie</td>
+<td>-</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Naczep&#x119; mo&#x17C;na przyczepi&#x107; jedynie do pojazdu typu naczepowego</td>
+<td>ograniczenie</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="wymagania-funkcjonalne">Wymagania Funkcjonalne</h3>
+
+<p>Rozdzia&#x142; zawiera spis wymaga&#x144; funkcjonalnych dla tworzonego produktu informatycznego.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Nazwa</th>
+<th>Priorytet</th>
+<th>Proces biznesowy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F1</td>
+<td>Operator mo&#x17C;e wy&#x15B;wietla&#x107; list&#x119; pojazd&#xF3;w.</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e wy&#x15B;wietla&#x107; list&#x119; pojazd&#xF3;w.</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>Operator mo&#x17C;e wy&#x15B;wietla&#x107; dane pojedynczego pojazdu.</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e wy&#x15B;wietla&#x107; dane pojedynczego pojazdu.</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>Operator mo&#x17C;e stworzy&#x107; nowy pojazd.</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e stworzy&#x107; nowy pojazd.</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>Operator mo&#x17C;e zaktualizowa&#x107; dane pojazdu.</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e zaktualizowa&#x107; dane pojazdu.</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>Operator mo&#x17C;e skasowa&#x107; pojazd.</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e skasowa&#x107; pojazd.</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>Z&#x142;&#x105;czanie pojazd&#xF3;w (przyczepa)</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e z&#x142;&#x105;czy&#x107; pojazd typu ci&#x105;gnikowego z przyczep&#x105;.</td>
+</tr>
+<tr>
+<td>F7</td>
+<td>Roz&#x142;&#x105;czanie pojazd&#xF3;w (przyczepa)</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e roz&#x142;&#x105;czy&#x107; pojazd typu ci&#x105;gnikowego z przyczep&#x105;.</td>
+</tr>
+<tr>
+<td>F8</td>
+<td>Z&#x142;&#x105;czanie pojazd&#xF3;w (naczepa)</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e z&#x142;&#x105;czy&#x107; pojazd typu siod&#x142;owego z naczep&#x105;.</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>Roz&#x142;&#x105;czanie pojazd&#xF3;w (naczepa)</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e roz&#x142;&#x105;czy&#x107; pojazd typu siod&#x142;owego z naczep&#x105;.</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>Za&#x142;adunek pojazdu</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e przeprowadzi&#x107; za&#x142;adunek pojazdu z przestrzeni&#x105; &#x142;adunkow&#x105;.</td>
+</tr>
+<tr>
+<td>F11</td>
+<td>Roz&#x142;adunek pojazdu</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e przeprowadzi&#x107; roz&#x142;adunek pojazdu z przestrzeni&#x105; &#x142;adunkow&#x105;.</td>
+</tr>
+<tr>
+<td>F12</td>
+<td>Zapis i odczyt z pliku</td>
+<td>Wysoki</td>
+<td>Operator mo&#x17C;e zapisa&#x107;/odczyta&#x107; dane do/z pliku.</td>
+</tr>
+<tr>
+<td>F13</td>
+<td>Autoryzacja u&#x17C;ytkownika</td>
+<td>Wysoki</td>
+<td>Operator autoryzuje si&#x119; przed rozpocz&#x119;ciem pracy.</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>Dodawanie u&#x17C;ytkownika</td>
+<td>Wysoki</td>
+<td>Administrator mo&#x17C;e doda&#x107; u&#x17C;ytkownika do systemu</td>
+</tr>
+<tr>
+<td>F14</td>
+<td>Usuwanie u&#x17C;ytkownika</td>
+<td>Wysoki</td>
+<td>Administrator mo&#x17C;e usun&#x105;&#x107; u&#x17C;ytkownika z systemu.</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="wymagania-niefunkcjonalne">Wymagania Niefunkcjonalne</h2>
+
+<p>W tym rozdziale nale&#x17C;y umie&#x15B;ci&#x107; wszystkie wymagania niefunkcjonalne pami&#x119;taj&#x105;c, aby tak je sformu&#x142;owa&#x107;, aby w przysz&#x142;o&#x15B;ci by&#x142;a mo&#x17C;liwo&#x15B;&#x107; ich weryfikacji.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Nazwa</th>
+<th>Priorytet</th>
+<th>Proces biznesowy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N1</td>
+<td>Platforma Windows 10</td>
+<td>Wysoki</td>
+<td>Program ma dzia&#x142;a&#x107; na platformie Windows 10</td>
+</tr>
+<tr>
+<td>N2</td>
+<td>Windows Presentation Foundation</td>
+<td>Wysoki</td>
+<td>Program ma zosta&#x107; zaprojektowany dla platformy Windows Presentation Foundation</td>
+</tr>
+<tr>
+<td>N3</td>
+<td>Interfejs graficzny</td>
+<td>Wysoki</td>
+<td>Interfejs programu ma by&#x107; w postaci graficznej (GUI)</td>
+</tr>
+<tr>
+<td>N4</td>
+<td>Wymagania zapisu</td>
+<td>Wysoki</td>
+<td>Program ma automatycznie zapisywa&#x107; stan magazynu przy zmianach</td>
+</tr>
+<tr>
+<td>N5</td>
+<td>Wymagania odczytu</td>
+<td>Wysoki</td>
+<td>Program ma automatycznie wczytywa&#x107; stan magazynu przy zmianach</td>
+</tr>
+</tbody>
+</table>
+<h2 class="mume-header" id="diagramy-use-case">Diagramy Use Case</h2>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="1025px" preserveAspectRatio="none" style="width:1426px;height:1025px;background:#FFFFFF;" version="1.1" viewBox="0 0 1426 1025" width="1426px" zoomAndPan="magnify"><defs><filter height="300%" id="fyk5ga29lzmty" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[0736e11ead106a492c88d05216811f3b]
+cluster Administracja--><rect fill="#FFFFFF" filter="url(#fyk5ga29lzmty)" height="254" style="stroke:#000000;stroke-width:1.5;" width="590.5" x="136" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="94" x="384.25" y="23.5332">Administracja</text><!--MD5=[71a6c8c2cda617d31c96bfbf6302a9eb]
+cluster Autoryzacja--><rect fill="#FFFFFF" filter="url(#fyk5ga29lzmty)" height="174" style="stroke:#000000;stroke-width:1.5;" width="234" x="486" y="285"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="80" x="563" y="301.5332">Autoryzacja</text><!--MD5=[ff8d21cbc7afeb653ed903cf5d6be290]
+cluster Przechowywanie danych--><rect fill="#FFFFFF" filter="url(#fyk5ga29lzmty)" height="169" style="stroke:#000000;stroke-width:1.5;" width="215" x="495.5" y="483"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="170" x="518" y="499.5332">Przechowywanie danych</text><!--MD5=[bfa5d85992937b48781fc48340d8ae2b]
+cluster Zarządzanie magazynem--><rect fill="#FFFFFF" filter="url(#fyk5ga29lzmty)" height="337" style="stroke:#000000;stroke-width:1.5;" width="1266.5" x="147.5" y="676"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="168" x="696.75" y="692.5332">Zarz&#x105;dzanie magazynem</text><ellipse cx="260.1585" cy="176.0317" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="108.1585" ry="24.0317" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="170.6585" y="179.7602">Wy&#x15B;wietla list&#x119; u&#x17C;ytkownik&#xF3;w</text><ellipse cx="602.7512" cy="220.8502" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="107.2512" ry="23.8502" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="514.2512" y="224.5788">Dodaje nowego u&#x17C;ytkownika</text><ellipse cx="602.8351" cy="142.867" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="82.3351" ry="18.867" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="542.8351" y="146.5955">Usuwa u&#x17C;ytkownika</text><ellipse cx="602.7928" cy="65.8586" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="102.2928" ry="22.8586" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="166" x="519.7928" y="69.5871">Zmienia has&#x142;o u&#x17C;ytkownika</text><ellipse cx="602.7628" cy="342.1526" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="91.2628" ry="20.6526" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141" x="532.2628" y="345.8811">Loguje si&#x119; do systemu</text><ellipse cx="602.9506" cy="420.0901" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="100.9506" ry="22.5901" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="163" x="521.4506" y="423.8186">Wylogowuje si&#x119; z systemu</text><ellipse cx="603.1965" cy="540.2393" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="91.6965" ry="20.7393" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="532.1965" y="543.9678">Zapisuje dane do pliku</text><ellipse cx="603.1756" cy="616.1351" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="88.6756" ry="20.1351" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="535.6756" y="619.8636">Wczytuje dane z pliku</text><ellipse cx="260.011" cy="766.2022" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="96.511" ry="21.7022" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153" x="183.511" y="769.9307">Wy&#x15B;wietla list&#x119; pojazd&#xF3;w</text><ellipse cx="603.091" cy="880.9182" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="120.091" ry="26.4182" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="205" x="500.591" y="884.6467">Wy&#x15B;wietla informacje o poje&#x17A;dzie</text><ellipse cx="602.8478" cy="799.8696" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="84.8478" ry="19.3696" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="539.8478" y="803.5981">Dodaje nowy pojazd</text><ellipse cx="602.957" cy="728.7914" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="69.457" ry="16.2914" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="556.957" y="733.308">Usuwa pojazd</text><ellipse cx="966.6531" cy="884.9306" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="70.1531" ry="16.4306" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="88" x="919.6531" y="889.4472">&#x141;&#x105;czy pojazdy</text><ellipse cx="966.5069" cy="814.9014" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="77.5069" ry="17.9014" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="910.3567" y="819.216">Roz&#x142;&#x105;cza pojazdy</text><ellipse cx="966.6904" cy="736.9381" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="95.1904" ry="21.4381" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="891.6904" y="740.6666">Uzupe&#x142;nia dane pojazdu</text><ellipse cx="966.3945" cy="962.1789" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="116.3945" ry="25.6789" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="197" x="867.8945" y="965.9074">Wy&#x15B;wietla informacje o &#x142;adunku</text><ellipse cx="1297.837" cy="968.9674" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="97.837" ry="21.9674" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="1219.837" y="972.6959">Przeprowadza za&#x142;adunek</text><ellipse cx="1298.0583" cy="888.9117" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="100.0583" ry="22.4117" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="1217.5583" y="892.6402">Przeprowadza roz&#x142;adunek</text><!--MD5=[79a439086b036a57b90a01d7b2f8bbd1]
+entity admin--><ellipse cx="47.5" cy="414" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M47.5,422 L47.5,449 M34.5,430 L60.5,430 M47.5,449 L34.5,464 M47.5,449 L60.5,464 " fill="none" filter="url(#fyk5ga29lzmty)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="6" y="484.0332">Administrator</text><!--MD5=[8fc3522a43f8c7199df5e09e5bb0188e]
+entity user--><ellipse cx="260" cy="449" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M260,457 L260,484 M247,465 L273,465 M260,484 L247,499 M260,484 L273,499 " fill="none" filter="url(#fyk5ga29lzmty)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="226" y="519.0332">U&#x17C;ytkownik</text><!--MD5=[0050c6625e3b42e2857ba4d8ed699679]
+entity operator--><ellipse cx="47.5" cy="533" fill="#FEFECE" filter="url(#fyk5ga29lzmty)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M47.5,541 L47.5,568 M34.5,549 L60.5,549 M47.5,568 L34.5,583 M47.5,568 L60.5,583 " fill="none" filter="url(#fyk5ga29lzmty)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="19" y="603.0332">Operator</text><!--MD5=[31278c4c352e8aa61eec19ec7f7e5854]
+link admin to user--><path d="M89.09,452.75 C122.34,458.28 169.66,466.15 205.92,472.17 " fill="none" id="admin-to-user" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="207.22,465.3,225.81,475.48,204.93,479.11,207.22,465.3" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[bd01c5106916100bd45902b0665d83d9]
+link operator to user--><path d="M76.02,554.02 C109.23,540.77 165.77,518.2 207.24,501.66 " fill="none" id="operator-to-user" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="204.76,495.11,225.93,494.2,209.95,508.11,204.76,495.11" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9b08ad6b92f36423f52dda65f3ac219a]
+link admin to A1--><path d="M80.93,404.4 C125.56,347.16 204.46,245.96 240.32,199.96 " fill="none" id="admin-A1" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[e2abf82482e8f055e91fb9f96e417b21]
+reverse link A1 to Dodaje nowego użytkownika--><path d="M358.45,188.86 C406.07,195.14 463.06,202.67 509.94,208.85 " fill="none" id="A1-backto-Dodaje nowego u&#x17C;ytkownika" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="353.28,188.18,361.6763,193.328,358.2366,188.8371,362.7276,185.3974,353.28,188.18" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="191.4951">&#xAB;extend&#xBB;</text><!--MD5=[4cab03ca8b9d2cefc2835b1184e57f71]
+reverse link A1 to Usuwa użytkownika--><path d="M364.65,165.97 C416.86,160.92 479.01,154.9 526.61,150.3 " fill="none" id="A1-backto-Usuwa u&#x17C;ytkownika" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="359.63,166.46,368.9754,169.5685,364.6064,165.9752,368.1997,161.6062,359.63,166.46" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="154.4951">&#xAB;extend&#xBB;</text><!--MD5=[e414d2b901fb3d58300119f63a2317df]
+reverse link A1 to Zmienia hasło użytkownika--><path d="M326.81,154.77 C389.61,134.51 483.33,104.28 543.56,84.85 " fill="none" id="A1-backto-Zmienia has&#x142;o u&#x17C;ytkownika" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="321.96,156.33,331.7522,157.385,326.7203,154.8004,329.3049,149.7685,321.96,156.33" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="111.4951">&#xAB;extend&#xBB;</text><!--MD5=[b4c1f582698cbe5af94e4db049bdf197]
+link user to Loguje się do systemu--><path d="M294.21,463.79 C336.25,442.4 411.27,405.61 478,380 C499.34,371.81 523.25,364.14 544.33,357.87 " fill="none" id="user-Loguje si&#x119; do systemu" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9485f9f5b29810dab05be70f078a4b67]
+link user to Wylogowuje się z systemu--><path d="M294.01,475.1 C346.66,465.68 451.1,446.99 523.68,434.01 " fill="none" id="user-Wylogowuje si&#x119; z systemu" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4c2e150329822f695a9b50325662ff81]
+link user to Zapisuje dane do pliku--><path d="M294.01,486.71 C348.24,496.1 457.45,514.99 530.16,527.57 " fill="none" id="user-Zapisuje dane do pliku" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[33cbb3f76371e81481cacfd070b9334d]
+link user to Wczytuje dane z pliku--><path d="M294.29,497.43 C336.43,517.85 411.54,553.07 478,578 C500.03,586.26 524.74,594.11 546.26,600.51 " fill="none" id="user-Wczytuje dane z pliku" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[79c6206968273e8a777766e3f21c3c43]
+link operator to SHOW_VEHICLES--><path d="M76.02,591.28 C118.26,631.61 198.23,707.97 236.92,744.92 " fill="none" id="operator-SHOW_VEHICLES" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[f939ea4928b7ec85a23dd807df5dbfd3]
+reverse link SHOW_VEHICLES to ADD_VEHICLE--><path d="M331.22,782.77 C352.54,787.21 376.12,791.46 398,794 C437.24,798.55 481,800.28 517.9,800.77 " fill="none" id="SHOW_VEHICLES-backto-ADD_VEHICLE" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="326.13,781.7,334.1129,787.4683,331.0227,782.7301,335.761,779.6399,326.13,781.7" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="790.4951">&#xAB;extend&#xBB;</text><!--MD5=[3ff22e44a05d92780d0d73e93c169afb]
+reverse link SHOW_VEHICLES to DELETE_VEHICLE--><path d="M352.36,756.09 C411.51,749.67 486.99,741.48 539.39,735.79 " fill="none" id="SHOW_VEHICLES-backto-DELETE_VEHICLE" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="347.05,756.66,356.431,759.6594,352.0205,756.1172,355.5626,751.7067,347.05,756.66" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="742.4951">&#xAB;extend&#xBB;</text><!--MD5=[b5b37f683888ee1637ddf91abfe84274]
+reverse link SHOW_VEHICLES to SHOW_VEHICLE--><path d="M306.9,787.66 C333.21,799.6 367.06,814.15 398,825 C437.86,838.98 483.07,851.7 520.79,861.47 " fill="none" id="SHOW_VEHICLES-backto-SHOW_VEHICLE" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="302.08,785.47,308.6094,792.8434,306.6294,787.5444,311.9284,785.5644,302.08,785.47" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="399" y="821.4951">&#xAB;extend&#xBB;</text><!--MD5=[0b257f099e5c1c36ba274238df473bac]
+reverse link SHOW_VEHICLE to JOIN_VEHICLES--><path d="M697.09,899.79 C715.54,902.79 734.83,905.43 753,907 C782.67,909.57 790.31,909.23 820,907 C850.32,904.72 883.89,899.81 911.14,895.2 " fill="none" id="SHOW_VEHICLE-backto-JOIN_VEHICLES" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="691.91,898.93,700.1376,904.3436,696.8431,899.745,701.4417,896.4506,691.91,898.93" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="760" y="903.4951">&#xAB;extend&#xBB;</text><!--MD5=[0154d233ae25833389a1fde940ae5313]
+reverse link SHOW_VEHICLE to DISJOIN_VEHICLES--><path d="M711.83,866.81 C746.48,861.77 784.95,855.68 820,849 C851.22,843.05 885.87,835.01 913.53,828.24 " fill="none" id="SHOW_VEHICLE-backto-DISJOIN_VEHICLES" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="706.75,867.54,716.2296,870.2117,711.6986,866.8249,715.0854,862.2939,706.75,867.54" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="760" y="845.4951">&#xAB;extend&#xBB;</text><!--MD5=[047ebd0c4705807c37353d925a614a98]
+link ADD_VEHICLE to UPDATE_VEHICLE--><path d="M664.75,786.56 C691.71,780.81 723.87,774.22 753,769 C794.56,761.55 840.9,754.44 879.68,748.81 " fill="none" id="ADD_VEHICLE-to-UPDATE_VEHICLE" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="884.85,748.07,875.3629,745.4252,879.9034,748.7991,876.5295,753.3397,884.85,748.07" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="65" x="754" y="755.4951">&lt;&lt;include&gt;</text><!--MD5=[6a6b305438a0af9a0e5c0bb700839c2d]
+reverse link SHOW_VEHICLE to UPDATE_VEHICLE--><path d="M679.69,857.91 C697.87,851.7 717.07,844.59 734.5,837 C743.07,833.27 744.67,831.24 753,827 C782.41,812.04 790.55,809.88 820,795 C833.49,788.19 836.2,785.15 850,779 C869.88,770.14 892.25,761.67 911.98,754.69 " fill="none" id="SHOW_VEHICLE-backto-UPDATE_VEHICLE" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="674.59,859.64,684.3997,860.5178,679.3219,858.0246,681.815,852.9468,674.59,859.64" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="760" y="791.4951">&#xAB;extend&#xBB;</text><!--MD5=[31cf4b6efdf18878e45cc1e3275a7130]
+reverse link SHOW_VEHICLE to SHOW_ITEMS--><path d="M665.7,906.24 C692.19,916.21 723.73,926.95 753,934 C786.92,942.17 824.49,948.11 858.49,952.36 " fill="none" id="SHOW_VEHICLE-backto-SHOW_ITEMS" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="660.81,904.39,667.814,911.3142,665.4869,906.1581,670.643,903.831,660.81,904.39" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="760" y="930.4951">&#xAB;extend&#xBB;</text><!--MD5=[a86152a79ee37f35ddd19f7a87510d43]
+reverse link SHOW_ITEMS to ADD_ITEM--><path d="M1088.17,964.56 C1125.12,965.35 1165.26,966.2 1200.39,966.95 " fill="none" id="SHOW_ITEMS-backto-ADD_ITEM" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1082.74,964.45,1091.6462,968.6546,1087.7387,964.5643,1091.8291,960.6567,1082.74,964.45" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="1114" y="961.4951">&#xAB;extend&#xBB;</text><!--MD5=[7f0b5184ec418942f960d573a8a27bf9]
+reverse link SHOW_ITEMS to DELETE_ITEM--><path d="M1054.09,942.82 C1107.66,930.95 1175.59,915.9 1225.99,904.73 " fill="none" id="SHOW_ITEMS-backto-DELETE_ITEM" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="1048.95,943.96,1058.6034,945.9124,1053.8309,942.8753,1056.868,938.1029,1048.95,943.96" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="53" x="1114" y="914.4951">&#xAB;extend&#xBB;</text><!--MD5=[a7a919ab43c7f7a404e80054d2568f2a]
+@startuml
+
+left to right direction
+
+  actor "Administrator" as admin
+  actor "Użytkownik" as user
+  actor "Operator" as operator
+admin - -|> user
+operator - -|> user
+
+rectangle "Administracja" {
+  usecase "Wyświetla listę użytkowników" as A1
+  admin - - A1
+  A1 <- - (Dodaje nowego użytkownika) : <<extend>>
+  A1 <- - (Usuwa użytkownika) : <<extend>>
+  A1 <- - (Zmienia hasło użytkownika) : <<extend>>
+}
+
+rectangle "Autoryzacja" {
+  user - - (Loguje się do systemu)
+  user - - (Wylogowuje się z systemu)
+}
+
+rectangle "Przechowywanie danych" {
+  user - - (Zapisuje dane do pliku)
+  user - - (Wczytuje dane z pliku)
+}
+
+rectangle "Zarządzanie magazynem" {
+  usecase "Wyświetla listę pojazdów" as SHOW_VEHICLES
+  usecase "Wyświetla informacje o pojeździe" as SHOW_VEHICLE
+  ' usecase "Edytuje informacje o pojeździe" as SHOW_VEHICLE
+  usecase "Dodaje nowy pojazd" as ADD_VEHICLE
+  usecase "Usuwa pojazd" as DELETE_VEHICLE
+  usecase "Łączy pojazdy" as JOIN_VEHICLES
+  usecase "Rozłącza pojazdy" as DISJOIN_VEHICLES
+  usecase "Uzupełnia dane pojazdu" as UPDATE_VEHICLE
+  usecase "Wyświetla informacje o ładunku" as SHOW_ITEMS
+  usecase "Przeprowadza załadunek" as ADD_ITEM
+  usecase "Przeprowadza rozładunek" as DELETE_ITEM
+
+  operator - - SHOW_VEHICLES
+
+  SHOW_VEHICLES <- - ADD_VEHICLE : <<extend>>
+  SHOW_VEHICLES <- - DELETE_VEHICLE : <<extend>>
+  SHOW_VEHICLES <- - SHOW_VEHICLE : <<extend>>
+  SHOW_VEHICLE <- - JOIN_VEHICLES : <<extend>>
+  SHOW_VEHICLE <- - DISJOIN_VEHICLES : <<extend>>
+  ADD_VEHICLE - -> UPDATE_VEHICLE : <<include>
+  SHOW_VEHICLE <- - UPDATE_VEHICLE : <<extend>>
+  SHOW_VEHICLE <- - SHOW_ITEMS : <<extend>>
+  SHOW_ITEMS <- - ADD_ITEM : <<extend>>
+  SHOW_ITEMS <- - DELETE_ITEM : <<extend>>
+
+}
+@enduml
+
+@startuml
+
+left to right direction
+
+  actor "Administrator" as admin
+  actor "Użytkownik" as user
+  actor "Operator" as operator
+admin - -|> user
+operator - -|> user
+
+rectangle "Administracja" {
+  usecase "Wyświetla listę użytkowników" as A1
+  admin - - A1
+  A1 <- - (Dodaje nowego użytkownika) : <<extend>>
+  A1 <- - (Usuwa użytkownika) : <<extend>>
+  A1 <- - (Zmienia hasło użytkownika) : <<extend>>
+}
+
+rectangle "Autoryzacja" {
+  user - - (Loguje się do systemu)
+  user - - (Wylogowuje się z systemu)
+}
+
+rectangle "Przechowywanie danych" {
+  user - - (Zapisuje dane do pliku)
+  user - - (Wczytuje dane z pliku)
+}
+
+rectangle "Zarządzanie magazynem" {
+  usecase "Wyświetla listę pojazdów" as SHOW_VEHICLES
+  usecase "Wyświetla informacje o pojeździe" as SHOW_VEHICLE
+  usecase "Dodaje nowy pojazd" as ADD_VEHICLE
+  usecase "Usuwa pojazd" as DELETE_VEHICLE
+  usecase "Łączy pojazdy" as JOIN_VEHICLES
+  usecase "Rozłącza pojazdy" as DISJOIN_VEHICLES
+  usecase "Uzupełnia dane pojazdu" as UPDATE_VEHICLE
+  usecase "Wyświetla informacje o ładunku" as SHOW_ITEMS
+  usecase "Przeprowadza załadunek" as ADD_ITEM
+  usecase "Przeprowadza rozładunek" as DELETE_ITEM
+
+  operator - - SHOW_VEHICLES
+
+  SHOW_VEHICLES <- - ADD_VEHICLE : <<extend>>
+  SHOW_VEHICLES <- - DELETE_VEHICLE : <<extend>>
+  SHOW_VEHICLES <- - SHOW_VEHICLE : <<extend>>
+  SHOW_VEHICLE <- - JOIN_VEHICLES : <<extend>>
+  SHOW_VEHICLE <- - DISJOIN_VEHICLES : <<extend>>
+  ADD_VEHICLE - -> UPDATE_VEHICLE : <<include>
+  SHOW_VEHICLE <- - UPDATE_VEHICLE : <<extend>>
+  SHOW_VEHICLE <- - SHOW_ITEMS : <<extend>>
+  SHOW_ITEMS <- - ADD_ITEM : <<extend>>
+  SHOW_ITEMS <- - DELETE_ITEM : <<extend>>
+
+}
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></p><h2 class="mume-header" id="diagram-klas">Diagram klas</h2>
+
+<div class="mermaid">classDiagram
+class VehicleBuilder
+VehicleBuilder .. VehicleProxy
+
+class VehicleProxy
+VehicleProxy -- Vehicle
+
+class ILoadable
+&lt;&lt;interface&gt;&gt; ILoadable
+
+class Vehicle{
+&lt;&lt;abstract&gt;&gt;
+# Vehicle();
+# Vehicle(Vehicle);
++  Id: int;
++  Name: string;
++  VIN: string;
++  Year: int;
++  TypeDescription*: string;
++ ToString(): string;
+}
+
+class MotorizedVehicle{
+&lt;&lt;abstract&gt;&gt;
+# MotorizedVehicle();
+# MotorizedVehicle(Vehicle vehicle);
+# MotorizedVehicle(MotorizedVehicle vehicle);
++Engine Engine;
+}
+
+class NonMotorizedVehicle{
+&lt;&lt;abstract&gt;&gt; 
+# NonMotorizedVehicle();
+# NonMotorizedVehicle(Vehicle vehicle);
+}
+
+Vehicle &lt;|-- MotorizedVehicle
+Vehicle &lt;|-- NonMotorizedVehicle
+
+MotorizedVehicle &lt;|.. TrailerCar
+MotorizedVehicle &lt;|.. Truck
+MotorizedVehicle &lt;|.. CargoSpaceCar
+
+CargoSpaceCar ..|&gt; ILoadable
+SemiTrailer ..|&gt; ILoadable
+Trailer ..|&gt; ILoadable
+
+NonMotorizedVehicle &lt;|.. SemiTrailer
+NonMotorizedVehicle &lt;|.. Trailer
+
+class ISemiTrailerable{
+&lt;&lt;interface&gt;&gt;
+    +int SemiTrailerId
+}
+Truck --|&gt; ISemiTrailerable
+
+class ITrailerable{
+&lt;&lt;interface&gt;&gt;
++int TrailerId
+}
+TrailerCar ..|&gt; ITrailerable
+
+ILoadable -- Storage
+
+class Storage{
+  &lt;&lt;abstract&gt;&gt;
++  StorageDescription*: string;
++ Items: List&lt;Item&gt;  ;
++  IsSingle*: bool ;
+}
+
+Storage &lt;|.. ContainerStorage
+Storage &lt;|.. BoxStorage
+Storage &lt;|.. TankStorage
+
+class Engine{
+  +Engine()
+  +Engine(Engine)
+  +string Name
+  +int Capacity
+  +int Power
+}
+Engine *-- Vehicle
+
+class ContainerStorage{
+    + ContainerStorage();
+    + ContainerStorage(ContainerStorage);
+    + string StorageDescription
+    + bool IsSingle
+}
+
+class BoxStorage{
+    + BoxStorage();
+    + BoxStorage(BoxStorage );
+    + StorageDescription: string
+    + IsSingle: bool
+}
+
+class TankStorage{
+    + TankStorage();
+    + TankStorage(TankStorage);
+    +  StorageDescription : string
+    +  IsSingle: bool
+}
+
+class Item{
+  &lt;&lt;abstract&gt;&gt; Item
+  +Name : string
+  +GrossMass : float
+}
+
+class LiquidItem{
+    + LiquidItem();
+    + LiquidItem(LiquidItem item) ;
+    + Volume: decimal;
+    + GetDimensions(): string;
+}
+
+class BoxItem{
+  +Width: int
+  +Height: int
+  +Length: int
+}
+
+ContainerStorage -- ContainerItem
+BoxStorage -- BoxItem
+TankStorage -- LiquidItem
+ContainerItem --|&gt; Item
+BoxItem --|&gt; Item
+LiquidItem --|&gt; Item
+
+class Vehicle{
+  +Id : int
+  +Name : string
+  +VIN : string
+  +Year : int
+  +Engine : Engine
+  +CargoSpace : Storage
+}
+
+class ItemProxy{
+    +Id: int
+    +ItemProxy(Item item)
+    +Item: Item
+    +Name: string
+    +GrossMass: string
+    +Dimensions: string
+    +TypeDescription: string
+    -GetTypeDescription(): string
+    -GetDimensions(): string
+}
+
+Item -- ItemProxy
+</div><h2 class="mume-header" id="diagramy-sekwencji">Diagramy sekwencji</h2>
+
+<h3 class="mume-header" id="logowanie-do-systemu">Logowanie do systemu</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="912px" preserveAspectRatio="none" style="width:1050px;height:912px;background:#FFFFFF;" version="1.1" viewBox="0 0 1050 912" width="1050px" zoomAndPan="magnify"><defs><filter height="300%" id="f13vruncdl0xbd" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="694.5391" style="stroke:#A80036;stroke-width:1.0;" width="10" x="340.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="665.1875" style="stroke:#A80036;stroke-width:1.0;" width="10" x="447" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="573.1328" style="stroke:#A80036;stroke-width:1.0;" width="10" x="452" y="243.3672"/><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="717.8906" style="stroke:#A80036;stroke-width:1.0;" width="10" x="788" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="477.4297" style="stroke:#000000;stroke-width:2.0;" width="1026" x="10" y="332.0703"/><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="294.8359" style="stroke:#000000;stroke-width:2.0;" width="830" x="20" y="400.7734"/><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="94.8906" style="stroke:#000000;stroke-width:2.0;" width="376.5" x="30" y="486.8281"/><rect fill="#FFFFFF" height="46.1875" style="stroke:none;stroke-width:1.0;" width="376.5" x="30" y="535.5313"/><rect fill="#FFFFFF" height="106.8906" style="stroke:none;stroke-width:1.0;" width="830" x="20" y="588.7188"/><rect fill="#FFFFFF" height="106.8906" style="stroke:none;stroke-width:1.0;" width="1026" x="10" y="702.6094"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="57" x2="57" y1="89.6094" y2="826.5"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="345.5" x2="345.5" y1="89.6094" y2="826.5"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="451.5" x2="451.5" y1="89.6094" y2="826.5"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="793" x2="793" y1="89.6094" y2="826.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="40" y="86.5332">User</text><ellipse cx="57.5" cy="15" fill="#FEFECE" filter="url(#f13vruncdl0xbd)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M57.5,23 L57.5,50 M44.5,31 L70.5,31 M57.5,50 L44.5,65 M57.5,50 L70.5,65 " fill="none" filter="url(#f13vruncdl0xbd)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="40" y="840.0332">User</text><ellipse cx="57.5" cy="853.1094" fill="#FEFECE" filter="url(#f13vruncdl0xbd)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M57.5,861.1094 L57.5,888.1094 M44.5,869.1094 L70.5,869.1094 M57.5,888.1094 L44.5,903.1094 M57.5,888.1094 L70.5,903.1094 " fill="none" filter="url(#f13vruncdl0xbd)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f13vruncdl0xbd)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="98" x="294.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="301.5" y="74.5332">LoginWindow</text><rect fill="#FEFECE" filter="url(#f13vruncdl0xbd)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="98" x="294.5" y="825.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="301.5" y="847.0332">LoginWindow</text><rect fill="#FEFECE" filter="url(#f13vruncdl0xbd)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="87" x="406.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="413.5" y="74.5332">LoginModel</text><rect fill="#FEFECE" filter="url(#f13vruncdl0xbd)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="87" x="406.5" y="825.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="413.5" y="847.0332">LoginModel</text><rect fill="#FEFECE" filter="url(#f13vruncdl0xbd)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="90" x="746" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="753" y="74.5332">UserService</text><rect fill="#FEFECE" filter="url(#f13vruncdl0xbd)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="90" x="746" y="825.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="753" y="847.0332">UserService</text><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="694.5391" style="stroke:#A80036;stroke-width:1.0;" width="10" x="340.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="665.1875" style="stroke:#A80036;stroke-width:1.0;" width="10" x="447" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="573.1328" style="stroke:#A80036;stroke-width:1.0;" width="10" x="452" y="243.3672"/><rect fill="#FFFFFF" filter="url(#f13vruncdl0xbd)" height="717.8906" style="stroke:#A80036;stroke-width:1.0;" width="10" x="788" y="99.6094"/><polygon fill="#A80036" points="328.5,117.9609,338.5,121.9609,328.5,125.9609,332.5,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="57.5" x2="334.5" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="64.5" y="117.1045">Start()</text><polygon fill="#A80036" points="435,148.3125,445,152.3125,435,156.3125,439,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="350.5" x2="441" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="70" x="357.5" y="147.4561">new Model()</text><polygon fill="#A80036" points="361.5,178.6641,351.5,182.6641,361.5,186.6641,357.5,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="355.5" x2="446" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="367.5" y="177.8076">model</text><polygon fill="#A80036" points="328.5,209.0156,338.5,213.0156,328.5,217.0156,332.5,213.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="57.5" x2="334.5" y1="213.0156" y2="213.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="39" x="64.5" y="208.1592">Login()</text><polygon fill="#A80036" points="440,239.3672,450,243.3672,440,247.3672,444,243.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="350.5" x2="446" y1="243.3672" y2="243.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="56" x="357.5" y="238.5107">GetUser()</text><polygon fill="#A80036" points="776,269.7188,786,273.7188,776,277.7188,780,273.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="462" x2="782" y1="273.7188" y2="273.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="63" x="469" y="268.8623">Authorize()</text><line style="stroke:#A80036;stroke-width:1.0;" x1="798" x2="840" y1="304.0703" y2="304.0703"/><line style="stroke:#A80036;stroke-width:1.0;" x1="840" x2="840" y1="304.0703" y2="317.0703"/><line style="stroke:#A80036;stroke-width:1.0;" x1="799" x2="840" y1="317.0703" y2="317.0703"/><polygon fill="#A80036" points="809,313.0703,799,317.0703,809,321.0703,805,317.0703" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="60" x="805" y="299.2139">FindUser()</text><path d="M10,332.0703 L71,332.0703 L71,340.0703 L61,350.0703 L10,350.0703 L10,332.0703 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="477.4297" style="stroke:#000000;stroke-width:2.0;" width="1026" x="10" y="332.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="25" y="346.5654">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="116" x="86" y="345.4893">[u&#x17C;ytkownik istnieje]</text><line style="stroke:#A80036;stroke-width:1.0;" x1="798" x2="840" y1="372.7734" y2="372.7734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="840" x2="840" y1="372.7734" y2="385.7734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="799" x2="840" y1="385.7734" y2="385.7734"/><polygon fill="#A80036" points="809,381.7734,799,385.7734,809,389.7734,805,385.7734" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="219" x="805" y="367.917">Verify(password, user.hash, user.salt)</text><path d="M20,400.7734 L81,400.7734 L81,408.7734 L71,418.7734 L20,418.7734 L20,400.7734 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="294.8359" style="stroke:#000000;stroke-width:2.0;" width="830" x="20" y="400.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="35" y="415.2686">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="97" x="96" y="414.1924">[has&#x142;o poprawne]</text><polygon fill="#A80036" points="473,437.4766,463,441.4766,473,445.4766,469,441.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="467" x2="787" y1="441.4766" y2="441.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="62" x="479" y="436.6201">return user</text><polygon fill="#A80036" points="361.5,467.8281,351.5,471.8281,361.5,475.8281,357.5,471.8281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="355.5" x2="451" y1="471.8281" y2="471.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="62" x="367.5" y="466.9717">return user</text><path d="M30,486.8281 L91,486.8281 L91,494.8281 L81,504.8281 L30,504.8281 L30,486.8281 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="94.8906" style="stroke:#000000;stroke-width:2.0;" width="376.5" x="30" y="486.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="45" y="501.3232">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="154" x="106" y="500.2471">[user.type == administrator]</text><polygon fill="#A80036" points="68.5,523.5313,58.5,527.5313,68.5,531.5313,64.5,527.5313" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="62.5" x2="339.5" y1="527.5313" y2="527.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="74.5" y="522.6748">ShowOperatorsWindow()</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="30" x2="406.5" y1="536.5313" y2="536.5313"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="127" x="35" y="547.9502">[user.type == operator]</text><polygon fill="#A80036" points="68.5,569.7188,58.5,573.7188,68.5,577.7188,64.5,573.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="62.5" x2="339.5" y1="573.7188" y2="573.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="136" x="74.5" y="568.8623">ShowVehiclesWindow()</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="20" x2="850" y1="589.7188" y2="589.7188"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="114" x="25" y="601.1377">[has&#x142;o niepoprawne]</text><polygon fill="#A80036" points="473,622.9063,463,626.9063,473,630.9063,469,626.9063" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="467" x2="787" y1="626.9063" y2="626.9063"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="247" x="479" y="622.0498">throw new Exception(&quot;Niepoprawne has&#x142;o&quot;)</text><polygon fill="#A80036" points="361.5,653.2578,351.5,657.2578,361.5,661.2578,357.5,657.2578" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="355.5" x2="451" y1="657.2578" y2="657.2578"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="31" x="367.5" y="652.4014">throw</text><polygon fill="#A80036" points="68.5,683.6094,58.5,687.6094,68.5,691.6094,64.5,687.6094" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="62.5" x2="339.5" y1="687.6094" y2="687.6094"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="239" x="74.5" y="682.7529">ShowMessageBox(&quot;Niepoprawne has&#x142;o.&quot;)</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="1036" y1="703.6094" y2="703.6094"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="136" x="15" y="715.0283">[u&#x17C;ytkownik nie istnieje]</text><polygon fill="#A80036" points="473,736.7969,463,740.7969,473,744.7969,469,740.7969" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="467" x2="787" y1="740.7969" y2="740.7969"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="302" x="479" y="735.9404">throw Exception(&quot;Niepoprawna nazwa u&#x17C;ytkownika&quot;)</text><polygon fill="#A80036" points="361.5,767.1484,351.5,771.1484,361.5,775.1484,357.5,771.1484" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="355.5" x2="451" y1="771.1484" y2="771.1484"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="31" x="367.5" y="766.292">throw</text><polygon fill="#A80036" points="68.5,797.5,58.5,801.5,68.5,805.5,64.5,801.5" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="62.5" x2="339.5" y1="801.5" y2="801.5"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="259" x="74.5" y="796.6436">ShowMessageBox(&quot;U&#x17C;ytkownik nie istnieje&quot;)</text><!--MD5=[eebd70b60c897ba6bc4b80b6e202e281]
+@startuml
+actor User
+participant "LoginWindow" as LW
+participant "LoginModel" as LM
+participant UserService as US
+
+activate US
+User -> LW : Start()
+activate LW
+LW -> LM : new Model()
+activate LM
+LW <- - LM : model
+User -> LW : Login()
+LW -> LM : GetUser()
+activate LM
+LM -> US : Authorize()
+US -> US : FindUser()
+alt użytkownik istnieje
+US -> US : Verify(password, user.hash, user.salt)
+alt hasło poprawne
+LM <- - US : return user
+LW <- - LM : return user
+alt user.type == administrator
+User <- - LW : ShowOperatorsWindow()
+else user.type == operator
+User <- - LW : ShowVehiclesWindow()
+end group
+
+else hasło niepoprawne
+LM <- - US : throw new Exception("Niepoprawne hasło")
+LW <- - LM : throw
+User <- - LW : ShowMessageBox("Niepoprawne hasło.")
+end group
+
+else użytkownik nie istnieje
+LM <- - US : throw Exception("Niepoprawna nazwa użytkownika")
+LW <- - LM : throw
+User <- - LW : ShowMessageBox("Użytkownik nie istnieje")
+end group
+deactivate LM
+deactivate LW
+
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></p><h3 class="mume-header" id="dodaj-operatora">Dodaj operatora</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="664px" preserveAspectRatio="none" style="width:864px;height:664px;background:#FFFFFF;" version="1.1" viewBox="0 0 864 664" width="864px" zoomAndPan="magnify"><defs><filter height="300%" id="fkkbz4hu3ljap" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fkkbz4hu3ljap)" height="470.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="169.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#fkkbz4hu3ljap)" height="418.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="340.5" y="152.3125"/><rect fill="#FFFFFF" filter="url(#fkkbz4hu3ljap)" height="297" style="stroke:#A80036;stroke-width:1.0;" width="10" x="663.5" y="182.6641"/><rect fill="#FFFFFF" filter="url(#fkkbz4hu3ljap)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="788.5" y="299.0703"/><rect fill="#FFFFFF" filter="url(#fkkbz4hu3ljap)" height="290" style="stroke:#000000;stroke-width:2.0;" width="840.5" x="10" y="258.3672"/><rect fill="#FFFFFF" height="106.8906" style="stroke:none;stroke-width:1.0;" width="840.5" x="10" y="441.4766"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="64" x2="64" y1="89.6094" y2="579.3672"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="174" x2="174" y1="89.6094" y2="579.3672"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="345" x2="345" y1="89.6094" y2="579.3672"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="668.5" x2="668.5" y1="89.6094" y2="579.3672"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="793.5" x2="793.5" y1="89.6094" y2="579.3672"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="20" y="86.5332">Administrator</text><ellipse cx="64.5" cy="15" fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M64.5,23 L64.5,50 M51.5,31 L77.5,31 M64.5,50 L51.5,65 M64.5,50 L77.5,65 " fill="none" filter="url(#fkkbz4hu3ljap)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83" x="20" y="592.9004">Administrator</text><ellipse cx="64.5" cy="605.9766" fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M64.5,613.9766 L64.5,640.9766 M51.5,621.9766 L77.5,621.9766 M64.5,640.9766 L51.5,655.9766 M64.5,640.9766 L77.5,655.9766 " fill="none" filter="url(#fkkbz4hu3ljap)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="99" x="123" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="130" y="74.5332">UsersWindow</text><rect fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="99" x="123" y="578.3672"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="130" y="599.9004">UsersWindow</text><rect fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="129" x="279" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="286" y="74.5332">UserEditorWindow</text><rect fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="129" x="279" y="578.3672"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="286" y="599.9004">UserEditorWindow</text><rect fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="118" x="607.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="614.5" y="74.5332">UserEditorModel</text><rect fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="118" x="607.5" y="578.3672"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104" x="614.5" y="599.9004">UserEditorModel</text><rect fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="90" x="746.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="753.5" y="74.5332">UserService</text><rect fill="#FEFECE" filter="url(#fkkbz4hu3ljap)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="90" x="746.5" y="578.3672"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="753.5" y="599.9004">UserService</text><rect fill="#FFFFFF" filter="url(#fkkbz4hu3ljap)" height="470.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="169.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#fkkbz4hu3ljap)" height="418.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="340.5" y="152.3125"/><rect fill="#FFFFFF" filter="url(#fkkbz4hu3ljap)" height="297" style="stroke:#A80036;stroke-width:1.0;" width="10" x="663.5" y="182.6641"/><rect fill="#FFFFFF" filter="url(#fkkbz4hu3ljap)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="788.5" y="299.0703"/><polygon fill="#A80036" points="157.5,117.9609,167.5,121.9609,157.5,125.9609,161.5,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="64.5" x2="163.5" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="81" x="71.5" y="117.1045">AddOperator()</text><polygon fill="#A80036" points="328.5,148.3125,338.5,152.3125,328.5,156.3125,332.5,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="179.5" x2="334.5" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="142" x="186.5" y="147.4561">new UserEditorWindow()</text><polygon fill="#A80036" points="651.5,178.6641,661.5,182.6641,651.5,186.6641,655.5,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="350.5" x2="657.5" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="357.5" y="177.8076">new UserEditorModel()</text><polygon fill="#A80036" points="361.5,209.0156,351.5,213.0156,361.5,217.0156,357.5,213.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="355.5" x2="662.5" y1="213.0156" y2="213.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="367.5" y="208.1592">model</text><polygon fill="#A80036" points="651.5,239.3672,661.5,243.3672,651.5,247.3672,655.5,243.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="350.5" x2="657.5" y1="243.3672" y2="243.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="135" x="357.5" y="238.5107">model.CreateOperator()</text><path d="M10,258.3672 L71,258.3672 L71,266.3672 L61,276.3672 L10,276.3672 L10,258.3672 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="290" style="stroke:#000000;stroke-width:2.0;" width="840.5" x="10" y="258.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="25" y="272.8623">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="113" x="86" y="271.7861">[correct credentials]</text><polygon fill="#A80036" points="776.5,295.0703,786.5,299.0703,776.5,303.0703,780.5,299.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="673.5" x2="782.5" y1="299.0703" y2="299.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="96" x="680.5" y="294.2139">CreateOperator()</text><polygon fill="#A80036" points="684.5,325.4219,674.5,329.4219,684.5,333.4219,680.5,329.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="678.5" x2="792.5" y1="329.4219" y2="329.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="690.5" y="324.5654">return true</text><polygon fill="#A80036" points="361.5,355.7734,351.5,359.7734,361.5,363.7734,357.5,359.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="355.5" x2="662.5" y1="359.7734" y2="359.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="33" x="367.5" y="354.917">return</text><line style="stroke:#A80036;stroke-width:1.0;" x1="350.5" x2="392.5" y1="390.125" y2="390.125"/><line style="stroke:#A80036;stroke-width:1.0;" x1="392.5" x2="392.5" y1="390.125" y2="403.125"/><line style="stroke:#A80036;stroke-width:1.0;" x1="351.5" x2="392.5" y1="403.125" y2="403.125"/><polygon fill="#A80036" points="361.5,399.125,351.5,403.125,361.5,407.125,357.5,403.125" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="357.5" y="385.2686">Save()</text><polygon fill="#A80036" points="190.5,429.4766,180.5,433.4766,190.5,437.4766,186.5,433.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="184.5" x2="339.5" y1="433.4766" y2="433.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="196.5" y="428.6201">return true</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="850.5" y1="442.4766" y2="442.4766"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="123" x="15" y="453.8955">[incorrect credentials]</text><polygon fill="#A80036" points="361.5,475.6641,351.5,479.6641,361.5,483.6641,357.5,479.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="355.5" x2="667.5" y1="479.6641" y2="479.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="289" x="367.5" y="474.8076">throw new Exception(&quot;Has&#x142;o nie mo&#x17C;e by&#x107; puste&quot;)</text><polygon fill="#A80036" points="190.5,506.0156,180.5,510.0156,190.5,514.0156,186.5,510.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="184.5" x2="339.5" y1="510.0156" y2="510.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="128" x="196.5" y="505.1592">throw new Exception()</text><polygon fill="#A80036" points="75.5,536.3672,65.5,540.3672,75.5,544.3672,71.5,540.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="69.5" x2="168.5" y1="540.3672" y2="540.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="81.5" y="535.5107">ShowError()</text><polygon fill="#A80036" points="75.5,557.3672,65.5,561.3672,75.5,565.3672,71.5,561.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="69.5" x2="168.5" y1="561.3672" y2="561.3672"/><!--MD5=[daabdeb6ed3c0d91b25d67a0afc3f01f]
+@startuml
+actor Administrator as A
+participant UsersWindow as UW
+participant UserEditorWindow as UEW
+participant UserEditorModel as UEM
+participant UserService as US
+
+activate UW
+A -> UW : AddOperator()
+UW -> UEW : new UserEditorWindow()
+activate UEW
+UEW -> UEM : new UserEditorModel()
+activate UEM
+UEW <- - UEM : model
+UEW -> UEM : model.CreateOperator()
+alt correct credentials
+UEM -> US : CreateOperator()
+activate US
+US  - -> UEM : return true
+deactivate US
+UEM - -> UEW : return
+UEW -> UEW : Save()
+UEW - -> UW : return true
+else incorrect credentials
+UEM - -> UEW : throw new Exception("Hasło nie może być puste")
+deactivate UEM
+UEW - -> UW : throw new Exception()
+UW - -> A : ShowError()
+end group
+
+A <- - UW
+
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></p><h3 class="mume-header" id="dodaj-samoch%C3%B3d">Dodaj samoch&#xF3;d</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="755px" preserveAspectRatio="none" style="width:836px;height:755px;background:#FFFFFF;" version="1.1" viewBox="0 0 836 755" width="836px" zoomAndPan="magnify"><defs><filter height="300%" id="fvor607x3zb16" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fvor607x3zb16)" height="551.8125" style="stroke:#A80036;stroke-width:1.0;" width="10" x="188.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#fvor607x3zb16)" height="529.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="397.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#fvor607x3zb16)" height="268.6484" style="stroke:#A80036;stroke-width:1.0;" width="10" x="537" y="273.7188"/><rect fill="#FFFFFF" filter="url(#fvor607x3zb16)" height="238.2969" style="stroke:#A80036;stroke-width:1.0;" width="10" x="752" y="304.0703"/><rect fill="#FFFFFF" filter="url(#fvor607x3zb16)" height="125.2422" style="stroke:#000000;stroke-width:2.0;" width="503.5" x="123.5" y="410.125"/><rect fill="#FFFFFF" height="76.5391" style="stroke:none;stroke-width:1.0;" width="503.5" x="123.5" y="458.8281"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="36" x2="36" y1="89.6094" y2="669.4219"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="193.5" x2="193.5" y1="89.6094" y2="669.4219"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="402" x2="402" y1="89.6094" y2="669.4219"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="542" x2="542" y1="89.6094" y2="669.4219"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="756.5" x2="756.5" y1="89.6094" y2="669.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="5" y="86.5332">Operator</text><ellipse cx="36.5" cy="15" fill="#FEFECE" filter="url(#fvor607x3zb16)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M36.5,23 L36.5,50 M23.5,31 L49.5,31 M36.5,50 L23.5,65 M36.5,50 L49.5,65 " fill="none" filter="url(#fvor607x3zb16)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="5" y="682.9551">Operator</text><ellipse cx="36.5" cy="696.0313" fill="#FEFECE" filter="url(#fvor607x3zb16)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M36.5,704.0313 L36.5,731.0313 M23.5,712.0313 L49.5,712.0313 M36.5,731.0313 L23.5,746.0313 M36.5,731.0313 L49.5,746.0313 " fill="none" filter="url(#fvor607x3zb16)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#fvor607x3zb16)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="116" x="133.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="140.5" y="74.5332">VehiclesWindow</text><rect fill="#FEFECE" filter="url(#fvor607x3zb16)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="116" x="133.5" y="668.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="140.5" y="689.9551">VehiclesWindow</text><rect fill="#FEFECE" filter="url(#fvor607x3zb16)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="105" x="348" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="355" y="74.5332">VehiclesModel</text><rect fill="#FEFECE" filter="url(#fvor607x3zb16)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="105" x="348" y="668.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="355" y="689.9551">VehiclesModel</text><rect fill="#FEFECE" filter="url(#fvor607x3zb16)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="467" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="474" y="74.5332">VehicleEditorWindow</text><rect fill="#FEFECE" filter="url(#fvor607x3zb16)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="467" y="668.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="474" y="689.9551">VehicleEditorWindow</text><rect fill="#FEFECE" filter="url(#fvor607x3zb16)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="135" x="687.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="694.5" y="74.5332">VehicleEditorModel</text><rect fill="#FEFECE" filter="url(#fvor607x3zb16)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="135" x="687.5" y="668.4219"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="694.5" y="689.9551">VehicleEditorModel</text><rect fill="#FFFFFF" filter="url(#fvor607x3zb16)" height="551.8125" style="stroke:#A80036;stroke-width:1.0;" width="10" x="188.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#fvor607x3zb16)" height="529.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="397.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#fvor607x3zb16)" height="268.6484" style="stroke:#A80036;stroke-width:1.0;" width="10" x="537" y="273.7188"/><rect fill="#FFFFFF" filter="url(#fvor607x3zb16)" height="238.2969" style="stroke:#A80036;stroke-width:1.0;" width="10" x="752" y="304.0703"/><polygon fill="#A80036" points="385.5,117.9609,395.5,121.9609,385.5,125.9609,389.5,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="198.5" x2="391.5" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="120" x="205.5" y="117.1045">new VehiclesModel()</text><polygon fill="#A80036" points="209.5,148.3125,199.5,152.3125,209.5,156.3125,205.5,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="203.5" x2="396.5" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="215.5" y="147.4561">model</text><polygon fill="#A80036" points="176.5,178.6641,186.5,182.6641,176.5,186.6641,180.5,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="36.5" x2="182.5" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="43.5" y="177.8076">AddVehicle()</text><polygon fill="#A80036" points="385.5,209.0156,395.5,213.0156,385.5,217.0156,389.5,213.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="198.5" x2="391.5" y1="213.0156" y2="213.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="113" x="205.5" y="208.1592">model.AddVehicle()</text><polygon fill="#A80036" points="209.5,239.3672,199.5,243.3672,209.5,247.3672,205.5,243.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="203.5" x2="396.5" y1="243.3672" y2="243.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="39" x="215.5" y="238.5107">vehicle</text><polygon fill="#A80036" points="525,269.7188,535,273.7188,525,277.7188,529,273.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="198.5" x2="531" y1="273.7188" y2="273.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="197" x="205.5" y="268.8623">new VehicleEditorWindow(vehicle)</text><polygon fill="#A80036" points="740,300.0703,750,304.0703,740,308.0703,744,304.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="547" x2="746" y1="304.0703" y2="304.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="186" x="554" y="299.2139">new VehicleEditorModel(vehicle)</text><polygon fill="#A80036" points="558,330.4219,548,334.4219,558,338.4219,554,334.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="552" x2="751" y1="334.4219" y2="334.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="564" y="329.5654">model</text><polygon fill="#A80036" points="525,360.7734,535,364.7734,525,368.7734,529,364.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="36.5" x2="531" y1="364.7734" y2="364.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="90" x="43.5" y="359.917">set vehicle data</text><polygon fill="#A80036" points="740,391.125,750,395.125,740,399.125,744,395.125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="547" x2="746" y1="395.125" y2="395.125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="49" x="554" y="390.2686">Update()</text><path d="M123.5,410.125 L184.5,410.125 L184.5,418.125 L174.5,428.125 L123.5,428.125 L123.5,410.125 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="125.2422" style="stroke:#000000;stroke-width:2.0;" width="503.5" x="123.5" y="410.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="138.5" y="424.6201">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="102" x="199.5" y="423.5439">[operator accepts]</text><polygon fill="#A80036" points="209.5,446.8281,199.5,450.8281,209.5,454.8281,205.5,450.8281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="203.5" x2="536" y1="450.8281" y2="450.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="215.5" y="445.9717">return true</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="123.5" x2="627" y1="459.8281" y2="459.8281"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="101" x="128.5" y="471.2471">[operator cancels]</text><polygon fill="#A80036" points="209.5,493.0156,199.5,497.0156,209.5,501.0156,205.5,497.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="203.5" x2="536" y1="497.0156" y2="497.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="64" x="215.5" y="492.1592">return false</text><polygon fill="#A80036" points="385.5,523.3672,395.5,527.3672,385.5,531.3672,389.5,527.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="198.5" x2="391.5" y1="527.3672" y2="527.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="175" x="205.5" y="522.5107">model.RemoveVehicle(vehicle)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="198.5" x2="240.5" y1="564.7188" y2="564.7188"/><line style="stroke:#A80036;stroke-width:1.0;" x1="240.5" x2="240.5" y1="564.7188" y2="577.7188"/><line style="stroke:#A80036;stroke-width:1.0;" x1="199.5" x2="240.5" y1="577.7188" y2="577.7188"/><polygon fill="#A80036" points="209.5,573.7188,199.5,577.7188,209.5,581.7188,205.5,577.7188" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="205.5" y="559.8623">Save()</text><line style="stroke:#A80036;stroke-width:1.0;" x1="198.5" x2="240.5" y1="608.0703" y2="608.0703"/><line style="stroke:#A80036;stroke-width:1.0;" x1="240.5" x2="240.5" y1="608.0703" y2="621.0703"/><line style="stroke:#A80036;stroke-width:1.0;" x1="199.5" x2="240.5" y1="621.0703" y2="621.0703"/><polygon fill="#A80036" points="209.5,617.0703,199.5,621.0703,209.5,625.0703,205.5,621.0703" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="205.5" y="603.2139">Refresh()</text><polygon fill="#A80036" points="47.5,647.4219,37.5,651.4219,47.5,655.4219,43.5,651.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="41.5" x2="192.5" y1="651.4219" y2="651.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="128" x="53.5" y="646.5654">show new vehicles list</text><!--MD5=[81660201b77851489fb26a3f112d862f]
+@startuml
+actor Operator as O
+participant VehiclesWindow as VW
+participant VehiclesModel as VM
+participant VehicleEditorWindow as VEW
+participant VehicleEditorModel as VEM
+
+activate VW
+VW -> VM : new VehiclesModel()
+activate VM
+VM - -> VW : model
+O -> VW : AddVehicle()
+VW -> VM : model.AddVehicle()
+VM - -> VW : vehicle
+VW -> VEW : new VehicleEditorWindow(vehicle)
+activate VEW
+VEW -> VEM : new VehicleEditorModel(vehicle)
+activate VEM
+VEW <- - VEM : model
+O -> VEW : set vehicle data
+VEW -> VEM : Update()
+alt operator accepts
+VEW - -> VW : return true
+else operator cancels
+VEW - -> VW : return false
+VW -> VM : model.RemoveVehicle(vehicle)
+end group
+deactivate VEW
+deactivate VEM
+VW -> VW : Save()
+VW -> VW : Refresh()
+VW - -> O : show new vehicles list
+deactivate VW
+deactivate VM
+
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></p><h3 class="mume-header" id="usu%C5%84-samochody">Usu&#x144; samochody</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="749px" preserveAspectRatio="none" style="width:734px;height:749px;background:#FFFFFF;" version="1.1" viewBox="0 0 734 749" width="734px" zoomAndPan="magnify"><defs><filter height="300%" id="fxxsgwijcigld" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fxxsgwijcigld)" height="555.2734" style="stroke:#A80036;stroke-width:1.0;" width="10" x="203.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#fxxsgwijcigld)" height="532.9219" style="stroke:#A80036;stroke-width:1.0;" width="10" x="479.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#fxxsgwijcigld)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="484.5" y="264.3672"/><rect fill="#FFFFFF" filter="url(#fxxsgwijcigld)" height="221.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="484.5" y="385.4219"/><rect fill="#FFFFFF" filter="url(#fxxsgwijcigld)" height="302.1641" style="stroke:#000000;stroke-width:2.0;" width="710.5" x="10" y="344.7188"/><rect fill="#FFFFFF" height="32.3516" style="stroke:none;stroke-width:1.0;" width="710.5" x="10" y="614.5313"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="51" x2="51" y1="89.6094" y2="663.8828"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="208.5" x2="208.5" y1="89.6094" y2="663.8828"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="484" x2="484" y1="89.6094" y2="663.8828"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="20" y="86.5332">Operator</text><ellipse cx="51.5" cy="15" fill="#FEFECE" filter="url(#fxxsgwijcigld)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M51.5,23 L51.5,50 M38.5,31 L64.5,31 M51.5,50 L38.5,65 M51.5,50 L64.5,65 " fill="none" filter="url(#fxxsgwijcigld)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="20" y="677.416">Operator</text><ellipse cx="51.5" cy="690.4922" fill="#FEFECE" filter="url(#fxxsgwijcigld)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M51.5,698.4922 L51.5,725.4922 M38.5,706.4922 L64.5,706.4922 M51.5,725.4922 L38.5,740.4922 M51.5,725.4922 L64.5,740.4922 " fill="none" filter="url(#fxxsgwijcigld)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#fxxsgwijcigld)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="116" x="148.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="155.5" y="74.5332">VehiclesWindow</text><rect fill="#FEFECE" filter="url(#fxxsgwijcigld)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="116" x="148.5" y="662.8828"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="155.5" y="684.416">VehiclesWindow</text><rect fill="#FEFECE" filter="url(#fxxsgwijcigld)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="105" x="430" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="437" y="74.5332">VehiclesModel</text><rect fill="#FEFECE" filter="url(#fxxsgwijcigld)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="105" x="430" y="662.8828"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="437" y="684.416">VehiclesModel</text><rect fill="#FFFFFF" filter="url(#fxxsgwijcigld)" height="555.2734" style="stroke:#A80036;stroke-width:1.0;" width="10" x="203.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#fxxsgwijcigld)" height="532.9219" style="stroke:#A80036;stroke-width:1.0;" width="10" x="479.5" y="121.9609"/><rect fill="#FFFFFF" filter="url(#fxxsgwijcigld)" height="28" style="stroke:#A80036;stroke-width:1.0;" width="10" x="484.5" y="264.3672"/><rect fill="#FFFFFF" filter="url(#fxxsgwijcigld)" height="221.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="484.5" y="385.4219"/><polygon fill="#A80036" points="467.5,117.9609,477.5,121.9609,467.5,125.9609,471.5,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="213.5" x2="473.5" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="120" x="220.5" y="117.1045">new VehiclesModel()</text><line style="stroke:#A80036;stroke-width:1.0;" x1="489.5" x2="531.5" y1="152.3125" y2="152.3125"/><line style="stroke:#A80036;stroke-width:1.0;" x1="531.5" x2="531.5" y1="152.3125" y2="165.3125"/><line style="stroke:#A80036;stroke-width:1.0;" x1="490.5" x2="531.5" y1="165.3125" y2="165.3125"/><polygon fill="#A80036" points="500.5,161.3125,490.5,165.3125,500.5,169.3125,496.5,165.3125" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="85" x="496.5" y="147.4561">new Vehicles()</text><polygon fill="#A80036" points="224.5,191.6641,214.5,195.6641,224.5,199.6641,220.5,195.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="218.5" x2="478.5" y1="195.6641" y2="195.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="230.5" y="190.8076">model</text><polygon fill="#A80036" points="467.5,222.0156,477.5,226.0156,467.5,230.0156,471.5,226.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="213.5" x2="473.5" y1="226.0156" y2="226.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="220.5" y="221.1592">Load()</text><line style="stroke:#A80036;stroke-width:1.0;" x1="494.5" x2="536.5" y1="256.3672" y2="256.3672"/><line style="stroke:#A80036;stroke-width:1.0;" x1="536.5" x2="536.5" y1="256.3672" y2="269.3672"/><line style="stroke:#A80036;stroke-width:1.0;" x1="495.5" x2="536.5" y1="269.3672" y2="269.3672"/><polygon fill="#A80036" points="505.5,265.3672,495.5,269.3672,505.5,273.3672,501.5,269.3672" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="501.5" y="251.5107">Load()</text><polygon fill="#A80036" points="191.5,325.7188,201.5,329.7188,191.5,333.7188,195.5,329.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="51.5" x2="197.5" y1="329.7188" y2="329.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="95" x="58.5" y="324.8623">DeleteVehicles()</text><path d="M10,344.7188 L71,344.7188 L71,352.7188 L61,362.7188 L10,362.7188 L10,344.7188 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="302.1641" style="stroke:#000000;stroke-width:2.0;" width="710.5" x="10" y="344.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="25" y="359.2139">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="164" x="86" y="358.1377">[selectedVehicles.count() &gt; 0]</text><polygon fill="#A80036" points="472.5,381.4219,482.5,385.4219,472.5,389.4219,476.5,385.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="213.5" x2="478.5" y1="385.4219" y2="385.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="242" x="220.5" y="380.5654">model.RemoveVehicles(selectedVehicles)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="494.5" x2="536.5" y1="415.7734" y2="415.7734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="536.5" x2="536.5" y1="415.7734" y2="428.7734"/><line style="stroke:#A80036;stroke-width:1.0;" x1="495.5" x2="536.5" y1="428.7734" y2="428.7734"/><polygon fill="#A80036" points="505.5,424.7734,495.5,428.7734,505.5,432.7734,501.5,428.7734" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="207" x="501.5" y="410.917">Vehicles.Remove(selectedVehicles)</text><polygon fill="#A80036" points="62.5,455.125,52.5,459.125,62.5,463.125,58.5,459.125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="56.5" x2="202.5" y1="459.125" y2="459.125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="39" x="68.5" y="454.2686">vehicle</text><polygon fill="#A80036" points="224.5,485.4766,214.5,489.4766,224.5,493.4766,220.5,489.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="218.5" x2="483.5" y1="489.4766" y2="489.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="33" x="230.5" y="484.6201">return</text><line style="stroke:#A80036;stroke-width:1.0;" x1="213.5" x2="255.5" y1="519.8281" y2="519.8281"/><line style="stroke:#A80036;stroke-width:1.0;" x1="255.5" x2="255.5" y1="519.8281" y2="532.8281"/><line style="stroke:#A80036;stroke-width:1.0;" x1="214.5" x2="255.5" y1="532.8281" y2="532.8281"/><polygon fill="#A80036" points="224.5,528.8281,214.5,532.8281,224.5,536.8281,220.5,532.8281" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="220.5" y="514.9717">Save()</text><line style="stroke:#A80036;stroke-width:1.0;" x1="213.5" x2="255.5" y1="563.1797" y2="563.1797"/><line style="stroke:#A80036;stroke-width:1.0;" x1="255.5" x2="255.5" y1="563.1797" y2="576.1797"/><line style="stroke:#A80036;stroke-width:1.0;" x1="214.5" x2="255.5" y1="576.1797" y2="576.1797"/><polygon fill="#A80036" points="224.5,572.1797,214.5,576.1797,224.5,580.1797,220.5,576.1797" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="220.5" y="558.3232">Refresh()</text><polygon fill="#A80036" points="62.5,602.5313,52.5,606.5313,62.5,610.5313,58.5,606.5313" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="56.5" x2="202.5" y1="606.5313" y2="606.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="128" x="68.5" y="601.6748">show new vehicles list</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="720.5" y1="615.5313" y2="615.5313"/><polygon fill="#A80036" points="62.5,634.8828,52.5,638.8828,62.5,642.8828,58.5,638.8828" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="56.5" x2="202.5" y1="638.8828" y2="638.8828"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="68.5" y="634.0264">ShowError()</text><!--MD5=[27c3283087a60b4990e0005609efb2f5]
+@startuml
+actor Operator as O
+participant VehiclesWindow as VW
+participant VehiclesModel as VM
+
+activate VW
+VW -> VM : new VehiclesModel()
+activate VM
+VM -> VM : new Vehicles()
+VM -> VW : model
+VW -> VM : Load()
+VM -> VM : Load()
+activate VM
+deactivate VM
+O -> VW : DeleteVehicles()
+alt selectedVehicles.count() > 0
+VW -> VM : model.RemoveVehicles(selectedVehicles)
+activate VM
+VM -> VM : Vehicles.Remove(selectedVehicles)
+O <- - VW : vehicle
+VM -> VW : return
+VW -> VW : Save()
+VW -> VW : Refresh()
+VW -> O : show new vehicles list
+deactivate VM
+else
+VW -> O : ShowError()
+end group
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></p><h3 class="mume-header" id="%C5%82%C4%85cz-pojazdy">&#x141;&#x105;cz pojazdy</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="712px" preserveAspectRatio="none" style="width:655px;height:712px;background:#FFFFFF;" version="1.1" viewBox="0 0 655 712" width="655px" zoomAndPan="magnify"><defs><filter height="300%" id="f1udgp7eg9ka7c" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1udgp7eg9ka7c)" height="517.9453" style="stroke:#A80036;stroke-width:1.0;" width="10" x="173" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f1udgp7eg9ka7c)" height="495.5938" style="stroke:#A80036;stroke-width:1.0;" width="10" x="386" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f1udgp7eg9ka7c)" height="404.5391" style="stroke:#A80036;stroke-width:1.0;" width="10" x="391" y="213.0156"/><rect fill="#FFFFFF" filter="url(#f1udgp7eg9ka7c)" height="247.1328" style="stroke:#000000;stroke-width:2.0;" width="631.5" x="10" y="332.0703"/><rect fill="#FFFFFF" filter="url(#f1udgp7eg9ka7c)" height="138.2422" style="stroke:#000000;stroke-width:2.0;" width="450.5" x="20" y="387.7734"/><rect fill="#FFFFFF" height="46.1875" style="stroke:none;stroke-width:1.0;" width="450.5" x="20" y="479.8281"/><rect fill="#FFFFFF" height="46.1875" style="stroke:none;stroke-width:1.0;" width="631.5" x="10" y="533.0156"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="61" x2="61" y1="89.6094" y2="626.5547"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="178" x2="178" y1="89.6094" y2="626.5547"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="390.5" x2="390.5" y1="89.6094" y2="626.5547"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="550.5" x2="550.5" y1="89.6094" y2="626.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="30" y="86.5332">Operator</text><ellipse cx="61.5" cy="15" fill="#FEFECE" filter="url(#f1udgp7eg9ka7c)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M61.5,23 L61.5,50 M48.5,31 L74.5,31 M61.5,50 L48.5,65 M61.5,50 L74.5,65 " fill="none" filter="url(#f1udgp7eg9ka7c)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="30" y="640.0879">Operator</text><ellipse cx="61.5" cy="653.1641" fill="#FEFECE" filter="url(#f1udgp7eg9ka7c)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M61.5,661.1641 L61.5,688.1641 M48.5,669.1641 L74.5,669.1641 M61.5,688.1641 L48.5,703.1641 M61.5,688.1641 L74.5,703.1641 " fill="none" filter="url(#f1udgp7eg9ka7c)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f1udgp7eg9ka7c)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="103" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="110" y="74.5332">VehicleEditorWindow</text><rect fill="#FEFECE" filter="url(#f1udgp7eg9ka7c)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="103" y="625.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="110" y="647.0879">VehicleEditorWindow</text><rect fill="#FEFECE" filter="url(#f1udgp7eg9ka7c)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="135" x="321.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="328.5" y="74.5332">VehicleEditorModel</text><rect fill="#FEFECE" filter="url(#f1udgp7eg9ka7c)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="135" x="321.5" y="625.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="328.5" y="647.0879">VehicleEditorModel</text><rect fill="#FEFECE" filter="url(#f1udgp7eg9ka7c)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="157" x="470.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="477.5" y="74.5332">ConnectTrailerWindow</text><rect fill="#FEFECE" filter="url(#f1udgp7eg9ka7c)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="157" x="470.5" y="625.5547"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="477.5" y="647.0879">ConnectTrailerWindow</text><rect fill="#FFFFFF" filter="url(#f1udgp7eg9ka7c)" height="517.9453" style="stroke:#A80036;stroke-width:1.0;" width="10" x="173" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f1udgp7eg9ka7c)" height="495.5938" style="stroke:#A80036;stroke-width:1.0;" width="10" x="386" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f1udgp7eg9ka7c)" height="404.5391" style="stroke:#A80036;stroke-width:1.0;" width="10" x="391" y="213.0156"/><polygon fill="#A80036" points="374,117.9609,384,121.9609,374,125.9609,378,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="183" x2="380" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="147" x="190" y="117.1045">new VehicleEditorModel()</text><polygon fill="#A80036" points="194,148.3125,184,152.3125,194,156.3125,190,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="188" x2="385" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="200" y="147.4561">model</text><polygon fill="#A80036" points="161,178.6641,171,182.6641,161,186.6641,165,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="61.5" x2="167" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="63" x="68.5" y="177.8076">SetTrailer()</text><polygon fill="#A80036" points="379,209.0156,389,213.0156,379,217.0156,383,213.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="183" x2="385" y1="213.0156" y2="213.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="131" x="190" y="208.1592">model.GetTrailersList()</text><line style="stroke:#A80036;stroke-width:1.0;" x1="401" x2="443" y1="243.3672" y2="243.3672"/><line style="stroke:#A80036;stroke-width:1.0;" x1="443" x2="443" y1="243.3672" y2="256.3672"/><line style="stroke:#A80036;stroke-width:1.0;" x1="402" x2="443" y1="256.3672" y2="256.3672"/><polygon fill="#A80036" points="412,252.3672,402,256.3672,412,260.3672,408,256.3672" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="92" x="408" y="238.5107">GetTrailersList()</text><polygon fill="#A80036" points="194,282.7188,184,286.7188,194,290.7188,190,286.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="188" x2="390" y1="286.7188" y2="286.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="60" x="200" y="281.8623">trailersList</text><polygon fill="#A80036" points="539,313.0703,549,317.0703,539,321.0703,543,317.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="183" x2="545" y1="317.0703" y2="317.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="224" x="190" y="312.2139">new ConnectTrailerWindow(trailersList)</text><path d="M10,332.0703 L71,332.0703 L71,340.0703 L61,350.0703 L10,350.0703 L10,332.0703 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="247.1328" style="stroke:#000000;stroke-width:2.0;" width="631.5" x="10" y="332.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="25" y="346.5654">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="78" x="86" y="345.4893">[user selects]</text><polygon fill="#A80036" points="194,368.7734,184,372.7734,194,376.7734,190,372.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="188" x2="550" y1="372.7734" y2="372.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="200" y="367.917">return true</text><path d="M20,387.7734 L81,387.7734 L81,395.7734 L71,405.7734 L20,405.7734 L20,387.7734 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="138.2422" style="stroke:#000000;stroke-width:2.0;" width="450.5" x="20" y="387.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="35" y="402.2686">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="133" x="96" y="401.1924">[connection is possible]</text><polygon fill="#A80036" points="379,424.4766,389,428.4766,379,432.4766,383,428.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="183" x2="385" y1="428.4766" y2="428.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="179" x="190" y="423.6201">model.Connect(selectedTrailer)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="183" x2="225" y1="458.8281" y2="458.8281"/><line style="stroke:#A80036;stroke-width:1.0;" x1="225" x2="225" y1="458.8281" y2="471.8281"/><line style="stroke:#A80036;stroke-width:1.0;" x1="184" x2="225" y1="471.8281" y2="471.8281"/><polygon fill="#A80036" points="194,467.8281,184,471.8281,194,475.8281,190,471.8281" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="190" y="453.9717">Refresh()</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="20" x2="470.5" y1="480.8281" y2="480.8281"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="154" x="25" y="492.2471">[connection is not possible]</text><polygon fill="#A80036" points="72.5,514.0156,62.5,518.0156,72.5,522.0156,68.5,518.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="66.5" x2="172" y1="518.0156" y2="518.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="78.5" y="513.1592">ShowError()</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="641.5" y1="534.0156" y2="534.0156"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="79" x="15" y="545.4346">[user cancels]</text><polygon fill="#A80036" points="194,567.2031,184,571.2031,194,575.2031,190,571.2031" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="188" x2="550" y1="571.2031" y2="571.2031"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="64" x="200" y="566.3467">return false</text><polygon fill="#A80036" points="72.5,604.5547,62.5,608.5547,72.5,612.5547,68.5,608.5547" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="66.5" x2="172" y1="608.5547" y2="608.5547"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="33" x="78.5" y="603.6982">return</text><!--MD5=[d92a19977efbc4cc6b118dfbcc892497]
+@startuml
+actor Operator as O
+participant VehicleEditorWindow as VEW
+participant VehicleEditorModel as VEM
+participant ConnectTrailerWindow as CTW
+
+activate VEW
+VEW -> VEM : new VehicleEditorModel()
+activate VEM
+VEW <- - VEM : model
+O -> VEW : SetTrailer()
+VEW -> VEM : model.GetTrailersList()
+activate VEM
+VEM -> VEM : GetTrailersList()
+VEM - -> VEW : trailersList
+VEW -> CTW : new ConnectTrailerWindow(trailersList)
+alt user selects
+CTW - -> VEW : return true
+alt connection is possible
+VEW -> VEM : model.Connect(selectedTrailer)
+VEW -> VEW : Refresh()
+else connection is not possible
+VEW - -> O : ShowError()
+end group
+else user cancels
+CTW - -> VEW : return false
+end group
+VEW - -> O : return
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></p><h3 class="mume-header" id="roz%C5%82%C4%85cz-pojazdy">Roz&#x142;&#x105;cz pojazdy</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="708px" preserveAspectRatio="none" style="width:592px;height:708px;background:#FFFFFF;" version="1.1" viewBox="0 0 592 708" width="592px" zoomAndPan="magnify"><defs><filter height="300%" id="f1gi4lo5o8cnl0" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1gi4lo5o8cnl0)" height="514.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="163" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f1gi4lo5o8cnl0)" height="491.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="339" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f1gi4lo5o8cnl0)" height="369.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="501" y="243.3672"/><rect fill="#FFFFFF" filter="url(#f1gi4lo5o8cnl0)" height="286.6484" style="stroke:#000000;stroke-width:2.0;" width="568.5" x="10" y="319.0703"/><rect fill="#FFFFFF" height="106.8906" style="stroke:none;stroke-width:1.0;" width="568.5" x="10" y="498.8281"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="51" x2="51" y1="89.6094" y2="622.7188"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="168" x2="168" y1="89.6094" y2="622.7188"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="343.5" x2="343.5" y1="89.6094" y2="622.7188"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="505.5" x2="505.5" y1="89.6094" y2="622.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="20" y="86.5332">Operator</text><ellipse cx="51.5" cy="15" fill="#FEFECE" filter="url(#f1gi4lo5o8cnl0)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M51.5,23 L51.5,50 M38.5,31 L64.5,31 M51.5,50 L38.5,65 M51.5,50 L64.5,65 " fill="none" filter="url(#f1gi4lo5o8cnl0)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="20" y="636.252">Operator</text><ellipse cx="51.5" cy="649.3281" fill="#FEFECE" filter="url(#f1gi4lo5o8cnl0)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M51.5,657.3281 L51.5,684.3281 M38.5,665.3281 L64.5,665.3281 M51.5,684.3281 L38.5,699.3281 M51.5,684.3281 L64.5,699.3281 " fill="none" filter="url(#f1gi4lo5o8cnl0)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f1gi4lo5o8cnl0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="93" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="100" y="74.5332">VehicleEditorWindow</text><rect fill="#FEFECE" filter="url(#f1gi4lo5o8cnl0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="93" y="621.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="100" y="643.252">VehicleEditorWindow</text><rect fill="#FEFECE" filter="url(#f1gi4lo5o8cnl0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="135" x="274.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="281.5" y="74.5332">VehicleEditorModel</text><rect fill="#FEFECE" filter="url(#f1gi4lo5o8cnl0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="135" x="274.5" y="621.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="281.5" y="643.252">VehicleEditorModel</text><rect fill="#FEFECE" filter="url(#f1gi4lo5o8cnl0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="121" x="443.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="450.5" y="74.5332">TrailerConnector</text><rect fill="#FEFECE" filter="url(#f1gi4lo5o8cnl0)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="121" x="443.5" y="621.7188"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="107" x="450.5" y="643.252">TrailerConnector</text><rect fill="#FFFFFF" filter="url(#f1gi4lo5o8cnl0)" height="514.1094" style="stroke:#A80036;stroke-width:1.0;" width="10" x="163" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f1gi4lo5o8cnl0)" height="491.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="339" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f1gi4lo5o8cnl0)" height="369.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="501" y="243.3672"/><polygon fill="#A80036" points="327,117.9609,337,121.9609,327,125.9609,331,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="173" x2="333" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="147" x="180" y="117.1045">new VehicleEditorModel()</text><polygon fill="#A80036" points="184,148.3125,174,152.3125,184,156.3125,180,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="178" x2="338" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="190" y="147.4561">model</text><polygon fill="#A80036" points="151,178.6641,161,182.6641,151,186.6641,155,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="51.5" x2="157" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="63" x="58.5" y="177.8076">SetTrailer()</text><polygon fill="#A80036" points="327,209.0156,337,213.0156,327,217.0156,331,213.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="173" x2="333" y1="213.0156" y2="213.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="112" x="180" y="208.1592">model.Disconnect()</text><polygon fill="#A80036" points="489,239.3672,499,243.3672,489,247.3672,493,243.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="349" x2="495" y1="243.3672" y2="243.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="129" x="356" y="238.5107">new TrailerConnector()</text><polygon fill="#A80036" points="360,269.7188,350,273.7188,360,277.7188,356,273.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="354" x2="500" y1="273.7188" y2="273.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="57" x="366" y="268.8623">connector</text><polygon fill="#A80036" points="489,300.0703,499,304.0703,489,308.0703,493,304.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="349" x2="495" y1="304.0703" y2="304.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="356" y="299.2139">Unhook(vehicle)</text><path d="M10,319.0703 L71,319.0703 L71,327.0703 L61,337.0703 L10,337.0703 L10,319.0703 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="286.6484" style="stroke:#000000;stroke-width:2.0;" width="568.5" x="10" y="319.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="25" y="333.5654">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="55" x="86" y="332.4893">[success]</text><polygon fill="#A80036" points="360,355.7734,350,359.7734,360,363.7734,356,359.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="354" x2="500" y1="359.7734" y2="359.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="366" y="354.917">return true</text><line style="stroke:#A80036;stroke-width:1.0;" x1="173" x2="215" y1="390.125" y2="390.125"/><line style="stroke:#A80036;stroke-width:1.0;" x1="215" x2="215" y1="390.125" y2="403.125"/><line style="stroke:#A80036;stroke-width:1.0;" x1="174" x2="215" y1="403.125" y2="403.125"/><polygon fill="#A80036" points="184,399.125,174,403.125,184,407.125,180,403.125" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="180" y="385.2686">Save()</text><line style="stroke:#A80036;stroke-width:1.0;" x1="173" x2="215" y1="433.4766" y2="433.4766"/><line style="stroke:#A80036;stroke-width:1.0;" x1="215" x2="215" y1="433.4766" y2="446.4766"/><line style="stroke:#A80036;stroke-width:1.0;" x1="174" x2="215" y1="446.4766" y2="446.4766"/><polygon fill="#A80036" points="184,442.4766,174,446.4766,184,450.4766,180,446.4766" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="180" y="428.6201">Refresh()</text><polygon fill="#A80036" points="184,472.8281,174,476.8281,184,480.8281,180,476.8281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="178" x2="338" y1="476.8281" y2="476.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="190" y="471.9717">return true</text><polygon fill="#A80036" points="62.5,486.8281,52.5,490.8281,62.5,494.8281,58.5,490.8281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="56.5" x2="162" y1="490.8281" y2="490.8281"/><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="10" x2="578.5" y1="499.8281" y2="499.8281"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="43" x="15" y="511.2471">[failure]</text><polygon fill="#A80036" points="360,533.0156,350,537.0156,360,541.0156,356,537.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="354" x2="500" y1="537.0156" y2="537.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="128" x="366" y="532.1592">throw new Exception()</text><polygon fill="#A80036" points="184,563.3672,174,567.3672,184,571.3672,180,567.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="178" x2="338" y1="567.3672" y2="567.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="128" x="190" y="562.5107">throw new Exception()</text><polygon fill="#A80036" points="62.5,593.7188,52.5,597.7188,62.5,601.7188,58.5,597.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="56.5" x2="162" y1="597.7188" y2="597.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="68.5" y="592.8623">ShowError()</text><!--MD5=[d41491461fe1dac4576167352b61f410]
+@startuml
+actor Operator as O
+participant VehicleEditorWindow as VEW
+participant VehicleEditorModel as VEM
+participant TrailerConnector as TC
+
+activate VEW
+VEW -> VEM : new VehicleEditorModel()
+activate VEM
+VEW <- - VEM : model
+O -> VEW : SetTrailer()
+VEW -> VEM : model.Disconnect()
+VEM -> TC : new TrailerConnector()
+activate TC
+TC - -> VEM : connector
+VEM -> TC : Unhook(vehicle)
+alt success
+TC - -> VEM : return true
+VEW -> VEW : Save()
+VEW -> VEW : Refresh()
+VEM - -> VEW : return true
+VEW - -> O
+else failure
+TC - -> VEM : throw new Exception()
+VEM - -> VEW : throw new Exception()
+VEW - -> O : ShowError()
+end group
+deactivate TC
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></p><h3 class="mume-header" id="przeprowad%C5%BA-za%C5%82adunek-przestrzeni-%C5%82adunkowej">Przeprowad&#x17A; za&#x142;adunek przestrzeni &#x142;adunkowej</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="894px" preserveAspectRatio="none" style="width:1045px;height:894px;background:#FFFFFF;" version="1.1" viewBox="0 0 1045 894" width="1045px" zoomAndPan="magnify"><defs><filter height="300%" id="f1sxsa28i3yb4p" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="700.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="178.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="647.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="406.5" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="617" style="stroke:#A80036;stroke-width:1.0;" width="10" x="623.5" y="182.6641"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="465.2422" style="stroke:#A80036;stroke-width:1.0;" width="10" x="770" y="334.4219"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="434.8906" style="stroke:#A80036;stroke-width:1.0;" width="10" x="971" y="364.7734"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="168.5938" style="stroke:#000000;stroke-width:2.0;" width="525.5" x="324.5" y="470.8281"/><rect fill="#FFFFFF" height="46.1875" style="stroke:none;stroke-width:1.0;" width="525.5" x="324.5" y="593.2344"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="94.8906" style="stroke:#000000;stroke-width:2.0;" width="400" x="98.5" y="653.4219"/><rect fill="#FFFFFF" height="46.1875" style="stroke:none;stroke-width:1.0;" width="400" x="98.5" y="702.125"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="36" x2="36" y1="89.6094" y2="808.6641"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="183.5" x2="183.5" y1="89.6094" y2="808.6641"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="411.5" x2="411.5" y1="89.6094" y2="808.6641"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="628" x2="628" y1="89.6094" y2="808.6641"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="775" x2="775" y1="89.6094" y2="808.6641"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="975.5" x2="975.5" y1="89.6094" y2="808.6641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="5" y="86.5332">Operator</text><ellipse cx="36.5" cy="15" fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M36.5,23 L36.5,50 M23.5,31 L49.5,31 M36.5,50 L23.5,65 M36.5,50 L49.5,65 " fill="none" filter="url(#f1sxsa28i3yb4p)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57" x="5" y="822.1973">Operator</text><ellipse cx="36.5" cy="835.2734" fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M36.5,843.2734 L36.5,870.2734 M23.5,851.2734 L49.5,851.2734 M36.5,870.2734 L23.5,885.2734 M36.5,870.2734 L49.5,885.2734 " fill="none" filter="url(#f1sxsa28i3yb4p)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="108.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="115.5" y="74.5332">VehicleEditorWindow</text><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="146" x="108.5" y="807.6641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="115.5" y="829.1973">VehicleEditorWindow</text><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="150" x="334.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136" x="341.5" y="74.5332">StorageEditorWindow</text><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="150" x="334.5" y="807.6641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136" x="341.5" y="829.1973">StorageEditorWindow</text><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="139" x="557" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="564" y="74.5332">StorageEditorModel</text><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="139" x="557" y="807.6641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="564" y="829.1973">StorageEditorModel</text><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="126" x="710" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="717" y="74.5332">ItemEditorWindow</text><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="126" x="710" y="807.6641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="717" y="829.1973">ItemEditorWindow</text><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="115" x="916.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="923.5" y="74.5332">ItemEditorModel</text><rect fill="#FEFECE" filter="url(#f1sxsa28i3yb4p)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="115" x="916.5" y="807.6641"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101" x="923.5" y="829.1973">ItemEditorModel</text><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="700.0547" style="stroke:#A80036;stroke-width:1.0;" width="10" x="178.5" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="647.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="406.5" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="617" style="stroke:#A80036;stroke-width:1.0;" width="10" x="623.5" y="182.6641"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="465.2422" style="stroke:#A80036;stroke-width:1.0;" width="10" x="770" y="334.4219"/><rect fill="#FFFFFF" filter="url(#f1sxsa28i3yb4p)" height="434.8906" style="stroke:#A80036;stroke-width:1.0;" width="10" x="971" y="364.7734"/><polygon fill="#A80036" points="166.5,117.9609,176.5,121.9609,166.5,125.9609,170.5,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="36.5" x2="172.5" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="118" x="43.5" y="117.1045">OpenStorageEditor()</text><polygon fill="#A80036" points="394.5,148.3125,404.5,152.3125,394.5,156.3125,398.5,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="188.5" x2="400.5" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="199" x="195.5" y="147.4561">new StorageEditorWindow(vehicle)</text><polygon fill="#A80036" points="611.5,178.6641,621.5,182.6641,611.5,186.6641,615.5,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="416.5" x2="617.5" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="188" x="423.5" y="177.8076">new StorageEditorModel(vehicle)</text><polygon fill="#A80036" points="427.5,209.0156,417.5,213.0156,427.5,217.0156,423.5,213.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="421.5" x2="622.5" y1="213.0156" y2="213.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="433.5" y="208.1592">model</text><polygon fill="#A80036" points="394.5,239.3672,404.5,243.3672,394.5,247.3672,398.5,243.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="36.5" x2="400.5" y1="243.3672" y2="243.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="69" x="43.5" y="238.5107">AddGoods()</text><polygon fill="#A80036" points="611.5,269.7188,621.5,273.7188,611.5,277.7188,615.5,273.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="416.5" x2="617.5" y1="273.7188" y2="273.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="79" x="423.5" y="268.8623">GetNewItem()</text><polygon fill="#A80036" points="427.5,300.0703,417.5,304.0703,427.5,308.0703,423.5,304.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="421.5" x2="622.5" y1="304.0703" y2="304.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="25" x="433.5" y="299.2139">item</text><polygon fill="#A80036" points="758,330.4219,768,334.4219,758,338.4219,762,334.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="416.5" x2="764" y1="334.4219" y2="334.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="183" x="423.5" y="329.5654">new ItemEditorWindow(storage)</text><polygon fill="#A80036" points="959,360.7734,969,364.7734,959,368.7734,963,364.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="780" x2="965" y1="364.7734" y2="364.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="172" x="787" y="359.917">new ItemEditorModel(storage)</text><polygon fill="#A80036" points="758,391.125,768,395.125,758,399.125,762,395.125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="36.5" x2="764" y1="395.125" y2="395.125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="76" x="43.5" y="390.2686">set item data</text><polygon fill="#A80036" points="959,421.4766,969,425.4766,959,429.4766,963,425.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="780" x2="965" y1="425.4766" y2="425.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="99" x="787" y="420.6201">UpdateItem(item)</text><polygon fill="#A80036" points="791,451.8281,781,455.8281,791,459.8281,787,455.8281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="785" x2="970" y1="455.8281" y2="455.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="33" x="797" y="450.9717">return</text><path d="M324.5,470.8281 L385.5,470.8281 L385.5,478.8281 L375.5,488.8281 L324.5,488.8281 L324.5,470.8281 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="168.5938" style="stroke:#000000;stroke-width:2.0;" width="525.5" x="324.5" y="470.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="339.5" y="485.3232">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="80" x="400.5" y="484.2471">[user accepts]</text><polygon fill="#A80036" points="427.5,507.5313,417.5,511.5313,427.5,515.5313,423.5,511.5313" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="421.5" x2="769" y1="511.5313" y2="511.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="433.5" y="506.6748">return true</text><polygon fill="#A80036" points="611.5,537.8828,621.5,541.8828,611.5,545.8828,615.5,541.8828" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="416.5" x2="617.5" y1="541.8828" y2="541.8828"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="120" x="423.5" y="537.0264">model.AddItem(item)</text><line style="stroke:#A80036;stroke-width:1.0;" x1="416.5" x2="458.5" y1="572.2344" y2="572.2344"/><line style="stroke:#A80036;stroke-width:1.0;" x1="458.5" x2="458.5" y1="572.2344" y2="585.2344"/><line style="stroke:#A80036;stroke-width:1.0;" x1="417.5" x2="458.5" y1="585.2344" y2="585.2344"/><polygon fill="#A80036" points="427.5,581.2344,417.5,585.2344,427.5,589.2344,423.5,585.2344" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52" x="423.5" y="567.3779">Refresh()</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="324.5" x2="850" y1="594.2344" y2="594.2344"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="79" x="329.5" y="605.6533">[user cancels]</text><polygon fill="#A80036" points="427.5,627.4219,417.5,631.4219,427.5,635.4219,423.5,631.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="421.5" x2="769" y1="631.4219" y2="631.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="64" x="433.5" y="626.5654">return false</text><path d="M98.5,653.4219 L159.5,653.4219 L159.5,661.4219 L149.5,671.4219 L98.5,671.4219 L98.5,653.4219 " fill="#EEEEEE" style="stroke:#000000;stroke-width:1.0;"/><rect fill="none" height="94.8906" style="stroke:#000000;stroke-width:2.0;" width="400" x="98.5" y="653.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="16" x="113.5" y="667.917">alt</text><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="80" x="174.5" y="666.8408">[user accepts]</text><polygon fill="#A80036" points="199.5,690.125,189.5,694.125,199.5,698.125,195.5,694.125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="193.5" x2="405.5" y1="694.125" y2="694.125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="59" x="205.5" y="689.2686">return true</text><line style="stroke:#000000;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="98.5" x2="498.5" y1="703.125" y2="703.125"/><text fill="#000000" font-family="sans-serif" font-size="11" font-weight="bold" lengthAdjust="spacing" textLength="79" x="103.5" y="714.5439">[user cancels]</text><polygon fill="#A80036" points="199.5,736.3125,189.5,740.3125,199.5,744.3125,195.5,740.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="193.5" x2="405.5" y1="740.3125" y2="740.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="64" x="205.5" y="735.4561">return false</text><line style="stroke:#A80036;stroke-width:1.0;" x1="188.5" x2="230.5" y1="777.6641" y2="777.6641"/><line style="stroke:#A80036;stroke-width:1.0;" x1="230.5" x2="230.5" y1="777.6641" y2="790.6641"/><line style="stroke:#A80036;stroke-width:1.0;" x1="189.5" x2="230.5" y1="790.6641" y2="790.6641"/><polygon fill="#A80036" points="199.5,786.6641,189.5,790.6641,199.5,794.6641,195.5,790.6641" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="36" x="195.5" y="772.8076">Save()</text><!--MD5=[41a778a7724138c3742702702fdd6afd]
+@startuml
+actor Operator as O
+participant VehicleEditorWindow as VEW
+participant StorageEditorWindow as SEW
+participant StorageEditorModel as SEM
+participant ItemEditorWindow as IEW
+participant ItemEditorModel as IEM
+
+activate VEW
+O -> VEW : OpenStorageEditor()
+VEW -> SEW : new StorageEditorWindow(vehicle)
+activate SEW
+SEW -> SEM : new StorageEditorModel(vehicle)
+activate SEM
+SEW <- - SEM : model
+O -> SEW : AddGoods()
+SEW -> SEM : GetNewItem()
+SEM - -> SEW : item
+SEW -> IEW : new ItemEditorWindow(storage)
+activate IEW
+IEW -> IEM : new ItemEditorModel(storage)
+activate IEM
+O -> IEW : set item data
+IEW -> IEM : UpdateItem(item)
+IEM - -> IEW : return
+alt user accepts
+IEW - -> SEW : return true
+SEW -> SEM : model.AddItem(item)
+SEW -> SEW : Refresh()
+else user cancels
+IEW - -> SEW : return false
+end group
+
+alt user accepts
+SEW - -> VEW : return true
+else user cancels
+SEW - -> VEW : return false
+end group
+
+VEW -> VEW : Save()
+
+
+@enduml
+
+PlantUML version 1.2021.12(Tue Oct 05 18:01:58 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></p><h2 class="mume-header" id="diagramy-maszyny-stanowej-i-czynno%C5%9Bci">Diagramy maszyny stanowej i czynno&#x15B;ci</h2>
+
+<h3 class="mume-header" id="logowanie-do-programu">Logowanie do programu</h3>
+
+<div class="mermaid">stateDiagram-v2
+start: Logowanie
+vehicles: Wy&#x15B;wietlanie listy pojazd&#xF3;w
+operators: Wy&#x15B;wietlanie listy operator&#xF3;w
+finish: Zamkni&#x119;cie programu
+[*] --&gt; start
+start --&gt; vehicles : Logowanie operatora 
+start --&gt; operators : Logowanie administratora
+start --&gt; start : B&#x142;&#x105;d logowania
+operators --&gt; start: Wylogowanie administratora
+vehicles --&gt; start: Wylogowanie operatora
+start --&gt; finish: Zako&#x144;czenie programu
+finish --&gt; [*]
+</div><h3 class="mume-header" id="okno-administratora">Okno administratora</h3>
+
+<div class="mermaid">stateDiagram-v2
+operators_list: Wy&#x15B;wietlanie listy operator&#xF3;w
+edit_operator: Edycja operatora
+
+[*] --&gt; operators_list: Logowanie jako administrator
+operators_list --&gt; edit_operator: Dodaj operatora
+operators_list --&gt; edit_operator: Edytuj operatora
+edit_operator --&gt; operators_list: Zapisz operatora
+operators_list --&gt; operators_list: Usu&#x144; operatora
+edit_operator --&gt; operators_list: Anuluj edycj&#x119;
+</div><h3 class="mume-header" id="okno-operatora-pojazd%C3%B3w">Okno operatora pojazd&#xF3;w</h3>
+
+<div class="mermaid">stateDiagram-v2
+vehicles_list: Wy&#x15B;wietlanie listy pojazd&#xF3;w
+edit_vehicle: Edytowanie pojazdu
+join_trailer: &#x141;&#x105;czenie pojazd&#xF3;w
+disjoin_trailer: Roz&#x142;&#x105;czanie pojazd&#xF3;w
+
+[*] --&gt; vehicles_list: Logowanie jako operator
+vehicles_list --&gt; edit_vehicle: Dodaj pojazd
+vehicles_list --&gt; edit_vehicle: Edytuj pojazd
+edit_vehicle --&gt; vehicles_list: Zapisz pojazd
+edit_vehicle --&gt; vehicles_list: Anuluj edycj&#x119; pojazdu
+vehicles_list --&gt; vehicles_list: Usu&#x144; pojazd
+edit_vehicle --&gt; join_trailer: Po&#x142;&#x105;cz z pojazdem
+join_trailer --&gt; edit_vehicle: Edytuj pojazd
+edit_vehicle --&gt; disjoin_trailer: Roz&#x142;&#x105;cz z pojazdem
+disjoin_trailer --&gt; edit_vehicle: Edytuj pojazd
+</div><h3 class="mume-header" id="okno-dodawania-towar%C3%B3w">Okno dodawania towar&#xF3;w</h3>
+
+<div class="mermaid">stateDiagram-v2
+edit_vehicle: Edycja pojazdu
+edit_item: Edycja towaru
+show_storage: Wy&#x15B;wietlanie przestrzeni &#x142;adunkowej
+
+[*] --&gt; edit_vehicle: Edycja pojazdu
+edit_vehicle --&gt; show_storage: Otw&#xF3;rz przestrze&#x144; &#x142;adunkow&#x105;
+show_storage --&gt; edit_item: Dodawanie towaru
+show_storage --&gt; edit_item: Edycja towaru
+edit_item --&gt; show_storage: Zapisz towar
+edit_item --&gt; show_storage: Anuluj dodawanie towaru
+</div>
+      </div>
+      
+      
+    
+    
+    <script>
+// config mermaid init call
+// http://knsv.github.io/mermaid/#configuration
+//
+// You can edit the 'MERMAID_CONFIG' variable below.
+MERMAID_CONFIG = {
+  startOnLoad: false
+}
+
+if (window['MERMAID_CONFIG']) {
+  window['MERMAID_CONFIG'].startOnLoad = false
+  window['MERMAID_CONFIG'].cloneCssStyles = false
+  window['MERMAID_CONFIG'].theme = "default"
+}
+mermaid.initialize(window['MERMAID_CONFIG'] || {})
+if (typeof(window['Reveal']) !== 'undefined') {
+  function mermaidRevealHelper(event) {
+    var currentSlide = event.currentSlide
+    var diagrams = currentSlide.querySelectorAll('.mermaid')
+    for (var i = 0; i < diagrams.length; i++) {
+      var diagram = diagrams[i]
+      if (!diagram.hasAttribute('data-processed')) {
+        mermaid.init(null, diagram, ()=> {
+          Reveal.slide(event.indexh, event.indexv)
+        })
+      }
+    }
+  }
+  Reveal.addEventListener('slidechanged', mermaidRevealHelper)
+  Reveal.addEventListener('ready', mermaidRevealHelper)
+} else {
+  mermaid.init(null, document.getElementsByClassName('mermaid'))
+}
+</script>
+    
+    
+    
+    
+    
+  
+    </body></html>

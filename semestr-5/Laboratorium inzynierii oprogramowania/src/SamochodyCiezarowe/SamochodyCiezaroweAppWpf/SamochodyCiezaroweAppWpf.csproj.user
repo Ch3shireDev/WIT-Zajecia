@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>D:\Users\Cheshire\Documents\GitHub\WIT-Zajecia\semestr-5\Inzynieria oprogramowania\src\SamochodyCiezarowe\SamochodyCiezaroweAppWpf\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Users\UserEditorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Users\UsersWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vehicles\ConnectTrailerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vehicles\ItemEditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vehicles\StorageEditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Users\UserEditorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Users\UsersWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vehicles\ConnectTrailerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vehicles\ItemEditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vehicles\StorageEditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vehicles\VehicleEditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vehicles\VehiclesWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

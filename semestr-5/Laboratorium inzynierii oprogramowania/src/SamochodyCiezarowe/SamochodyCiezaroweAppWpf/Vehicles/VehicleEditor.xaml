@@ -1,0 +1,216 @@
+﻿<Window x:Class="SamochodyCiezaroweAppWpf.Vehicles.VehicleEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Edytor pojazdu" Height="665" Width="833"
+        DataContext="{Binding Model, RelativeSource={RelativeSource Self}}" WindowStartupLocation="CenterOwner"
+        IsTabStop="False" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.ColumnSpan="2" Margin="0">
+                    <Grid Margin="0,0,417,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="255.04" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="153*" />
+                            <ColumnDefinition Width="263*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Nazwa" Margin="10,10,10,10" Grid.Row="1"
+                               FocusManager.FocusedElement="{Binding RelativeSource={RelativeSource Self}}" />
+                        <Label Content="VIN" Margin="10,10,10,10" Grid.Row="2" />
+                        <Label Content="Rok produkcji" Margin="10,10,10,10" Grid.Row="3" />
+                        <Label Content="Nr identyfikacyjny" Margin="10,10,10,10" Grid.Row="4" />
+                        <Label Content="Typ" Margin="10,10,10,10" Grid.Row="5" VerticalAlignment="Top" Height="22"
+                               Padding="5,0,5,0" VerticalContentAlignment="Center" />
+                        <Label Grid.Column="1" Content="{Binding Vehicle.Id}" Margin="10,10,10,10" Grid.Row="4" />
+                        <TextBox x:Name="VehicleNameTextBox" Grid.Column="1" Text="{Binding Vehicle.Name}"
+                                 TextWrapping="Wrap" Margin="10,12,10,12" Grid.Row="1" TabIndex="0"
+                                 VerticalAlignment="Stretch" />
+                        <TextBox x:Name="VehicleVINTextBox" Grid.Column="1" Text="{Binding Vehicle.VIN}"
+                                 TextWrapping="Wrap" Margin="10,12,10,12"
+                                 Grid.Row="2" TabIndex="1" VerticalAlignment="Stretch" />
+                        <TextBox x:Name="VehicleYearTextBox" Grid.Column="1" Text="{Binding Vehicle.Year}"
+                                 TextWrapping="Wrap" Margin="10,12,10,12"
+                                 Grid.Row="3" TabIndex="2" VerticalAlignment="Stretch" />
+                        <ComboBox x:Name="VehicleTypeComboBox" Grid.Column="1" Margin="10,10,10,0" Grid.Row="5"
+                                  TabIndex="6"
+                                  ItemsSource="{Binding VehicleTypes}"
+                                  SelectedValue="{Binding SelectedVehicleType}" VerticalAlignment="Top" Height="22"
+                                  SelectionChanged="VehicleTypeComboBox_SelectionChanged">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding TypeDescription}" VerticalAlignment="Center" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Label Content="Parametry pojazdu" Margin="10,10,10,10" Grid.ColumnSpan="2" FontWeight="Bold"
+                               FontStretch="Expanded" FontStyle="Normal" />
+
+
+                        <ComboBox x:Name="StorageSpaceComboBox" Margin="10,10,10,0" VerticalAlignment="Top"
+                                  Grid.Column="1" Grid.Row="6" Height="22"
+                                  ItemsSource="{Binding StorageTypes, Mode=OneWay}"
+                                  SelectedValue="{Binding SelectedStorageType}" SelectionChanged="StorageSpaceComboBox_SelectionChanged">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding StorageDescription}" VerticalAlignment="Center" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Label x:Name="StorageSpaceLabel" Content="Przestrzeń ładunkowa" VerticalAlignment="Top"
+                               VerticalContentAlignment="Center" Grid.Row="6" Margin="10,10,10,0" Height="22"
+                               Padding="5,0" />
+
+                    </Grid>
+                    <Grid Margin="416,0,0,0" Name="EngineGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="46" />
+                            <RowDefinition Height="46" />
+                            <RowDefinition Height="46" />
+                            <RowDefinition Height="46" />
+                            <RowDefinition Height="46" />
+                            <RowDefinition Height="46" />
+                        </Grid.RowDefinitions>
+                        <Label Content="Parametry silnika" Margin="10,0,10,10" VerticalAlignment="Bottom"
+                               Grid.ColumnSpan="2" Height="26" FontWeight="Bold" />
+                        <Label Content="Nazwa" Grid.Row="1" Margin="10,10,10,10" />
+                        <Label Content="Pojemność (cm3)" Grid.Row="2" Margin="10,10,10,10" />
+                        <Label Content="Moc (KM)" Grid.Row="3" Margin="10,10,10,10" />
+                        <TextBox x:Name="EngineNameTextBox" Grid.Column="1" Grid.Row="1" Text="{Binding Engine.Name}"
+                                 TextWrapping="Wrap"
+                                 Margin="10,12,10,12" TabIndex="3" VerticalAlignment="Stretch" />
+                        <TextBox x:Name="EngineCapacityTextBox" Grid.Column="1" Grid.Row="2"
+                                 Text="{Binding Engine.Capacity}" TextWrapping="Wrap"
+                                 Margin="10,12,10,12" TabIndex="4" VerticalAlignment="Stretch" />
+                        <TextBox x:Name="EnginePowerTextBox" Grid.Column="1" Grid.Row="3" Text="{Binding Engine.Power}"
+                                 TextWrapping="Wrap"
+                                 Margin="10,12,10,12" TabIndex="5" VerticalAlignment="Stretch" />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid x:Name="TrailerGrid" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="SetTrailerButton" Content="Ustaw przyczepę" Click="SetTrailerButton_Click" />
+                <Label Grid.Column="1" VerticalContentAlignment="Center">
+                    <Label.Content>
+                        <TextBlock>
+                            <Run Text="Wybrana przyczepa: -" />
+                            <!--<Run x:Name="SelectedTrailerNameText1" Text="{Binding SelectedTrailerName, Mode=OneWay}"/>-->
+                        </TextBlock>
+                    </Label.Content>
+
+                </Label>
+            </Grid>
+            <Grid x:Name="SemiTrailerGrid" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="SetSemiTrailerButton" Content="Ustaw naczepę" Grid.Column="0"
+                        Click="SetSemiTrailerButton_Click" Margin="10" />
+                <Label Grid.Column="1" VerticalContentAlignment="Center" Grid.RowSpan="2">
+                    <Label.Content>
+                        <TextBlock>
+                            <Run Text="Wybrana naczepa: -" />
+                            <!--<Run x:Name="SelectedTrailerNameText2" Text="{Binding SelectedTrailerName, Mode=OneWay}"/>-->
+                        </TextBlock>
+                    </Label.Content>
+
+                </Label>
+            </Grid>
+            <Grid x:Name="DisconnectTrailer" Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="DisconnectTrailerButton" Content="Rozłącz przyczepę"
+                        Click="DisconnectTrailerButton_Click" />
+                <Label Grid.Column="1" VerticalContentAlignment="Center" Grid.RowSpan="2">
+                    <Label.Content>
+                        <TextBlock>
+                            <Run Text="Wybrana przyczepa: " />
+                            <Run x:Name="SelectedTrailerNameText3" Text="{Binding SelectedTrailerName, Mode=OneWay}" />
+                        </TextBlock>
+                    </Label.Content>
+
+                </Label>
+            </Grid>
+            <Grid x:Name="DisconnectSemiTrailerGrid" Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="DisconnectSemiTrailerButton" Content="Rozłącz naczepę"
+                        Click="DisconnectSemiTrailerButton_Click" />
+                <Label Grid.Column="1" VerticalContentAlignment="Center" Grid.RowSpan="2">
+                    <Label.Content>
+                        <TextBlock>
+                            <Run Text="Wybrana naczepa: " />
+                            <Run x:Name="SelectedTrailerNameText4" Text="{Binding SelectedTrailerName, Mode=OneWay}" />
+                        </TextBlock>
+                    </Label.Content>
+
+                </Label>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="VehicleEditorSaveButton" Content="Zapisz" Margin="10" TabIndex="7"
+                    Click="VehicleEditorSaveButton_Click" />
+            <Button x:Name="VehiclEditorCancelButton" Content="Porzuć" Grid.Column="2" Margin="10" TabIndex="9"
+                    Click="VehiclEditorCancelButton_Click" />
+            <Button x:Name="StorageSpaceButton" Content="Wyświetl przestrzeń ładunkową" Grid.Column="1" Margin="10"
+                    TabIndex="8" Click="StorageSpaceButton_Click" />
+        </Grid>
+
+    </Grid>
+</Window>

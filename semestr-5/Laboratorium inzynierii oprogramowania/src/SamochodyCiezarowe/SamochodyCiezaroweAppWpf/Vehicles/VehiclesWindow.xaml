@@ -1,0 +1,118 @@
+﻿<Window x:Class="SamochodyCiezaroweAppWpf.Vehicles.VehiclesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Samochody Ciężarowe" Height="531" Width="1393"
+        DataContext="{Binding Model, RelativeSource={RelativeSource Self}}">
+    <Window.Resources>
+    </Window.Resources>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Height="20">
+            <MenuItem Header="Program">
+                <MenuItem x:Name="LoadMenuItem" Header="Wczytaj" Click="LoadMenuItem_Click" />
+                <MenuItem x:Name="SaveMenuItem" Header="Zapisz" Click="SaveMenuItem_Click" />
+                <MenuItem x:Name="LogoutMenuItem" Header="Wyloguj" Click="LogoutMenuItem_Click" />
+                <MenuItem x:Name="ExitMenuItem" Header="Zakończ" Click="ExitMenuItem_Click" />
+            </MenuItem>
+            <MenuItem  Header="Pojazdy">
+                <MenuItem Header="Dodaj pojazd" x:Name="AddVehicleMenuItemDockPanel" Click="AddVehicleMenuItemDockPanel_Click"/>
+                <MenuItem x:Name="EditVehicleMenuItemDockPanel" Header="Edytuj pojazd" Click="EditVehicleMenuItemDockPanel_Click" />
+                <MenuItem x:Name="DeleteVehicleMenuItemDockPanel" Header="Usuń pojazd" Click="DeleteVehicleMenuItemDockPanel_Click" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <ListView x:Name="VehiclesList" Margin="10,10,10,0" ItemsSource="{Binding Vehicles}">
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem x:Name="AddVehicleMenuItem" Header="Dodaj" Click="AddVehicleMenuItem_Click" />
+                            <MenuItem x:Name="EditVehicleMenuItem" Header="Edytuj" Click="EditVehicleMenuItem_Click" />
+                            <MenuItem x:Name="DeleteVehicleMenuItem" Header="Usuń" Click="DeleteVehicleMenuItem_Click" />
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Nr id." DisplayMemberBinding="{Binding Vehicle.Id}" Width="40" />
+                            <GridViewColumn Header="Nazwa" Width="250">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Vehicle.Name}" HorizontalAlignment="Center"
+                                                   TextAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="VIN" Width="60">
+
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Vehicle.VIN}" HorizontalAlignment="Center"
+                                                   TextAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+
+                            </GridViewColumn>
+                            <GridViewColumn Header="Rok produkcji"
+                                            Width="100">
+
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Vehicle.Year}" HorizontalAlignment="Center"
+                                                   TextAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+
+                            </GridViewColumn>
+                            <GridViewColumn Header="Typ pojazdu" Width="500">
+
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Vehicle.TypeDescription}"
+                                                   HorizontalAlignment="Center"
+                                                   TextAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+
+                            </GridViewColumn>
+                            <GridViewColumn Header="Stan" Width="150">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding TrailerDescription, Mode=OneWay}"
+                                                   HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Ładunek" Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding StorageDescription, Mode=OneWay}"
+                                                   HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="220" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="AddVehicleButton" Content="Dodaj pojazd" Margin="10" Click="AddVehicleButton_Click" />
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>
