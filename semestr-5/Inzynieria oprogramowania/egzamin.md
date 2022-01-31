@@ -1,77 +1,102 @@
 # Inżynieria oprogramowania
 
-1. Czym zajmuje się inżynieria oprogramowania?
+## Czym zajmuje się inżynieria oprogramowania?
 
-2. Kiedy można stosować model wodospadowy?
+Inżynieria oprogramowania zajmuje się:
 
-3. Podać przykład relacji generalizacji, narysuj go i objaśnij.
+- analizą i rozwojem systemów informatycznych,
+- technikami szacowania kosztów i harmonogramowania tworzenia oprogramowania,
+- metodami analizy i projektowania systemów,
+- technikami zwiększania niezawodności oprogramowania,
+- sposobami testowania systemów i szacowania ich niezawodności,
+- sposobami przygotowywania dokumentacji technicznej i użytkowej,
+- procedurami kontroli jakości,
+- technikami pracy zespołowej.
 
-4. Podaj przykład relacji zależności na diagramie klas.
+## Wymień dwie miary niezawodności oprogramowania
 
-5. Kiedy stosuje się specyfikacje formalne?
+## Jak można strukturalizować diagram zmian stanów?
 
-6. Narysuj diagram klas dla następującego zdania. Nazwij i uzasadnij zastosowaną relację: **Egzamin zawiera 10 pytań**.
+## Podać przykład relacji agregaci, narysuj go i objaśnij.
 
-7. Kiedy stosuje się prototypowanie?
+## Jak można strukturalizować aktorów?
 
-8. Jakie są różnice pomiędzy systemem informacyjnym i systemem informatycznym?
+## Na czym polega testowanie funkcjonalne?
 
-9. Wymień typy relacji na diagramie klas w UML.
+## Wymień 2 miary niezawodności oprogramowania
 
-10. Jak można strukturalizować diagramy use case w UML?
+## Narysuj diagram klas dla następującego zdania, nazwij i uzasadnij zastosowane relacje: **W sklepie są lodówki, pralki, kuchenki**.
 
-11. Podać przykład relacji agregacji, narysuj go i objaśnij.
+## Kiedy można stosować model wodospadowy?
 
-12. Objaśnij krótko iteracyjny model produkcji oprogramowania.
+## Podać przykład relacji generalizacji, narysuj go i objaśnij.
 
-13. Co to jest selekcja?
+## Podaj przykład relacji zależności na diagramie klas.
 
-14. Co to jest projekcja?
+## Kiedy stosuje się specyfikacje formalne?
 
-15. Co to jest integralność BD i integralność referencyjna?
+## Narysuj diagram klas dla następującego zdania. Nazwij i uzasadnij zastosowaną relację: **Egzamin zawiera 10 pytań**.
 
-16. Jakie są przykłady przekształceń związków pomiędzy encjami: M:N, 1:N?
+## Kiedy stosuje się prototypowanie?
 
-17. Co to jest COCOMO?
+## Jakie są różnice pomiędzy systemem informacyjnym i systemem informatycznym?
 
-18. Jakie są zalety stosowania specyfikacji formalnych?
+## Wymień typy relacji na diagramie klas w UML.
 
-19. Scharakteryzować ERD i DFD.
+## Jak można strukturalizować diagramy use case w UML?
 
-20. Opis i charakterystyka struktur SI.
+## Podać przykład relacji agregacji, narysuj go i objaśnij.
 
-21. Czym jest model spiralny SI?
+## Objaśnij krótko iteracyjny model produkcji oprogramowania.
 
-22. Wymień segmenty każdej spirali w modelu spiralnym (co się w nich robi)?
+## Co to jest selekcja?
 
-23. Do czego służy diagram kontekstowy SI?
+## Co to jest projekcja?
 
-24. Opisać i scharakteryzować model kaskadowy SI.
+## Co to jest integralność BD i integralność referencyjna?
 
-25. Opisać i scharakteryzować model z prototypem SI.
+## Jakie są przykłady przekształceń związków pomiędzy encjami: M:N, 1:N?
 
-26. Jakie cechy powinien posiadać prawidłowo zaprojektowany interfejs SI?
+## Co to jest COCOMO?
 
-27. Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz**.
+## Jakie są zalety stosowania specyfikacji formalnych?
 
-28. Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **W szafce znajdują się talerze, kubki, miski**.
+## Scharakteryzować ERD i DFD.
 
-29. Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
+## Opis i charakterystyka struktur SI.
 
-  ![](./images/02.png)
+## Czym jest model spiralny SI?
 
-30. Podaj przykład diagramu DFD, objaśnij.
+## Wymień segmenty każdej spirali w modelu spiralnym (co się w nich robi)?
 
-31. Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
+## Do czego służy diagram kontekstowy SI?
 
-32. Na czym polega testowanie strukturalne?
+## Opisać i scharakteryzować model kaskadowy SI.
 
-33. Jakie znasz ograniczenia relacji w UML?
+## Opisać i scharakteryzować model z prototypem SI.
 
-34. Dla podanego programu przedstawić diagram Nassi-Shneidermana.
+## Jakie cechy powinien posiadać prawidłowo zaprojektowany interfejs SI?
 
-  ```c++
-  unsigned P(int i)
+## Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz**.
+
+## Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **W szafce znajdują się talerze, kubki, miski**.
+
+## Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
+
+![](./images/02.png)
+
+## Podaj przykład diagramu DFD, objaśnij.
+
+## Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
+
+## Na czym polega testowanie strukturalne?
+
+## Jakie znasz ograniczenia relacji w UML?
+
+## Dla podanego programu przedstawić diagram Nassi-Shneidermana.
+
+```c++
+unsigned P(int i)
   // Przekazuje i-tą liczbę pierwszą
   {
   unsigned int n,pp,k;
@@ -86,64 +111,60 @@
   }
   return tp[i];
   }
-  ```
+```
 
-35. Określ i narysuj w notacji UML typy relacji pomiędzy obiektami w poniższych zdaniach. Odpowiedź należy uzasadnić.
+## Określ i narysuj w notacji UML typy relacji pomiędzy obiektami w poniższych zdaniach. Odpowiedź należy uzasadnić.
 
-  - a) Klient kupił bilet na autobus
-  - b) Listonosz dostarcza paczki i listy polecone
-  - c) Sprzedawca sprzedaje pralki i lodówki
-  - d) W walizce znajdują się spodnie, swetry, buty.
-  - e) Kamera, smartfon, tablet są urządzeniami do rejestracji obrazu.
+- a) Klient kupił bilet na autobus
+- b) Listonosz dostarcza paczki i listy polecone
+- c) Sprzedawca sprzedaje pralki i lodówki
+- d) W walizce znajdują się spodnie, swetry, buty.
+- e) Kamera, smartfon, tablet są urządzeniami do rejestracji obrazu.
 
-36. Jakie są wady modelu wodospadowego?
+## Jakie są wady modelu wodospadowego?
 
-37. Jakie są metody specyfikacji procesów na najniższym poziomie w metodach strukturalnych?
+## Jakie są metody specyfikacji procesów na najniższym poziomie w metodach strukturalnych?
 
-38. Wymień znane Ci miary niezawodności oprogramowania.
+## Wymień znane Ci miary niezawodności oprogramowania.
 
-39. Podaj przykład diagramu DFD, objaśnij.
+## Podaj przykład diagramu DFD, objaśnij.
 
-40. Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
+## Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
 
-41. Na czym polega testowanie strukturalne?
+## Na czym polega testowanie strukturalne?
 
-42. Jakie znasz ograniczenia relacji w UML?
+## Jakie znasz ograniczenia relacji w UML?
 
-43. Kiedy stosujemy prototypowanie ?
+## Kiedy stosujemy prototypowanie ?
 
-44. Czym zajmuje się inżynieria oprogramowania ?
+## Wymień segmenty każdej spirali w modelu spiralnym (co się w nich robi)
 
-45. Wymień segmenty każdej spirali w modelu spiralnym (co się w nich robi)
+## Co to jest COCOMO ?
 
-46. Co to jest COCOMO ?
+## Zalety stosowania specyfikacji formalnych
 
-47. Zalety stosowania specyfikacji formalnych
+## Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji . Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
 
-48. Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji . Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
+## Narysuj diagram klas dla następującego zdania: Aparat fotograficzny, kamera są urządzeniami rejestrującymi obraz
 
-49. Narysuj diagram klas dla następującego zdania: Aparat fotograficzny, kamera są urządzeniami rejestrującymi obraz
+## Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E3, E1, E2\. Uzasadnij swoje rozwiązanie. Co możesz powiedzieć o tej klasie (jej atrybutach, operacjach)?
 
-50. Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E3, E1, E2\. Uzasadnij swoje rozwiązanie. Co możesz powiedzieć o tej klasie (jej atrybutach, operacjach)?
-
-51. (10p) Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E2, E1, E3\. Uzasadnij swoje rozwiązanie.
+## Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E2, E1, E3\. Uzasadnij swoje rozwiązanie.
 
 ![](./images/01.png)
 
-1. (10p) Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
+## Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
 
 ![](./images/02.png)
 
-1. (3p) Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania:
+## Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz.
 
-Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz.
+## Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: W szafce znajdują się talerze, kubki, miski.
 
-1. (3p) Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: W szafce znajdują się talerze, kubki, miski.
+## Podaj przykład diagramu DFD, objaśnij
 
-2. (4p) Podaj przykład diagramu DFD, objaśnij
+## Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij
 
-3. (3p) Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij
+## Zaprojektuj strukturę BD w postaci diagramów związków encji dla systemu ewidencji rezultatów zawodów sportowych na uczelni. Nazwa konkurencji sportowej (może być wiele), dane osoby prowadzącej zajęcia z danej konkurencji (jedna dla danej konkurencji), i wyniki dla studentów. Podać atrybuty wszystkich encji i niezbędne klucze.
 
-4. Zaprojektuj strukturę BD w postaci diagramów związków encji dla systemu ewidencji rezultatów zawodów sportowych na uczelni. Nazwa konkurencji sportowej (może być wiele), dane osoby prowadzącej zajęcia z danej konkurencji (jedna dla danej konkurencji), i wyniki dla studentów. Podać atrybuty wszystkich encji i niezbędne klucze.
-
-5. Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji . Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
+## Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji. Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
