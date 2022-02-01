@@ -1,6 +1,8 @@
 # Inżynieria oprogramowania
 
-## Czym zajmuje się inżynieria oprogramowania?
+## Informacje wstępne
+
+### Czym zajmuje się inżynieria oprogramowania?
 
 Inżynieria oprogramowania zajmuje się:
 
@@ -13,87 +15,479 @@ Inżynieria oprogramowania zajmuje się:
 - procedurami kontroli jakości,
 - technikami pracy zespołowej.
 
-## Wymień dwie miary niezawodności oprogramowania
+### Miary niezawodności oprogramowania
 
-## Jak można strukturalizować diagram zmian stanów?
+1. Kryteria związane ze sposobem działania:
 
-## Podać przykład relacji agregaci, narysuj go i objaśnij.
+  - przyjazność interfejsu
+  - bezpieczeństwo - kontrola uprawnień dostępu
+  - wydajność
+  - poprawność - stopień realizacji wymagań
+  - kompletność i logiczność implementacji
+  - zgodność działania ze specyfikacją
+  - niezawodność - odporność na błędy
 
-## Jak można strukturalizować aktorów?
+2. Kryteria zwiazane z możliwością wprowadzenia zmian i poprawek:
 
-## Na czym polega testowanie funkcjonalne?
+  - pielęgnowalność - stopień przystosowania do poprawienia, modyfikacji, rozszerzania, adaptowania
+  - elastyczność - możliwości rozbudowywania oprogramowania o nowe funkcje oraz uniwersalność zaimplementowanych rozwiązań
+  - testowalność
 
-## Wymień 2 miary niezawodności oprogramowania
+3. Kryteria związane z mobilnością:
 
-## Narysuj diagram klas dla następującego zdania, nazwij i uzasadnij zastosowane relacje: **W sklepie są lodówki, pralki, kuchenki**.
+  - przenośność - zdolność do łatwego uruchamiania na innych systemach
+  - uniwersalność - odnosi się do możliwości wykorzystania istniejącego oprogramowania lub jego fragmentów do konstrukcji innych systemów (reuse)
+  - otwartość - stopień przystosowania programu do współpracy lub wymiany informacji z innymi systemami komputerowymi
 
-## Kiedy można stosować model wodospadowy?
+### Jakie są cechy oprogramowania wysokiej jakości?
 
-## Podać przykład relacji generalizacji, narysuj go i objaśnij.
+### Jakie można stosować kryteria oceny oprogramowania?
 
-## Podaj przykład relacji zależności na diagramie klas.
+### Jakie cechy oprogramowania są związane z jego działaniem?
 
-## Kiedy stosuje się specyfikacje formalne?
+### Co oferuje inżynieria oprogramowania?
 
-## Narysuj diagram klas dla następującego zdania. Nazwij i uzasadnij zastosowaną relację: **Egzamin zawiera 10 pytań**.
+### Dlaczego ważniejsza jest niezawodność oprogramowania, niż efektywność?
 
-## Kiedy stosuje się prototypowanie?
+### Jakie cechy powinien posiadać prawidłowo zaprojektowany interfejs systemu informatycznego?
 
-## Jakie są różnice pomiędzy systemem informacyjnym i systemem informatycznym?
+### Jakie są poziomy modelowania systemu (widzenia systemu) w UML?
 
-## Wymień typy relacji na diagramie klas w UML.
+1. Model use case (przypadki użycia)
 
-## Jak można strukturalizować diagramy use case w UML?
+  - przedstawia system z punktu widzenia użytkownika
+  - modeluje zachowanie systemu w odpowiedzi na polecenia użytkownika
+  - określa CO system robi i kto może z niego skorzystać.
 
-## Podać przykład relacji agregacji, narysuj go i objaśnij.
+2. Poziom logiczny - co jest w systemie?
 
-## Objaśnij krótko iteracyjny model produkcji oprogramowania.
+  - przedstawia system w postaci klas, powiązań i interakcji między nimi, zachowań obiektów należących do tych klas oraz sekwencji działań systemu
+  - tworzone są diagramy:
 
-## Co to jest selekcja?
+    - klas, obiektów
+    - sekwencji (interfakcji)
+    - współpracy
+    - przejść stanów
 
-## Co to jest projekcja?
+  - określa CO JEST w systemie, JAK system działa
 
-## Co to jest integralność BD i integralność referencyjna?
+3. Poziom implementacyjny - jak działa system?
 
-## Jakie są przykłady przekształceń związków pomiędzy encjami: M:N, 1:N?
+  - model implementacyjny - przedstawia system jako moduły, podsystemy, zadania. Na tym etapie powstaje diagram komponentów
+  - model wdrożeniowy (deployment) - modeluje fizyczne rozmieszczenie modułów systemu na komputerach. Uwzględnia wymagania
 
-## Co to jest COCOMO?
+4. Poziom fizyczny - rozmieszczenie i instalacja systemu
 
-## Jakie są zalety stosowania specyfikacji formalnych?
+## Diagramy use case
 
-## Scharakteryzować ERD i DFD.
+### Jak można strukturalizować aktorów?
 
-## Opis i charakterystyka struktur SI.
+### Jak można strukturalizować diagramy use case w UML?
 
-## Czym jest model spiralny SI?
+Opisujemy pewne zachowanie systemu, interakcje systemu ze środowiskiem zewnętrznym (człowiekiem lub innym systemem). Opisujemy ciąg wykonywanych przez system akcji, które na żądanie aktora realizują jego cele i dostarczają mierzalne wyniki. Opisujemy również wymagania funkcjonalne oczekiwane od systemu. Opisujemy CO system robi, ale nie JAK system to robi.
 
-## Wymień segmenty każdej spirali w modelu spiralnym (co się w nich robi)?
+Diagramy use case budujemy z następujących elementów:
 
-## Do czego służy diagram kontekstowy SI?
+- aktorów (osób, systemów wewnętrznych):
 
-## Opisać i scharakteryzować model kaskadowy SI.
+  - korzysta z systemu
+  - dostarcza/odbiera dane do/z systemu
+  - administruje systemem
 
-## Opisać i scharakteryzować model z prototypem SI.
+  Aktor: przyczyna napędzająca przypadki użycia, sprawca zdarzeń powodujących uruchomienie przypadku użycia, odbiorca danych wyprodukowanych przez przypadki użyci. Osoba, organizacja, inny system komputerowy. Grupa osób pełniących pewną rolę, ale nie konkretna osoba.
 
-## Jakie cechy powinien posiadać prawidłowo zaprojektowany interfejs SI?
+- przypadków użycia
 
-## Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz**.
+  -
 
-## Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **W szafce znajdują się talerze, kubki, miski**.
+- relacji (asocjacji, zależności)
 
-## Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
+- przykład użycia może być specjalizacją innego (generalizacja)
+
+- przykład użycia może być włączany jako część innego (`<<include>>`)
+
+- przykład użycia może rozszerzać zachowanie innego (`<<extend>>`)
+
+### Wymień typy relacji na diagramie klas w UML.
+
+- Zależność (dependency) między elementami, zmiana w jendym może wpływać na drugi, skierowanie pokazuje kierunek zależności.
+- Generalnizacja (dziedziczenie)
+- Asocjacja (association) powiązanie:
+
+  - dwukierunkowa
+  - jednokierunkowa
+
+![](./images/04.png)
+
+Kierunki relacji w use case:
+
+`<<include>>`
+
+```plantuml
+@startuml
+(main functionality) .> (something included)
+(order meal) ..> (choose menu)
+(order meal) ..> (pay)
+@enduml
+```
+
+`<<extend>>`
+
+```plantuml
+@startuml
+(main functionality) <. (something extending)
+(choose menu) <.. (filter menus)
+@enduml
+```
+
+`generalizacja`
+
+```plantuml
+@startuml
+(filter menus) <|-- (filter by dietary requirements)
+(filter menus) <|-- (filter by cuisine)
+@enduml
+```
+
+![](./images/05.png)
+
+## Diagramy klas
+
+### Podać przykład relacji agregacji, narysuj go i objaśnij.
+
+### Zadanie 1
+
+Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji. Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
+
+### Zadanie 2
+
+Narysuj diagram klas dla następującego zdania, nazwij i uzasadnij zastosowane relacje: **W sklepie są lodówki, pralki, kuchenki**.
+
+### Zadanie 3
+
+Narysuj diagram klas dla następującego zdania. Nazwij i uzasadnij zastosowaną relację: **Egzamin zawiera 10 pytań**.
+
+### Zadanie 4
+
+Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz**.
+
+### Zadanie 5
+
+Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **W szafce znajdują się talerze, kubki, miski**.
+
+### Zadanie 6
+
+Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
 
 ![](./images/02.png)
 
-## Podaj przykład diagramu DFD, objaśnij.
+### Zadanie 7
 
-## Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
+Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji . Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
 
-## Na czym polega testowanie strukturalne?
+### Zadanie 8
 
-## Jakie znasz ograniczenia relacji w UML?
+Narysuj diagram klas dla następującego zdania: Aparat fotograficzny, kamera są urządzeniami rejestrującymi obraz
 
-## Dla podanego programu przedstawić diagram Nassi-Shneidermana.
+### Zadanie 9
+
+Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
+
+![](./images/02.png)
+
+### Zadanie 10
+
+Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz.
+
+### Zadanie 11
+
+Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: W szafce znajdują się talerze, kubki, miski.
+
+### Zadanie 12
+
+Określ i narysuj w notacji UML typy relacji pomiędzy obiektami w poniższych zdaniach.
+
+Wykład 4, ok 1:10:00
+
+Odpowiedź należy uzasadnić:
+
+1. Klient ma miejscówkę na określony pociąg
+2. Listonosz dostarcza przesyłki
+3. Bileter sprzedaje bilety
+4. W plecaku znajdują się książki, zeszyty
+5. Magnetofon, magnetowid są urządzeniami do rejestracji dźwięku
+
+### Zadanie 12
+
+Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący relacje między obiektami klas.
+
+Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Odpowiedź należy uzasadnić. {Zamek, most zwodzony, wieża, schody, korytarz, pokój, okno, podłoga, duch, strażnik, kucharz, hrabia, hrabina, lokaj}
+
+### Zadanie 13
+
+Określ i narysuj w notacji UML typy relacji pomiędzy obiektami w poniższych zdaniach. Odpowiedź należy uzasadnić.
+
+- a) Klient kupił bilet na autobus
+- b) Listonosz dostarcza paczki i listy polecone
+- c) Sprzedawca sprzedaje pralki i lodówki
+- d) W walizce znajdują się spodnie, swetry, buty.
+- e) Kamera, smartfon, tablet są urządzeniami do rejestracji obrazu.
+
+### Podać przykład relacji generalizacji, narysuj go i objaśnij.
+
+### Podaj przykład relacji zależności na diagramie klas.
+
+### Określ i narysuj w notacji UML typy relacji pomiędzy obiektami w poniższych zdaniach. Nazwij typ relacji i objaśnij powód użycia danego typu).
+
+- Student uczęszcza na wykład prowadzony przez wykładowcę
+- Plik jest plikiem zwykłym lub katalogowym
+- Poligon składa się z uporządkowanego zbioru punktów
+- Modem, klawiatura są urządzeniami wejścia/wyjścia
+- Obiekty klasy mają pewne atrybuty
+
+## Diagramy zmian stanów
+
+Wykład 7, 1:00:00
+
+- Pozwala na opis na wysokim poziomie a następnie na uszczegóławianie na coraz niższych poziomach.
+- Tworzona jest struktura hierarchiczna z dziedziczeniem wspólnego zachowania i struktury.
+- Stan może mieć diagram maszyny stanowej, który dziedziczy przejścia superstanu. Przejście, akcja superstanu dotyczy wszystkich jego podstanów (chyba, że zostanie przysłonięte przez przejście w podstanie).
+
+Wybór "L" w dowolnym podstanie "do przodu" powoduje przejście do stanu "luz". Wybór "F" powoduje przejście do stanu "pierwszy". Zdarzenie "stop" w dowolnym podstanie "do przodu" powoduje przejście do stanu "pierwszy".
+
+### Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
+
+### Jak można strukturalizować diagram zmian stanów?
+
+### Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
+
+### Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E3, E1, E2\. Uzasadnij swoje rozwiązanie. Co możesz powiedzieć o tej klasie (jej atrybutach, operacjach)?
+
+### Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E2, E1, E3\. Uzasadnij swoje rozwiązanie.
+
+![](./images/01.png)
+
+### Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij
+
+### Przekształć podany niżej strukturalizowany diagram stanów w diagram "płaski" - bez strukturalizacji.
+
+![](./images/03.png)
+
+### Jakie znasz ograniczenia relacji w UML?
+
+## Modele procesu produkcji systemów informatycznych
+
+### Opis i charakterystyka struktur SI
+
+Modele o dobrej obserwowalności:
+
+- wodospadowy,
+- formalnych transformacji (każda transformacja kończy się dokumentem, raportem),
+- spiralny (w każdym segmencie spirali powstaje dokument).
+
+Modele o słabej obserwowalności:
+
+- Montaż z gotowych komponentów
+- Najmniejsza możliwość obserwowania procesu produkcji jest w modelu ewolucyjnym
+
+### Czym jest i kiedy można stosować model wodospadowy (kaskadowy)?
+
+### Jakie są „deliverable" w modelu wodospadowym ?
+
+Model wodospadowy jest modelem procesu produkcji, który opiera się na rozdzieleniu procesu produkcji na następujące etapy:
+
+1. Specyfikacja wymagań
+2. Projektowanie oprogramowania (design)
+3. Implementacja (implementation, coding)
+4. Testowanie (testing)
+5. Użytkowanie i pielęgnacja (maintenance)
+
+Zalety:
+
+- łatwość zarządzania przedsięwzięciem (planowanie, harmonogramowanie, monitorowanie)
+- narzucanie kolejności wykonywania prac
+
+Wady:
+
+- narzucanie kolejności wykonywania prac
+- wysoki koszt błędów popełnionych we wczesnych fazach
+- długa przerwa w kontaktach z klientem
+
+Rezultaty faz modelu:
+
+- Analiza wymagań - studium wykonalności, „zgrubne" wymagania
+- Definicja wymagań - dokument opisujący wymagania
+- Specyfikacja systemu - funkcjonalna specyfikacja systemu, plan testów akceptacyjnych, szkic podręcznika użytkownika
+- Projektowanie architektury - specyfikacja architektury, testy systemowe
+- Projektowanie interfejsów - specyfikacja interfejsów, testy integracyjne
+- Projektowanie jednostek - projekt szczegółowy, testy jednostkowe
+- Kodowanie - kod programu
+- Testowanie jednostek - raport testowania
+- Testowanie modułów - raport testowania
+- Testowanie integracyjne - raport testowania integracyjnego, podręcznik użytkownika
+- Testowanie systemowe - raport testowania
+- Testowanie akceptacyjne - system i dokumentacja
+
+### Na czym polega walidacja? Na czym polega weryfikacja?
+
+Weryfikacja:
+
+- czy właściwie budujemy produkt?
+- czy spełnia wymagania?
+
+Walidacja:
+
+- czy budujemy właściwy produkt?
+- czy funkcje produktu są takie jak klient naprawdę oczekiwał?
+
+### Czym jest model ewolucyjny?
+
+Model ewolucyjny, odkrywczy (exploratory), stosujemy wtedy, gdy określenie dokładnych wymagań jest niemożliwe.
+
+### Opisać i scharakteryzować model z prototypem SI. Kiedy stosuje się prototypowanie?
+
+Prototypowanie jest stosowane najczęściej wtedy, gdy nie możemy określić dokładnych wymagań. Prototypowanie pozwala na określenie szczegółów wymagań, dokładnego wyglądu interfejsu użytkownika, wykrywanie trudnych usług, braków w specyfikacji. Prototypowanie pozwala na wykrycie nieporozumień pomiędzy klientem a projektantami. Prototyp pozwala na demonstrację pracującego systemu, daje możliwości szkolenia zanim zostanie zbudowany pełen system.
+
+Fazy:
+
+- ogólne określenie wymagań
+- opracowanie szybko działającego prototypu
+- walidacja prototypu przez klienta
+- określenie szczegółowych wymagań
+- opracowanie pełnego systemu
+
+### Formalne transformacje - czym są, kiedy się stosuje, jakie są zalety?
+
+Wymagania wobec systemu są zapisywane w języku formalnym. Podlegają one automatycznym przekształceniom do programu.
+
+Zalety:
+
+- wysoka niezawodność (brak błędów przy transformacjach)
+
+Wady:
+
+- trudności formalnego specyfikowania
+- mała efektywność kodu
+
+Systemy safety critical (błąd może powodować bardzo poważne konsekwencje) wymagają zapisywania większości specyfikacji formalnych w języku formalnym.
+
+Przykłady:
+
+- Z notation (Z-schema)
+- B-method (metoda B)
+- Vienna Development Method
+
+### Czym jest realizacja przyrostowa (incremental development) - iteracyjny model produkcji oprogramowania? Jakie kryteria wyboru funkcji do realizacji możemy stosować w modelu iteracyjnym?
+
+Fazy:
+
+1. Określanie wymagań
+2. Projekt ogólny
+3. Powtarzaj co następuje:
+
+  - 3.1\. Wybór funkcji
+  - 3.2\. Projekt / implementacja / testy
+  - 3.3\. Dostarczenie części systemu -> powrót wyboru funkcji.
+
+Kryteria wyboru funkcji do realizacji:
+
+- priorytet dla klienta
+- łatwość realizacji
+- przydatność dla kolejnych iteracji
+
+Zalety:
+
+- częsty kontakt z klientem
+- możliwość wczesnego wykorzystywania części systemu
+
+Wady:
+
+- dodatkowy koszt związany z realizacją fragmentów systemu (pisanie szkieletów modułów)
+
+### Czym jest montaż z gotowych elementów (off-shell programming, reuse)? Jakie są wady i zalety modelu COTS?
+
+W montażu z gotowych elementów (ang. reuse, off-shell programming) korzysta się z gotowych, dostępnych komponentów i tworzy się kod integrujący je.
+
+COTS ang. Commercial Off The Shelf
+
+Stosowanie :
+
+- bibliotek
+- języków czwartej generacji
+- pełnych aplikacji
+
+Proces produkcji:
+
+- Specyfikacja wymagań.
+- Analiza komponentów - poszukiwanie komponentów spełniających funkcje systemu, zwykle komponenty spełniają tylko część wymagań.
+- Modyfikacja wymagań – dostosowanie wymagań do znalezionych komponentów, w przypadku wymagań bardzo istotnych dla systemu, dla których nie znaleziono komponentów, poszukiwanie rozwiązań alternatywnych.
+- Projektowanie systemu z komponentami – zaprojektowanie „połączeń" między komponentami, ewentualne zaprojektowanie kodu realizującego wymagania, dla których komponenty nie były dostępne.
+- Realizacja systemu i integracja – implementacja i testowanie zaprojektowanego kodu i integracja komponentów.
+
+Zalety:
+
+- wysoka niezawodność
+- narzucenie standardów
+- małe koszty, wysoka szybkość tworzenia oprogramowania
+
+Wady:
+
+- dodatkowy koszt przygotowania elementów do ponownego użycia
+- ryzyko uzależnienia od dostawcy komponentu
+- wysokie koszty pielęgnowania
+- nie w pełni realizowane wymagania klienta.
+
+### Czym jest model spiralny systemu informatycznego? Wymień segmenty każdej spirali w modelu spiralnym.
+
+Segmenty:
+
+1. Planowanie - co ma być zrealizowane?
+2. Analiza ryzyka - jakie ryzyko występuje?
+3. Konstrukcja - jakie komponenty są potrzebne?
+4. Testowanie - jakie testy powinny być wykonane?
+
+Każda spirala składa się z czterech sektorów:
+
+1. Określenia celów, identyfikacja ograniczeń, poszukiwanie alternatywnych rozwiązań.
+2. Analiza ryzyka związanego z proponowanymi rozwiązaniami, redukcja ryzyka np. w przypadku ryzyka związanego z wymaganiami budowa prototypu.
+3. Po określeniu ryzyka wybiera się najlepsze rozwiązanie (o najmniejszym ryzyku).
+4. Planowanie następnej spirali, podjęcie decyzji dotyczącej kontynuacji.
+
+W modelu spiralnym można włączać inne modele. Np. prototypowanie można zastosować do wykrycia braków w wymaganiach, formalne specyfikacje do budowy fragmentów systemu, dla których są wymagane bardzo wysokie parametry niezawodnościowe, a model wodospadowy dla podsystemów o dobrze określonych wymaganiach.
+
+### W jakich modelach procesu produkcji oprogramowania zajmujemy się analizą ryzyka?
+
+### Jaki model procesu produkcji oprogramowania należy zastosować przy bardzo złożonych systemach?
+
+### Do czego służy diagram kontekstowy SI?
+
+## Inżynieria wymagań
+
+### Na czym polega testowanie funkcjonalne?
+
+## Analiza i projektowanie strukturalne
+
+### Scharakteryzować ERD i DFD.
+
+### Podaj przykład diagramu DFD, objaśnij.
+
+### Jakie są metody specyfikacji procesów na najniższym poziomie w metodach strukturalnych?
+
+### Na czym polega testowanie strukturalne?
+
+### Co to jest integralność BD i integralność referencyjna?
+
+### Jakie są różnice pomiędzy systemem informacyjnym i systemem informatycznym?
+
+### Podać przykład relacji agregacji, narysuj go i objaśnij.
+
+### Co to jest selekcja?
+
+### Co to jest projekcja?
+
+### Jakie są przykłady przekształceń związków pomiędzy encjami: M:N, 1:N?
+
+### Dla podanego programu przedstawić diagram Nassi-Shneidermana.
 
 ```c++
 unsigned P(int i)
@@ -113,58 +507,13 @@ unsigned P(int i)
   }
 ```
 
-## Określ i narysuj w notacji UML typy relacji pomiędzy obiektami w poniższych zdaniach. Odpowiedź należy uzasadnić.
+### Zaprojektuj strukturę BD w postaci diagramów związków encji dla systemu ewidencji rezultatów zawodów sportowych na uczelni. Nazwa konkurencji sportowej (może być wiele), dane osoby prowadzącej zajęcia z danej konkurencji (jedna dla danej konkurencji), i wyniki dla studentów. Podać atrybuty wszystkich encji i niezbędne klucze.
 
-- a) Klient kupił bilet na autobus
-- b) Listonosz dostarcza paczki i listy polecone
-- c) Sprzedawca sprzedaje pralki i lodówki
-- d) W walizce znajdują się spodnie, swetry, buty.
-- e) Kamera, smartfon, tablet są urządzeniami do rejestracji obrazu.
+### Co to jest COCOMO?
 
-## Jakie są wady modelu wodospadowego?
+### Zadanie z modelu COCOMO
 
-## Jakie są metody specyfikacji procesów na najniższym poziomie w metodach strukturalnych?
+Wysiłek potrzebny na wykonanie pewnego projektu policzony wg podstawowego modelu COCOMO wynosi 1000 osobo/miesięcy. Podaj (wraz z uzasadnieniem) ile osobo/miesięcy wyniesie on przy założonych współczynnikach:
 
-## Wymień znane Ci miary niezawodności oprogramowania.
-
-## Podaj przykład diagramu DFD, objaśnij.
-
-## Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
-
-## Na czym polega testowanie strukturalne?
-
-## Jakie znasz ograniczenia relacji w UML?
-
-## Kiedy stosujemy prototypowanie ?
-
-## Wymień segmenty każdej spirali w modelu spiralnym (co się w nich robi)
-
-## Co to jest COCOMO ?
-
-## Zalety stosowania specyfikacji formalnych
-
-## Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji . Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
-
-## Narysuj diagram klas dla następującego zdania: Aparat fotograficzny, kamera są urządzeniami rejestrującymi obraz
-
-## Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E3, E1, E2\. Uzasadnij swoje rozwiązanie. Co możesz powiedzieć o tej klasie (jej atrybutach, operacjach)?
-
-## Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E2, E1, E3\. Uzasadnij swoje rozwiązanie.
-
-![](./images/01.png)
-
-## Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
-
-![](./images/02.png)
-
-## Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz.
-
-## Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: W szafce znajdują się talerze, kubki, miski.
-
-## Podaj przykład diagramu DFD, objaśnij
-
-## Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij
-
-## Zaprojektuj strukturę BD w postaci diagramów związków encji dla systemu ewidencji rezultatów zawodów sportowych na uczelni. Nazwa konkurencji sportowej (może być wiele), dane osoby prowadzącej zajęcia z danej konkurencji (jedna dla danej konkurencji), i wyniki dla studentów. Podać atrybuty wszystkich encji i niezbędne klucze.
-
-## Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji. Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
+- niezawodność 1.5, narzędzia 1.2, przyspieszony harmonogram 1.2
+- niezawodność 0.8, narzędzia 0.9, przyspieszony harmonogram 1.0
