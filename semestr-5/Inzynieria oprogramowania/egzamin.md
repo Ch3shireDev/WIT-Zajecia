@@ -267,6 +267,8 @@ Wybór "L" w dowolnym podstanie "do przodu" powoduje przejście do stanu "luz". 
 
 ![](./images/01.png)
 
+### Podać przykład relacji agregacji, narysuj go i objaśnij.
+
 ### Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij
 
 ### Przekształć podany niżej strukturalizowany diagram stanów w diagram "płaski" - bez strukturalizacji.
@@ -463,7 +465,15 @@ W modelu spiralnym można włączać inne modele. Np. prototypowanie można zast
 
 ## Inżynieria wymagań
 
+## Testowanie
+
 ### Na czym polega testowanie funkcjonalne?
+
+Testy funkcjonalne (black box) - testy nastawione na wykrywanie błędów, wyprowadzone ze specyfikacji programu. Twórca testu nie wie, jak został zaimplementowany program, wie natomiast czego powinien się spodziewać po jego funkcjonalności.
+
+### Na czym polega testowanie strukturalne?
+
+Testy strukturalne (white box) - testy nastawione na wykrywanie błędów, wyprowadzone na podstawie znajomości struktury programu. Twórca testu wie jak zostało zaimplementowane rozwiązanie i opisuje, czego spodziewa się po działaniu.
 
 ## Analiza i projektowanie strukturalne
 
@@ -473,13 +483,9 @@ W modelu spiralnym można włączać inne modele. Np. prototypowanie można zast
 
 ### Jakie są metody specyfikacji procesów na najniższym poziomie w metodach strukturalnych?
 
-### Na czym polega testowanie strukturalne?
-
 ### Co to jest integralność BD i integralność referencyjna?
 
 ### Jakie są różnice pomiędzy systemem informacyjnym i systemem informatycznym?
-
-### Podać przykład relacji agregacji, narysuj go i objaśnij.
 
 ### Co to jest selekcja?
 
