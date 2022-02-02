@@ -245,6 +245,8 @@ Określ i narysuj w notacji UML typy relacji pomiędzy obiektami w poniższych z
 - Modem, klawiatura są urządzeniami wejścia/wyjścia
 - Obiekty klasy mają pewne atrybuty
 
+  ### Podać przykład relacji agregacji, narysuj go i objaśnij.
+
 ## Diagramy zmian stanów
 
 Wykład 7, 1:00:00
@@ -259,15 +261,11 @@ Wybór "L" w dowolnym podstanie "do przodu" powoduje przejście do stanu "luz". 
 
 ### Jak można strukturalizować diagram zmian stanów?
 
-### Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
+### Zadanie
 
-### Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E3, E1, E2\. Uzasadnij swoje rozwiązanie. Co możesz powiedzieć o tej klasie (jej atrybutach, operacjach)?
-
-### Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E2, E1, E3\. Uzasadnij swoje rozwiązanie.
+Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E3, E1, E2\. Uzasadnij swoje rozwiązanie. Co możesz powiedzieć o tej klasie (jej atrybutach, operacjach)?
 
 ![](./images/01.png)
-
-### Podać przykład relacji agregacji, narysuj go i objaśnij.
 
 ### Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij
 
@@ -294,7 +292,7 @@ Modele o słabej obserwowalności:
 
 ### Czym jest i kiedy można stosować model wodospadowy (kaskadowy)?
 
-### Jakie są „deliverable" w modelu wodospadowym ?
+### Jakie są "deliverable" w modelu wodospadowym ?
 
 Model wodospadowy jest modelem procesu produkcji, który opiera się na rozdzieleniu procesu produkcji na następujące etapy:
 
@@ -479,6 +477,17 @@ Testy strukturalne (white box) - testy nastawione na wykrywanie błędów, wypro
 
 ### Scharakteryzować ERD i DFD.
 
+Entity elations diagram - diagram zwiazków encji, uwypukla związki między danymi, modeluje gromadzone dane. Dzieli się na:
+
+- typy obiektów - typ obiektu reprezentuje zbiór lub kolekcję obiektów ze świata rzeczywistego, które mają znaczenie dla budowanego systemu, mogą być jednoznacznie zidentyfikowane i opisane przez atrybuty, zazwyczaj oznaczane prostokątami.
+- związki - Reprezentują zbiór powiązań między typami obiektów. Przedstawiane za pomocą rombów.
+
+Data flow diagram - model przepływu danych, ilustruje funkcje które musi realizować system.
+
+Diagram przepływu danych pokazuje jak dane przepływają z jednej jednostki przetwarzającej do następnej. Nie zawierają informacji sterujących. Autorzy stosują różne notacje graficzne.
+
+Diagramy przepływu danych pokazują transformacje bez robienia założeń jak są one implementowane.
+
 ### Podaj przykład diagramu DFD, objaśnij.
 
 ### Jakie są metody specyfikacji procesów na najniższym poziomie w metodach strukturalnych?
@@ -516,6 +525,22 @@ unsigned P(int i)
 ### Zaprojektuj strukturę BD w postaci diagramów związków encji dla systemu ewidencji rezultatów zawodów sportowych na uczelni. Nazwa konkurencji sportowej (może być wiele), dane osoby prowadzącej zajęcia z danej konkurencji (jedna dla danej konkurencji), i wyniki dla studentów. Podać atrybuty wszystkich encji i niezbędne klucze.
 
 ### Co to jest COCOMO?
+
+Prosty projekt:
+
+PM - person/month
+
+KDSI - kilo delivered source instructions
+
+- Dla projektów małych: $PM = 2.4(KDSI)^{1.05}\cdot M$
+- Dla projektów średnich: $PM = 3.0(KDSI)^{1.12}\cdot M$
+- Dla projektów złożonych: $PM = 3.6(KDSI)^{1.20}\cdot M$
+
+Czas trwania projektu:
+
+- Dla projektów prostych: $TDEV = 2.5(PM)^{0.38}$
+- Dla projektów średnich: $TDEV = 2.5(PM)^{0.35}$
+- Dla projektów złożonych: $TDEV = 2.5(PM)^{0.32}$
 
 ### Zadanie z modelu COCOMO
 
