@@ -155,83 +155,6 @@ Kierunki relacji w use case:
 
 ### Podać przykład relacji agregacji, narysuj go i objaśnij.
 
-### Zadanie 1
-
-Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji. Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
-
-### Zadanie 2
-
-Narysuj diagram klas dla następującego zdania, nazwij i uzasadnij zastosowane relacje: **W sklepie są lodówki, pralki, kuchenki**.
-
-### Zadanie 3
-
-Narysuj diagram klas dla następującego zdania. Nazwij i uzasadnij zastosowaną relację: **Egzamin zawiera 10 pytań**.
-
-### Zadanie 4
-
-Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz**.
-
-### Zadanie 5
-
-Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: **W szafce znajdują się talerze, kubki, miski**.
-
-### Zadanie 6
-
-Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
-
-![](./images/02.png)
-
-### Zadanie 7
-
-Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący co najmniej 10 relacji między obiektami klas. Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Należy uzasadnić zastosowany typ relacji . Można dodać klasę, jeżeli wpłynie to korzystnie na diagram klas. {zawodnicy, sędziowie, konkurencje, wynik, próba, nota, ocenia, startuje, zawody, wykonuje próbę, drużyna, kibice}
-
-### Zadanie 8
-
-Narysuj diagram klas dla następującego zdania: Aparat fotograficzny, kamera są urządzeniami rejestrującymi obraz
-
-### Zadanie 9
-
-Narysuj fragment diagramu klas (klasy, relacje, operacje), wynikający z podanego poniżej diagramu sekwencji. Uzasadnij swoje rozwiązanie.
-
-![](./images/02.png)
-
-### Zadanie 10
-
-Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: Kamera i aparat fotograficzny są urządzeniami rejestrującymi obraz.
-
-### Zadanie 11
-
-Narysuj diagram klas, nazwij i uzasadnij zastosowane relacje dla następującego zdania: W szafce znajdują się talerze, kubki, miski.
-
-### Zadanie 12
-
-Określ i narysuj w notacji UML typy relacji pomiędzy obiektami w poniższych zdaniach.
-
-Wykład 4, ok 1:10:00
-
-Odpowiedź należy uzasadnić:
-
-1. Klient ma miejscówkę na określony pociąg
-2. Listonosz dostarcza przesyłki
-3. Bileter sprzedaje bilety
-4. W plecaku znajdują się książki, zeszyty
-5. Magnetofon, magnetowid są urządzeniami do rejestracji dźwięku
-
-### Zadanie 12
-
-Na podstawie podanego poniżej zbioru słów opracuj spójny diagram klas w UML, pokazujący relacje między obiektami klas.
-
-Należy podać typ relacji (powinny występować wszystkie typy relacji), jej nazwę ewentualnie krotność. Odpowiedź należy uzasadnić. {Zamek, most zwodzony, wieża, schody, korytarz, pokój, okno, podłoga, duch, strażnik, kucharz, hrabia, hrabina, lokaj}
-
-### Zadanie 13
-
-Określ i narysuj w notacji UML typy relacji pomiędzy obiektami w poniższych zdaniach. Odpowiedź należy uzasadnić.
-
-- a) Klient kupił bilet na autobus
-- b) Listonosz dostarcza paczki i listy polecone
-- c) Sprzedawca sprzedaje pralki i lodówki
-- d) W walizce znajdują się spodnie, swetry, buty.
-- e) Kamera, smartfon, tablet są urządzeniami do rejestracji obrazu.
 
 ### Podać przykład relacji generalizacji, narysuj go i objaśnij.
 
@@ -260,12 +183,6 @@ Wybór "L" w dowolnym podstanie "do przodu" powoduje przejście do stanu "luz". 
 ### Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij.
 
 ### Jak można strukturalizować diagram zmian stanów?
-
-### Zadanie
-
-Poniżej podano diagram zmian stanów dla pewnej klasy. Podaj jakie czynności będą kolejno wykonane przez obiekt tej klasy dla następującej sekwencji zdarzeń: utworzenie obiektu, E3, E1, E2\. Uzasadnij swoje rozwiązanie. Co możesz powiedzieć o tej klasie (jej atrybutach, operacjach)?
-
-![](./images/01.png)
 
 ### Podaj przykład generalizacji stanów, w diagramach stanów w UML, objaśnij
 
@@ -502,28 +419,6 @@ Diagramy przepływu danych pokazują transformacje bez robienia założeń jak s
 
 ### Jakie są przykłady przekształceń związków pomiędzy encjami: M:N, 1:N?
 
-### Dla podanego programu przedstawić diagram Nassi-Shneidermana.
-
-```c++
-unsigned P(int i)
-  // Przekazuje i-tą liczbę pierwszą
-  {
-  unsigned int n,pp,k;
-  n=tp[mtp];
-  while(mtp<i)
-  {
-  n+-2;k=2;pp=3; /* pp=tp[k] */
-  while(pp*pp<=n)
-  if (n%pp) pp=tp[++k];
-  else {n+=2; k=2;pp=3;}
-  tp[++mtp]=n;
-  }
-  return tp[i];
-  }
-```
-
-### Zaprojektuj strukturę BD w postaci diagramów związków encji dla systemu ewidencji rezultatów zawodów sportowych na uczelni. Nazwa konkurencji sportowej (może być wiele), dane osoby prowadzącej zajęcia z danej konkurencji (jedna dla danej konkurencji), i wyniki dla studentów. Podać atrybuty wszystkich encji i niezbędne klucze.
-
 ### Co to jest COCOMO?
 
 Prosty projekt:
@@ -541,10 +436,3 @@ Czas trwania projektu:
 - Dla projektów prostych: $TDEV = 2.5(PM)^{0.38}$
 - Dla projektów średnich: $TDEV = 2.5(PM)^{0.35}$
 - Dla projektów złożonych: $TDEV = 2.5(PM)^{0.32}$
-
-### Zadanie z modelu COCOMO
-
-Wysiłek potrzebny na wykonanie pewnego projektu policzony wg podstawowego modelu COCOMO wynosi 1000 osobo/miesięcy. Podaj (wraz z uzasadnieniem) ile osobo/miesięcy wyniesie on przy założonych współczynnikach:
-
-- niezawodność 1.5, narzędzia 1.2, przyspieszony harmonogram 1.2
-- niezawodność 0.8, narzędzia 0.9, przyspieszony harmonogram 1.0
