@@ -1,4 +1,0 @@
-By³o:
-obliczanie fragmentów danych z MTU, 
-konfigurowanie adresów na linuxie czyli ifconfig albo ip addr, 
-coœ z pingiem i traceroutem.
