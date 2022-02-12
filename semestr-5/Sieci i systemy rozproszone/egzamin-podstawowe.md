@@ -41,7 +41,7 @@ W obydwu przypadkach synchronizacji istotne jest przestrzeganie zasad przyczynow
 
 Uniwersalny czas koordynowany - (UTC) Universal Coordinated Time. Czas atomowy skoordynowany z czasem astronomicznym przez dodawanie sekund przestępnych. Wzorzec dla wszystkich współczesnych cywilnych pomiarów czasu.
 
-Jest to czas atomowy skoordynowany z czasem astronomicznym przez dodawanie sekund przestępnych. ( obecnie wzorzec jest przekazywany z wielu instytucji np. NIST (national Institute of Standard Time) ).
+Jest to czas atomowy skoordynowany z czasem astronomicznym przez dodawanie sekund przestępnych. ( obecnie wzorzec jest przekazywany z wielu instytucji np. NIST ( National Institute of Standard Time) ).
 
 ### 5\. Wyjaśnić ideę algorytmu Cristiana synchronizacji czasu fizycznego.
 
@@ -69,121 +69,105 @@ Stosowane są m. in. następujące algorytmy:
 
 1. **Algorytm scentralizowany**:
 
-2. Jeden proces jest koordynatorem.
+  1. Jeden proces jest koordynatorem.
 
-3. Proces, który chce wejść do sekcji krytycznej wysyła zamówienie do koordynatora.Koordynator odpowiada (udziela zezwolenia), gdy żaden inny proces nie jest w sekcji krytycznej.
+  2. Proces, który chce wejść do sekcji krytycznej wysyła zamówienie do koordynatora.Koordynator odpowiada (udziela zezwolenia), gdy żaden inny proces nie jest w sekcji krytycznej.
 
-4. Proces, po odebraniu zezwolenia, wchodzi do sekcji krytycznej.
+  3. Proces, po odebraniu zezwolenia, wchodzi do sekcji krytycznej.
 
-5. Proces wychodząc z sekcji krytycznej wysyła komunikat do koordynatora. ![](./images/16.png)
+  4. Proces wychodząc z sekcji krytycznej wysyła komunikat do koordynatora. ![](./images/16.png)
 
-6. Cechy algorytmu scentralizowanego:
+  5. Cechy algorytmu scentralizowanego:
 
-  - zapewnia wzajemne wyłączanie,
-  - nie zachodzi głodzenie procesów,
-  - łatwy w realizacji,
-  - wrażliwy na awarie.
+    - zapewnia wzajemne wyłączanie,
+    - nie zachodzi głodzenie procesów,
+    - łatwy w realizacji,
+    - wrażliwy na awarie.
 
-7. **Algorytm rozproszony**:
+2. **Algorytm rozproszony**:
 
-8. Wymagane jest całkowite uporządkowanie czasowe zdarzeń - komunikatów (np. stosując algorytm Lamporta).
+  1. Wymagane jest całkowite uporządkowanie czasowe zdarzeń - komunikatów (np. stosując algorytm Lamporta).
 
-9. Proces, który chce wejść do sekcji krytycznej wysyła do wszystkich procesów komunikat zawierający nazwę sekcji krytycznej, swój numer, bieżący czas.
+  2. Proces, który chce wejść do sekcji krytycznej wysyła do wszystkich procesów komunikat zawierający nazwę sekcji krytycznej, swój numer, bieżący czas.
 
-10. Każdy komunikat jest potwierdzany (zapewnienie niezawodności).
+  3. Każdy komunikat jest potwierdzany (zapewnienie niezawodności).
 
-11. Proces odbierający komunikat:
+  4. Proces odbierający komunikat:
 
-  1. Jeśli nie jest w sekcji krytycznej i nie chce do niej wejść – wysyła do nadawcy komunikat OK.
-  2. Jeśli jest w sekcji krytycznej - nie odpowiada.
-  3. Jeśli chce wejść do sekcji krytycznej - sprawdza znacznik czasu odebranego komunikatu i komunikatu, który sam wysłał. Jeśli odebrany komunikat ma znacznik czasu mniejszy - wysyła OK.
+    1. Jeśli nie jest w sekcji krytycznej i nie chce do niej wejść – wysyła do nadawcy komunikat OK.
+    2. Jeśli jest w sekcji krytycznej - nie odpowiada.
+    3. Jeśli chce wejść do sekcji krytycznej - sprawdza znacznik czasu odebranego komunikatu i komunikatu, który sam wysłał. Jeśli odebrany komunikat ma znacznik czasu mniejszy - wysyła OK.
 
-12. Proces nadawca:
+  5. Proces nadawca:
 
-  - Czeka aż wszystkie procesy udzielą zezwolenia, wtedy wchodzi do sekcji krytycznej.
-  - Wychodząc z sekcji krytycznej wysyła OK. do procesów, które ustawił w kolejce. ![](./images/17.png)
+    - Czeka aż wszystkie procesy udzielą zezwolenia, wtedy wchodzi do sekcji krytycznej.
+    - Wychodząc z sekcji krytycznej wysyła OK. do procesów, które ustawił w kolejce. ![](./images/17.png)
 
-13. Cechy algorytmu:
+  6. Cechy algorytmu:
 
-  - Zapewnienie wzajemnego wyłączania bez głodzenia.
-  - Wrażliwy na awarie - brak odpowiedzi spowodowany awarią procesu jest traktowany jako brak zgody - blokowanie procesów próbujących wejść do sekcji krytycznej (jest możliwość rozwiązania).
-  - Wymagana komunikacja grupowa lub każdy proces musi utrzymywać listę procesów znajdujących się w grupie, wchodzących i wychodzących - obciążenie systemu.
+    - Zapewnienie wzajemnego wyłączania bez głodzenia.
+    - Wrażliwy na awarie - brak odpowiedzi spowodowany awarią procesu jest traktowany jako brak zgody - blokowanie procesów próbujących wejść do sekcji krytycznej (jest możliwość rozwiązania).
+    - Wymagana komunikacja grupowa lub każdy proces musi utrzymywać listę procesów znajdujących się w grupie, wchodzących i wychodzących - obciążenie systemu.
 
-14. **Algorytm pierścienia logicznego z żetonem**
+3. **Algorytm pierścienia logicznego z żetonem**
 
-15. Rozpatrzmy system rozproszony, w którym zbiór procesów jest połączonych szyną Wprowadza się logiczne (programowe) uporządkowanie procesów tworząc pierścień. W pierścieniu krąży żeton.
+  1. Rozpatrzmy system rozproszony, w którym zbiór procesów jest połączonych szyną Wprowadza się logiczne (programowe) uporządkowanie procesów tworząc pierścień. W pierścieniu krąży żeton.
 
-16. Proces po otrzymaniu żetonu sprawdza, czy chce wejść do sekcji krytycznej,
+  2. Proces po otrzymaniu żetonu sprawdza, czy chce wejść do sekcji krytycznej,
 
-  - nie - przekazuje żeton sąsiadowi,
-  - tak - zatrzymuje żeton aż wyjdzie z sekcji krytycznej.
+    - nie - przekazuje żeton sąsiadowi,
+    - tak - zatrzymuje żeton aż wyjdzie z sekcji krytycznej.
 
-17. Cechy algorytmu:
+  3. Cechy algorytmu:
 
-  - Zapewnia wzajemne wyłączanie.
-  - Nie powoduje głodzenia procesów.
-  - Powstają problemy związane z zaginięciem żetonu.
-  - Wrażliwy na awarie procesów.
+    - Zapewnia wzajemne wyłączanie.
+    - Nie powoduje głodzenia procesów.
+    - Powstają problemy związane z zaginięciem żetonu.
+    - Wrażliwy na awarie procesów.
 
-18. Algorytmy elekcji:
+  4. Algorytmy elekcji:
 
-19. Cel: wybór procesu, który będzie pełnił rolę koordynatora lub inicjatora w systemie rozproszonym.
+  5. Cel: wybór procesu, który będzie pełnił rolę koordynatora lub inicjatora w systemie rozproszonym.
 
-20. Założenia:
+  6. Założenia:
 
-  - każdy proces ma niepowtarzalny numer,
-  - każdy proces zna numery wszystkich pozostałych,
-  - procesy nie wiedzą, które z nich aktualnie działają, a które są unieruchomione, próbuje się zlokalizować proces o największym numerze.
+  7. każdy proces ma niepowtarzalny numer,
 
-  - **Algorytm tyrana**:
+  8. każdy proces zna numery wszystkich pozostałych,
+
+  9. procesy nie wiedzą, które z nich aktualnie działają, a które są unieruchomione, próbuje się zlokalizować proces o największym numerze.
+
+4. **Algorytm tyrana**:
 
   - Działanie:
 
-  - Proces A zauważył, że koordynator nie odpowiada. A wysyła komunikat ELEKCJA do wszystkich procesów z większymi numerami.
+    - Proces A zauważył, że koordynator nie odpowiada. A wysyła komunikat ELEKCJA do wszystkich procesów z większymi numerami.
 
-  - Brak odpowiedzi, to A zostaje koordynatorem.
+    - Brak odpowiedzi, to A zostaje koordynatorem.
 
-  - Nadchodzi komunikat od procesu B o większym numerze. Proces A przestaje działać w elekcji. B przejmuje sterowanie i kontynuuje elekcję (zgodnie z punktami 1, 2, 3 ).
+    - Nadchodzi komunikat od procesu B o większym numerze. Proces A przestaje działać w elekcji. B przejmuje sterowanie i kontynuuje elekcję (zgodnie z punktami 1, 2, 3 ).
 
-  - Proces, który wygrywa elekcję wysyła do pozostałych komunikat: KOORDYNATOR.
+    - Proces, który wygrywa elekcję wysyła do pozostałych komunikat: KOORDYNATOR.
 
   ![](./images/18.png)
 
-  1. **Algorytm pierścieniowy**
+5. **Algorytm pierścieniowy**
 
-  2. Założenie: procesy są fizycznie i logicznie uporządkowane. (Każdy proces przechowuje strukturę pierścienia).
+  1. Założenie: procesy są fizycznie i logicznie uporządkowane. (Każdy proces przechowuje strukturę pierścienia).
 
-  3. Działanie:
+  2. Działanie:
 
-  4. Proces A zauważył, że koordynator nie działa. Wysyła komunikat ELEKCJA do kolejnego nie wyłączonego procesu w pierścieniu. Komunikat zawiera jego numer.
+  3. Proces A zauważył, że koordynator nie działa. Wysyła komunikat ELEKCJA do kolejnego nie wyłączonego procesu w pierścieniu. Komunikat zawiera jego numer.
 
-  5. Proces B otrzymujący komunikat ELEKCJA, dopisuje swój numer i przesyła do następnego, itd.
+  4. Proces B otrzymujący komunikat ELEKCJA, dopisuje swój numer i przesyła do następnego, itd.
 
-  6. Proces A po odebraniu komunikatu z własnym numerem, wysyła komunikat: KOORDYNATOR z pełną listą procesów występujących aktualnie w pierścieniu i wskazujący proces o najwyższym nu- merze, który zostaje koordynatorem.
+  5. Proces A po odebraniu komunikatu z własnym numerem, wysyła komunikat: KOORDYNATOR z pełną listą procesów występujących aktualnie w pierścieniu i wskazujący proces o najwyższym nu- merze, który zostaje koordynatorem.
 
-  7. Koordynator rozpoczyna działanie.
+  6. Koordynator rozpoczyna działanie.
 
   ![](./images/19.png)
 
-### 9\. Omówić algorytm rotacyjnego (pierścienia logicznego z żetonem) rozwiązujący problem wzajemnego wyłączania w systemach rozproszonych.
-
-Algorytm ten polega na wybraniu procesu, który będzie pełnił rolę koordynatora lub inicjatora w systemie rozproszonym. Opiera się na następujących założeniach:
-
-```
-każdy proces ma niepowtarzalny numer,
-
-każdy proces zna numery wszystkich pozostałych,
-
-procesy nie wiedzą, które z nich aktualnie działają, a które są unieruchomione,
-
-próbuje się zlokalizować proces o najwyższym numerze.
-```
-
-Jako przykład może posłużyć algorytm tyrana:
-
-Algorytm tyrana (z angielskiego bully algorithm), jest to algorytm elekcji, w którym jako koordynatora wybiera się proces o aktualnie najwyższym numerze. Dowolny z procesów, który dostrzega (np. wskutek odliczania czasu) awarię koordynatora, wysyła do pozostałych członków grupy komunikat ELEKCJA. Każdy proces o wyższym numerze niż dotychczasowi nadawcy komunikatu ELEKCJA przejmuje inicjatywę, uciszając procesy o niższych numerach komunikatem OK. Jeśli po usunięciu awarii poprzedni koordynator wznawia działanie w systemie, to przejmuje nadzór, mając najwyższy numer (stąd nazwa algorytmu – najsilniejszy na podwórku zwycięża).
-
-### 10\. Czemu służą algorytmy elekcji? Podać przykład?
+### 9\. Omówić algorytm rotacyjny (pierścienia logicznego z żetonem) rozwiązujący problem wzajemnego wyłączania w systemach rozproszonych.
 
 Algorytm ten polega na wybraniu procesu, który będzie pełnił rolę koordynatora lub inicjatora w systemie rozproszonym. Opiera się na następujących założeniach:
 
@@ -194,24 +178,33 @@ Algorytm ten polega na wybraniu procesu, który będzie pełnił rolę koordynat
 
 Jako przykład może posłużyć algorytm tyrana:
 
-Algorytm tyrana (z angielskiego bully algorithm), jest to algorytm elekcji, w którym jako koordynatora wybiera się proces o aktualnie najwyższym numerze. Dowolny z procesów, który dostrzega (np. wskutek odliczania czasu) awarię koordynatora, wysyła do pozostałych członków grupy komunikat ELEKCJA. Każdy proces o wyższym numerze niż dotychczasowi nadawcy komunikatu ELEKCJA przejmuje inicjatywę, uciszając procesy o niższych numerach komunikatem OK. Jeśli po usunięciu awarii poprzedni koordynator wznawia działanie w systemie, to przejmuje nadzór, mając najwyższy numer (stąd nazwa algorytmu – najsilniejszy na podwórku zwycięża)
+Algorytm tyrana (z angielskiego bully algorithm), jest to algorytm elekcji, w którym jako koordynatora wybiera się proces o aktualnie najwyższym numerze. Dowolny z procesów, który dostrzega (np. wskutek odliczania czasu) awarię koordynatora, wysyła do pozostałych członków grupy komunikat ELEKCJA. Każdy proces o wyższym numerze niż dotychczasowi nadawcy komunikatu ELEKCJA przejmuje inicjatywę, uciszając procesy o niższych numerach komunikatem OK. Jeśli po usunięciu awarii poprzedni koordynator wznawia działanie w systemie, to przejmuje nadzór, mając najwyższy numer (stąd nazwa algorytmu – najsilniejszy na podwórku zwycięża).
 
-### 11\. Na czym polega synchronizacja czasu fizycznego?
+### 10\. Czemu służą algorytmy elekcji? Podać przykład?
 
-Patrz punkt 5.
+Algorytmy które pozwalają procesom na ustalenie koordynatora.
+
+Wybór procesu który zarządza dostępem do sekcji krytycznej.
 
 ### 12\. Na czym polega przetwarzanie transakcyjne?
 
 Transakcje chronią zasób dzielony pred jednoczesnym dostępem kilku współbieżnych procesów. Transakcji używamy do ochrony danych dzielonych.
 
-Proces rozpoczynający transakcję dostaje kopię rzeczywistych obiektów (potrzebnych mu) w przypadku zatwierdzenia commit zmiany są widoczne w obiektach rzeczywistych w przypadku wycofania rollback są tylko usuwane z prywatnej przestrzeni roboczej bez zmian na oryginał (problem kopiowania danych (czasochłonność)) W celu przyśpieszenia procesu transakcji: wykorzystanie indeksowania zawiera adresy dyskowe pliku (do przestrzeni prywatnej kopiuje się tylko indeks) Czytanie pliku- odwołanie do oryginalnego pliku ; aktualizacja bloku- stworzenie kopii bloku, wstawienie adresu do prywatnego indexu i aktualizacja bloku, , Dodanie bloku- dostawienie adresu bloku do pryw. Indexu, Zatwierdzenie transakcji- przeniesienie pryw indexu do przestrzeni procesu rodzicielskiego.
+Proces rozpoczynający transakcję dostaje kopię rzeczywistych obiektów (potrzebnych mu) w przypadku zatwierdzenia commit zmiany są widoczne w obiektach rzeczywistych w przypadku wycofania rollback są tylko usuwane z prywatnej przestrzeni roboczej bez zmian na oryginał (problem kopiowania danych (czasochłonność)) W celu przyśpieszenia procesu transakcji: wykorzystanie indeksowania zawiera adresy dyskowe pliku (do przestrzeni prywatnej kopiuje się tylko indeks)
+
+- Czytanie pliku - odwołanie do oryginalnego pliku
+- aktualizacja bloku - stworzenie kopii bloku, wstawienie adresu do prywatnego indeksu i aktualizacja bloku,
+- Dodanie bloku - dostawienie adresu bloku do prywatnego indeksu,
+- Zatwierdzenie transakcji- przeniesienie pryw indeksu do przestrzeni procesu rodzicielskiego.
 
 ### 13\. Podać i wyjaśnić właściwości transakcji.
+
+ACID:
 
 1. Niepodzielność (atomicity)
 2. Spójność (consistence)
 3. Izolacja, uszeregowanie (isolation, serialization)
-4. Trwałość (durabiIity)
+4. Trwałość (durabiiity)
 
 ### 14\. Podać przykłady metod realizacji przetwarzania transakcyjnego?
 
@@ -244,8 +237,8 @@ x = 0;                  rejestr                 rejestr              rejestr
 y = 0;                  x = 0/1                 x = 0/1              x = 0/1
 POCZĄTEK                                        y = 0/2              y = 0/2
 TRANSAKCJI                                                           x = 1/4
-x = x +1;                  
-y = y + 2;                  
+x = x + 1;
+y = y + 2;
 x = y * y;
 ```
 
@@ -253,13 +246,13 @@ x = y * y;
 
 Postępowanie w różnych sytuacjach:
 
-- **Zatwierdzanie transakcji** – do rejestru wpisywany jest rekord zatwierdzenia. Zmiany w plikach już dokonane.
+- **Zatwierdzanie transakcji** – do rejestru wpisywany jest rekord zatwierdzenia. Zmiany w plikach już są dokonane.
 - **Zaniechanie transakcji** – wycofanie (rollback), t.j. przywrócenie stanu początkowego na podstawie zapisów w rejestrze.
 - **Awaria** – rejestr umożliwia rekonstrukcję danych, mozliwe jest kontynuowanie transakcji lub jej odwołanie.
 
 ### 17\. Na czym polega problem nadzorowania współbieżności wykonywania transakcji w systemach rozproszonych?
 
-Jeśli dwa zdarzenia A i B nie są związane relacją (tzn. A nie wystąpiło przed B ani B nie wystąpiło przed A), to mówimy, że takie dwa zdarzeniaq wystąpiły współbierznie. W tej sytuacji żadne zdarzenie nie może przyczynowo wpływać na drugie. Procesy muszą więc chronić wykorzystywane przez siebie obiekty (pliki, bazy danych i.t.p.) przed wykorzystaniem przez inne procesy.
+Jeśli dwa zdarzenia A i B nie są związane relacją (tzn. A nie wystąpiło przed B ani B nie wystąpiło przed A), to mówimy, że takie dwa zdarzenia wystąpiły współbieżnie. W tej sytuacji żadne zdarzenie nie może przyczynowo wpływać na drugie. Procesy muszą więc chronić wykorzystywane przez siebie obiekty (pliki, bazy danych itp.) przed wykorzystaniem przez inne procesy.
 
 ### 18\. Podać przykłady algorytmów nadzorowania współbieżności transakcji w systemach rozproszonych?
 
@@ -269,7 +262,7 @@ Algorytmy nadzorowania współbieżności nadzorują jednoczesne wykonywanie tra
 
 - **Optymistyczne nadzorowanie współbieżności** – Polega na zapisywaniu informacji, które obiekty były aktualizowane. Wykonuje transakcje nie zważając na inne. W chwili zatwierdzania transakcji sprawdza czy inna transakcja nie zmodyfikowała plików po jej rozpoczęciu, jeśli tak – zaniechanie, jeśli nie – zatwierdzenie transakcji.
 
-- **Znaczniki czasu** – Każdej operacji jest przypisany znacznik czasu operacji elementarnej „Początek transakcji". Zapewniona jeest niepowtarzalność znaczników czasu (np. przy wykorzystaniu algorytmu Lamporta). Każdy plik ma skojarzony znacznik czasu czytania i znacznik czasu pisania przez osatnio zatwierdzoną transakcję. Znacznik czytania i pisania pliku mniejsze od znacznika czasu danej transakcji - nie ma problemu..
+- **Znaczniki czasu** – Każdej operacji jest przypisany znacznik czasu operacji elementarnej "Początek transakcji". Zapewniona jeest niepowtarzalność znaczników czasu (np. przy wykorzystaniu algorytmu Lamporta). Każdy plik ma skojarzony znacznik czasu czytania i znacznik czasu pisania przez osatnio zatwierdzoną transakcję. Jeśli znacznik czytania i pisania pliku jest mniejszy od znacznika czasu danej transakcji - nie ma problemu.
 
 Sytuacja odwrotna oznacza, że po rozpoczęciu transakcji, inna, późniejsza transakcja miała dostęp do pliku.
 
@@ -277,7 +270,7 @@ Sytuacja odwrotna oznacza, że po rozpoczęciu transakcji, inna, późniejsza tr
 
 Można to zrobić poprzez:
 
-- Scentralizowane wykrywanie blokad
+1. Scentralizowane wykrywanie blokad
 
   - System: zbiór maszyn, jeden koordynator.
   - Każda maszyna utrzymuje graf własnych zasobów i procesów.
@@ -286,19 +279,19 @@ Można to zrobić poprzez:
 
     1. Maszyna wysyła komunikat po każdej zmianie krawędzi w grafie.
     2. Maszyna wysyła okresowo wykaz dodanych i usuniętych krawędzi.
-    3. koordynator prosi maszyny o przesłanie informacji, gdy będzie mu to potrzebne.
+    3. Koordynator prosi maszyny o przesłanie informacji, gdy będzie mu to potrzebne.
 
-  - Rozproszone wykrywanie blokad
+2. Rozproszone wykrywanie blokad
 
-    - Np. algorytm Chandy-Misra-Haasa
-    - Proces może zamawiać wiele zasobów jednocześnie.
-    - Sposób realizacji:
-    - Proces oczekujący na zasób wysyła komunikat do procesu przetrzymującego ten zasób
-    - Komunikat zawiera:
+  - Np. algorytm Chandy-Misra-Haasa
+  - Proces może zamawiać wiele zasobów jednocześnie.
+  - Sposób realizacji:
+  - Proces oczekujący na zasób wysyła komunikat do procesu przetrzymującego ten zasób
+  - Komunikat zawiera:
 
-      - Numer procesu rozpoczynającego czekanie.
-      - Numer procesu wysyłającego komunikat.
-      - Numer procesu, do którego komunikat jest wysyłany.
+    - Numer procesu rozpoczynającego czekanie.
+    - Numer procesu wysyłającego komunikat.
+    - Numer procesu, do którego komunikat jest wysyłany.
 
 Odbiorca komunikatu sprawdza czy sam nie czeka, jeśli poczeka to wysyła kolejny komunikat aktualizując 2-ie i 3-e pole.
 
@@ -308,32 +301,33 @@ Sposób usunięcia blokady: np. usunięcie procesu, który zapoczątkował prób
 
 ### 20\. Czy różni się praca wielowątkowa od jednowątkowej?
 
-W przypadku pracy jednowątkowej proces ma własny licznik rozkazów, stos, zbiór rejestrów i przestrzeń adresową. Do komunikacji między procesami wykorzystywane są systemowe mechanizmy komunikacji( np. semafory, komunikaty).
+W przypadku pracy jednowątkowej proces ma własny licznik rozkazów, stos, zbiór rejestrów i przestrzeń adresową. Do komunikacji między procesami wykorzystywane są systemowe mechanizmy komunikacji(np. semafory, komunikaty).
 
-W przypadku pracy wielowątkowej proces ma własny licznik rozkazów, stos i rejestry, ale wszystkie wątki mają wspólną przestrzeń adresową, ten sam zbiór otwartych plików, procesów pochodnych itp.
+W przypadku pracy wielowątkowej każdy proces ma własny licznik rozkazów, stos i rejestry, ale wszystkie wątki mają wspólną przestrzeń adresową, ten sam zbiór otwartych plików, procesów pochodnych itp.
 
 ### 21\. Czy serwer wielowątkowy może działać efektywniej od jednowątkowego w przypadku jednego procesora? Odpowiedź uzasadnić.
 
 W przypadku serwera jednowątkowego każdy nowy komunikat z zamówieniem, który nadchodzi podczas obsługiwania zamówienia przez serwer, będzie ustawiany w kolejce portu serwera.
 
-Jeśli serwer jest wielowątkowy (zakładamy, że wątki są niezależne, tzn. gdy jeden wątek zostanie zablokowany z powodu operacji wejścia-wyjścia, drugi może podjąć działanie w procesorze). Wątek nr. 2 może więc przetwarzać zamówienie w czasie, gdy wątek nr. 1 jest zablokowany i na odwrót. Zwiększa to przepustowość serwera. Jest jednak mało prawdopodobne, aby operacje wejścia-wyjścia były wykonywane równolegle, gdyż urządzenia wejścia-wyjścia ograniczaszybkość przetwarzania zamówień. Wątki mogą być na przykład blokowane z powodu jednego napędu dysku. Gdybyśmy zastosowali pamięć podręczną bloków dyskowych (tzn. serwer przechowuje przeczytane dane w buforach swojej przestrzeni adresowej) to wątek serwera proszony o odzyskanie danych najpierw sprawdza zawartośćwspólnej pamięci podręcznej i jeśli je tam znajdzie, to unika kontaktu z dyskiem. Przy założeniu ok. 75% trafień przepustowość wzrasta kilkukrotnie.
+Jeśli serwer jest wielowątkowy (zakładamy, że wątki są niezależne, tzn. gdy jeden wątek zostanie zablokowany z powodu operacji wejścia-wyjścia, drugi może podjąć działanie w procesorze). Wątek nr. 2 może więc przetwarzać zamówienie w czasie, gdy wątek nr. 1 jest zablokowany i na odwrót. Zwiększa to przepustowość serwera. Jest jednak mało prawdopodobne, aby operacje wejścia-wyjścia były wykonywane równolegle, gdyż urządzenie wejścia-wyjścia ogranicza szybkość przetwarzania zamówień. Wątki mogą być na przykład blokowane z powodu jednego napędu dysku. Gdybyśmy zastosowali pamięć podręczną bloków dyskowych (tzn. serwer przechowuje przeczytane dane w buforach swojej przestrzeni adresowej) to wątek serwera proszony o odzyskanie danych najpierw sprawdza zawartość wspólnej pamięci podręcznej i jeśli je tam znajdzie, to unika kontaktu z dyskiem. Przy założeniu ok. 75% trafień przepustowość wzrasta kilkukrotnie.
 
 Tak więc serwer wielowątkowy działa szybciej od jednowątkowego w przypadu jednego procesora, szybkość tą ograniczają jednak operacje wejścia-wyjścia.
 
-### 22\. Wyjaśnić zagadnienie planowania w systemie rozproszonym MACH.
+### 22\. Wyjaśnić zagadnienie planowania w systemie rozproszonym MACH
 
-**Założenia i cele projektu Mach**
+**Założenia i cele projektu MACH**
+
 - System operacyjny przeznaczony do pracy w systemach rozproszonych, zgodny z systemem BSD UNIX.
 - Możliwość pracy w systemach heterogenicznych.
-- Możliwość pracy w systemach komputerowych o różnej architekturze sprzętowej, (w
-tym z wieloprocesorami).
+- Możliwość pracy w systemach komputerowych o różnej architekturze sprzętowej, (w tym z wieloprocesorami).
 - Możliwość pracy w sieciach komputerowych o różnej prędkości.
 - Zapewnienie klientom przezroczystości sieci i obiektowej organizacji.
 - Zintegrowane zarządzanie pamięcią i komunikacją międzyprocesową.
 
 Pojęcie wielowątkowego procesu - zadania (task) i wątku.
 
-**Charakterystyka planowania w systemie Mach**
+**Charakterystyka planowania w systemie MACH**
+
 - Problem planowania: wiele procesów-zadań, wiele wątków, wiele procesorów.
 - Planuje się tylko przydział procesorów do wątków.
 - System priorytetów przypisanych wątkom.
@@ -342,30 +336,39 @@ Pojęcie wielowątkowego procesu - zadania (task) i wątku.
 - Rozproszona koordynacja przydziału wątków do procesorów.
 - Zmienny kwant czasu w systemie.
 
-### 23\. Wykorzystanie bezczynnych stacji roboczych w systemie rozproszonym.
+### 23\. Wykorzystanie bezczynnych stacji roboczych w systemie rozproszonym
 
 Wykorzystanie bezczynnych stacji
 
 Ogólny problem zdalnego wykonywania procesów w sposób przezroczysty.
+
 Pierwsza próba - UNIX BSD
+
 ```
 rsh maszyna polecenie
 ```
+
 wady: trzeba określić maszynę, środowisko zdalne na ogół inne niż lokalne.
 
 Problemy
+
 - znalezienie bezczynnej maszyny,
 - zapewnienie przezroczystości wykonania,
 - czynności po powrocie właściciela.
 
 Znalezienie bezczynnej stacji
+
 Definicja bezczynności stacji.
 
 Algorytm lokalizacji bezczynnej stacji sterowany za pomocą serwera:
+
 - Stacja robocza
+
   - stwierdza swoją bezczynność
   - ogłasza swoją dostępność - niezbędne informacje (dane stacji) są wpisywane do pliku rejestracyjnego
+
 - Użytkownik
+
   - wykonuje: `remote polecenie`, program `remote` sam sprawdza rejestr
 
 Algorytm znajdowania i zatrudniania bezczynnej stacji roboczej wykorzystujący centralne rejestrowanie
@@ -374,14 +377,14 @@ Algorytm znajdowania i zatrudniania bezczynnej stacji roboczej wykorzystujący c
 
 ### 24\. Omówić model puli procesorów jako systemu rozproszonego z uwzględnieniem teorii masowej obsługi.
 
-Wiele jednostek centralnych w jednej szafie.
-Użytkownicy mają szybkie terminale graficzne.
+Wiele jednostek centralnych w jednej szafie. Użytkownicy mają szybkie terminale graficzne.
 
 ![](./images/30.png)
 
 Rys. Przykład systemu rozproszonego wg. modelu puli procesorów
 
 Zalety:
+
 - redukcja kosztów - wspólny system zasilania, obudowa, ...
 - łatwość powiększania mocy obliczeniowej,
 - możliwość udostępnienia użytkownikowi tylu procesorów, ile potrzebuje.
@@ -435,7 +438,7 @@ Z punktu widzenia użytkownika model puli procesorów różni się od modelu us�
 
 Druga modyfikacja polega na programowym rozszerzeniu modelu usług dla stacji roboczej, umożliwiającym przydzielenie zadań bezczynnym lub słabo wykorzystywanym stacjom roboczym jako płynnej puli dodatkowych komputerów, które mogą być używane podobnie jak pula procesorów w modelu puli procesorów. W każdej chwili, a zwłaszcza nocą, znaczna część stacji roboczych w sieci może pozostawać bezczynna lub tylko lekko obciążona pracami w rodzaju redagowania dokumentów. Takie stacje robocze mają zapas mocy obliczeniowej i mogą być używane do wykonywania zadań dla użytkowników zarejestrowanych na innych stacjach i których zadania wymagają więcej mocy obliczeniowej niż może im zapewnić jedna stacja robocza. Przykładem może być system Sprite - przeznaczony dla systemów rozproszonych, który umożliwia użytkownikom wykonywanie poszczególnych poleceń na bezczynnych lub nie w pełni wykorzystanych stacjach roboczych. Docelowa stacja jest wybierana przeźroczyście przez system. System Sprite uwzględnia możliwość migracji procesów, czyli przemieszczania wykonywanego programu z jednej maszyny do drugiej. Oznacza to, że w razie zarejestrowania się użytkownika na danej stacji lub gdy stacja ta zacznie być intensywniej wykorzystywana, gościnnie wykonywany program może powędrować bezpiecznie z powrotem do innej lub swojej maszyny, gdzie może być dalej wykonywany.
 
-### 31\. Jak mogą być wykorzystane dyski lokalne w modelu stacji rooczych? Podać wady i zalety różnych rozwiązań.
+### 31\. Jak mogą być wykorzystane dyski lokalne w modelu stacji roboczych? Podać wady i zalety różnych rozwiązań.
 
 Dyski lokalne stacji roboczych można wykorzystać do:
 
@@ -456,7 +459,7 @@ Wątki mogą być zorganizowane na jeden z trzech sposobów:
 
 ![](./images/22.png)
 
-### 33\. Rozpatrzyć zespół wątków realizujących pewne zadanie. Co mają wspólne w ramach zadania, a co każdy ma niezależne?
+### 33\. Rozpatrzyć zespół wątków realizujących pewne zadanie. Co mają wspólnego w ramach zadania, a co każdy ma niezależne?
 
 Każdy wątek posiada własny licznik rozkazów, zbiór rejestrów, stos, stan oraz wątki potomne. Współdzieli z innymi wątkami tego samego zadania: przestrzeń adresową, zmienne globalne oraz zasoby systemowe.
 
@@ -512,9 +515,7 @@ W **metodzie połączeniowej** system sieciowy przejmuje odpowiedzialność za b
 
 ### 5\. Jakie są podstawowe zasady mechanizmu CSMA/CD?
 
-CSMA/CD (Carrier Sense Multiple Access / with Collision Detection) - protokół wielodostępu, który śledzi dostępność medium transmisyjnego i wykrywa ewentualne kolizje. Protokół swoje zastosowanie znajduje przede wszystkim w segmentach sieci, w których występują tzw. domeny kolizyjne czyli obszary logiczne sieci, w których wiele hostów przesyła dane poprzez to samo medium transmisyjne. Kiedy urządzenie w chce przesłać dane nasłuchuje czy żadne z innych urządzeń nie przesyła danych na linii transmisyjnej. W przypadku, kiedy medium jest wolne od ruchu urządzenie zaczyna transmisję. Istnieje sytuacja, w której dwa lub więcej urządzeń stwierdzi że medium jest wolne od transmisji i zaczą nadawać w tym samym czasie. Powstanie wówczas kolizja, która zostanie wykryta poprzez mechanizm CSMA/CD. W przypadku wykrycia kolizji urządzenie, które wykryło kolizję, zatrzymuje wysyłanie danych i wysyła sekwencję informującą o kolizji. Następnie urządzenie po odczekaniu fragmentu czasu ponawia próbę transmisji danych.
-
-Carrier Sense Multiple Access with Collision Detect (CSM/CD) oznacza, że wiele komputerów może korzystać z łącza, a każda maszyna sprawdza czy eter jest wolny. Polega to na tym, że zanim urządzenie działające w sieci (np. karta sieciowa) rozpocznie wysyłanie danych, sprawdza czy aktualnie jakieś inne urządzenie nie transmituje danych. Jeśli medium transmisji jest wolne urządzenie rozpoczyna transmisję równocześnie nasłuchując czy jakieś inne urządzenie nie rozpoczęło transmisji w tym samym czasie (sytuacja taka nazywana jest kolizją). Jeśli nastąpi kolizja, oba komputery czekają losowy kwant czasu nim zaczną ponownie nadawać.
+CSMA/CD (Carrier Sense Multiple Access / with Collision Detection) - protokół wielodostępu, który śledzi dostępność medium transmisyjnego i wykrywa ewentualne kolizje. Protokół swoje zastosowanie znajduje przede wszystkim w segmentach sieci, w których występują tzw. domeny kolizyjne czyli obszary logiczne sieci, w których wiele hostów przesyła dane poprzez to samo medium transmisyjne. Kiedy urządzenie chce przesłać dane nasłuchuje czy żadne z innych urządzeń nie przesyła danych na linii transmisyjnej. W przypadku, kiedy medium jest wolne od ruchu urządzenie zaczyna transmisję. Istnieje sytuacja, w której dwa lub więcej urządzeń stwierdzi że medium jest wolne od transmisji i zaczą nadawać w tym samym czasie. Powstanie wówczas kolizja, która zostanie wykryta poprzez mechanizm CSMA/CD. W przypadku wykrycia kolizji urządzenie, które wykryło kolizję, zatrzymuje wysyłanie danych i wysyła sekwencję informującą o kolizji. Następnie urządzenie po odczekaniu fragmentu czasu ponawia próbę transmisji danych.
 
 ### 6\. Jakie ograniczenia ma długość pola danych w nagłówku Ethernet II?
 
@@ -556,6 +557,8 @@ Każdy z nadawców widocznych na rysunku komunikuje się z jednym wybranym odbio
 
 ### 8\. Czym jest numer portu w protokołach warstwy transportowej?
 
+Numer portu w protokołach warstwy transportowej pełni rolę identyfikatora. Na hoście w jednym momencie mogą działać różne usługi oraz aplikacje. W celu dostarczenia do niej danych , które są dedykowane dla niej przypisuje się jej numer portu. Dzięki temu każda z aplikacji lub usługa otrzymuje dane dedykowane dla niej.
+
 Warstwa transportowa pełni w procesie przesyłu danych bardzo ważne funkcje. Przede wszystkim odpowiedzialna jest za prawidłowy przebieg komunikacji oraz jej niezawodność. Określa również sposób segmentacji danych (zasady dzielenia ich na możliwe do zarządzania części) oraz późniejszego ich scalania, a także identyfikuje dane pochodzące z różnych aplikacji (poprzez numery portów). Dwa najpopularniejsze protokoły warstwy transportowej to TCP (ang. Transmission Control Protocol) i UDP (ang. User Datagram Protocol). Oba te protokoły są w stanie zarządzać wieloma równoczesnymi transmisjami. Różnią się zestawem funkcji jakie mogą dostarczyć aplikacjom.
 
 - **Protokół UDP** - UDP jest prostym, bezpołączeniowym protokołem. Jego najważniejszą zaletą jest niewielki narzut dodawany do dostarczanych danych. Porcje danych UDP są nazywane datagramami. Nie zapewnia on jednak mechanizmów ochronnych takich jak potwierdzenie dostarczenia datagramu czy retransmisji.
@@ -578,6 +581,8 @@ Aplikacje stosują różną numerację portów, tak aby warstwa transportowa pot
 
 ### 9\. W jaki sposób TCP zapewnia niezawodny transport?
 
+W celu zapewnienia niezawodnej transmisji protokół TCP wykorzystuje numerowanie bajtów w strumieniu oraz mechanizm potwierdzenia i ewentualnej retransmisji. Dzięki zastosowaniu numeru sekwencyjnego każdego z bajtów protokół ma możliwość jego jednoznacznej identyfikacji w strumieniu. Numer sekwencyjny wykorzystywany jest również w mechanizmie potwierdzania. Nadawca dokonuje retransmisji danych do czasu, aż otrzyma potwierdzenie poprawnego ich przyjęcia przez odbiorcę. Rozpoczęcie retransmisji uwarunkowane jest przekroczeniem wcześniej ustalonego czasu oczekiwania na nadejście potwierdzenia. Po stronie odbiorczej poprawność odbioru danych sprawdzana jest przy użyciu pola suma kontrolna znajdującego się w nagłówku segmentu. Jeżeli dane są akceptowane to odbiorca wysyła zwrotnie pozytywne potwierdzenie. W sytuacji, gdy dane zostały odebrane poprawnie, a nadawca retransmitował je np. z powodu zaginięcia segmentu z pozytywnym potwierdzeniem to odbiorca ma możliwość odrzucenia nadmiarowych danych (duplikatów).
+
 TCP wykorzystuje sekwencyjną numerację bajtów oraz mechanizm pozytywnych potwierdzeń z retransmisją. Numer sekwencyjny przypisany do każdego przesyłanego bajtu danych pozwala na jego jednoznaczną identyfikację, a także jest używany w mechanizmie przesyłania potwierdzeń. Ponieważ kolejne bajty są numerowane począwszy od INS, a zatem numer pierwszego bajtu wysłanego w połączeniu wirtualnym wynosi INS+1 ( zazwyczaj INS=0). Nadawczy moduł TCP dokonuje retransmisji danych do czasu, aż otrzyma potwierdzenie poprawnego ich przyjęcia przez odbiorczy moduł TCP. Rozpoczęcie retransmisji uwarunkowane jest przekroczeniem wcześniej ustalonego czasu oczekiwania na nadejście potwierdzenia. Po stronie odbiorczej poprawność odbioru danych sprawdzana jest przy użyciu pola suma kontrolna znajdującego się w nagłówku segmentu. Jeżeli dane są akceptowane to moduł TCP wysyła zwrotnie pozytywne potwierdzenie. Jest ono zawarte w polu numer potwierdzenia. Wszystkie bajty danych o numerach sekwencyjnych mniejszych od wartości zawarte w tym polu zostały odebrane poprawnie.
 
 W sytuacji, gdy dane zostały odebrane poprawnie, a nadawczy moduł TCP retransmitował je np. z powodu zaginięcia segmentu z pozytywnym potwierdzeniem, odbiorczy moduł TCP ma możliwość odrzucenia nadmiarowych danych (duplikatów).
@@ -596,11 +601,13 @@ Numer inicjujący w TCP to numer sekwencyjny, który umożliwia numerację bajt�
 
 Ponieważ połączenie TCP jest połączeniem full-duplex, to każdy z kierunków musi zostać zamknięty niezależnie. Zasadą jest, że jeden z końców wysyła pakiet FIN po zakończeniu przesyłania danych. Kiedy stacja odbierze segment FIN, musi powiadomić aplikację, że druga strona połączenia zakończyła ten kierunek przepływu danych. Odebranie FIN oznacza jedynie, że w tym kierunku połączenia nie będą płynęły już dane. TCP może nadal wysyłać dane po odebraniu FIN (połączenie półzamknięte). W celu pełnego zamknięcia połączenia druga strona musi wykonać podobną sekwencję operacji (FIN, oraz potwierdzenie ACK FIN).
 
-![](./images/28.png)
+![](./images/33.png)
 
 ### 13\. W jaki sposób przebiega transmisja danych za pomocą TCP?
 
-TCP opiera się na mechanizmie pozytywnych potwierdzeń. Wysłane pakiety muszą zostać potwierdzone przed upływem maksymalnego czasu oczekiwania na potwierdzenie albo zostają wysłane ponownie. W celu zwiększenia szybkości transmisji stosowany jest mechanizm przesuwnych okien. Nadawca i odbiorca ustalają ze sobą szerokośćokna. Okno jest to maksymalna ilość pakietów jaką można wysłać bez potwierdzenia. Następne datagramy są wysyłane dopiero po potwierdzeniu poprzednich. Odbiorca wysyła potwierdzenie otrzymania z numerem pakietu, którego oczekuje. Odpowiedzi mają ustawioną flagę ACK w pakiecie TCP.
+TCP opiera się na mechanizmie pozytywnych potwierdzeń. Wysłane pakiety muszą zostać potwierdzone przed upływem maksymalnego czasu oczekiwania na potwierdzenie albo zostają wysłane ponownie. W celu zwiększenia szybkości transmisji stosowany jest mechanizm przesuwnych okien. Nadawca i odbiorca ustalają ze sobą szerokość okna. Okno jest to maksymalna ilość pakietów jaką można wysłać bez potwierdzenia. Następne datagramy są wysyłane dopiero po potwierdzeniu poprzednich. Odbiorca wysyła potwierdzenie otrzymania z numerem pakietu, którego oczekuje. Odpowiedzi mają ustawioną flagę ACK w pakiecie TCP.
+
+![](./images/28.png)
 
 ### 14\. Jaka jest rola flagi PUSH w protokole TCP?
 
@@ -694,6 +701,8 @@ Przykład sprawczenia CRC po stronie odbiorczej:
 
 Pole identyfikacja (16 bitów) jest używane do jednoznacznego oznaczenia każdego fragmentu pierwotnego datagramu. Identyfikator zamieszczony w tym polu jest powtarzany we wszystkich fragmentach składających się na pierwotny datagram.
 
+Pole offset (13 bitów) w przypadku fragmentu większego datagramu pole to określa miejsce danych w oryginalnym datagramie; wyrażone w jednostkach ośmiooktetowych.
+
 ### 19\. Jaka jest rola poszczególnych flag w nagłówku IP
 
 Pole przeznaczone na flagi w nagłówku IP ma 3 bity długości.
@@ -716,7 +725,7 @@ Zapiszmy ostatni oktet adresu w postaci binarnej: `123.10.25.01111111`
 
 Maska `255.255.255.224` informuje nas że 27 bitów w adresie IP to bity przeznaczone część sieciową a więc pozostałe 5 to bity przeznaczone na część hostową.
 
-`123.10.25.01111111` – bity oznaczone kolorem czerwonym to bity części hostowej. Jak widać wszystkie bity w części hostowej mają wartość 1 a zatem adres `123.10.25.127` to adres broadcast i nie może być on adresem unicast dla sieci z maską `255.255.255.224`
+`123.10.25.011`**11111** – bity pogrubione to bity części hostowej. Jak widać wszystkie bity w części hostowej mają wartość 1 a zatem adres `123.10.25.127` to adres broadcast i nie może być on adresem unicast dla sieci z maską `255.255.255.224`
 
 ### 22\. Jaka jest domyślna maska dla adresu IP 135.240.24.67?
 
@@ -759,15 +768,18 @@ Korzysta z rekordu MX servera DNS.
 
 ### 27\. Jaką metrykę stosuje protokół RIP?
 
-Protokół RIP (Routing Information Protocol) zaliczamy do kategorii protokołów dystansowo-wektorowych. Protokół ten zwykle wybiera trasy o najmniejszej liczbie "przeskoków", czyli najmniejszej liczbie routerów (węzłów), przez które muszą przejść datagramy na trasie od routera źródłowego do docelowego. Najdłuższa trasa może składać się z co najwyżej piętnastu przeskoków. Jeżeli wyznaczona trasa posiada więcej niż piętnaście przeskoków to protokół RIP przyjmuje, że router docelowy jest nieosiągalny. Z tego powodu protokół ten nie może być stosowany w systemach autonomicznych składających się z dużej liczby routerów.
+Protokół RIP (Routing Information Protocol) zaliczamy do kategorii protokołów wektora odległości. Protokół ten zwykle wybiera trasy o najmniejszej liczbie "przeskoków", czyli najmniejszej liczbie routerów (węzłów), przez które muszą przejść datagramy na trasie od routera źródłowego do docelowego. Najdłuższa trasa może składać się z co najwyżej piętnastu przeskoków. Jeżeli wyznaczona trasa posiada więcej niż piętnaście przeskoków to protokół RIP przyjmuje, że router docelowy jest nieosiągalny. Z tego powodu protokół ten nie może być stosowany w systemach autonomicznych składających się z dużej liczby routerów.
 
 ### 28\. Jakie trzy znaczenia ma adres 0.0.0.0 w tabeli routingu?
 
-Oznacza to, że docelowa sieć jest bezpośrednio przyłączona do komputera i, że „bramą" do tej sieci jest interfejs sieciowy komputera.
+Oznacza to, że docelowa sieć jest bezpośrednio przyłączona do komputera i, że "bramą" do tej sieci jest interfejs sieciowy komputera.
 
 ### 29\. Co to jest domena wyszukiwania odwrotnego?
 
-Domena ta zajmuje się tłumaczeniem adresów IP na nazwy domenowe.
+Domena wyszukiwania odwrotnego to domena, w której znajdują się odwzorowania
+adresów IP do nazw domenowych. Znajduje zastosowanie w przypadku kiedy znamy adres
+IP danego hosta a chcemy poznać np. jego nazwę domenową. Struktura nazwy dla takiej
+domeny dla sieci 192.168.0.0 będzie wyglądała następująco: 0.168.192.in-addr.arpa
 
 ### 30\. Co to są "root-servers" w usłudze DNS?
 
@@ -788,7 +800,7 @@ i.root-servers.net 192.36.148.17, 2001:7fe::53
 j.root-servers.net 192.58.128.30, 2001:503:c27::2:30
 k.root-servers.net 193.0.14.129, 2001:7fd::1
 l.root-servers.net 199.7.83.42, 2001:500:9f::42
-m.root-servers.net202.12.27.33, 2001:dc3::35
+m.root-servers.net 202.12.27.33, 2001:dc3::35
 ```
 
 ### 31\. Jakiego protokołu transportowego używa DNS?
