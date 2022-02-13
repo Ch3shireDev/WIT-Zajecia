@@ -1,0 +1,7 @@
+Czy docelowy i źródłowy adres MAC w nagłówku Ethernet ulegają zmianie przy przechodzeniu ramki danych przez kolejne routery? Odpowiedź uzasadnij.
+
+# Rozwiązanie
+
+Przy przechodzeniu ramki danych przez kolejne routery adres MAC w ramce zostaje zmieniony przez router. Podczas komunikacji między sieciami ramka danych jest adresowana adresem sprzętowym interfejsu routera. Po odebraniu, router zmienia adres sprzętowy na adres kolejnego interfejsu gdzie wiadomość ma być odebrana - jeśli wysyła bezpośrednio do odbiorcy to zmienia na adres odbiorcy, jeśli wysyła do innego routera to zmienia adres MAC na adres interfejsu kolejnego routera.
+
+Adres MAC jest sprzętowym adresem karty sieciowej. Adresy sprzętowe umożliwiają przesyłanie danych tylko w obrębie jednej sieci, nie jest natomiast możliwe przesłanie danych między różnymi sieciami o same adresy fizyczne. Do komunikacji hostów między różnymi sieciami używa się adresów IP.

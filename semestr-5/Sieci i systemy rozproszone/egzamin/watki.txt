@@ -1,0 +1,13 @@
+Wątek jest częścią programu wykonywaną współbieżnie w obrębie procesu. Proces może powoływać kolejne wątki celem zrównoleglenia działania programu.
+
+Każdy wątek posiada własny licznik rozkazów, zbiór rejestrów, stos, stan oraz wątki potomne. Współdzieli z innymi wątkami tego samego zadania: przestrzeń adresową, zmienne globalne oraz zasoby systemowe.
+
+Wątek jest podobny do tradycyjnego procesu w sensie że może być rozpatrywany jako wykonanie części programu na procesorze wirtualnym. Odróżnia się jednak od procesu tym, że system operacyjny nie podejmuje starań o osiągnięcie wysokiego stopnia przezroczystej współbieżności. System wątków z reguły utrzymuje tylko minimum informacji które umożliwia dzielenie jednostki centralnej przez kilka wątków.
+
+Wątki mogą być zorganizowane na jeden z trzech sposobów:
+
+- model dyspozytor-pracownik (dispatcher – worker) – Zamówienia są w buforze, jeden wątek dyspozytor sprawdza czy jest zamówienie i budzi uśpionego robotnika, aby obsłużył zamówienie. Robotnik pobiera zamówienie i je realizuje. W wielu wątkach jest wielu uśpionych robotników czekających na obudzenie.
+
+- model zespołu (team model) – Nie ma dyspozytora, wszystkie wątki są równoprawne. Pobierają i przetwarzają zamówienia (wątki mogą być wyspecjalizowane).
+
+- model potoku (pipeline model) – Jeden wątek pobiera i przetwarza częściowo zamówienie, po czym podaje je dalej i może zacząć pobierać następne zamówienie.
