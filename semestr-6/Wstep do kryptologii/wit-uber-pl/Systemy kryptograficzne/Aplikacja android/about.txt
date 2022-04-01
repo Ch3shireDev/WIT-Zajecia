@@ -1,0 +1,19 @@
+version 0.3.1
+by Michal Pawlowski
+contact: michal[at]uber.pl
+date: 14.05.2011
+
+All rights reserved ©
+
+changelog:
+
+wersja 0.3
+
+- pierwsza publiczna wersja
+
+wersja 0.3.1
+
+- specjalnie dla Kamila poparwiono:
+    - bug powodujacy crash aplikacji przy wpisaniu samego znaku '-' jako wartosc parametru a w okienku wpisywania parametrow algorytmu euklidesa i dzielenia modulo
+    - usnieto przeladowywanie sie ekranu po obrocie w trakcie wyswietlania wzorow.
+-  dodatkwo poprawiono pewne drobne bledy we wzorach

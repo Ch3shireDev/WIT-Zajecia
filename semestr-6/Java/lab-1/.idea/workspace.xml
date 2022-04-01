@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="24d41552-cefa-492d-8087-af12ff00854a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab-1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../laboratorium-java/src/main/java/pl/wit/lab1/Point.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../laboratorium-java/src/test/java/pl/wit/lab1/PointTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Programowanie klient serwer/Programowanie klient serwer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ASD 2/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/Kryptografia%20Prace%20domowe%20materialy.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/Systemy kryptograficzne/Aplikacja android/about.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/Systemy kryptograficzne/Aplikacja android/antySKR.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/Systemy kryptograficzne/Aplikacja android/screen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/Systemy kryptograficzne/algorytm_szybkiego_potegowania_modularnego.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/Systemy kryptograficzne/skr_opracowanie_2011.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/Systemy kryptograficzne/szmidt%20pytania%20podane%20na%20wykladzie%202011.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/Systemy kryptograficzne/wzory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/WKR_mroczkowski_kolos_2011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/roszerzony_euklides_tabelka.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/szmidt_tematy_2011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/wkr_przestawny.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Kryptologia/wit-uber-pl/wkr_przestawny.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Przetwarzanie obrazow/POBZ1_zadania.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../Przetwarzanie obrazow/POBZ1_zadania.pdf" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="26bXHj0MSZfkKEiZEVHW2AmueBQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="24d41552-cefa-492d-8087-af12ff00854a" name="Changes" comment="" />
+      <created>1647693174607</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647693174607</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
