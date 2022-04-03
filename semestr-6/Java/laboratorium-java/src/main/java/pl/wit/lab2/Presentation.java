@@ -24,12 +24,16 @@ public class Presentation {
     private String visitedPlaces[];
 
     public Presentation(String firstName, String lastName) {
+        visitedPlaces = new String[0];
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
     public Presentation(String firstName, String lastName, int birthdayDay, int birthdayMonth, int birthdayYear) {
         this(firstName, lastName);
+        //if(birthdayDay<0 || birthdayDay > 31)throw  new Exception("Zły dzień urodzin.");
+//        if(birthdayDay<0 || birthdayDay > 31)throw  new Exception("Zły dzień urodzin.");
+//        if(birthdayDay<0 || birthdayDay > 31)throw  new Exception("Zły dzień urodzin.");
         this.birthdayDay = (byte) birthdayDay;
         this.birthdayMonth = (byte) birthdayMonth;
         this.birthdayYear = (byte) birthdayYear;
