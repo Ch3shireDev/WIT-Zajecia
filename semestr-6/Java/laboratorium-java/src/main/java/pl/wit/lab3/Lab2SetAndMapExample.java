@@ -61,7 +61,7 @@ public class Lab2SetAndMapExample {
 
     public int getMapValue(String key) {
         if (mapCarPower == null) return -1;
-        if(!mapCarPower.containsKey(key))return -1;
+        if (!mapCarPower.containsKey(key)) return -1;
         return mapCarPower.get(key);
     }
 

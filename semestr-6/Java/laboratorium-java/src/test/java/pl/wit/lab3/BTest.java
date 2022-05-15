@@ -19,12 +19,11 @@ public class BTest {
         B b = new B(3, 4);
         B bb = null;
         aa = a;  //Wszystko OK
-        System.out.println("aa.x=" + aa.x);
+        System.out.println("aa.x = " + aa.x);
         aa = b; //Wszystko OK
-        System.out.println("aa.x=" + aa.x);
+        System.out.println("aa.x = " + aa.x);
         //aa.y //Błąd!
-        if (aa instanceof B)
-            bb = (B) aa; //Rzutowanie
+        if (aa instanceof B) bb = (B) aa; //Rzutowanie
         System.out.println("bb.y=" + bb.y);
 
     }

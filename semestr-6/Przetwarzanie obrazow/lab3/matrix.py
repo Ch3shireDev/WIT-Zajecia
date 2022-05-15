@@ -1,5 +1,7 @@
+from random import randint
 import numpy as np
 from pprint import pprint
+
 
 def load_matrix(filename):
     """
@@ -17,50 +19,64 @@ def load_matrix(filename):
 
 def f(image, i, j):
     if i >= len(image):
-        i = 0
+        i = i - len(image)
     if j >= len(image[0]):
-        j = 0
+        j = j - len(image[0])
     if i < 0:
-        i = len(image) - 1
+        i = len(image) + i
     if j < 0:
-        j = len(image[0]) -1
+        j = len(image[0]) + j
     return image[i][j]
 
 
 def mult(aa, bb):
     new_image = []
+    n = len(bb)
     for i in range(len(bb)):
         new_image.append([])
         for j in range(len(bb[i])):
             new_image[i].append(0)
     summ = sum([sum(row) for row in aa])
-    for i in range(len(bb)):
-        for j in range(len(bb[i])):
-            a = aa[0][0]*f(bb, i-1, j-1)
-            b = aa[0][1]*f(bb, i-1, j-0)
-            c = aa[0][2]*f(bb, i-1, j+1)
-            d = aa[1][0]*f(bb, i-0, j-1)
-            e = aa[1][1]*f(bb, i-0, j-0)
-            z = aa[1][2]*f(bb, i-0, j+1)
-            g = aa[2][0]*f(bb, i+1, j-1)
-            h = aa[2][1]*f(bb, i+1, j-0)
-            k = aa[2][2]*f(bb, i+1, j+1)
-            qprim = (a+b+c+d+e+z+g+h+k)/summ
+    for i in range(n):
+        for j in range(n):
+            tab = [0]*(n**2)
+            for k in range(n**2):
+                tab[k] = aa[k//n][k % n]*f(bb, i+k//n-n//2, j+k % n-n//2)
+            qprim = sum(tab)/summ
+            # qprim = max(0, qprim)
+            # qprim = min(255, qprim)
             new_image[i][j] = qprim
-            qprim = max(0, qprim)
-            qprim = min(255, qprim)
     return new_image
+
+
+def get_arr(n):
+    return [[randint(0, 255) for i in range(n)] for i in range(n)]
 
 
 lo_pass = load_matrix('./lab03_resources/LoPass3x3.txt')
 hi_pass = load_matrix('./lab03_resources/HiPass3x3.txt')
 
-pprint(lo_pass)
-pprint(hi_pass)
+arr = get_arr(5)
 
-arr = [[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],]
+# lo_pass * (hi_pass * arr)
+x = np.array(mult(lo_pass, mult(hi_pass, arr)))
 
-a = mult(hi_pass, arr)
-b = mult(lo_pass, a)
+# (lo_pass * hi_pass) * arr
+y = np.array(mult(mult(lo_pass, hi_pass), arr))
 
-pprint(b)
+print(x)
+print(y)
+print(x-y)
+
+
+z = np.array([[-1, -2, -3, -2, -1],
+              [-2, 5, 3, 5, -2],
+              [-3, 3, 1, 3, -3],
+              [-2, 5, 3, 5, -2],
+              [-1, -2, -3, -2, -1]
+              ])/10.0
+
+print(z)
+print(x-mult(z, arr))
+
+print(mult(hi_pass, lo_pass))

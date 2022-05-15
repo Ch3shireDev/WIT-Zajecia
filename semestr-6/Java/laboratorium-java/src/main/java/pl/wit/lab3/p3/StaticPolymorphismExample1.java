@@ -29,7 +29,7 @@ public class StaticPolymorphismExample1 {
             setLastName(lastName);
             setDateOfBirth(dateOfBirth);
             setEmploymentDate(employmentDate);
-            setSallary(sallary);
+            setSalary(sallary);
             this.mapProgrammingLanguages = new HashMap<String,Short>();
         }
 

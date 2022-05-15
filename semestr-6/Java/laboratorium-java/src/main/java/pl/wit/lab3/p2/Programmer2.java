@@ -47,4 +47,12 @@ public class Programmer2 extends Employee2{
 		}
 		
 	}
+
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append(", znane języki programowania: ");
+		sb.append(String.join(", ", mapProgrammingLanguages.keySet()));
+		return sb.toString();
+	}
 }

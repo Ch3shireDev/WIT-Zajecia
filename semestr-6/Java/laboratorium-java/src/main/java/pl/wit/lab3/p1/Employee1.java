@@ -11,7 +11,7 @@ public class Employee1 extends pl.wit.lab3.p1.Person1 {
 	//Data zatrudnienia
 	private Date employmentDate = null;
 	//Wyngrodzenie
-	private BigDecimal sallary = null;
+	private BigDecimal salary = null;
 	
 	///////////////////////////////////
 	// getters and setters
@@ -23,10 +23,10 @@ public class Employee1 extends pl.wit.lab3.p1.Person1 {
 	public void setEmploymentDate(Date employmentDate) {
 		this.employmentDate = employmentDate;
 	}
-	public BigDecimal getSallary() {
-		return sallary;
+	public BigDecimal getSalary() {
+		return salary;
 	}
-	public void setSallary(BigDecimal sallary) {
-		this.sallary = sallary;
+	public void setSalary(BigDecimal salary) {
+		this.salary = salary;
 	}
 }

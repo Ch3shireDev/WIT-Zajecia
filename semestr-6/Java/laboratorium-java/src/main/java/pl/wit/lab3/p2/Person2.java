@@ -51,4 +51,14 @@ public class Person2 {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
+
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append(getFirstName());
+		sb.append(" ");
+		sb.append(getLastName());
+		sb.append(", Date of birth: ");
+		sb.append(getDateOfBirth());
+		return sb.toString();
+	}
 }

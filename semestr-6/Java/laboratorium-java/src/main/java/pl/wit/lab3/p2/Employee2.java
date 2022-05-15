@@ -14,12 +14,12 @@ public class Employee2 extends Person2{
 	// Data zatrudnienia
 	private Date employmentDate = null;
 	// Wyngrodzenie
-	private BigDecimal sallary = null;
+	private BigDecimal salary = null;
 
-	public Employee2(String firstName, String lastName, Date dateOfBirth, Date employmentDate, BigDecimal sallary) {
+	public Employee2(String firstName, String lastName, Date dateOfBirth, Date employmentDate, BigDecimal salary) {
 		super(firstName, lastName, dateOfBirth);
 		this.employmentDate = employmentDate;
-		this.sallary = sallary;
+		this.salary = salary;
 	}
 
 	////////////////////////////////////////
@@ -30,7 +30,17 @@ public class Employee2 extends Person2{
 		return employmentDate;
 	}
 
-	public BigDecimal getSallary() {
-		return sallary;
+	public BigDecimal getSalary() {
+		return salary;
+	}
+
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append(", Date of employment: ");
+		sb.append(getEmploymentDate());
+		sb.append(", salary: ");
+		sb.append(getSalary());
+		return sb.toString();
 	}
 }

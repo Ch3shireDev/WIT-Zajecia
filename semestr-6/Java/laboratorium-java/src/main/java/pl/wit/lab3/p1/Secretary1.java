@@ -14,12 +14,12 @@ public class Secretary1 extends Employee1 {
     //Zbiór znanych języków obcych
     private Set<String> setLanguages = null;
 
-    public Secretary1(String firstName, String lastName, Date dateOfBirth, Date employmentDate, BigDecimal sallary) {
+    public Secretary1(String firstName, String lastName, Date dateOfBirth, Date employmentDate, BigDecimal salary) {
         setFirstName(firstName);
         setLastName(lastName);
         setDateOfBirth(dateOfBirth);
         setEmploymentDate(employmentDate);
-        setSallary(sallary);
+        setSalary(salary);
         this.setLanguages = new HashSet<String>();
     }
 

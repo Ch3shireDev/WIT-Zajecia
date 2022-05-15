@@ -33,4 +33,12 @@ public class Secretary2 extends Employee2 {
 	public Set<String> getLanguages() {
 		return setLanguages;
 	}
+
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.toString());
+		sb.append(", znane języki: ");
+		sb.append(String.join(", ", getLanguages()));
+		return sb.toString();
+	}
 }
