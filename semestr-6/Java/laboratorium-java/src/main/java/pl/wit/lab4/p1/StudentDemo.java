@@ -29,7 +29,7 @@ public class StudentDemo extends AbstractDemo {
     }
 
     public void addPoints(String criteria, Byte points) throws PersonException {
-        if (criteria == null || criteria == "")
+        if (criteria == null || criteria.isEmpty())
             throw new PersonException("Metoda addPoints nie dopuszcza pustej wartości zmiennej criteria.");
         if (points < 0) throw new PersonException("Metoda addPoints nie dopuszcza ujemnej liczby punktów.");
         mapPoints.put(criteria, points);

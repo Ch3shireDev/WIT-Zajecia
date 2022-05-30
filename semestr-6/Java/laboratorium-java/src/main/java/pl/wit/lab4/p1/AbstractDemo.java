@@ -32,7 +32,7 @@ public abstract class AbstractDemo implements IDemoLogger {
     public String getStringData() {
         log.trace("get string data");
 
-        String personType = getPersonType().toString();
+        String personType = getPersonType().getType();
 
         return (firstName != null ? firstName : "")
                 .concat(" ")

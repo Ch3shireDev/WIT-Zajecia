@@ -1,0 +1,94 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Users\\Cheshire\\Documents\\GitHub\\WIT-Zajecia\\semestr-6\\Algorytmy i struktury danych 2\\lab-6\\QSharpApplication\\QSharpApplication.csproj": {}
+  },
+  "projects": {
+    "D:\\Users\\Cheshire\\Documents\\GitHub\\WIT-Zajecia\\semestr-6\\Algorytmy i struktury danych 2\\lab-6\\QSharpApplication\\QSharpApplication.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Users\\Cheshire\\Documents\\GitHub\\WIT-Zajecia\\semestr-6\\Algorytmy i struktury danych 2\\lab-6\\QSharpApplication\\QSharpApplication.csproj",
+        "projectName": "QSharpApplication",
+        "projectPath": "D:\\Users\\Cheshire\\Documents\\GitHub\\WIT-Zajecia\\semestr-6\\Algorytmy i struktury danych 2\\lab-6\\QSharpApplication\\QSharpApplication.csproj",
+        "packagesPath": "C:\\Users\\Cheshire Cat\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Cheshire\\Documents\\GitHub\\WIT-Zajecia\\semestr-6\\Algorytmy i struktury danych 2\\lab-6\\QSharpApplication\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Cheshire Cat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Quantum.CSharpGeneration": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[0.23.195983, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Quantum.EntryPointDriver": {
+              "target": "Package",
+              "version": "[0.23.195983, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Quantum.QSharp.Core": {
+              "target": "Package",
+              "version": "[0.23.195983, )"
+            },
+            "Microsoft.Quantum.Runtime.Core": {
+              "target": "Package",
+              "version": "[0.23.195983, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Quantum.Standard": {
+              "target": "Package",
+              "version": "[0.23.195983, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.24, 3.1.24]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

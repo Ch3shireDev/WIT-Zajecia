@@ -1,0 +1,51 @@
+--proj
+    "D:\Users\Cheshire\Documents\GitHub\WIT-Zajecia\semestr-6\Algorytmy i struktury danych 2\lab-6\QSharpApplication\QSharpApplication"
+--build-exe
+--input
+    "D:\Users\Cheshire\Documents\GitHub\WIT-Zajecia\semestr-6\Algorytmy i struktury danych 2\lab-6\QSharpApplication\Program.qs"
+--output
+    "D:/Users/Cheshire/Documents/GitHub/WIT-Zajecia/semestr-6/Algorytmy i struktury danych 2/lab-6/QSharpApplication/obj/qsharp/"
+--references
+    "C:\Users\Cheshire Cat\.nuget\packages\azure.core\1.22.0\lib\netcoreapp2.1\Azure.Core.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\azure.identity\1.5.0\lib\netstandard2.0\Azure.Identity.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\azure.quantum.jobs\1.0.0-beta.3\lib\netstandard2.0\Azure.Quantum.Jobs.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\azure.storage.blobs\12.10.0\lib\netstandard2.0\Azure.Storage.Blobs.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\azure.storage.common\12.9.0\lib\netstandard2.0\Azure.Storage.Common.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.azure.quantum.client\0.23.195983\lib\netstandard2.1\Microsoft.Azure.Quantum.Client.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.bcl.asyncinterfaces\1.1.1\ref\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.identity.client\4.30.1\lib\netcoreapp2.1\Microsoft.Identity.Client.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.identity.client.extensions.msal\2.18.4\lib\netcoreapp2.1\Microsoft.Identity.Client.Extensions.Msal.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.BondSchemas.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.entrypointdriver\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.EntryPointDriver.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QsCompilationManager.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QsCompiler.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QsCore.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QsDataStructures.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QsDocumentationParser.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.qsharp.core\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QSharp.Core.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.qsharp.foundation\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QSharp.Foundation.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QsOptimizations.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QsSyntaxProcessor.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QsTextProcessor.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.compiler\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.QsTransformations.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.runtime.core\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.Runtime.Core.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.simulators\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.Simulation.Common.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.simulators\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.Simulation.QCTraceSimulatorRuntime.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.simulators\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.Simulators.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.standard\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.Standard.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.targets.interfaces\0.23.195983\lib\netstandard2.1\Microsoft.Quantum.Targets.Interfaces.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\windowsazure.storage\9.3.3\lib\netstandard1.3\Microsoft.WindowsAzure.Storage.dll"
+    "C:\Users\Cheshire Cat\.nuget\packages\numsharp\0.20.5\lib\netstandard2.0\NumSharp.Core.dll"
+--load
+    "C:\Users\Cheshire Cat\.nuget\packages\microsoft.quantum.csharpgeneration\0.23.195983\build\/../lib/netstandard2.1/Microsoft.Quantum.CSharpGeneration.dll"
+--runtime
+    FullComputation
+--skip-monomorphization
+--package-load-fallback-folders
+    "D:/Users/Cheshire/Documents/GitHub/WIT-Zajecia/semestr-6/Algorytmy i struktury danych 2/lab-6/QSharpApplication/bin/Debug/netcoreapp3.1/"
+--assembly-properties
+    DocsPackageId:QSharpApplication
+    ExecutionTarget:Any
+    AssemblyName:QSharpApplication
+    ProcessorArchitecture:Unspecified
+    QSharpOutputType:QSharpExe

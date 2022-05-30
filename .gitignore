@@ -133,3 +133,5 @@ TSWLatexianTemp*
 *.sta
 *.spl
 .vs/*
+**/out
+**/.idea

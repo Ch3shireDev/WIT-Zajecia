@@ -7,9 +7,6 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pl.wit.lab4.p1.AbstractDemo;
-import pl.wit.lab4.p1.StudentDemo;
-import pl.wit.lab4.p1.TeacherDemo;
 
 public class AbstractDemoTest extends TestCase {
     @BeforeClass
