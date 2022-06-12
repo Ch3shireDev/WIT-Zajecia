@@ -7,9 +7,9 @@ from lib import power_mod, euclides_extended
 p, g, A = (1619, 2, 1454)
 print(f"Klucz publiczny Alicji (p,g,A): ({p}, {g}, {A})")
 
-# Klucz prywatny Alicji (t, g, p):
-t, g, p = (937, 2, 1619)
-print(f"Klucz prywatny Alicji (t,g,p): ({t}, {g}, {p})")
+# Klucz prywatny Alicji (p, g, t):
+p, g, t = (2, 1619, 937)
+print(f"Klucz prywatny Alicji (p,g,t): ({p}, {g}, {t})")
 
 r = 320
 print(f"Wybrany randomizer: {r}")
