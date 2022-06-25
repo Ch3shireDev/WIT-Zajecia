@@ -44,7 +44,7 @@ print("Krok trzeci (Alicja): sa = B^a mod p")
 sa = power_mod(B, a, p)
 
 # 4. Bob oblicza
-# s = A b mod p
+# s = A^b mod p
 print("Krok czwarty (Bob): sb = A^b mod p")
 sb = power_mod(A, b, p)
 

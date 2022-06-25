@@ -1,4 +1,5 @@
-# Alicja chce wysłać do Boba wiadomość, której skrót wynosi h=357. Wygenerować przez Alicję podpis cyfrowy RSA dla tej wiadomości.
+# Alicja chce wysłać do Boba wiadomość, której skrót wynosi h=357. 
+# Wygenerować przez Alicję podpis cyfrowy RSA dla tej wiadomości.
 
 from lib import cipher, decipher
 

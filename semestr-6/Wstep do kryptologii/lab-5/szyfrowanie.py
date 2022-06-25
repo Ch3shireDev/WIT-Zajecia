@@ -1,6 +1,8 @@
-# Bob chce wysłać do Alicji wiadomość, której wartość wynosi x=20 zaszyfrowaną przy użyciu algorytmu RSA. Oblicz wartość szyfrogramu y.
+# Bob chce wysłać do Alicji wiadomość, której wartość wynosi x=20 zaszyfrowaną przy użyciu algorytmu RSA.
+# Oblicz wartość szyfrogramu y.
 
 from potegowanie import power_mod as pow
+
 
 def cipher(m, e, n):
     return pow(m, e, n)

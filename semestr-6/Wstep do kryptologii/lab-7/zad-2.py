@@ -1,6 +1,6 @@
-# Alicja chce wysłać do Boba wiadomość, której skrót wynosi h=357.
+# Alicja chce wysłać do Boba wiadomość, której skrót wynosi h = 357.
 # Wygenerować przez Alicję podpis cyfrowy ElGamala dla tej wiadomości,
-# wiedząc, że Alicja użyła randomizera r=515.
+# wiedząc, że Alicja użyła randomizera r = 515.
 
 from lib import power_mod, euclides_extended
 
@@ -13,11 +13,11 @@ print(f"Klucz publiczny Alicji (p, g, B): ({p}, {g}, {B})")
 p, g, t = (1619, 2, 937)
 print(f"Klucz prywatny Alicji (p, g, t): ({p}, {g}, {t})")
 
-# Randomizer Alicji
+# Randomizer Alicji.
 r = 515
 print(f"Randomizer Alicji r: {r}")
 
-# Skrót wiadomości
+# Skrót wiadomości.
 h = 357
 print(f"Skrót wiadomości Alicji h: {h}")
 

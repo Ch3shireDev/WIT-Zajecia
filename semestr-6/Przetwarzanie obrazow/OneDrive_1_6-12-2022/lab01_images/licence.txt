@@ -1,1 +1,0 @@
-Cell images in this folder are from publicly available dataset: Data ScienceBowl 2018 (Kaggle) challange dataset.

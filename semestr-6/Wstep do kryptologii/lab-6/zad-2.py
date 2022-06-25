@@ -1,4 +1,5 @@
-# Bob otrzymał od Alicji wiadomość, z której wyznaczył skrót h=357, oraz jej podpis cyfrowy RSA s=1630. Zweryfikuj przez Boba otrzymany od Alicji podpis cyfrowy.
+# Bob otrzymał od Alicji wiadomość, z której wyznaczył skrót h=357, oraz jej podpis cyfrowy RSA s=1630. 
+# Zweryfikuj przez Boba otrzymany od Alicji podpis cyfrowy.
 
 from lib import cipher, decipher
 

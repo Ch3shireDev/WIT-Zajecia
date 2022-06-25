@@ -1,4 +1,5 @@
-# Alicja wylosowała dwie liczby pierwsze p=37 i q=47 oraz wartość e=1001. Wyznaczyć klucze asymetryczne RSA dla Alicji.
+# Alicja wylosowała dwie liczby pierwsze p=37 i q=47 oraz wartość e=1001. 
+# Wyznaczyć klucze asymetryczne RSA dla Alicji.
 
 def euclides_extended(a, b):
     a, b = max(a, b), min(a, b)

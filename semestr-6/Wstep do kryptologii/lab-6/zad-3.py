@@ -1,4 +1,5 @@
-# Alicja chce wygenerować klucze asymetryczne ElGamala. W tym celu przyjęła wartość p=1619 oraz generator g=2.
+# Alicja chce wygenerować klucze asymetryczne ElGamala.
+# W tym celu przyjęła wartość p=1619 oraz generator g=2.
 # Wyznacz klucze asymetryczne Alicji dla jej wartości prywatnej t=937.
 
 from lib import power_mod
