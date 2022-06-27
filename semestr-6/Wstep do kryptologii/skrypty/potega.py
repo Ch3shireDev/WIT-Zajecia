@@ -7,16 +7,29 @@ def power_mod(a, b, n):
     print(f"{b} binarnie: {b_bin}")
     result = 1
     x = a
+
+    print()
+
+    for i in range(len(b_bin)):
+        print(f"{a}^{2**i} mod {n} = {a**(2**i)%n}")
+
+    print()
+
+    powers = []
+    values = []
+
     for i in range(len(b_bin)):
         if b_bin[-i-1] == '1':
             x = a**(2**(i))
-            print(f"{b_bin[-i-1]}: {a}^{2**i} = {x%n} (mod {n})")
+
+            powers.append(f"{a}^{2**i}")
+            values.append(f"{x%n}")
+
             result *= x
             result %= n
-        else:
-            print(f"{b_bin[-i-1]}: Pomijanie {a}^{2**i}")
+    
+    print(f"{a}^{b} mod {n} = {' * '.join(powers)} = {' * '.join(values)} = {result}")
 
-    print(f"Wynik: {a}^{b} mod {n} = {result}")
     print()
     return result
 
