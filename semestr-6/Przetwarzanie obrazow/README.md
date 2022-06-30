@@ -238,7 +238,7 @@ $$ Pkoam (XV) = [P(xy) — KORA(x,y)] + KORM (Gy)$$
 - $P(x,y)$ - wartość piksela obrazu wejściowego
 - $KORM(x,y)$ — wartość współczynnika korekcji dla piksela o współrzędnych (x,y) obliczona według wzoru:
   $$KORM (Xx,y)= P_{KORA max} / P_{KORA}(GV)$$
-- \$P\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_{KORAmax} - Maksymalna wartość piksela w obrazie \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\$[P\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_{KORA}(X, Y)]\$
+- \$P\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_{KORAmax} - Maksymalna wartość piksela w obrazie \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\$[P\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_{KORA}(X, Y)]\$
 - $P_{KORM}(x,y)$ - wartość piksela obrazu wynikowego (po korekcji radiometrycznej)
 
 ### Przedstawienie ogólnego schematu przetwarzania i analizy obrazów.
@@ -487,7 +487,7 @@ Model krawędzi: linia prosta separująca dwa obszary o różnej intensywności 
 
 Użycie funkcji $u(z)$ do matematycznego opisu krawędzi
 
-$$ u(z) = \left\{
+$$
 \begin{array}{ll}
 1 & \text{dla } z>0 \\
 \frac12 & \text{dla } z=0 \\
@@ -496,8 +496,7 @@ $$ u(z) = \left\{
 \right. $$
 
 Jeśli $\delta(t)$ - impuls Diracta, to:
-
-$$u(z) = \int_{-\infty}^\infty\delta(t)\text dt$$
+$$
 
 Założenia:
 
@@ -512,11 +511,55 @@ Cyfrowa wersja gradientu i laplasjanu.
 
 ### Porównanie operacji: a) liniowych i nieliniowych; b) punktowych i sąsiedztwa z podziałam na liniowe i nieliniowe.
 
+Operacje punktowe - podsumowanie
+
+- Zalety: łatwe do implementacji i szybkie
+  - Implementowane przez LUT (manipulacje na palecie szarości lub barw) bo dziedzina funkcji jest skończona
+  - Dla różnowartościowych funkcji (bezstratnych) istnieją przekształcenie odwrotne
+  - Dla nieróżnowartościowych funkcji (stratnych) nie istnieją przekształcenie odwrotne - większość praktycznie stosowanych
+- Wady: ignorują przestrzenną zależność wartości intensywności w obrazie tzn. lokalną charakterystykę przestrzenną obrazu
+
+Matematyczny podział operacji sąsiedztwa
+
+- Liniowe (oparte na pewnej liniowej operacji, polegającej na
+  wykonaniu liniowej kombinacji wartości wybranych piksli
+  obrazu wejściowego)
+  - Są proste w implementacji, tak na poziomie oprogramowania, jaki
+    procesorów sprzętowych.
+  - Łączne i separowalne (rozdzielcze), przemienne.
+  - Dają efekty odpowiadające manipulacji pewnymi zakresami
+    częstotliwości.
+- Nieliniowe (oparte na funkcjach nieliniowych, np.
+  statystycznych, logicznych i morfologii matematycznej)
+  - Są czasochłonne i często skomplikowane.
+  - Mają bogatsze możliwości.
+  - Nie można ich interpretować w kategoriach manipulowania tylko
+    określonymi częstotliwościami
+
 ### Laplasjany i różnica między nimi a wygladzającymi filtrami konwolucyjnymi.
+
+### Metody operacji na pikselach wchodzących w skład skrajnych kolumn i wierszy
+
+1. Pozostawienie wartości pikseli bez zmian
+2. Wartości pikseli są nieokreślone (xxxxxxxxxx)
+3. Nadanie pikselom wartości arbitralnie zadanych przez użytkownika (np. same wartości "0", "15", "10" itd.
+4. Operacje z zastosowaniem kolumn i wierszy pomocniczych (zdublowanie (powielenie) skrajnych wierszy i kolumn)
+5. Operacje z wykorzystaniem pikseli z istniejącego sąsiedztwa.
+
+- Lewa skrajna kolumna (oprócz pikseli górnego i dolnego rogu) — kierunki
+  0,1,2,6,7,
+- Lewa skrajna kolumna piksel w górnym rogu — kierunki 0, 6,7,
+- Lewa skrajna kolumna (piksel w dolnym rogu) — kierunki 0,1,2,
+- Prawa skrajna kolumna (oprócz pikseli górnego i dolnego rogu) — kierunki
+  2,3,4,5,6,
+- Prawa skrajna kolumna piksel w górnym rogu — kierunki 4,5,6,
+- Prawa skrajna kolumna (piksel w dolnym rogu) — kierunki 2,3,4,
+- Górny skrajny wiersz (oprócz pikseli z lewego i prawego rogu) — kierunki 4,5,6,7,0
+- Dolny skrajny wiersz (oprócz pikseli z l ewego i prawego rogu) — kierunki 0,1,2,3,4.
 
 ## Wykład 4
 
-### Operacje sąsiedztwa oparte na matematycznych operacjach wyliczania gradientu, pierwszej i drugiej pochodnej
+### Operacje sąsiedztwa oparte na matematycznych operacjach wyliczania gradientu, pierwszej i drugiej pochodnej.
 
 ### Operacje kierunkowych gradientów i operatorów gradientowych pokazujących wartości skoku w otoczeniu analizowanego piksela oraz operacje sąsiedztwa oparte o laplasjany
 
@@ -524,17 +567,136 @@ Cyfrowa wersja gradientu i laplasjanu.
 
 ### Operacje morfologii matematycznej i ich porównanie z operacjami konwolucyjnych oprecji filtracji
 
+Operacje morfologiczne
+
+Są to operacje, w których modyfikacja danego piksla obrazu jest uzależniona od kształtu elementu strukturalnego (wzorca) użytego w danej operacji oraz od spełnienia zadanego warunku logicznego.
+
+Metody te oparte o matematycznej teorii zbiorów i poszukują i uwypukla lub wyrzucają cech, które ujawniają się w obrazie/obiekcie w kontekście narzędzia badawczego, którym jest element strukturalny
+
+Cel: przygotowanie poszczególnych elementów obrazu do etapu analizy obrazów
+
+Główna cecha różniąca operacje morfologiczne od operacji punktowych i operacji sąsiedztwa:
+
+W operacjach morfologicznych przekształcana jest tylko ta część pikseli obrazu,
+których otoczenie jest zgodne z elementem strukturalnym — koincydentne
+
+Operacje morfologii matematycznej na obrazach
+
+Pozwalają na budowanie złożonych operacji nieliniowych, do analizę kształtu i wzajemnego położenia obiektów.
+
+Fundamentalne pojęcie: element strukturalnym (strukturujący) — podzbiór obrazu z wyróżnionym punktem, zwanym często punktem centralnym
+
+- w elemencie strukturalnym występują następujące symbole:
+  - 1 element wskazuje piksel zapalony tzn. wartość obiektu w
+    masce binarnej
+  - 0 element wskazuje piksel wytłumiony tzn. wartość tła w
+    masce binarnej
+  - X element wskazuje dowolną wartość tzn. wartość tła lub obiektu w masce binarnej
+
+Przekształcenia polegają na pozostawieniu lub zmianie intensywności według pewnej funkcji skojarzonej z nazwą funkcji punktu przykrytego przez punkt centralny elementu strukturalnego jeśli jego otoczenie nie ma lub ma zgodność z założeniami zakodowanemu symbolami w elemencie strukturalnym.
+
+Operacje morfologiczne przekształcają tylko część punktów obrazu
+
 ### Podstawowe operacje morfologii matematycznej erozja, dylacja, otwarcie, zamknięcie i ich interpretacja oraz wyniki dzialania na obrazów binarnych i w odcieniach szarości
 
+Operacje morfologiczne
+
+Operacje morfologiczne binarne działają na tzn. maskach czyli obrazach binarnych, w którym obiekty oznaczone są „1” a tło „O” lub na obrazach w odcieniach szarości, ale korzystając z uogólnionej definicji
+
+Element strukturalny jest przemieszczany po wszystkich punktach obrazu tak, że punkt centralny elementu strukturalnego jest nakładany na kolejne punkty w kolejnych wierszach.
+
+W każdym położeniu elementu sprawdza się, czy rzeczywista konfiguracja punktów jest zgodna (koincydentna) ze wzorcem zawartym w elemencie strukturalnym zakodowanym symbolami 1, 0, X.
+
+W przypadku wykrycia zgodności jest wykonywana operacja związana z filtrem, a w przeciwnym przypadku wartość występująca w obrazie pierwotnym jest przepisywana.
+
+Jeśli punkt otoczenia jest wygaszony (równy wartości tła - 0) przy zapalonym (większym od tła - 1) elemencie centralnym, element pod elementem centralnym zostaje wygaszany — zrównany z tłem, a w przeciwnym wypadku zostawiamy jego poprzednią wartość.
+
+Przykładowe operacje morfologiczne
+
+- Erozja — oparta o różnicę Minkowskiego;
+
+  Def.: jeżeli choć jeden piksel z sąsiedztwa określonego elementem strukturalnym ma wartość "O" to punkt centralny otrzymuje wartość "0", w przeciwnym przypadku jego wartość nie ulega zmianie
+
+- dylatacja — oparta o sumę Minkowskiego;
+
+  Def.: jeżeli choć jeden piksel z sąsiedztwa określonego elementem strukturalnym ma wartość "1" to punkt centralny otrzymuje wartość "1", w przeciwnym przypadku przyjmuje wartość "0"
+
+- Otwarcie - złożenie erozji i dylatacji,
+
+  Operacja morfologiczna, która opiera się na dwóch innych
+  operacjach: erozji i dylatacji. Otwarcie polega na wykonaniu
+  na obrazie najpierw erozji (minimum), a następnie na tak
+  przetworzonym obrazie należy zastosować dylatację
+  (maksimum) na tym samym elemencie strukturyzyjącym.
+
+- Zamknięcie — złożenie dylacji i erozji.
+
+  Operacja morfologiczna, która opiera się na dwóch innych operacjach: dylatacji i erozji. Zamknięcie polega na wykonaniu na obrazie najpierw dylatacji (maksimum), a następnie na tak przetworzonym obrazie należy zastosować erozję (minimum) na tym samym elemencie strukturyzyjącym.
+
 ### Niektóre zaawansowanie operacje morfologii matematycznej: gradient morfologiczny, ekstrakcja konturów, pocienienie i pogrubianie
+
+- Pocienianie
+  Zmniejszenie obiektu o piksele będące jego krawędzią.
+- Pogrubianie
+  Zwiększenie obiektu o dodatkowe piksele tła stykające się z krawędzią obiektu.
+- Ekstrakcja konturu
+  Kolejność działań: 1) operacja erozji obrazu, 2) odjęcie wyniku erozji od obrazu pierwotnego. W wyniku otrzymujemy kontur obiektu.
+- Szkieletyzacja
+  Operacja, która wykrywa szkielet obiektu. Przykładowy algorytm szkieletyzacji: 1) obliczyć, ile erozji można wykonać, aby obraz nie został sprowadzony do tła, 2) wykonać obliczoną ilość razy erozję i otwarcie. Wyniki kolejnych kroków erozji i otwarcia należy od siebie odjąć. Wyniki odejmowania z kolejnych kroków należy wstawić w obraz wynikowy.
+- Gradient morfologiczny (= Otwarcie+Zamknięcie)
+- Wygładzanie morfologiczne (=Dylacja—Erozja)
+- Odcinanie gałęzi (artefaktów z nieregularności obiektów szkeletyzowanych)
+- Detekcja centroidów (punktów centralnych obiektu)
+- Dylatacja bez styków (SKIZ ang. Skeleton by influece zone)
+- Erozja warunkowa
+- Automediana
 
 ### Rozszerzenia definicji operacji podstawowych na obrazy w odcieniach szarości.
 
 ## Wykład 5
 
+## Operacje globalne na obrazach – transformaty (transformacja Fouriera i transformacja Hough’a).
+
 ### Operacje globalne - transformaty.
 
+Są to operacje, w których na wartość zadanego piksela obrazu wynikowego q o współrzędnych (ij) mają wpływ wartości wszystkich pikseli obrazu pierwotnego p, czyli są to operacje kontekstowe dla których otoczeniem piksela jest cały obraz p.
+
+- Transformacje
+- Fouriera (matematyczny pryzmat)
+- kosinusowa
+- Falkowa (matematyczny mikroskop)
+- Hough'a
+- Odległościowa (morfologia matematyczna)
+- Inne globalne
+  - Skalowanie rozmiarów
+  - Rejestracja multimodalna i multisesyjna
+
 ### Transformata Fouriera, jej rola w przetwarzaniu i analizie obrazów: 1) poszukiwania kierunkowości i periodyczności w obrazie oraz 2) dokonywanie manipulacji zawartością obrazu w dziedzinie częstotliwości.
+
+Transformata
+
+Przekształcenie matematyczne odwracalne i bezstratne, przenoszące sygnał z jednej przestrzeni w inną, w której wygodniej dokonywać pewnych analiz lub procesów (np.: kompresji informacji), ponieważ w przestrzeni docelowej uwypuklane są cechy sygnału istotne z punktu widzenia celu analizy lub przetwarzania.
+
+W przestrzeni docelowej sygnał jest dekomponowany ze względu na zbiór funkcji bazowych tej przestrzeni.
+
+Transformata Fouriera
+
+Główne zastosowanie: — poprawa jakości sygnału według przyjętego kryterium
+
+Interpretacja częstotliwościowa filtracji
+
+Transformata Fouriera: to transformacja która przenosi obraz (dyskretny sygnał dwuwymiarowy) z dziedziny oryginalnej do dziedziny częstotliwości przestrzennych.
+
+Do czego wykorzystujemy FFT w przetwarzaniu obrazów
+
+- Do obserwacji periodyczności w obrazie
+- Do wyznaczania kierunku struktur w obrazie
+- Do wytłumiania lub wzmacniania pewnych kategorii informacji
+- Do wygładzania i wyostrzania obrazu
+
+## Filtracja górnoprzepustowa (low pass filters) i dolnoprzepustowa (High pass filters) z wykorzystaniem reprezentacji częstotliwościowej obrazu.
+
+## Praktyczne przykłady wykorzystania transformaty Fouriera w przetwarzaniu i analizie obrazów.
 
 ### Porównanie wyników filtracji dolno- i górnoprzepustowej wykonywanej w dziedzinie częstotliwości z filtracją konwolucyjną za pomocą odpowiednich filtrów.
 
@@ -542,17 +704,86 @@ Cyfrowa wersja gradientu i laplasjanu.
 
 ### Transformata Hougha i jej działanie.
 
-### Analiza przykładów zastosowanie transformata Hougha w przestrzni o dwóch i trzech parametrach opisu poszukiwanej figury geometrycznej.
+Detekcja krawędzi z wykorzystaniem Transformaty Hougha
 
-### Transformaty kosinusowa (wykorzystywana w formacie jpg) i falkowa (w jpg2000) i ich zastosowania.
+Detekcja linii daje rezultaty w postaci fragmentów prostej lub krzywej, grupy pikeseli (piksele) poszukiwanej krawędzi.
 
-### Definicje związane z procesem segmentacji obrazu.
+Metoda detekcji krzywych analitycznych (jak w zapisie wektorowym obrazu) nie pikseli (!)) przez transformatę wynikającą z dualności pomiędzy punktami na krzywej a parametrami tej krzywej.
 
-### Podział metod segmentacji na grupy i omówienie przykładowych metod z każdej grupy.
+Krzywa analityczna o postaci f(x,a) = 0 gdzie x — punkt obrazu, a - wektor parametrów.
+
+Zaleta:
+
+działa dobrze nawet wówczas, gdy ciągłość krawędzi nie jest zachowana i oprócz punktów krawędzi występują dodatkowe elementy (najczęściej z powodu szumów).
+
+Założenia:
+
+Piksele o niezerowej wartości są elementami krawędzi (obraz po krawędziowaniu).
+Jeśli piksel (x,y) leży na prostej > znaleźć zbiór wartości (p, \$) w przestrzeni
+parametrów tej prostej.
+
+(x,y) - stałe, (p, b) - zmienne — równanie normalne prostej przedstawia relację
+pomiędzy krzywą w przestrzeni parametrów, a punktem w obrazie.
+
+Punkt (x,y) leży na prostej — krzywa w przestrzeni parametrów to sinusoida
+TH - transformacja pomiędzy punktami obrazu a przestrzenią parametrów
+poszukiwanej krzywej.
+
+Równanie normalne prostej: $x\cdot\cos\phi+y\cdot\sin\phi = \rho$
+
+## Kompresja obrazów.
+
+Rodzaje kompresji (kodowania)
+
+- Bezstratna (ang. lossless coding) odwracalna (ang. reversible) redukcja redundancji statystycznej (ang. statistical redundancy) w czasie i przestrzeni
+- Stratna (ang. lossy coding) nieodwracalna (ang. irreversible)
+  redukcja redundancji subiektywnej (ang. subjective redundancy), dotycząca nieistotnej informacji (ang. irrelevancy),
+  z lub bez uwzględnienia charakterystyki słuchu i wzroku człowieka
+- "Prawie" bezstratna lub percepcyjnie bezstratna, tzn. stratna, ale poziom zmian względem oryginału nie jest odczuwany przez człowieka
 
 ## Wykład 6
 
 ### Percepcji koloru i jasności przez oko ludzkie
+
+Barwa to zarówno kombinacja fizycznych (spetralnych) własności światła jaki i sposób jego interpretacji przez ludzkie oko i mózg.
+
+Różne długości fali elektromagnetycznej z zakresu widma widzialnego (380 - 760 nanometrów) są odbierane jako barwy, a ich mieszanina jako światło białe
+
+Uwaga! Jednakowe bodźce barwne wywołują jednakowe wrażenia, ale takie samo wrażenie mogą wywołać bodźce różniące się fizycznym (spektralnym) składem promieniowania elektromagnetycznego (metam eryzm)
+
+Barwa
+
+Fizycznie: długość fali
+
+Subiektywnie: to co odróżnia zieleń od błękitu a jest wspólne dla różnych
+odcieni czerwonego.
+
+Jasność
+
+stopień podobieństwa do barwy białej (dla odcieni jasnych) lub czarnej (dla
+odcieni ciemnych).
+
+Nasycenie
+
+czystość barwy np. stopień zbliżenia do barw zasadniczych występujących w
+widmie słonecznym: czerwona, zielona, niebieska, żółta (RGBY).
+
+Rozróżnialność barw
+
+(uwzględniając jasności) ok. 400000 kolorów (przy porównywaniu).
+Z pamięci: kilkadziesiąt barw. Subiektywna ocena barw obrazu na monitorze
+przy różnym oświetleniu pomieszczenia.
+
+Cechy bodźca świetlnego wywołującego wrażenie barwy
+
+- Achromatyczne (widzenie skotopowe)
+  - Ilość (skuteczność pobudzenia) luminancja/jasność/jaskrawość czyli stopień podobieństwa do białej barwy, dającej maksymalne pobudzenie lub czarnej, dającej pobudzenie minimalne
+- Chromatyczne (widzenie fotopowe)
+  - Jasność (intensywność pobudzenia R+G+B)
+  - Barwa/odcień/walor/Kolor/ (fizycznie: długość dominującej fali)
+  - Nasycenie/rozbielenie (czystość barwy czyli podobieństwo do barw widma słonecznego, bladość)
+
+Widzenie pośrednie mezopowe; przy słabym świetle
 
 ### Błędy w postrzeganiu i rozróżnianiu kolorów przez człowieka
 
@@ -566,6 +797,18 @@ Cyfrowa wersja gradientu i laplasjanu.
 
 ### Teoretyczne podstawy porównywanie obrazów jako tablic i jako wektorów: obrazy różnicowe i metryki służące do wyznaczania odległości obrazów (Euklidesowa, Manhatan i Czebyszewa) w przestrzeni obrazów.
 
+Metryka Euklidesowa:
+
+$$\rho(x_1, x_2) = \sqrt{\sum (x_1-x_2)^2}$$
+
+Metryka uliczna (Manhattan, city block distance):
+
+$$\rho(x_1, x_2) = \sum|x_1-x_2|$$
+
+Metryka Czebyszewa:
+
+$$\rho(x_1,x_2) = \max|x_1-x_2|$$
+
 ### Kompresja obrazów i definicja współczynnika kompresji
 
 ### Przykłady algorytmów i metod kompresji stratnej i bezstratnej
@@ -576,23 +819,99 @@ Cyfrowa wersja gradientu i laplasjanu.
 
 ### Definicja rozpoznawania jako procesu psychofizycznego zachodzącego w mózgu człowiek i prowadzącego do interpretacji (przypisania znaczenia) stymulacjom ludzkich zmysłów, w tym ludzkiego oka
 
+Rozpoznawanie bodźców
+
+- Psychofizyczny proces zachodzący w mózgu człowieka pod wpływem stymulacji (np.: wzrokowej) lub nawet jej wyobrażenia, wywołujący przyporządkowanie stymulacji do pewnej kategorii zjawisk, obiektów, itp..
+
+  Ograniczamy się do bodźców wzrokowych
+
+- W ten sposób rozpoznawanie to interpretacja stymulacji wzrokowej czyli przyporządkowanie jej odpowiedniej kategorii obiektów i sytuacji widzianych przez narząd wzroku (na podstawie poprzednich doświadczeń i znanych definicji)
+
 ### Znaczenie świadomości i wiedzy w procesie rozpoznawania zachodzacym w ludzkim mózgu
+
+Świadomość i wiedza:
+
+- Zdolność zdawania sobie sprawy z tego, że istnieją kategorie pojęciowe i że rozpoznanie oznacza postrzeżenie (reaktywność i percepcja) i zakwalifikowanie do kategorii czyli rozumienie
+- Niejednoznaczność obrazów
+- W postrzeganiu istnieje progu świadomości, czyli dolnej granicy wrażliwości na sygnały oraz wymagane są doświadczenia i informacja o otaczającej rzeczywistości
 
 ### Podstawowe psychologiczne teorie rozpoznawania
 
-### Definicja komputerowego rozpoznawanie obrazów jako część dziedziny rozpoznawania wzorców (ang
+Rozpoznawanie
 
-### pattern recognision). Podobieństwa i różnice rozpoznawania wykonywanego przez człowieka i system wizyjny z oprogramowaniem do rozpoznawania obrazów
+- Proces psychofizjologiczny zachodzący w mózgu na podstawie wrażenia zmysłowego lub jego wyobrażenia, przypisujący znaczenie procesom, które są „odbierane”.
+- Rozpoznawanie wrażeń wzrokowych jest więc interpretacją znaczenia stymulacji wzrokowych przez zidentyfikowanie kategorii, do której należą obiekty stymulujące (odwołanie do wcześniejszych doświadczeń i wcześniej zdefiniowanych kategorii lub utworzenie nowej kategorii)
+
+Tło gnostyczne = świadomość + wiedza
+
+ontologie = wiedza i reguły wnioskowania
+
+Teorie rozpoznawania:
+
+- Teoria wzorca
+  - Przechowywanie nieskończonej liczby wzorców
+  - Porównywanie (dokładność)
+  - Klasyfikacja?
+- Teoria cech
+  - Dopasowywanie cech obrazu do cech przechowywanych w pamięci
+  - Dowody: „detektory cech” w korze wzrokowej (Hubel & Wiesel)
+
+### Definicja komputerowego rozpoznawanie obrazów jako część dziedziny rozpoznawania wzorców (ang. pattern recognision). Podobieństwa i różnice rozpoznawania wykonywanego przez człowieka i system wizyjny z oprogramowaniem do rozpoznawania obrazów
+
+Komputerowe rozpoznawanie obrazów
+
+Podejścia:
+
+1. Klasyczne – oparte o cechy obiektu ułatwiające jednoznaczne rozpoznanie
+
+- Analiza obrazu zajmuje się ekstrakcją cech na potrzeby rozpoznawania obrazów
+
+2. Oparte na sztucznej inteligencji - bazuje na cechach wyznaczonych automatycznie w procesie uczenia
+
+Cel rozpoznawania
+
+- Wspomaganie ludzkich decyzji za pomocą informacji obrazowej lub informacji ekstrahowanej z obrazów
+- Uzależniony od zastosowania:
+  - Zastąpienie człowieka
+  - Weryfikacja działania manipulatorów i robotów
+  - Selekcja dużych ilości danych (badania przesiewowe w diagnostyce medycznej)
+  - Biometria
 
 ### Cele i metody rozpoznawania komputerowego obrazów i ich podział na dwa podejścia: podejście klasyczne z definiowaniem i wyborem cech przez dewelopera systemu i podejście oparte o automatyzację procesu wyboru cech związane z uczeniem maszynowym
 
+Komputerowe rozpoznawanie obrazów
+
+- Naśladuje rozpoznawanie wykonywane przez człowieka choć wiedza o świecie zgromadzona w oprogramowaniu jest bardzo ograniczona
+- Jest znacznie mniej efektywne
+- Jest związane z zastosowaniami:
+  - Zastąpieniem człowieka w trudnych warunkach (kontrola jakości mikroprocesorów), uciążliwych czynnościach (OCR)
+  - Weryfikacja działania manipulatorów i robotów
+  - Selekcją dużych ilości danych (badania skriningowe w diagnostyce medycznej)
+
+Cel:
+
+Wspomaganie ludzkich decyzji za pomocą informacji obrazowej lub informacji ekstrahowanej z obrazów
+
+Proces rozpoznawania jest wieloetapowy, zawiera dwa typy działań:
+
+- ukierunkowane (detekcja dopasowania, analiza kształtu, pomiar wielkości lub odległości)
+- nieukierunkowane (filtracja obrazu, zamiana na obraz monochromatyczny, wyodrębnianie krawędzi)
+
+- Rozpoznawanie obrazów jest związane
+  z innymi dziedzinami nauk komputerowych: uczeniem maszynowym UM (machine learning, ML), sztuczną inteligencją (artificial intelligence AI), komunikacją człowiek-komputer
+- Zastosowania:
+  - Bioidentyfikacja (oczy, uszy, odciski palców, głos)
+  - Kontrola jakości produktów, kontrola samochodów na drogach (rozpoznawanie tablic rejestracyjnych), roboty i manipulatory
+  - Badania przesiewowe ( w diagnostyce medycznej)
+  - Symulatory do nauki prowadzenia pojazdów (samolotów, pojazdów kosmicznych, samochodów wyścigowych, wieży kontrolnej lotów)
+  - Rozpoznawanie twarzy
+  - Marketing (Yamaha Motor)
+
 ### Definicje następujących pojęć: cechy, przestrzeni cech, przekształcenia zwanego analizą, przekształcenia zwanego właściwym rozpoznawaniem, pojęcia klas obiektów
 
+- cechy obiektów są to współrzędne przestrzeni X; odwzorowanie obiektu w punkt charakteryzowany przez współrzędne
+
 ### Przedstawienie pełnego schematu przebiegu przygotowania i wykorzystywania klasycznych metod rozpoznawania obrazów
-
-### Dwie z metod: porównywanie do wzorca i metoda k- najbliższych sąsiadów są przedstawiane szczegółowo (ponieważ ostanią z nich studenci implemetują w Excelu w ramach laboratoriów). Wprowadzenia pojęcia uczenia maszynowego; w tym uczenia się sieci neuronowych (płytkich i głębokich). Definicja pojęć związanych z różnym typem uczenia się sieci neuronowych oraz z ich architekturą. Matematyczne podstawy uczenia się sieci neuronowych (funkcja propagacji wstecznej, rodzaje optymalizacji). Ewolucja architektury sieci neuronowych od sieci trójwardtwowej aż do wykorzystywanych do rozpoznawania obrazów sieci konwolucyjnych z enkoderem i dekoderem (U-net). Metod rozpoznawania obrazów oparte o algorytmy automatycznie wybierające cechy w kontekscie cech wybieranych w klasycznych metodach rozpoznawania
-
-### Przedstawienia specyfiki sieci konwolucyjnych i typowych zastosowań sieci rozpoznających obrazy: sieci do przenoszenia stylu obrazu, sieci rozpoznającej i lokalizującej twarze, sieci do analizy i segmentacji obrazów biomedycznych (do wspomagania diagnostyki obrazowej). Omówienie zagadnień związanych z wizualizacją informacji zawartej w sieci i ze zrozumieniem jej działania.
 
 ## Wykład 8
 
@@ -606,7 +925,73 @@ Cyfrowa wersja gradientu i laplasjanu.
 
 ### Definicja steganografii; ukrywania informacji z ukryciem faktu przekazywania informacji
 
+Steganografia - Nauka o komunikacji w taki sposób, by obecność komunikatu nie mogła zostać
+wykryta, czyli ukrywanie/hermetyzacji informacji (ang. information hiding)
+
+Słowo „steganografia” pochodzi z języka greckiego i oznacza ukryte pismo
+
+Zaleta steganografii w stosunku do szyfrowania informacji jest ukrycie samego faktu porozumiewania się stron.
+
+Ukrywanie informacji obrazowej (lub tekstowej) w obrazie ( image watermarking) w różnych celach:
+
+1. Ochrona praw autorskich (ukryty obraz (lub tekst) pełni rolę znaku wodnego
+   (watermark)), w tym przypadku konieczną własnością obrazu ukrytego jest
+   (poza odpornością na usunięcie przez czynniki zewnętrzne) jego wystarczająca
+   odporność na działanie standardowych operacji przetwarzania obrazów
+   (filtracja, kompresja, zniekształcenia geometryczne itp.),
+2. Ochrona autentyczności obrazu (ukryty obraz pełni rolę znaku wodnego
+   (watermark)), w tym przypadku konieczną własnością obrazu ukrytego jest (poza
+   odpornością na usunięcie przez czynniki zewnętrzne) jego wystarczająca
+   podatność na działanie operacji przetwarzania obrazów (filtracja, kompresja,
+   zniekształcenia geometryczne itp.).
+3. Praktyczne przesyłania informacji
+
 ### Steganografia z wykorzystaniem obrazu jako nośnika informacji.
 
-$$
-$$
+Ukrywanie obrazu w obrazie - nazwy obrazów
+
+1. obraz ukrywający `[p]`
+2. obraz ukrywany `[h]`
+3. obraz ukrywany po przekształceniu `[nmod]`
+4. obraz ukrywający wraz z obrazem ukrytym `[ph]`
+
+Obrazy ukrywające z gradacją poziomów szarości
+
+Obraz ukrywający: na 1 piksel obrazu ukrywanego przypada 1 bajt (8 bitów)
+
+Obraz ukrywany może i powinien być uproszczony: na 1 piksel obrazu może
+przypadać 1, 2, 3, 4,5, 6, 7, 8 bitów, co odpowiada 2,4,8,16,32,64,128,256
+poziomom szarości (M)
+
+W praktyce, ze względu na potrzebę ograniczenia wpływu obrazu ukrywanego
+na wygląd obrazu ukrywającego, stosowane są wartości [M<<256, a obraz
+ukrywany zapisywany jest na najmniej znaczących bitach obrazu ukrywającego.
+
+Zajęcia badanie czy:
+
+przy wzroście wartości liczby bitów obrazu ukrywanego następuje coraz większa zmiana wyglądu obrazu ukrywającego i jednocześnie coraz wyraźniejsze uwidocznienie obrazu ukrywanego w tym obrazie.
+
+Obrazy ukrywające kolorowe np. w formacie RGB
+
+Obraz ukrywający: na 1 piksel obrazu przypada 3 bajty (24 bity) odpowiadające 3
+składowym R, G, B
+
+Przykładowy zapis piksla obrazu ukrywanego: 2 najmłodsze bity składowej R oraz po
+jednym najmłodszym bicie składowych G i B (razem 4 bity, co odpowiada obrazowi o M=16
+poziomach)
+
+Zapis informacji tekstowej obrazie RGB: 1 znak — 8 bitów co oznacza że do zapisu 1 znaku
+można wykorzystać 2 piksle.
+
+Dodatkowe kodowanie obrazów ukrywanych => lepsze ich ukrycie (np. przemieszanie poszczególnych piksli)
+
+Operacje najczęściej stosowane w procesie ukrywania i odtwarzania obrazu
+
+- Jednopunktowe jednoargumentowe
+  - progowania,
+  - redukcji poziomów szarości,
+  - rozciągania,
+  - uniwersalne operacje punktowe (UOP)
+- Jednopunktowe dwuargumentowe
+  - arytmetyczne (dodawanie, odejmowanie)
+  - logiczne (suma (OR), iloczyn (AND))
