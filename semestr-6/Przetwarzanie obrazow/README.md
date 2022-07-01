@@ -2,7 +2,7 @@
 
 ## Wykład 1
 
-### Podstawowe pojęcia: obraz, obraz cyfrowy, histogram obrazu i linia profilu obrazu cyfrowego.
+### Podstawowe pojęcia: obraz, obraz cyfrowy, histogram obrazu i linia profilu obrazu cyfrowego. Model obrazu cyfrowego i historia powstania dziedziny zwanej przetwarzaniem i rozpoznawaniem obrazów.
 
 Obraz to wynik obserwacji świata przedstawiony na ograniczonej płaszczyźnie.
 
@@ -19,6 +19,25 @@ sygnałów:
 
 Obraz to dyskretna dwuwymiarowa funkcja f(x, y) określona na ograniczonym fragmencie płaszczyzny, której wartości f to intensywność (jasność, kolor) w tym punkcie (x, y).
 
+Zwarty, jednorodny i przestrzennie uporządkowany zbiór
+sygnałów:
+
+- związanych z cechą/cechami pomiarowymi, na bazie
+  których tworzymy obraz (natężenie fali
+  elektromagnetycznej, akustycznej, wielkości nie falowe
+  np. czas relaksacji)
+- dostosowanych do materialnego nośnika obrazu
+  (papieru, kliszy, dyskietki, pamięci dyskowej itp.)
+- niosących informację o > odwzorowywanej rzeczywistości
+
+### Rozdzielczość obrazu.
+
+- Rozdzielczość przestrzenna - określa stopień rozróżnialności detali; tym lepsza, im większa wartość N/na jednostkę długości. Jest wyrażana w jednostkach zwanych punktami na cal (ang. Dot per inch)
+- Rozdzielczość poziomów szarości — określa ilość rozróżnianych poziomów szarości lub kolorów; tym lepsza, im większa wartość M. Jest dobierana tak, aby wartość M była potęgą liczby 2 — co ułatwia kodowanie.
+- Inne rozdzielczości: całkowita, interpolowana, urządzeń prezentacjj obrazu jak monitor, drukarka, ploter, urządzeń akwizycji.
+
+### Histogram
+
 Histogram obrazu - struktura która pomija informacje o tym gdzie znajduje się piksel, zlicza tylko poziomy jasności w formie wykresu słupkowego. Wysokość słupka odpowiada ilości wystąpień potencjalnego poziomu jasności występującego w obrazie.
 
 Histogram to wykres słupkowy przedstawiający ilość pikseli o każdej potencjalnej wartości występującej w obrazie.
@@ -26,21 +45,11 @@ Histogram to wykres słupkowy przedstawiający ilość pikseli o każdej potencj
 - Statystyka odzwierciedlająca rozkład jasności punktów w obrazie.
 - Pewna estymata rozkładu jasności oryginalnego obrazu analogowego i rzeczywistości.
 
-### Model obrazu cyfrowego i historia powstania dziedziny zwanej przetwarzaniem i rozpoznawaniem obrazów.
-
-### Światło i inne zakresy fal elekromagnetycznych jak źródło powstawania obrazów.
-
 ### Proces akwizycji obrazów cyfrowych: pojęcia próbkowania przestrzennego i tonalnego (poziomów szarości).
 
 Akwizycja obrazu to przetworzenie informacji o fizycznym obiekcie do postaci zbioru danych dyskretnych nadających się do zapisania w pamięci komputera.
 
-Akwizycja (pozyskiwanie, zbieranie) obrazu -
-przetworzenie informacji o fizycznym obiekcie lub
-scenie do postaci zbioru danych dyskretnych (f(x,y)
-obraz cyfrowy) nadających się do zapisania w
-pamięci komputera, a następnie do wyświetlenia,
-drukowania i dalszego przetwarzania za pomocą
-odpowiedniego oprogramowania.
+Akwizycja (pozyskiwanie, zbieranie) obrazu - przetworzenie informacji o fizycznym obiekcie lub scenie do postaci zbioru danych dyskretnych (f(x,y) - obraz cyfrowy) nadających się do zapisania w pamięci komputera, a następnie do wyświetlenia, drukowania i dalszego przetwarzania za pomocą odpowiedniego oprogramowania.
 
 Elementy procesu akwizycji:
 
@@ -65,6 +74,14 @@ Cechy procesu akwizycji:
 - nakładanie szumu
 - nakładanie zniekształceń
 
+Dyskretyzacja obrazu to dyskretyzacja funkcji f
+(x,y) na dwóch poziomach:
+
+- przestrzenna (próbkowanie dziedziny funkcji)
+- amplitudowa (kwantyzacja wartości funkcji)
+
+Obraz jest więc strukturą podwójnie dyskretną
+
 ### Charakterystyka obrazów cyfrowych: szum akwizycji, zniekształcenia obrazu.
 
 Szum - przypadkowe, niestacjonarne zakłócenia wartości sygnału w czasie i/lub w przestrzeni.
@@ -83,65 +100,89 @@ Szum w aparatach cyfrowych wynika z:
 - zjawisk towarzyszącch zamianie światła na prąd
 - nałożenia termicznych ruchów elektronów na mierzony sygnał
 
+Szum powstaje na skutek
+
+- Nałożenia termicznych ruchów elektronów w materii na
+  mierzony sygnał, który jest zamieniany na prąd (np.: w
+  przetwornikach zamieniających światło na prąd zgodnie
+  ze zjawiskiem fotoelektrycznym)
+- Niestabilności źródła formowania sygnału, np.:
+  promieniowania X, fali akustycznej czy radiowej;
+  Zrozumienie zjawiska i jego przyczyn zwykle
+  prowadzi do unikania zaszumienia, a nie do jego
+  likwidacji czy choćby redukcji
+
 ### Sposoby walki z szumem akwizycji.
 
 Redukcja szumu:
 
 - Na poziomie akwizycji:
-  — Wybór maksymalnie długiego czasu naświetlania
-  — Wybór niskich czułości ISO
-  — Chłodzenie matrycy
-  — Wykonywanie zdjęć wielokrotnych (braketing)
-  — Wykonywanie zdjęć lekko prześwietlonych (HighKey)
+- Wybór maksymalnie długiego czasu naświetlania
+- Wybór niskich czułości ISO
+- Chłodzenie matrycy
+- Wykonywanie zdjęć wielokrotnych (braketing)
+- Wykonywanie zdjęć lekko prześwietlonych (HighKey)
 - Na poziomie przetwarzania (obróbki) obrazów:
-  — Uśrednianie zdjęć wielokrotnych
-  — Filtrowanie
+- Uśrednianie zdjęć wielokrotnych
+- Filtrowanie
 - Uwaga: Nie redukujemy szumu przez
-  — Rozjaśnianie obrazu w miejscach niedoświetlenia
-  — Rozjaśnianie cieni w obrazie
+- Rozjaśnianie obrazu w miejscach niedoświetlenia
+- Rozjaśnianie cieni w obrazie
 
 - Uśrednianie czasowe (dotyczy obrazów statycznych)
 - Uśrednianie przestrzenne (obrazy statyczne oraz zmienne w czasie)
-
-### Rozdzielczość obrazu.
-
-Rozdzielczość przestrzenna - określa stopień rozróżnialności detali; tym lepsza, im większa wartość N/na jednostkę długości. Jest wyrażana w jednostkach zwanych punktami na cal (ang. Dot per inch)
-
-- Rozdzielczość poziomów szarości — określa ilość
-  rozróżnianych poziomów szarości lub kolorów; tym
-  lepsza, im większa wartość M. Jest dobierana tak, aby
-  wartość M była potęgą liczby 2 — co ułatwia kodowanie.
-- |nne rozdzielczości: całkowita, interpolowana, urządzeń
-  prezentacjj obrazu jak monitor, drukarka, ploter,
-  urządzeń akwizycji.
-
-### Histogram
-
-Histogram to wykres słupkowy rzedstawiający ilość pikseli o każdej
-potencjalnej wartości poziomu szarości lub intensywności koloru
-występującej w obrazie.
-
-- Statystyka odzwierciedlająca rozkład jasności punktów w obrazie.
-- Pewna estymata rozkładu jasności oryginalnego obrazu analogowego i
-  rzeczywistości.
 
 ### Różnica miedzy obrazem zawierającym wielkości pomiarowe (typu RAW) a obrazami generowanymi przez typowe aparaty cyfrowe.
 
 ## Wykład 2
 
-### Pozostałe aspekty charakterystyki obrazów cyfrowych w kontekście ich inherentnych cech związanych z procesem akwizycji (powstawaniem szumu i zniekształceń obrazu) w szczególności zniekształaceń rediometrycznych, geometrycznych i chromatycznych.
+### Pozostałe aspekty charakterystyki obrazów cyfrowych w kontekście ich inherentnych cech związanych z procesem akwizycji (powstawaniem szumu i zniekształceń obrazu) w szczególności zniekształaceń radiometrycznych, geometrycznych i chromatycznych.
 
 Zniekształcenia obrazu w procesie akwizycji:
 
 - Zniekształcenia radiometryczne to zniekształcenia odczytu wartości cechy, na podstawie której tworzymy obraz;
-  - nierównomiernością oświetlenia,
-  - błędami konwersji oświetlenie — sygnał elektryczny (tzn. błędami detekcji, uszkodzeniami przetworników)
+- nierównomiernością oświetlenia,
+- błędami konwersji oświetlenie — sygnał elektryczny (tzn. błędami detekcji, uszkodzeniami przetworników)
 - Zniekształcenia geometryczne to zniekształcenia odczytu położenia
   odczytanych wartości względem siebie
   dla obrazów kolorowych i wielospektralnych
 - Zniekształcenia (aberracje) chromatyczne to zniekształcenia wynikające z charakterystyki współczynnika odbicia lub przejścia przez ośrodek fali elektromagnetyczne o różnej długości
 
 Celem wstępnego przetwarzania obrazu jest redukcja zniekształceń obrazu powstałych w procesie akwizycji.
+
+Zniekształcenia geometryczne
+
+Zniekształcenia geometryczne (dystorsje) są spowodowane:
+
+- nieliniowością układów optycznych wchodzących w skład toru
+  optycznego np.: mikroskopu
+- nierównoległością płaszczyzn obrazu i matrycy światłoczułej np.:
+  krzywizna Ziemi w zdjęciach satelitarnych, zmienna wysokości
+  powierzchni ziemi w zdjęciach do sporządzania map, skaningowy
+  mikroskop elektronowy,
+- obrotem płaszczyzn obrazu i matrycy światłoczułej np.: skróty
+  perspektywy
+- zmianami skali
+
+  lub połączeniem powyżej wymienionych.
+
+Konieczność usuwania zniekształceń geometrycznych:
+
+- Pomiary odległości i pól powierzchni,
+
+* Dopasowywanie obiektów na obrazach,
+* Dopasowywanie obrazów na potrzeby rekonstrukcji obrazu z  fragmentów,
+* Tworzenie map, planów na podstawie zdjęć,
+
+- Nakładania obrysów mapy na zdjęcia satelitarne, pogodowe.
+- Nakładanie map rozkładu potencjału elektrycznego na
+  powierzchnie 3D.
+  Realizacja korekcji zniekształceń geometrycznych
+- Aproksymacja transformacji wielomianem
+
+* Przekształcenia rozciągające
+
+- Przekształcenia afiniczne
 
 ### Omówienie procesu akwizycji obrazu na podstawie aparatu fotograficznego ze zwróceniem uwagi na źródła zniekształceń radiometrycznych, geometrycznych i chromatycznych.
 
@@ -180,9 +221,9 @@ Zniekształcenia obrazu w procesie akwizycji:
 
 - Zniekształcenia radiometryczne to zniekształcenia odczytu wartości cechy,
   na podstawie której tworzymy obraz;
-  - nierównomiernością oświetlenia,
-  - błędami konwersji oświetlenie — sygnał elektryczny (tzn. błędami detekcji, uszkodzeniami
-    przetworników)
+- nierównomiernością oświetlenia,
+- błędami konwersji oświetlenie — sygnał elektryczny (tzn. błędami detekcji, uszkodzeniami
+  przetworników)
 - Zniekształcenia geometryczne to zniekształcenia odczytu położenia
   odczytanych wartości względem siebie
   dla obrazów kolorowych i wielospektralnych
@@ -221,6 +262,19 @@ Szum w obrazach cyfrowych zależny od:
 - jasności fotografowanych obiektów i obszarów (w cieniach szumu jest więcej niż w tonach jasnych)
 - temperatury otoczenia - im wyższa tym silniej widać (ang. Fixed pattern noise)
 
+- Na poziomie akwizycji:
+  - Wybór maksymalnie długiego czasu naświetlania
+  - Wybór niskich czułości ISO
+  - Chłodzenie matrycy
+  - Wykonywanie zdjęć wielokrotnych (braketing)
+  - Wykonywanie zdjęć lekko prześwietlonych (HighKey)
+- Na poziomie przetwarzania (obróbki) obrazów:
+  - Uśrednianie zdjęć wielokrotnych
+  - Filtrowanie
+- Uwaga: Nie redukujemy szumu przez
+  - Rozjaśnianie obrazu w miejscach niedoświetlenia
+  - Rozjaśnianie cieni w obrazie
+
 ### Proces korekcji radiometrycznej
 
 #### Korekcja sumacyjna jednorodnego jasnego obrazu odniesienia
@@ -237,8 +291,8 @@ $$ Pkoam (XV) = [P(xy) — KORA(x,y)] + KORM (Gy)$$
 
 - $P(x,y)$ - wartość piksela obrazu wejściowego
 - $KORM(x,y)$ — wartość współczynnika korekcji dla piksela o współrzędnych (x,y) obliczona według wzoru:
-  $$KORM (Xx,y)= P_{KORA max} / P_{KORA}(GV)$$
-- \$P\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_{KORAmax} - Maksymalna wartość piksela w obrazie \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\$[P\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_{KORA}(X, Y)]\$
+  $$KORM (x,y)= P_{KORA max} / P_{KORA}(GV)$$
+- \$P\\_{KORAmax} - Maksymalna wartość piksela w obrazie \\$[P\\_{KORA}(X, Y)]\$
 - $P_{KORM}(x,y)$ - wartość piksela obrazu wynikowego (po korekcji radiometrycznej)
 
 ### Przedstawienie ogólnego schematu przetwarzania i analizy obrazów.
@@ -253,9 +307,7 @@ liczenia:
   - Punktowe;
   - Małym otoczeniu
 
-Ze względu na typy matematycznych (w tym arytmetycznych,
-logicznych, statystycznych) operacji, które są wykonywane na
-wartościach intensywności.
+Ze względu na typy matematycznych (w tym arytmetycznych, logicznych, statystycznych) operacji, które są wykonywane na wartościach intensywności.
 
 Funkcje operacji na obrazach będą omawiane przy każdej operacji
 oddzielnie.
@@ -383,17 +435,17 @@ sąsiedztwa
 - Liniowe (oparte na pewnej liniowej operacji, polegającej na
   wykonaniu liniowej kombinacji wartości wybranych piksli
   obrazu wejściowego)
-  - Są proste w implementacji, tak na poziomie oprogramowania, jaki
-    procesorów sprzętowych.
-  - Łączne i separowalne (rozdzielcze), przemienne.
-  - Dają efekty odpowiadające manipulacji pewnymi zakresami
-    częstotliwości.
+- Są proste w implementacji, tak na poziomie oprogramowania, jaki
+  procesorów sprzętowych.
+- Łączne i separowalne (rozdzielcze), przemienne.
+- Dają efekty odpowiadające manipulacji pewnymi zakresami
+  częstotliwości.
 - Nieliniowe (oparte na funkcjach nieliniowych, np.
   statystycznych, logicznych i morfologii matematycznej)
-  - Są czasochłonne i często skomplikowane.
-  - Mają bogatsze możliwości.
-  - Nie można ich interpretować w kategoriach manipulowania tylko
-    określonymi częstotliwościami
+- Są czasochłonne i często skomplikowane.
+- Mają bogatsze możliwości.
+- Nie można ich interpretować w kategoriach manipulowania tylko
+  określonymi częstotliwościami
 
 ### Omówienie operacji uśredniających o jednakowych i niejednakowych wagach (w tym o wagach odpowiadających dwuwymiarowej funkcji Gaussa) jako przykład operacji liniowych (konwolucyjnych).
 
@@ -514,9 +566,9 @@ Cyfrowa wersja gradientu i laplasjanu.
 Operacje punktowe - podsumowanie
 
 - Zalety: łatwe do implementacji i szybkie
-  - Implementowane przez LUT (manipulacje na palecie szarości lub barw) bo dziedzina funkcji jest skończona
-  - Dla różnowartościowych funkcji (bezstratnych) istnieją przekształcenie odwrotne
-  - Dla nieróżnowartościowych funkcji (stratnych) nie istnieją przekształcenie odwrotne - większość praktycznie stosowanych
+- Implementowane przez LUT (manipulacje na palecie szarości lub barw) bo dziedzina funkcji jest skończona
+- Dla różnowartościowych funkcji (bezstratnych) istnieją przekształcenie odwrotne
+- Dla nieróżnowartościowych funkcji (stratnych) nie istnieją przekształcenie odwrotne - większość praktycznie stosowanych
 - Wady: ignorują przestrzenną zależność wartości intensywności w obrazie tzn. lokalną charakterystykę przestrzenną obrazu
 
 Matematyczny podział operacji sąsiedztwa
@@ -524,17 +576,17 @@ Matematyczny podział operacji sąsiedztwa
 - Liniowe (oparte na pewnej liniowej operacji, polegającej na
   wykonaniu liniowej kombinacji wartości wybranych piksli
   obrazu wejściowego)
-  - Są proste w implementacji, tak na poziomie oprogramowania, jaki
-    procesorów sprzętowych.
-  - Łączne i separowalne (rozdzielcze), przemienne.
-  - Dają efekty odpowiadające manipulacji pewnymi zakresami
-    częstotliwości.
+- Są proste w implementacji, tak na poziomie oprogramowania, jaki
+  procesorów sprzętowych.
+- Łączne i separowalne (rozdzielcze), przemienne.
+- Dają efekty odpowiadające manipulacji pewnymi zakresami
+  częstotliwości.
 - Nieliniowe (oparte na funkcjach nieliniowych, np.
   statystycznych, logicznych i morfologii matematycznej)
-  - Są czasochłonne i często skomplikowane.
-  - Mają bogatsze możliwości.
-  - Nie można ich interpretować w kategoriach manipulowania tylko
-    określonymi częstotliwościami
+- Są czasochłonne i często skomplikowane.
+- Mają bogatsze możliwości.
+- Nie można ich interpretować w kategoriach manipulowania tylko
+  określonymi częstotliwościami
 
 ### Laplasjany i różnica między nimi a wygladzającymi filtrami konwolucyjnymi.
 
@@ -587,11 +639,11 @@ Pozwalają na budowanie złożonych operacji nieliniowych, do analizę kształtu
 Fundamentalne pojęcie: element strukturalnym (strukturujący) — podzbiór obrazu z wyróżnionym punktem, zwanym często punktem centralnym
 
 - w elemencie strukturalnym występują następujące symbole:
-  - 1 element wskazuje piksel zapalony tzn. wartość obiektu w
-    masce binarnej
-  - 0 element wskazuje piksel wytłumiony tzn. wartość tła w
-    masce binarnej
-  - X element wskazuje dowolną wartość tzn. wartość tła lub obiektu w masce binarnej
+- 1 element wskazuje piksel zapalony tzn. wartość obiektu w
+  masce binarnej
+- 0 element wskazuje piksel wytłumiony tzn. wartość tła w
+  masce binarnej
+- X element wskazuje dowolną wartość tzn. wartość tła lub obiektu w masce binarnej
 
 Przekształcenia polegają na pozostawieniu lub zmianie intensywności według pewnej funkcji skojarzonej z nazwą funkcji punktu przykrytego przez punkt centralny elementu strukturalnego jeśli jego otoczenie nie ma lub ma zgodność z założeniami zakodowanemu symbolami w elemencie strukturalnym.
 
@@ -615,23 +667,23 @@ Przykładowe operacje morfologiczne
 
 - Erozja — oparta o różnicę Minkowskiego;
 
-  Def.: jeżeli choć jeden piksel z sąsiedztwa określonego elementem strukturalnym ma wartość "O" to punkt centralny otrzymuje wartość "0", w przeciwnym przypadku jego wartość nie ulega zmianie
+Def.: jeżeli choć jeden piksel z sąsiedztwa określonego elementem strukturalnym ma wartość "O" to punkt centralny otrzymuje wartość "0", w przeciwnym przypadku jego wartość nie ulega zmianie
 
 - dylatacja — oparta o sumę Minkowskiego;
 
-  Def.: jeżeli choć jeden piksel z sąsiedztwa określonego elementem strukturalnym ma wartość "1" to punkt centralny otrzymuje wartość "1", w przeciwnym przypadku przyjmuje wartość "0"
+Def.: jeżeli choć jeden piksel z sąsiedztwa określonego elementem strukturalnym ma wartość "1" to punkt centralny otrzymuje wartość "1", w przeciwnym przypadku przyjmuje wartość "0"
 
 - Otwarcie - złożenie erozji i dylatacji,
 
-  Operacja morfologiczna, która opiera się na dwóch innych
-  operacjach: erozji i dylatacji. Otwarcie polega na wykonaniu
-  na obrazie najpierw erozji (minimum), a następnie na tak
-  przetworzonym obrazie należy zastosować dylatację
-  (maksimum) na tym samym elemencie strukturyzyjącym.
+Operacja morfologiczna, która opiera się na dwóch innych
+operacjach: erozji i dylatacji. Otwarcie polega na wykonaniu
+na obrazie najpierw erozji (minimum), a następnie na tak
+przetworzonym obrazie należy zastosować dylatację
+(maksimum) na tym samym elemencie strukturyzyjącym.
 
 - Zamknięcie — złożenie dylacji i erozji.
 
-  Operacja morfologiczna, która opiera się na dwóch innych operacjach: dylatacji i erozji. Zamknięcie polega na wykonaniu na obrazie najpierw dylatacji (maksimum), a następnie na tak przetworzonym obrazie należy zastosować erozję (minimum) na tym samym elemencie strukturyzyjącym.
+Operacja morfologiczna, która opiera się na dwóch innych operacjach: dylatacji i erozji. Zamknięcie polega na wykonaniu na obrazie najpierw dylatacji (maksimum), a następnie na tak przetworzonym obrazie należy zastosować erozję (minimum) na tym samym elemencie strukturyzyjącym.
 
 ### Niektóre zaawansowanie operacje morfologii matematycznej: gradient morfologiczny, ekstrakcja konturów, pocienienie i pogrubianie
 
@@ -668,8 +720,8 @@ Są to operacje, w których na wartość zadanego piksela obrazu wynikowego q o 
 - Hough'a
 - Odległościowa (morfologia matematyczna)
 - Inne globalne
-  - Skalowanie rozmiarów
-  - Rejestracja multimodalna i multisesyjna
+- Skalowanie rozmiarów
+- Rejestracja multimodalna i multisesyjna
 
 ### Transformata Fouriera, jej rola w przetwarzaniu i analizie obrazów: 1) poszukiwania kierunkowości i periodyczności w obrazie oraz 2) dokonywanie manipulacji zawartością obrazu w dziedzinie częstotliwości.
 
@@ -777,11 +829,11 @@ przy różnym oświetleniu pomieszczenia.
 Cechy bodźca świetlnego wywołującego wrażenie barwy
 
 - Achromatyczne (widzenie skotopowe)
-  - Ilość (skuteczność pobudzenia) luminancja/jasność/jaskrawość czyli stopień podobieństwa do białej barwy, dającej maksymalne pobudzenie lub czarnej, dającej pobudzenie minimalne
+- Ilość (skuteczność pobudzenia) luminancja/jasność/jaskrawość czyli stopień podobieństwa do białej barwy, dającej maksymalne pobudzenie lub czarnej, dającej pobudzenie minimalne
 - Chromatyczne (widzenie fotopowe)
-  - Jasność (intensywność pobudzenia R+G+B)
-  - Barwa/odcień/walor/Kolor/ (fizycznie: długość dominującej fali)
-  - Nasycenie/rozbielenie (czystość barwy czyli podobieństwo do barw widma słonecznego, bladość)
+- Jasność (intensywność pobudzenia R+G+B)
+- Barwa/odcień/walor/Kolor/ (fizycznie: długość dominującej fali)
+- Nasycenie/rozbielenie (czystość barwy czyli podobieństwo do barw widma słonecznego, bladość)
 
 Widzenie pośrednie mezopowe; przy słabym świetle
 
@@ -823,7 +875,7 @@ Rozpoznawanie bodźców
 
 - Psychofizyczny proces zachodzący w mózgu człowieka pod wpływem stymulacji (np.: wzrokowej) lub nawet jej wyobrażenia, wywołujący przyporządkowanie stymulacji do pewnej kategorii zjawisk, obiektów, itp..
 
-  Ograniczamy się do bodźców wzrokowych
+Ograniczamy się do bodźców wzrokowych
 
 - W ten sposób rozpoznawanie to interpretacja stymulacji wzrokowej czyli przyporządkowanie jej odpowiedniej kategorii obiektów i sytuacji widzianych przez narząd wzroku (na podstawie poprzednich doświadczeń i znanych definicji)
 
@@ -849,12 +901,12 @@ ontologie = wiedza i reguły wnioskowania
 Teorie rozpoznawania:
 
 - Teoria wzorca
-  - Przechowywanie nieskończonej liczby wzorców
-  - Porównywanie (dokładność)
-  - Klasyfikacja?
+- Przechowywanie nieskończonej liczby wzorców
+- Porównywanie (dokładność)
+- Klasyfikacja?
 - Teoria cech
-  - Dopasowywanie cech obrazu do cech przechowywanych w pamięci
-  - Dowody: „detektory cech” w korze wzrokowej (Hubel & Wiesel)
+- Dopasowywanie cech obrazu do cech przechowywanych w pamięci
+- Dowody: „detektory cech” w korze wzrokowej (Hubel & Wiesel)
 
 ### Definicja komputerowego rozpoznawanie obrazów jako część dziedziny rozpoznawania wzorców (ang. pattern recognision). Podobieństwa i różnice rozpoznawania wykonywanego przez człowieka i system wizyjny z oprogramowaniem do rozpoznawania obrazów
 
@@ -872,10 +924,10 @@ Cel rozpoznawania
 
 - Wspomaganie ludzkich decyzji za pomocą informacji obrazowej lub informacji ekstrahowanej z obrazów
 - Uzależniony od zastosowania:
-  - Zastąpienie człowieka
-  - Weryfikacja działania manipulatorów i robotów
-  - Selekcja dużych ilości danych (badania przesiewowe w diagnostyce medycznej)
-  - Biometria
+- Zastąpienie człowieka
+- Weryfikacja działania manipulatorów i robotów
+- Selekcja dużych ilości danych (badania przesiewowe w diagnostyce medycznej)
+- Biometria
 
 ### Cele i metody rozpoznawania komputerowego obrazów i ich podział na dwa podejścia: podejście klasyczne z definiowaniem i wyborem cech przez dewelopera systemu i podejście oparte o automatyzację procesu wyboru cech związane z uczeniem maszynowym
 
@@ -884,9 +936,9 @@ Komputerowe rozpoznawanie obrazów
 - Naśladuje rozpoznawanie wykonywane przez człowieka choć wiedza o świecie zgromadzona w oprogramowaniu jest bardzo ograniczona
 - Jest znacznie mniej efektywne
 - Jest związane z zastosowaniami:
-  - Zastąpieniem człowieka w trudnych warunkach (kontrola jakości mikroprocesorów), uciążliwych czynnościach (OCR)
-  - Weryfikacja działania manipulatorów i robotów
-  - Selekcją dużych ilości danych (badania skriningowe w diagnostyce medycznej)
+- Zastąpieniem człowieka w trudnych warunkach (kontrola jakości mikroprocesorów), uciążliwych czynnościach (OCR)
+- Weryfikacja działania manipulatorów i robotów
+- Selekcją dużych ilości danych (badania skriningowe w diagnostyce medycznej)
 
 Cel:
 
@@ -900,12 +952,12 @@ Proces rozpoznawania jest wieloetapowy, zawiera dwa typy działań:
 - Rozpoznawanie obrazów jest związane
   z innymi dziedzinami nauk komputerowych: uczeniem maszynowym UM (machine learning, ML), sztuczną inteligencją (artificial intelligence AI), komunikacją człowiek-komputer
 - Zastosowania:
-  - Bioidentyfikacja (oczy, uszy, odciski palców, głos)
-  - Kontrola jakości produktów, kontrola samochodów na drogach (rozpoznawanie tablic rejestracyjnych), roboty i manipulatory
-  - Badania przesiewowe ( w diagnostyce medycznej)
-  - Symulatory do nauki prowadzenia pojazdów (samolotów, pojazdów kosmicznych, samochodów wyścigowych, wieży kontrolnej lotów)
-  - Rozpoznawanie twarzy
-  - Marketing (Yamaha Motor)
+- Bioidentyfikacja (oczy, uszy, odciski palców, głos)
+- Kontrola jakości produktów, kontrola samochodów na drogach (rozpoznawanie tablic rejestracyjnych), roboty i manipulatory
+- Badania przesiewowe ( w diagnostyce medycznej)
+- Symulatory do nauki prowadzenia pojazdów (samolotów, pojazdów kosmicznych, samochodów wyścigowych, wieży kontrolnej lotów)
+- Rozpoznawanie twarzy
+- Marketing (Yamaha Motor)
 
 ### Definicje następujących pojęć: cechy, przestrzeni cech, przekształcenia zwanego analizą, przekształcenia zwanego właściwym rozpoznawaniem, pojęcia klas obiektów
 
@@ -988,10 +1040,10 @@ Dodatkowe kodowanie obrazów ukrywanych => lepsze ich ukrycie (np. przemieszanie
 Operacje najczęściej stosowane w procesie ukrywania i odtwarzania obrazu
 
 - Jednopunktowe jednoargumentowe
-  - progowania,
-  - redukcji poziomów szarości,
-  - rozciągania,
-  - uniwersalne operacje punktowe (UOP)
+- progowania,
+- redukcji poziomów szarości,
+- rozciągania,
+- uniwersalne operacje punktowe (UOP)
 - Jednopunktowe dwuargumentowe
-  - arytmetyczne (dodawanie, odejmowanie)
-  - logiczne (suma (OR), iloczyn (AND))
+- arytmetyczne (dodawanie, odejmowanie)
+- logiczne (suma (OR), iloczyn (AND))
