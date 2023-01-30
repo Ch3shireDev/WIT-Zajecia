@@ -1,0 +1,58 @@
+Technika cyfrowa (wykład): Bloki sekwencyjne i technologia cyfrowych układów scalonych.
+
+
+
+27 kwietnia 2020 17:30–19:45
+On-line
+Dzień dobry,
+ 
+Zapraszam na kontynuację spotkań z Techniki Cyfrowej. Przepraszam za zmiany w godzinach wykładów i laboratoriów - kłopoty z pandemią już opanowałem,
+zatem możemy przystąpić do kontynuacji zajęć, pomimo zmienionej formy.
+ 
+Z całym szacunkiem dla Państwa czasu,poproszę o zapoznanie się z nowymi terminami wykładów i laboratoriów na ubi, jak i również poprzez rozesłany mail.
+Przepraszam za takie godziny ale nie jestem w stanie w innych przeprowadzić zajęcia.
+ 
+Pozdrawiam,
+Rafał Szymanowski 
+
+ID06IO2 : Technika cyfrowa (laboratorium 1)
+
+13 maja 2020 17:30–19:45
+on-line
+Projektowanie układów kombinacyjnych w języku VHDL:
+1) Projekt wstępny (bramka AND dwuwejściowa, zapoznanie z systemem projektowym dla układów FPGA).
+2) Projekt zawierający dwie bramki n-wejściowe typu OR i AND.
+3) Konwerter 3-bitowego kodu binarnego na kod „1 z 8” ( aktywny stan 1 lub 0 ).
+4) Sumator dwóch liczb 4-bitowych.
+ 
+Materiały na ubi:
+LAB_TC_ID06xxx.2020_covid19.version.pdf
+witek_Projekt_Wstepny_BramkaAND.zip
+
+ID06IO2 : Technika cyfrowa (laboratorium 2)
+
+
+19 maja 2020 18:00–20:15
+on-line
+LABORATORIUM nr 2 : Projektowanie układów synchronicznych w języku VHDL.
+ 
+HARMONOGRAM:
+ 
+1) 25-bitowy licznik binarny z kasowaniem asynchronicznym ( zastosować sygnał zegarowy z płyty projektowej, osiem najbardziej znaczących bitów licznika wyprowadzić na diody LED )
+ 
+2) 8-bitowy licznik Johnsona ( jako dzielnik częstotliwości sygnału zegarowego z płyty projektowej należy zastosować N-bitowy licznik binarny, dobrać N )
+ 
+3) 8-bitowy licznik pierścieniowy typu „krążąca jedynka” ( zastosować dzielnik częstotliwości... )
+ 
+4) Zmodyfikować punkt 3) tak, aby za pomocą suwaka wybierać pomiędzy „krążącą jedynką” a „krążącym zerem”
+
+
+
+ID06IO2 : Technika cyfrowa (laboratorium 3)
+
+2 czerwca 2020 18:00–20:15
+on-line
+LABORATORIUM nr 3 : Zaawansowane projektowanie układu cyfrowego (przykład projektu strukturalnego VHDL)
+ 
+Projekt cyfrowego układu do pomiaru wielkości fizycznej na przykładzie pomiaru odcinka czasu oraz częstotliwości sygnału zewnętrznego. W projekcie należy opracować moduł sterowania pomiarem (dobór częstości wykonywania pomiarów, pomiar pojedynczy i seryjny, metody zwiększania dokładności wyniku pomiaru - samoistne uśrednianie serii pomiarowej, np. zastosowanie dodatkowych liczników dziesiętnych). W kolejnym etapie należy zaprojektować licznik główny realizujący pomiar właściwy (tylko metoda bezpośrednia, nie stosujemy metody odwrotnościowej (reciprocal) ze względu na ograniczony czas laboratorium). Wizualizacja wyniku pomiaru przy użyciu wyświetlacza 7-segmentowego (praca dynamiczna, dobór częstotliwości skanowania cyfr).
+
