@@ -220,7 +220,7 @@ Odpowiedź: 10
 - 32
 - 256
 
-Odpoiwedź: 256
+Odpowiedź: 256
 
 ### Zadanie 21
 
