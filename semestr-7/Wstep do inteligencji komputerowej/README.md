@@ -107,36 +107,6 @@ Algorytmy ewolucyjne - wady:
 - Brak sensownego kryterium stopu, ewolucja zapewne nie ma końca (koniec świata?) i trzeba zapewnić je sztucznie.
 - Jak wszystkie metody heurystyczne nie gwarantuje znalezienia optimum w skończonej liczbie iteracji (dlatego symulacja AE prawie zawsze kończy się stagnacją, bo nie możemy czekać na wynik w nieskończoność).
 
-Olek Łuczyński
-Populacyjne:
-
-algorytmy genetyczne
-algorytmy ewolucyjne
-algorytmy roju cząstek
-algorytmy symulowanego wyżarzania
-Niepopulacyjne:
-
-algorytmy zachłanne
-standardowe wyszukiwanie tabu
-Algorytmy ewolucyjne - zalety:
-
-Niepotrzebne są założenia o postaci funkcji celu, dorosłych pochodnych, ciągłości, itp.
-Tego samego schematu wyodrębnionego do sekcji gier zadań.
-Obliczenia są uwzględnione przez grupę "osobników" - tak więc jest szansa na odwiedzenie wielu wykorzystywanych obszarów.
-Obliczenia sieci utykają w ekstremach lokalnych i ułatwienie może je wykorzystać dzięki wykorzystaniu informacji między „osobnikami”.
-Obliczenia łatwo zrównoleglić w systemach wieloprocesorowych, usługowych, itp.
-Metoda jest skalowalna, łatwo ją przystosować do zadania i jego działalności.
-Mimo braku gwarancji na uzyskanie wyników, dobrze dobra metoda działa szybko i skutecznie.
-Algorytmy ewolucyjne - wady:
-
-Obliczenia są dość powolne i zasobochłonne.
-Dobre efekty można uzyskać tylko po dobrym przystosowaniu metody do zadań (wybór odpowiednich metod kodowania, operatorów, selekcji, dostrojenia parametrów). Standardowa wersja metody, społeczna do wszystkich problemów, które nie spełniają wymagań,
-Metoda często cierpiąca na „przedwczesnej zbieżności”, czyli zablokowania się w optimach lokalnych i stagnacji połączenia.
-Problemowi „przedwczesnej zbieżności” trudno jest zapobiec, wynikają one często ze złych parametrów metod, ale także i ograniczeń środowiska komputerowego (skończona wydajność obliczeń, słabe parametry generatorów liczb losowych).
-Z tytułu przedwczesnej zbieżności sprawdził się również problem małego zróżnicowania drewna. Jeśli uzyskiwane są prawie jednakowe, to efektywne obliczanie ewolucji spada (wymiana jednakowej informacji między osiągami).
-Brak sensownego pochodzenia stopu, ewolucja faktycznie nie ma końca (koniec świata?) i trzeba wykonać je sztucznie.
-Jak wszystkie metody heurystyczne nie gwarantują potwierdzenia optymalnej w skończonej jakości iteracji (dlatego raporta AE prawie zawsze kończy się stagnacją, bo nie możemy oczekiwać na wynik w nieskończoność).
-
 ### Zadanie 4 - Systemy ekspertowe - zapis wiedzy
 
 Proszę opisać sposoby zapisu wiedzy w systemach ekspertowych.
