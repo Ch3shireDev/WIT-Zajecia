@@ -162,3 +162,57 @@ Optymalizacja heurystyczna:
 - metody mają dość szerokie spektrum zastosowań (często trzeba je specjalizować);
 - wyniki otrzymywane są dość szybko, nawet dla dużych zadań i są sukcesywnie poprawiane, lecz nie są dokładne (nie można liczyć na optimum);
 - często nie mają naturalnego kryterium stopu, przez co nie można nic powiedzieć o jakości otrzymanych rozwiązań.
+
+### Zadanie 6
+
+W algorytmie ewolucyjnym maksymalizującym pewną funkcję celu mamy (pod)populację rodzicielską o następujących wartościach funkcji celu: {5,5; 4,5; 1,2; 3,3}. W wyniku działań operatorów genetycznych powstała (pod)populacja potomna o wartościach funkcji celu: {6,1; 4,9; 3,2; 3,4}. Jak będzie wyglądać skład nowej populacji rodzicielskiej jeśli do wyboru osobników do niej użyto (zakładamy tę samą liczność (pod)populacji):
+
+1. metody selekcji najlepszych osobników i strategii $(\mu + \lambda)$,
+2. metody selekcji najlepszych osobników i strategii $(\mu, \lambda)$,
+3. metody selekcji deterministycznej i strategii $(\mu, \lambda)$?
+4. metody selekcji ruletkowej i strategii $(\mu, \lambda)$?
+
+Odpowiedź:
+
+$\mu$ - populacja rodzicielska, $\lambda$ - populacja potomna
+
+- Strategia $(\mu + \lambda)$: wybieramy najlepszych osobników z populacji rodzicielskiej oraz z populacji potomnej.
+
+- Strategia $(\mu, \lambda)$: wybieramy najlepszych osobników z populacji potomnej.
+
+Przypadek 1:
+
+Jeśli maksymalizujemy wyniki z obydwu populacji to wybieramy cztery osobniki o największej wartości, czyli: {6,1; 5,5; 4,9; 4,5}.
+
+Przypadek 2:
+
+Tym razem wybieramy tylko najleszych osobniki z populacji potomnej, czyli: {6,1; 4,9; 3,4; 3,2}.
+
+Przypadek 3:
+
+**selekcja deterministyczna** – części całkowite wartości oczekiwanej liczby potomków obliczane są jak w selekcji proporcjonalnej, stają się liczbami potomków dla osobników, ewentualny nadmiar lub niedomiar jest odpowiednio poprawiany przez dołączenie kolejnych najlepszych lub usunięcie najsłabszych; metoda ta charakteryzuje się bardzo silnym naciskiem selekcyjnym, jednakże prowadzi to do szybkiej unifikacji populacji (straty różnorodności) i osiadania w optimach lokalnych, metoda nie jest więc zbyt często używana.
+
+Czyli - obliczamy liczbę potomków dla każdego z osobników populacji potomnej. Zakładamy, że będziemy mieli 4 osobniki potomne, z wagami, kolejno:
+
+- $\frac{6.1}{6.1+4.9+3.4+3.2} =  34.8 \%$,
+- $\frac{4.9}{6.1+4.9+3.4+3.2} =  27.8 \%$,
+- $\frac{3.4}{6.1+4.9+3.4+3.2} =  19.3 \%$,
+- $\frac{3.2}{6.1+4.9+3.4+3.2} =  18.1 \%$.
+
+Zatem każdy z osobników ma, kolejno:
+
+- $4 \cdot 34.8 \% = 1.38$,
+- $4 \cdot 27.8 \% = 1.11$,
+- $4 \cdot 19.3 \% = 0.77$,
+- $4 \cdot 18.1 \% = 0.72$.
+
+Zaokrąglając do liczb całkowitych otrzymujemy cztery jedynki. Zatem mamy oryginalną populację potomną: {6,1; 4,9; 3,4; 3,2}.
+
+Przypadek 4:
+
+Każdy z osobników ma prawdopodobieństwo wylosowania się w nowej populacji:
+
+- $p_1 = \frac{6.1}{6.1+4.9+3.4+3.2} =  34.8 \%$,
+- $p_2 = \frac{4.9}{6.1+4.9+3.4+3.2} =  27.8 \%$,
+- $p_3 = \frac{3.4}{6.1+4.9+3.4+3.2} =  19.3 \%$,
+- $p_4 = \frac{3.2}{6.1+4.9+3.4+3.2} =  18.1 \%$.

@@ -191,7 +191,7 @@ Odpowiedź:
 
 - Minimalne przywileje – Przydzielane są tylko takie prawa które są niezbędne do wykonania określonego zadania.
 - Wiedza konieczna - Użytkownik sytemu dostaje taki zakres wiedzy o swoich zasobach do których ma prawo dostępu.
-- Separacja bojowisku – krytyczne zadnia nie mogą być realizowane przez jedną osobę
+- Separacja obowiązków – krytyczne zadnia nie mogą być realizowane przez jedną osobę
 - Rozliczalność – zapewnienie jednoznacznej odpowiedzialności
 - Domniemanej odmowy – jeśli nie wiadomo czy jest dozwolone to jest zabraniane
 
@@ -263,7 +263,7 @@ IDS, IPS - urządzenia sieciowe zwiększające bezpieczeństwo sieci komputerowy
 Typowe elementy systemu IDS/IPS to:
 
 - sonda (ang sensor) - element analizujący ruch sieciowy i wykrywający ataki
-- baza danych - zvierająca informacje o atakach z grupy sensorów
+- baza danych - zbierająca informacje o atakach z grupy sensorów
 - analizator logów - umożliwiający wizualizację i analizę logów z grupy sensorów
 
 ### Zadanie 14
