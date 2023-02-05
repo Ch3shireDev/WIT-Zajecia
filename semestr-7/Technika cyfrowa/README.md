@@ -77,7 +77,7 @@ Konwertery pomiędzy kodami binarnymi i Graya, zbudowane są z bramek:
 - AND
 - XOR
 
-Odpowiedź: 
+Odpowiedź: XOR
 
 ### Zadanie 8
 
