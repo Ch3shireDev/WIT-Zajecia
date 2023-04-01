@@ -135,3 +135,6 @@ TSWLatexianTemp*
 .vs/*
 **/out
 **/.idea
+/semestr-8/Programowanie obiektowe w Java/Wyklad-2/DecoratorTest/nbproject/private/
+/semestr-8/Programowanie obiektowe w Java/Wyklad-2/DecoratorTest/build/
+**/Debug
