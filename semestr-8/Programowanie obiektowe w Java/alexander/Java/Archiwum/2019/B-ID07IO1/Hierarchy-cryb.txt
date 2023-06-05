@@ -1,0 +1,28 @@
+class Animal
+{
+	private String Name;
+	public Animal(String Name)
+	{
+		this.Name=Name;
+	}
+        public String kind()
+        {
+		return "Animal: ";
+	}
+	@Override public String toString()
+	{
+		return kind()+Name;
+	}
+}
+
+class Insect extends Animal
+{
+	public Insect(String Name)
+	{
+		super(Name);
+	}
+        @Override public String kind()
+        {
+		return super.kind()+"Insect: ";
+	}
+}

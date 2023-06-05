@@ -1,0 +1,10 @@
+1. Sensowna reakcja na rozszerzenie okienka
+2. Przycisk wykonaj reaguje na <enter>
+3. Przyciski usuwaj¹ce musz¹ siê wyszarzaæ kiedy nie da siê skorzystaæ
+4. Nie pozwalaæ usun¹æ bazowe polecenia z lewej listy
+5. Po usuniêciu z listy zaznaczyæ nastêpny, je¿eli nie ma to poprzedni
+6. Po dodaniu zaznaczyæ dodany
+7. Wykonaj dopisuje do pola wynik wykonania
+8. Przycisk dodaj¹cy trening szary je¿eli nazwa pusta lub koliduj¹ca lub je¿eli lista poleceñ pusta
+9. Po dodaniu treningu zaznaczamy wszystko w polu z nazw¹ oraz czyœcimy listê poleceñ
+10. Podwójny klick na trening na liœcie poleceñ przenosi jego listê oraz nazwê na prawo

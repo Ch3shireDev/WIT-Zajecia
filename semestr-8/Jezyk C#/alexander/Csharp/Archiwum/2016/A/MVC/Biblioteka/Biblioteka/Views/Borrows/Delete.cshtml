@@ -1,0 +1,56 @@
+﻿@model Biblioteka.Models.Borrow
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Borrow</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dateBorrow)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateBorrow)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateReturn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateReturn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCard)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCard)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDBook)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDBook)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

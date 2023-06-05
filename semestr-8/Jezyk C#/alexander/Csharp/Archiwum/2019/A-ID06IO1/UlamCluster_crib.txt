@@ -1,0 +1,34 @@
+Klastry Ulama
+-> Sito Eratostenesa
+-> Spirala
+
+int size=1 | Math.Celling(Math.Sqrt(number));
+int max=size*size;
+Graphics g = Graphics.FromImage(new Bitmap(1,1));
+SizeF textRect = g.MeasureString("9876543210", fnt);
+textRect.Width=0;
+for(int i=1;i<=max;++i)
+{
+	textRect.Width = Math.Max(textRect.Width, g.MeasureString(i.ToString(), fnt).Width);
+}
+float sqr = Math.Sqrt(2);
+SizeF ellipseRect = new SizeF(sqr*textRect.Width + 1,sqr*textRect.Height + 1);
+SizeF cellRect = new SizeF(ellipseRect.Width + margine,ellipseRect.Height + margine);
+float Left(int x) { return margine + x * cellRect.Width; }
+float Top(int y) { return margine + y * cellRect.Height; }
+float Horz(int x, int sz = 0) { return Left(x) + 0.5F * (ellipseRect.Width - sz); }
+float Vert(int x, int sz = 0) { return Top(x) + 0.5F * (ellipseRect.Height - sz); }
+Bitmap bmp=new Bitmap(Left(size), Top(size));
+
+class UlamCluster
+{
+	private Bitmap bmp;
+	private UlamCluster(int number)
+	{
+
+	}
+	public static Bitmap Make(int number)
+	{
+		return new UlamCluster(number).bmp;
+	}
+}

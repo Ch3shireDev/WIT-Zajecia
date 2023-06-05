@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Biblioteka.Models.Borrow>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Wypożyczenia</h2>
+@using (Html.BeginForm())
+{
+    /*<div>Karta: </div>
+    <div>@Html.TextBox("searchByReader")</div>
+    <div>Data wypożyczenia: </div>
+    <div>@Html.TextBox("searchByDateBorrow")</div>
+    <div>Data zwrotu: </div>
+    <div>@Html.TextBox("searchByDateReturn")</div>
+    <input type="submit" value="Szukaj" />*/
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dateBorrow)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateReturn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.readerId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateBorrow)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateReturn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.readerId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.borrowId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.borrowId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.borrowId })
+        </td>
+    </tr>
+}
+
+</table>

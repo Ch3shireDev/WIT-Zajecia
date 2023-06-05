@@ -1,0 +1,5 @@
+1. Przycisk licz musi byæ szary je¿eli wpisana nie liczba
+2. Po obliczeniu dodajamy na konieæ TextBox'a
+3. Po obliczeniu focus na otrzymaæ wpisan¹ liczbê oraz zaznaczenie ca³oœci
+4. Sensowna reakcja na zmiane rozmiaru okienka
+5. Musi akceptowaæ liczbe do 10 mld.

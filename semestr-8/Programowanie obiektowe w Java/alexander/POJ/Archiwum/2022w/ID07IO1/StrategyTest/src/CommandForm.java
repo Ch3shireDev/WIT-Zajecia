@@ -1,0 +1,427 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.ListDataEvent;
+import javax.swing.event.ListDataListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+
+/**
+ *
+ * @author Damian
+ */
+public class CommandForm extends javax.swing.JFrame {
+
+    private final DefaultListModel<SportsmanCommand> commandsModel = new DefaultListModel<>();
+    private final DefaultListModel<SportsmanCommand> treningListModel = new DefaultListModel<>();
+    /**
+     * Creates new form CommandForm
+     */
+    public CommandForm() {
+        initComponents();
+
+        lbTreningList.setModel(treningListModel);
+        lbCommands.setModel(commandsModel);
+
+        cbStrategySwim.removeAllItems();
+        for(String kind:SportsmenStrategySwim.keys()) cbStrategySwim.addItem(kind);
+        cbStrategySwim.setSelectedIndex(0);
+
+        commandsModel.addElement(new SportsmanJump());
+        commandsModel.addElement(new SportsmanRun());
+        commandsModel.addElement(new SportsmanSwim());
+        lbCommands.setSelectedIndex(0);
+
+        DocumentListener listener = new DocumentListener() {
+            @Override public void insertUpdate(DocumentEvent arg0) {
+                adjustbuttons();
+            }
+
+            @Override public void removeUpdate(DocumentEvent arg0) {
+                adjustbuttons();
+            }
+
+            @Override public void changedUpdate(DocumentEvent arg0) {
+                adjustbuttons();
+            }
+        };
+        tfSportsmanName.getDocument().addDocumentListener(listener);
+        tfTreningName.getDocument().addDocumentListener(listener);
+        ListDataListener tListener = new ListDataListener() {
+            @Override
+            public void intervalAdded(ListDataEvent e) {
+                adjustbuttons();
+            }
+
+            @Override
+            public void intervalRemoved(ListDataEvent e) {
+                adjustbuttons();
+            }
+
+            @Override
+            public void contentsChanged(ListDataEvent e) {
+                adjustbuttons();
+            }
+        };
+        treningListModel.addListDataListener(tListener);
+        ListSelectionListener cListener = new ListSelectionListener() {
+            @Override public void valueChanged(ListSelectionEvent e) {
+                adjustbuttons();
+            }
+        };
+
+        lbCommands.addListSelectionListener(cListener);
+        adjustbuttons();
+    }
+
+    private String getSportsmanName()
+    {
+        return tfSportsmanName.getText().trim();
+    }
+
+    private String getTreningName()
+    {
+        return tfTreningName.getText().trim();
+    }
+    private SportsmanCommand getSelectedCommand()
+    {
+        return lbCommands.getSelectedValue();
+    }
+    private boolean isCommandNameUnique(String name)
+    {
+        for(int i = 0; i < commandsModel.size(); ++i)
+        {
+            if(name.equals(commandsModel.get(i).toString()))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void adjustbuttons()
+    {
+       final SportsmanCommand selectedCommand = getSelectedCommand();
+       final String sportsmanName = getSportsmanName();
+       final String treningName = getTreningName();
+
+       boolean sportsmanNameNotEmpty = !sportsmanName.isEmpty();
+       boolean treningListNotEmpty = !treningListModel.isEmpty();
+       boolean treningNameNotEmpty = !treningName.isEmpty();
+       boolean commandNameUnique = isCommandNameUnique(treningName);
+       boolean commandComplex = selectedCommand instanceof SportsmanCommandComplex;
+
+       btnExecute.setEnabled(sportsmanNameNotEmpty);
+       btnAddMultiply.setEnabled(treningNameNotEmpty && commandNameUnique);
+       btnRemoveFromTreningList.setEnabled(treningListNotEmpty);
+       btnAddToCommands.setEnabled(treningNameNotEmpty && treningListNotEmpty && commandNameUnique);
+       btnRemoveFromCommands.setEnabled(commandComplex);
+    }
+
+    private void removeElement(JList<SportsmanCommand> cmds){
+        DefaultListModel<SportsmanCommand> model = (DefaultListModel<SportsmanCommand>) cmds.getModel();
+        int index = cmds.getSelectedIndex();
+        model.removeElementAt(index);
+
+        int count = model.getSize();
+        cmds.setSelectedIndex(count > index ? index : count - 1);
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   private void initComponents()
+   {
+
+      jScrollPane1 = new javax.swing.JScrollPane();
+      lbCommands = new javax.swing.JList<>();
+      jScrollPane2 = new javax.swing.JScrollPane();
+      lbTreningList = new javax.swing.JList<>();
+      btnAddToTreningList = new javax.swing.JButton();
+      tfTreningName = new javax.swing.JTextField();
+      btnAddToCommands = new javax.swing.JButton();
+      btnRemoveFromCommands = new javax.swing.JButton();
+      btnRemoveFromTreningList = new javax.swing.JButton();
+      tfSportsmanName = new javax.swing.JTextField();
+      btnExecute = new javax.swing.JButton();
+      jScrollPane3 = new javax.swing.JScrollPane();
+      taLog = new javax.swing.JTextArea();
+      btnAddMultiply = new javax.swing.JButton();
+      spMultiplyCount = new javax.swing.JSpinner();
+      cbStrategyRun = new javax.swing.JComboBox<>();
+      cbStrategySwim = new javax.swing.JComboBox<>();
+      cbStrategyJump = new javax.swing.JComboBox<>();
+
+      setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+      jScrollPane1.setViewportView(lbCommands);
+
+      jScrollPane2.setViewportView(lbTreningList);
+
+      btnAddToTreningList.setText("=>");
+      btnAddToTreningList.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            btnAddToTreningListActionPerformed(evt);
+         }
+      });
+
+      btnAddToCommands.setText("<=");
+      btnAddToCommands.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            btnAddToCommandsActionPerformed(evt);
+         }
+      });
+
+      btnRemoveFromCommands.setText("X");
+      btnRemoveFromCommands.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            btnRemoveFromCommandsActionPerformed(evt);
+         }
+      });
+
+      btnRemoveFromTreningList.setText("X");
+      btnRemoveFromTreningList.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            btnRemoveFromTreningListActionPerformed(evt);
+         }
+      });
+
+      btnExecute.setText("Wykonaj");
+      btnExecute.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            btnExecuteActionPerformed(evt);
+         }
+      });
+
+      taLog.setColumns(20);
+      taLog.setRows(5);
+      jScrollPane3.setViewportView(taLog);
+
+      btnAddMultiply.setText("<=");
+      btnAddMultiply.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            btnAddMultiplyActionPerformed(evt);
+         }
+      });
+
+      spMultiplyCount.setModel(new javax.swing.SpinnerNumberModel(3, 2, 10, 1));
+
+      cbStrategyRun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "run" }));
+
+      cbStrategySwim.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "smim" }));
+
+      cbStrategyJump.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "jump" }));
+
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addComponent(jScrollPane3)
+               .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                  .addComponent(tfSportsmanName)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(btnExecute, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addGroup(layout.createSequentialGroup()
+                  .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAddToTreningList, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                           .addGroup(layout.createSequentialGroup()
+                              .addGap(0, 188, Short.MAX_VALUE)
+                              .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                 .addComponent(btnAddToCommands, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(btnAddMultiply)
+                                    .addGap(12, 12, 12)
+                                    .addComponent(spMultiplyCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                              .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                              .addComponent(tfTreningName, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                           .addGroup(layout.createSequentialGroup()
+                              .addComponent(btnRemoveFromCommands, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                              .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                              .addComponent(btnRemoveFromTreningList, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+               .addGroup(layout.createSequentialGroup()
+                  .addComponent(cbStrategyRun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(cbStrategySwim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(cbStrategyJump, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addGap(0, 0, Short.MAX_VALUE)))
+            .addContainerGap())
+      );
+      layout.setVerticalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addGroup(layout.createSequentialGroup()
+            .addContainerGap()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+               .addComponent(jScrollPane2)
+               .addGroup(layout.createSequentialGroup()
+                  .addComponent(btnAddToTreningList)
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAddToCommands)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                           .addComponent(btnAddMultiply)
+                           .addComponent(spMultiplyCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
+                     .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(tfTreningName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                  .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                     .addComponent(btnRemoveFromCommands)
+                     .addComponent(btnRemoveFromTreningList)))
+               .addComponent(jScrollPane1))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(cbStrategyRun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(cbStrategySwim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(cbStrategyJump, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+               .addComponent(tfSportsmanName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(btnExecute))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+            .addContainerGap())
+      );
+
+      pack();
+   }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddToTreningListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToTreningListActionPerformed
+        SportsmanCommand command = getSelectedCommand();
+        treningListModel.addElement(command);
+        lbTreningList.setSelectedIndex(treningListModel.size() - 1);
+    }//GEN-LAST:event_btnAddToTreningListActionPerformed
+
+    private void btnAddToCommandsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCommandsActionPerformed
+      String treningName = getTreningName();
+      List<SportsmanCommand> commands = new ArrayList<>();
+      for(int i=0; i< treningListModel.size(); ++i ){
+          commands.add(treningListModel.get(i));
+      }
+      SportsmanCommand trening = new SportsmanTrenning(commands,treningName);
+      commandsModel.addElement(trening);
+      lbCommands.setSelectedIndex(commandsModel.size() - 1);
+    }//GEN-LAST:event_btnAddToCommandsActionPerformed
+
+    private void btnAddMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMultiplyActionPerformed
+        String treningName = getTreningName();
+        int count = (int)spMultiplyCount.getValue();
+        SportsmanCommand command = getSelectedCommand();
+        SportsmanCommand cmdMultiply = new SportsmanMultiply(command, count, treningName);
+        commandsModel.addElement(cmdMultiply);
+        lbCommands.setSelectedIndex(commandsModel.size() - 1);
+    }//GEN-LAST:event_btnAddMultiplyActionPerformed
+
+    private void btnRemoveFromCommandsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFromCommandsActionPerformed
+        removeElement(lbCommands);
+    }//GEN-LAST:event_btnRemoveFromCommandsActionPerformed
+
+    private void btnRemoveFromTreningListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveFromTreningListActionPerformed
+        removeElement(lbTreningList);
+    }//GEN-LAST:event_btnRemoveFromTreningListActionPerformed
+
+    private void btnExecuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExecuteActionPerformed
+        // TODO add your handling code here:
+        final String sportsmanName = getSportsmanName();
+        SportsmenStrategySwim swim=SportsmenStrategySwim.make(cbStrategySwim.getSelectedItem().toString());
+        final Sportsman sportsman = new Sportsman(sportsmanName,swim);
+        SportsmanCommand command = getSelectedCommand();
+        taLog.append(sportsman.execute(command)+System.lineSeparator());
+    }//GEN-LAST:event_btnExecuteActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CommandForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CommandForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CommandForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CommandForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CommandForm().setVisible(true);
+            }
+        });
+    }
+
+   // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton btnAddMultiply;
+   private javax.swing.JButton btnAddToCommands;
+   private javax.swing.JButton btnAddToTreningList;
+   private javax.swing.JButton btnExecute;
+   private javax.swing.JButton btnRemoveFromCommands;
+   private javax.swing.JButton btnRemoveFromTreningList;
+   private javax.swing.JComboBox<String> cbStrategyJump;
+   private javax.swing.JComboBox<String> cbStrategyRun;
+   private javax.swing.JComboBox<String> cbStrategySwim;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JScrollPane jScrollPane2;
+   private javax.swing.JScrollPane jScrollPane3;
+   private javax.swing.JList<SportsmanCommand> lbCommands;
+   private javax.swing.JList<SportsmanCommand> lbTreningList;
+   private javax.swing.JSpinner spMultiplyCount;
+   private javax.swing.JTextArea taLog;
+   private javax.swing.JTextField tfSportsmanName;
+   private javax.swing.JTextField tfTreningName;
+   // End of variables declaration//GEN-END:variables
+}

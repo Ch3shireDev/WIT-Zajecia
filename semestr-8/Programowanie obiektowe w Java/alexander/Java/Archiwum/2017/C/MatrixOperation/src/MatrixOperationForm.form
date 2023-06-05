@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace pref="215" max="32767" attributes="0"/>
+                      <Component id="MatrixSizeSpiner" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="BtnAdd" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="AScroll" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="CScroll" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="BtnSub" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="BtnMul" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="210" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="BScroll" alignment="1" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="AScroll" pref="153" max="32767" attributes="0"/>
+                  <Component id="BScroll" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="BtnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnSub" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnMul" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="MatrixSizeSpiner" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="CScroll" min="-2" pref="129" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="AScroll">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="AMatrix">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="3" rowCount="3">
+                <Column editable="true" title="" type="java.lang.Double">
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                </Column>
+                <Column editable="true" title="" type="java.lang.Double">
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                </Column>
+                <Column editable="true" title="" type="java.lang.Double">
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                </Column>
+              </Table>
+            </Property>
+            <Property name="autoResizeMode" type="int" value="4"/>
+            <Property name="cellSelectionEnabled" type="boolean" value="true"/>
+            <Property name="editingColumn" type="int" value="0"/>
+            <Property name="editingRow" type="int" value="0"/>
+            <Property name="fillsViewportHeight" type="boolean" value="true"/>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+            <Property name="rowHeight" type="int" value="38"/>
+          </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="MatrixFocusGained"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="AMatrixKeyTyped"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="BScroll">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="BMatrix">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="3" rowCount="3">
+                <Column editable="true" title="" type="java.lang.Double">
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                </Column>
+                <Column editable="true" title="" type="java.lang.Double">
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                </Column>
+                <Column editable="true" title="" type="java.lang.Double">
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                </Column>
+              </Table>
+            </Property>
+            <Property name="autoResizeMode" type="int" value="4"/>
+            <Property name="cellSelectionEnabled" type="boolean" value="true"/>
+            <Property name="editingColumn" type="int" value="0"/>
+            <Property name="editingRow" type="int" value="0"/>
+            <Property name="fillsViewportHeight" type="boolean" value="true"/>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+            <Property name="rowHeight" type="int" value="38"/>
+          </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="MatrixFocusGained"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="CScroll">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="CMatrix">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="3" rowCount="3">
+                <Column editable="true" title="" type="java.lang.Double">
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                </Column>
+                <Column editable="true" title="" type="java.lang.Double">
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                </Column>
+                <Column editable="true" title="" type="java.lang.Double">
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                  <Data value="0.0"/>
+                </Column>
+              </Table>
+            </Property>
+            <Property name="autoResizeMode" type="int" value="4"/>
+            <Property name="cellSelectionEnabled" type="boolean" value="true"/>
+            <Property name="editingColumn" type="int" value="0"/>
+            <Property name="editingRow" type="int" value="0"/>
+            <Property name="fillsViewportHeight" type="boolean" value="true"/>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+            <Property name="rowHeight" type="int" value="38"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JToggleButton" name="BtnAdd">
+      <Properties>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="+"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAddActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="BtnSub">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="-"/>
+        <Property name="doubleBuffered" type="boolean" value="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSubActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="BtnMul">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="*"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnMulActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="MatrixSizeSpiner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel type="list">
+            <ListItem value="2"/>
+            <ListItem value="3"/>
+            <ListItem value="4"/>
+            <ListItem value="5"/>
+            <ListItem value="6"/>
+            <ListItem value="7"/>
+            <ListItem value="8"/>
+          </SpinnerModel>
+        </Property>
+        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+          <Color id="Default Cursor"/>
+        </Property>
+        <Property name="editor" type="javax.swing.JComponent" editor="org.netbeans.modules.form.editors.SpinnerEditorEditor">
+          <SpinnerEditor type="2"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="MatrixSizeSpinerStateChanged"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>

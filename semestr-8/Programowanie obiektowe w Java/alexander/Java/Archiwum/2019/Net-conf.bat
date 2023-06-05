@@ -1,0 +1,1 @@
+"c:\Program Files\Notepad++\notepad++.exe" "c:\Program Files\NetBeans 8.2\etc\netbeans.conf"

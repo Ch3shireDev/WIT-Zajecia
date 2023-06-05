@@ -1,0 +1,7 @@
+1. Osobna klasa Validator
+2. Metoda kolorująca
+3. ValidatorDouble
+4. Parametry konstruktora (Pole tekstowe,wartość startowa,callback)
+5. Składowe: Pole tekstowe,callback,public Stan,public Wartość
+6. W konstruktorze: zainicjalizować (tekstowe,callback), podpiąć się pod TextChanged, wstawić domyślną wartość w pole tekstowe
+7. TextChanged: ustalic waroiści (Stan,Wartość) wywolac callback

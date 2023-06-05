@@ -1,0 +1,45 @@
+public class Matrix
+{
+   private double[][] tb;
+   public Matrix(double[][] tb) { this.tb=tb; }
+   public Matrix(String text) { tb=Split(text); }
+   public int getRows() { return tb.length; }
+   public int getCols() { return tb[0].length; }
+   public double get(int y,int x) { return tb[y][x]; }
+   public void set(int y,int x,double value) { tb[y][x]=value; }
+
+   public static Matrix multiply(Matrix a,Matrix b)
+   {
+      double[][] tb=null;
+
+      return new Matrix(tb);
+   }
+
+   @Override public String toString()
+   {
+      StringBuilder sb=new StringBuilder();
+
+      return sb.toString();
+   }
+
+   private static ArrayList<String> Split(String text,String Delimeters)
+   {
+      final ArrayList<String> rows=new ArrayList<>();
+      for(String str:text.trim().split(Delimeters))
+      {
+         final String tr=str.trim();
+         if(tr.length()>0) rows.add(tr);
+      }
+      return rows;
+   }
+
+   private static ArrayList<String> SplitRows(String text) { return Split(text,"[\r\n]"); }
+   private static ArrayList<String> SplitCols(String text) { return Split(text,"[\\s\t]"); }
+
+   private static double[][] Split(String text)
+   {
+      double[][] tb=null;
+
+      return tb;
+   }
+}

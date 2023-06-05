@@ -1,0 +1,6 @@
+1. Dodawanie poprzez <Enter>
+2. Po dodawaniu zaznaczony tekst + focus
+3. Je¿eli wprowadzona nie liczba lub tekst jest pusty to Przycisk Dodaj nie aktywny
+4. Po dodaniu dodany elenent zaselectowany na liœcie
+5. Po Usunwaniu zaselectowany nastêpny wiersz, je¿eli nie ma - to poprzedni, je¿eli nie ma to Usuñ nie aktywny
+6. Przycisk Usuñ zdublowany poprzez naciœniêcie <Delete> na liœcie

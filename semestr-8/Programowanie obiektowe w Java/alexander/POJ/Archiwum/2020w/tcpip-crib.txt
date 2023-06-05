@@ -1,0 +1,29 @@
+    //Klient
+    final Socket connection=new Socket(InetAddress.getByName("localhost"),5555);
+
+    //Serwer
+    private static int maxClients=100;
+    final ServerSocket server=new ServerSocket(5555,maxClients);
+
+    //Serwer - nas³uchiwanie
+    while(true)
+    {
+	final Socket connection=server.accept();
+    }
+
+    //Strumienie Klient/Serwer
+    final ObjectOutputStream output= new ObjectOutputStream(connection.getOutputStream());
+    final ObjectInputStream input=new ObjectInputStream(connection.getInputStream());
+
+    //Z kim po³¹czono
+    final String conTo=connection.getInetAddress().getHostName();
+
+    //Odczyt wiadomoœci
+    while(true)
+    {
+    	final String message=(String)input.readObject();
+    }
+
+    //Wysy³anie wiadomoœci
+    output.writeObject("Ala ma kota");
+    output.flush();

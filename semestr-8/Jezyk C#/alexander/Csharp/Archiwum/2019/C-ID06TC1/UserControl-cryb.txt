@@ -1,0 +1,9 @@
+class Worker (Name,Surname,Bitmap Photo) 
+INotifyPropertyChanged
+PictureBox
+
+Resize -> 
+Dock = Left
+Panel z Dock = Full
+
+

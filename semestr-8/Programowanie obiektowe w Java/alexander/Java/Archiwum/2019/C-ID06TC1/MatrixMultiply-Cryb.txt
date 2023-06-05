@@ -1,0 +1,52 @@
+      DocumentListener listener=new DocumentListener()
+      {
+         @Override public void insertUpdate(DocumentEvent e) { recalc(); }
+         @Override public void removeUpdate(DocumentEvent e) { recalc(); }
+         @Override public void changedUpdate(DocumentEvent e) { recalc(); }
+      };
+      MatrixA.getDocument().addDocumentListener(listener);
+      MatrixB.getDocument().addDocumentListener(listener);
+      recalc();
+
+
+
+public class Matrix
+{
+   private double[][] tb;
+   public Matrix(int rows,int cols) { tb=new double[rows][cols]; }
+   public Matrix(double[][] tb) { this.tb=tb; }
+   public Matrix(String text) { tb=Split(text); }
+   public int getRows() { return tb.length; }
+   public int getCols() { return tb[0].length; }
+   public double get(int y,int x) { return tb[y][x]; }
+   public void set(int y,int x,double value) { tb[y][x]=value; }
+
+   public static Matrix multiply(Matrix a,Matrix b)
+   {
+      double[][] tb=null;
+//
+      return new Matrix(tb);
+   }
+
+   @Override public String toString()
+   {
+      StringBuilder sb=new StringBuilder();
+//
+      return sb.toString();
+   }
+
+   private static String[] Split(String text,String Delimeters)
+   {
+      return text.trim().split("["+Delimeters+"]+");
+   }
+
+   private static String[] SplitRows(String text) { return Split(text,"\r\n"); }
+   private static String[] SplitCols(String text) { return Split(text,"\\s\t"); }
+
+   private static double[][] Split(String text)
+   {
+      double[][] tb=null;
+//
+      return tb;
+   }
+}

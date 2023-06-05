@@ -1,0 +1,34 @@
+using System.ComponentModel.Design;
+using System.Windows.Forms.Design;
+using System.Drawing;
+
+    [Category("Common controls"), DefaultProperty("Value")]
+    [Designer(typeof(IntegerEditDesigner))]
+    [ToolboxBitmap(@"C:\APP\C#\IntegerEdit\IntegerEdit\bin\Release\IntegerBox.bmp")]
+
+        [Category("Appearance"), Description("Value of integer reprezentation")]
+
+        [Browsable(false), Bindable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DefaultValueAttribute(false)]
+
+    class IntegerEditDesigner : ControlDesigner
+    {
+        public override DesignerActionListCollection ActionLists { get {
+                    lst.Add(new IntegerEditDesignerActionList(Component));
+
+    internal class IntegerEditDesignerActionList : DesignerActionList
+
+
+        public override DesignerActionItemCollection GetSortedActionItems()
+        {
+            DesignerActionItemCollection items = new DesignerActionItemCollection();
+            items.Add(new DesignerActionTextItem("Give startup value ...", "Category"));
+            items.Add(new DesignerActionPropertyItem("Value", "Box value:", "Category", "This is ToolTip!"));
+            return items;
+        }
+        public int Value
+        {
+            get { return ((IntegerEdit)base.Component).Value; }
+            set { ((IntegerEdit)base.Component).Value = value; }
+        }

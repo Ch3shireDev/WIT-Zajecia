@@ -1,0 +1,56 @@
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
+
+TcpListener
+TcpClient
+Socket
+Thread
+ThreadPriority
+ASCIIEncoding
+IPAddress
+
+new TcpListener()
+TcpListener -> Start()
+TcpListener -> Pending()
+TcpListener -> AcceptSocket()
+
+TcpClient -> Client
+TcpClient -> ReceiveTimeout
+
+Socket -> Connected
+Socket -> Poll()
+Socket -> Available()
+Socket -> Receive()
+Socket -> Send()
+Socket -> Close()
+Socket -> RemoteEndPoint
+
+Thread -> Start()
+Thread -> Join()
+
+ASCIIEncoding -> GetString()
+ASCIIEncoding -> GetBytes()
+
+
+IPAddress.Any
+
+
+Serwer
+TcpListener
+w w¹tku TcpListener -> Start()
+w pêtli dopóki Nie zakonczono if TcpListener -> Pending() to w nowym w¹tku TcpListener -> AcceptSocket()
+
+Watek po AcceptSocket()
+while Nie zakonczono i Socket -> Poll()
+   czytamy Socket -> Receive()
+   obliczamy
+   wysylamy Socket -> Send()
+Socket -> Close()
+
+Client
+Po nacisniêciu TcpClient -> Start()
+wysylamy liczbe TcpClient -> Client -> Send()
+w pêtli dopóki Nie zakonczono i TcpClient -> Client -> Connected
+if TcpClient -> Client -> Poll() to  TcpClient -> Client -> Receive()
+

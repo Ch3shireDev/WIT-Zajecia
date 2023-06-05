@@ -1,0 +1,17 @@
+//Listener = Obserwator
+interface Listener
+{
+    void Event(EventParams e);
+    //void Event1(EventParams e);
+    //void Event2(EventParams e);
+}
+
+//EventSource = Obserwable
+//EventParams = EventSource
+interface EventSource
+{
+    void AddListener(Listener ls);
+    void RemoveListener(Listener ls);
+    void Clear();
+    void Event(EventParams e);
+}

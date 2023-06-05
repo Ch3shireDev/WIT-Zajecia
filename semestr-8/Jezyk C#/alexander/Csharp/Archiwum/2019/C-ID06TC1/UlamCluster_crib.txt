@@ -1,0 +1,59 @@
+Klastry Ulama
+-> Sito Eratostenesa
+-> Spirala
+
+int size=(int)Math.Ceilling(Math.Sqrt(number));
+int max=size*size;
+Graphics g = Graphics.FromImage(new Bitmap(1,1));
+SizeF textRect = g.MeasureString("9876543210", fnt);
+textRect.Width=0;
+for(int i=1;i<=max;++i)
+{
+	textRect.Width = Math.Max(textRect.Width, g.MeasureString(i.ToString(), fnt).Width);
+}
+float sqr = Math.Sqrt(2);
+SizeF ellipseRect = new SizeF(sqr*textRect.Width + 1,sqr*textRect.Height + 1);
+SizeF cellRect = new SizeF(ellipseRect.Width + margine,ellipseRect.Height + margine);
+Bitmap bmp=new Bitmap((int)Left(size), (int)Top(size));
+
+class UlamCluster
+{
+	private static Font fnt=new Font("Arial",12);
+	private Bitmap bmp;
+        private int size,max;
+        private int[,] tb;
+	private UlamCluster(int number)
+	{
+
+	}
+        private void Spiral()
+        {
+		tb=new int[size,size];
+                int L=0,U=0,R=size-1,D=R,val=max+1;
+		for(int s=size;s>0;--s)
+		{
+			if((s&1)>0)
+			{
+				for(int x=R;x>=L;--x) tb[D,x]=--val;
+				--D;
+				for(int y=D;y>=U;--y) tb[y,L]=--val;
+				++L;
+			}
+			else
+			{
+				for(int x=L;x<=R;++x) tb[U,x]=--val;
+				++U;
+				for(int y=U;y<=D;++y) tb[y,R]=--val;
+				--R;
+			}
+		}
+        }
+        float Left(int x) { return margine + x * cellRect.Width; }
+        float Top(int y) { return margine + y * cellRect.Height; }
+        float Horz(int x, float sz = 0) { return Left(x) + 0.5F * (ellipseRect.Width - sz); }
+        float Vert(int x, float sz = 0) { return Top(x) + 0.5F * (ellipseRect.Height - sz); }
+	public static Bitmap Make(int number)
+	{
+		return new UlamCluster(number).bmp;
+	}
+}

@@ -1,0 +1,10 @@
+ServerSocket srv=new ServerSocket(getPort());
+Socket cln=srv.accept();
+
+Socket cln=new Socket(EdHost.getText(),getPort());
+
+DataInputStream sin=new DataInputStream(cln.getInputStream());
+if(sin.available()>0) message=sin.readUTF();
+
+DataOutputStream sout=new DataOutputStream(cln.getOutputStream());
+sout.writeUTF(answer);

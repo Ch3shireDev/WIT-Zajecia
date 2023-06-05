@@ -1,0 +1,10 @@
+ {0,"111101101101111"},
+            (1, "001011101001001"));
+            list.Add(new Tuple<int, string>(2, "111001111100111"));
+            list.Add(new Tuple<int, string>(3, "111001111001111"));
+            list.Add(new Tuple<int, string>(4, "101101111001001"));
+            list.Add(new Tuple<int, string>(5, "111100111001111"));
+            list.Add(new Tuple<int, string>(6, "111100111101111"));
+            list.Add(new Tuple<int, string>(7, "111001001001001"));
+            list.Add(new Tuple<int, string>(8, "111101111101111"));
+            list.Add(new Tuple<int, string>(9, "111101111001111"));

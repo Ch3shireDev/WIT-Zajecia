@@ -1,0 +1,32 @@
+﻿@model List<ToDo>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <br />
+    <a href="/todo/Add" class="btn btn-success pull-right">Add</a>
+    <br />
+    <table class="table table-condensed">
+        <tr >
+            <td>Id</td>
+            <td>Start Date</td>
+            <td>Text</td>
+            <td>Action</td>
+        </tr>
+
+        @foreach (var toDo in Model)
+        {
+            <tr>
+                <td>@toDo.Id</td>
+                <td>@toDo.StartDate</td>
+                <td>@toDo.Text</td>
+                <td><a href="todo/remove?id=@toDo.Id" class="btn btn-danger">Usuń</a></td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

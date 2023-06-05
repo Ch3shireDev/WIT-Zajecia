@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frac", "Frac.csproj", "{69B480D9-1100-4C2E-BAC0-5E050BC8860C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Srv", "..\Srv\Srv.csproj", "{86E350ED-95E8-417E-A881-8699ED85BCBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "..\test\test.csproj", "{72C51D6B-9898-4BB6-8BFB-8C9D3B1C600B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69B480D9-1100-4C2E-BAC0-5E050BC8860C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B480D9-1100-4C2E-BAC0-5E050BC8860C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B480D9-1100-4C2E-BAC0-5E050BC8860C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B480D9-1100-4C2E-BAC0-5E050BC8860C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E350ED-95E8-417E-A881-8699ED85BCBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E350ED-95E8-417E-A881-8699ED85BCBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E350ED-95E8-417E-A881-8699ED85BCBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E350ED-95E8-417E-A881-8699ED85BCBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72C51D6B-9898-4BB6-8BFB-8C9D3B1C600B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72C51D6B-9898-4BB6-8BFB-8C9D3B1C600B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72C51D6B-9898-4BB6-8BFB-8C9D3B1C600B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72C51D6B-9898-4BB6-8BFB-8C9D3B1C600B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

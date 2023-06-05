@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmCalcWorker", "Worker\HarmCalcWorker\HarmCalcWorker.csproj", "{87383137-2CDA-4F96-A2CB-852E51F90A0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmCalcClient", "Client\HarmCalcClient\HarmCalcClient.csproj", "{D1B818EE-0863-4BC6-B23A-2061525C9565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmCalcServer", "Server\HarmCalcServer\HarmCalcServer.csproj", "{A2980191-48D6-49B4-94C5-A14E60435323}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmCalcThread", "Thread\HarmCalcThread\HarmCalcThread.csproj", "{9B1A6FC3-B8B4-4F07-92B7-D8D3EEEF6118}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87383137-2CDA-4F96-A2CB-852E51F90A0D}.Debug|x86.ActiveCfg = Debug|x86
+		{87383137-2CDA-4F96-A2CB-852E51F90A0D}.Debug|x86.Build.0 = Debug|x86
+		{87383137-2CDA-4F96-A2CB-852E51F90A0D}.Release|x86.ActiveCfg = Release|x86
+		{87383137-2CDA-4F96-A2CB-852E51F90A0D}.Release|x86.Build.0 = Release|x86
+		{D1B818EE-0863-4BC6-B23A-2061525C9565}.Debug|x86.ActiveCfg = Debug|x86
+		{D1B818EE-0863-4BC6-B23A-2061525C9565}.Debug|x86.Build.0 = Debug|x86
+		{D1B818EE-0863-4BC6-B23A-2061525C9565}.Release|x86.ActiveCfg = Release|x86
+		{D1B818EE-0863-4BC6-B23A-2061525C9565}.Release|x86.Build.0 = Release|x86
+		{A2980191-48D6-49B4-94C5-A14E60435323}.Debug|x86.ActiveCfg = Debug|x86
+		{A2980191-48D6-49B4-94C5-A14E60435323}.Debug|x86.Build.0 = Debug|x86
+		{A2980191-48D6-49B4-94C5-A14E60435323}.Release|x86.ActiveCfg = Release|x86
+		{A2980191-48D6-49B4-94C5-A14E60435323}.Release|x86.Build.0 = Release|x86
+		{9B1A6FC3-B8B4-4F07-92B7-D8D3EEEF6118}.Debug|x86.ActiveCfg = Debug|x86
+		{9B1A6FC3-B8B4-4F07-92B7-D8D3EEEF6118}.Debug|x86.Build.0 = Debug|x86
+		{9B1A6FC3-B8B4-4F07-92B7-D8D3EEEF6118}.Release|x86.ActiveCfg = Release|x86
+		{9B1A6FC3-B8B4-4F07-92B7-D8D3EEEF6118}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

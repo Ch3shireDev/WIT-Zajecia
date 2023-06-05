@@ -1,0 +1,24 @@
+abstract class Bridge
+    {
+        protected abstract void Init();
+        protected abstract void Draw(Figure fig);
+        protected abstract void Done();
+        public void Draw(List<Figure> list)
+        {
+            Init();
+            foreach (Figure fig in list) Draw(fig);
+            Done();
+        }
+    }
+
+
+gr = Graphics.FromImage(box.Image);
+gr.Clear(SystemColors.Control);
+gr.DrawEllipse(new Pen(Color.Red), f.TpLf.X, f.TpLf.Y, f.BtRt.X - f.TpLf.X, f.BtRt.Y - f.TpLf.Y);
+gr.DrawRectangle(new Pen(Color.Blue), f.TpLf.X, f.TpLf.Y, f.BtRt.X - f.TpLf.X, f.BtRt.Y - f.TpLf.Y);
+gr.DrawLines(new Pen(Color.Green), new Point[] { f.A, f.B, f.C, f.A });
+box.Invalidate();
+
+box.Items.Clear();
+box.Items.Add(fig);
+box.SelectedItem = box.Items[box.Items.Count - 1];

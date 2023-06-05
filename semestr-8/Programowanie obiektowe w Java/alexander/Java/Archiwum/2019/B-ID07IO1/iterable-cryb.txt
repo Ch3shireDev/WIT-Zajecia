@@ -1,0 +1,13 @@
+class IterableFunction
+{
+   public static Iterable<String> Arr(String... tb)
+   {
+
+   }
+}
+
+
+for(String str : IterableFunction.Arr("a","bbb","ccc"))
+{
+
+}

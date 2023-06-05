@@ -1,0 +1,25 @@
+      TimerTask task=new TimerTask()
+      {
+         @Override public void run() { timeCall(); }
+      };
+      new Timer().schedule(task,0,1000);
+
+----------------------------------------------------------
+
+   private static final SimpleDateFormat df=new SimpleDateFormat("HH.mm.ss");
+   df.format(new Date());
+
+----------------------------------------------------------
+	  
+public interface Observer 
+{
+   void sygnal();   
+}
+
+public interface Observable 
+{
+   void notifyObservers();
+   void addObserver(Observer ob);
+   //void dropObserver(Observer ob);
+   //void clearObservers();
+}

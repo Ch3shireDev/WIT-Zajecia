@@ -1,0 +1,70 @@
+   private void calc_method_in_class() { ... }
+   private Thread call_thread()
+   {
+      final Thread th=new Thread()
+      {
+         @Override public void run() { calc_method_in_class(); }
+      };
+      th.start();
+      return th;
+   }                                       
+
+----------------------------------------------------------
+
+class MyThread extends Thread
+{
+   public MyThread(typ name,...) { ... }
+   @Override public void run() { ... }
+}
+
+   private void call_thread()
+   {
+      final Thread th=new MyThread(name,...)
+      th.start();
+      return th;
+   }
+
+----------------------------------------------------------
+
+   private final Thread[] tb=new Thread[Max_Thread_Count];
+
+   private void call_threads()
+   {
+      new Thread()
+      {
+         @Override public void run() 
+         {
+            for(int i=0;i<Max_Thread_Count;++i) tb[i]=call_thread();
+            for(Thread th:tb) th.join();
+         }
+      }.start();
+   }                                       
+
+----------------------------------------------------------
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+   private final Lock sync=new ReentrantLock();
+
+   private void thread_safe()
+   {
+      sync.lock();
+      try { ... }
+      finally { sync.unlock(); }
+   }
+
+----------------------------------------------------------
+
+   void getCount()
+   {
+      try
+      {
+         long count=Long.parseLong(EdCount.getText());
+         ...
+      }
+      catch(NumberFormatException e)
+      {
+         ...
+      }
+   }

@@ -1,0 +1,51 @@
+﻿@model PagedList.IPagedList<Biblioteka.Models.Reader>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Czytelnicy</h2>
+@using (Html.BeginForm())
+{
+    <div>Nazwisko: </div>
+    <div>@Html.TextBox("searchBySurname")</div>
+    <div>Karta: </div>
+    <div>@Html.TextBox("searchByCard")</div>
+    <input type="submit" value="Szukaj" />
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Readers", "Index", new { sortowanie = ViewBag.SortbySurname })
+        </th>
+        <th>
+            @Html.ActionLink("Readers", "Index", new { sortowanie = ViewBag.SortbyCard })
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.First().name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.First().surname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.readerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.readerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.readerId })
+        </td>
+    </tr>
+}
+
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+                    new { page, sortowanie = ViewBag.SortedBy, searchBySurname = ViewBag.searchBySurname, searchByCard = ViewBag.searchByCard }))

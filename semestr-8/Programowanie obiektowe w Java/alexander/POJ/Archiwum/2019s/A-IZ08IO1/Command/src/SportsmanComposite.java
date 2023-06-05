@@ -1,0 +1,3 @@
+interface SportsmanComposite extends SportsmanCommand
+{
+}

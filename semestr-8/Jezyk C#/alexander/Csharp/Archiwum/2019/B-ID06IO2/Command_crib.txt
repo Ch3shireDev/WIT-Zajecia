@@ -1,0 +1,34 @@
+class Base
+  {
+   public void A() { ... }
+   public void B() { ... }
+   public void C() { ... }
+  }
+
+interface BaseCommand
+  {
+   public void execute(Base b);
+  }
+
+class BaseCommandA:BaseCommand
+  {
+   public void execute(Base b) { b.A(); }
+  }
+class BaseCommandB:BaseCommand
+  {
+   public void execute(Base b) { b.B(); }
+  }
+class BaseCommandC:BaseCommand
+  {
+   public void execute(Base b) { b.C(); }
+  }
+
+class BaseCommandMacro:BaseCommand
+  {
+   private BaseCommand[] tb;
+   public BaseCommandMacro(BaseCommand[] tb) { this.tb=tb; }
+   public void execute(Base b) 
+     {  
+        for(int i=0;i<tb.length;++i) tb.execute(b);
+     }
+  }

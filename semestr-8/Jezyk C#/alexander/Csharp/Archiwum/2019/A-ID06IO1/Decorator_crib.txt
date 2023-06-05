@@ -1,0 +1,25 @@
+abstract class Car
+  {
+   public abstract string info();
+   public abstract double price();
+   public override string ToString() { return string.format("{0} {1:F2}",info(),price()); }
+  }
+
+abstract class DecoratorCar: Car
+  {
+   protected Car car;
+   public DecoratorCar(Car car) { this.car=car; }
+  }
+
+class Peugeot: Car
+  {
+   public override string info() { return "Peugeot"; }
+   public override double price() { return 75000; }
+  }
+
+class TintedWindow: DecoratorCar
+  {
+   public TintedWindow(Car car):base(car) {}
+   public override string info() { return car.info()+", Tinted Window"; }
+   public override double price() { return car.price()+5000; }
+  }

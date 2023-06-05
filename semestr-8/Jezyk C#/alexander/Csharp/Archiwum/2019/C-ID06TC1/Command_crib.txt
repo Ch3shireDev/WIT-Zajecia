@@ -1,0 +1,51 @@
+class Base
+  {
+   public void A() { ... }
+   public void B() { ... }
+   public void C() { ... }
+  }
+
+interface BaseCommand
+  {
+   void execute(Base b);
+  }
+
+class BaseCommandA:BaseCommand
+  {
+   public void execute(Base b) { b.A(); }
+  }
+class BaseCommandB:BaseCommand
+  {
+   public void execute(Base b) { b.B(); }
+  }
+class BaseCommandC:BaseCommand
+  {
+   public void execute(Base b) { b.C(); }
+  }
+
+class BaseCommandMacro:BaseCommand
+  {
+   private BaseCommand[] tb;
+   public BaseCommandMacro(BaseCommand[] tb) { this.tb=tb; }
+   public void execute(Base b) 
+     {  
+        for(int i=0;i<tb.length;++i) tb.execute(b);
+     }
+  }
+
+BaseCommand cmdA=new BaseCommandA();
+BaseCommand cmdB=new BaseCommandB();
+BaseCommand cmdC=new BaseCommandC();
+BaseCommand[] tb=new BaseCommand[3];
+tb[0]=cmdC; tb[1]=cmdB; tb[2]=cmdA;
+BaseCommand cmdT=new BaseCommandMacro(tb);
+
+
+string concat="";
+for(int i=0;i<N;++i) concat+=f(i);
+
+StringBuilder sb=new StringBuilder();
+for(int i=0;i<N;++i) sb.append(f(i));
+string concat=sb.ToString();
+
+

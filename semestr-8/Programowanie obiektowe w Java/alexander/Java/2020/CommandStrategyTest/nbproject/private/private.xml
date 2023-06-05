@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/SportsmenStrategyRunSprint.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>2</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/Sportsmen.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenCommand.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenRun.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenSwim.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenJump.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenTrening.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/CommandStrategyTestForm.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategy.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyRun.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategySwim.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyJump.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyRunSprint.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyRunMaraton.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyRunKilometer.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategySwimFrog.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategySwimButterfly.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategySwimCrawl.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyJumpLong.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyJumpHigh.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyJumpPole.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyJumpFabric.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategySwimFabric.java</file>
+            <file>file:/P:/Barski/Java/2020/CommandStrategyTest/src/SportsmenStrategyRunFabric.java</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,43 @@
+1.a.
+Dziekanowski Piotr
+Prokop Bartosz
+Ptaszkiewicz Pawe³
+
+2.a.
+Prokop Bartosz
+Shtuvbeinyi Valerii
+Foryœ Adam
+
+3.a.
+Dziekanowski Piotr
+Buczko Rafa³
+Shtuvbeinyi Valerii
+
+4.a.
+Shtuvbeinyi Valerii
+Ptaszkiewicz Pawe³
+Buczko Rafa³
+
+5.a.
+Foryœ Adam
+Prokop Bartosz
+Buczko Rafa³
+Buczko Rafa³ * 2
+
+6.a
+Shtuvbeinyi Valerii
+Buczko Rafa³
+Foryœ Adam
+
+6.b
+Buczko Rafa³
+Foryœ Adam
+Tetenkin Artem
+
+7.a
+Buczko Rafa³
+
+8.a
+Buczko Rafa³
+Ptaszkiewicz Pawe³
+Shtuvbeinyi Valerii

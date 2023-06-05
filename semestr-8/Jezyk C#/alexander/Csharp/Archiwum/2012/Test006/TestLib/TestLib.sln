@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLib", "TestLib.csproj", "{E210C18E-27AC-45BA-9620-E8FEB24E8FED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3FA3A9A8-E5F1-4A1F-A4A5-5DEF4707EF5D} = {3FA3A9A8-E5F1-4A1F-A4A5-5DEF4707EF5D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddLib", "..\ClassLibrary1\AddLib.csproj", "{3FA3A9A8-E5F1-4A1F-A4A5-5DEF4707EF5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddBox", "..\AddBox\AddBox.csproj", "{D38D44E2-A7B9-4A0C-A29F-96D1574A3C53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E210C18E-27AC-45BA-9620-E8FEB24E8FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E210C18E-27AC-45BA-9620-E8FEB24E8FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E210C18E-27AC-45BA-9620-E8FEB24E8FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E210C18E-27AC-45BA-9620-E8FEB24E8FED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FA3A9A8-E5F1-4A1F-A4A5-5DEF4707EF5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FA3A9A8-E5F1-4A1F-A4A5-5DEF4707EF5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FA3A9A8-E5F1-4A1F-A4A5-5DEF4707EF5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FA3A9A8-E5F1-4A1F-A4A5-5DEF4707EF5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38D44E2-A7B9-4A0C-A29F-96D1574A3C53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38D44E2-A7B9-4A0C-A29F-96D1574A3C53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38D44E2-A7B9-4A0C-A29F-96D1574A3C53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38D44E2-A7B9-4A0C-A29F-96D1574A3C53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

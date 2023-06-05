@@ -1,0 +1,19 @@
+ListBox lb;
+lb.Items.Add("napis");
+int idx = lb.SelectedIndex;
+int cnt = lb.Items.Count;
+lb.Items.RemoveAt(pos);
+lb.SelectedIndex = newpos;
+
+Button btn;
+btn.Enabled=true;
+btn.Enabled=false;
+
+TextBox txt;
+string str = txt.Text;
+txt.Text = "napis";
+txt.SelectAll();
+txt.Focus();
+
+Form frm;
+frm.AcceptButton = btn;
