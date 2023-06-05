@@ -56,8 +56,35 @@ public class IdBuilderController {
                     }
                 }
         );
+        
+        view.resetEmptyStringButton.addActionListener(
+                new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent e) {
+                        resetEmptyString();
+                    }
+                }
+        );
+       
+        view.setEmptyStringButton.addActionListener(
+                new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent e) {
+                        setEmptyString();
+                    }
+                }
+        );
+        
     }
 
+    public void setEmptyString(){
+        String emptyString = view.emptyStringTextField.getText();
+        this.model.setEmptyString(emptyString);
+    }
+    
+    public void resetEmptyString(){
+        String emptyString = this.model.resetEmptyString();
+        view.emptyStringTextField.setText(emptyString);
+    }
+    
     public void setSeparator() {
         String separator = view.separatorTextField.getText();
         if (separator.isEmpty()) return;

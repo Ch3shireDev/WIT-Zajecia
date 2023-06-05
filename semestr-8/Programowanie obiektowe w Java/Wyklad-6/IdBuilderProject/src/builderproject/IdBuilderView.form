@@ -78,29 +78,37 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="resultPane" alignment="0" pref="296" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="idLabel" max="32767" attributes="0"/>
-                                      <Component id="separatorLabel" pref="55" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="idLabel" max="32767" attributes="0"/>
+                                          <Component id="separatorLabel" pref="55" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="idTextField" max="32767" attributes="0"/>
                                       <Component id="separatorTextField" max="32767" attributes="0"/>
+                                      <Component id="emptyStringTextField" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="addIdButton" pref="90" max="32767" attributes="0"/>
                                       <Component id="setSeparatorButton" max="32767" attributes="0"/>
+                                      <Component id="setEmptyStringButton" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="clearIdsButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="buildIdsButton" alignment="0" max="32767" attributes="0"/>
-                              <Component id="removeIdButton" max="32767" attributes="0"/>
-                              <Component id="resetSeparatorButton" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="clearIdsButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="buildIdsButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="removeIdButton" max="32767" attributes="0"/>
+                                  <Component id="resetSeparatorButton" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="resetEmptyStringButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       </Group>
@@ -112,11 +120,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="idTextField" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="addIdButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="idLabel" alignment="0" max="32767" attributes="0"/>
-                      <Component id="removeIdButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="idTextField" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="addIdButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="removeIdButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -125,7 +135,16 @@
                       <Component id="setSeparatorButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="resetSeparatorButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="61" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="emptyStringTextField" alignment="3" max="32767" attributes="0"/>
+                          <Component id="setEmptyStringButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resetEmptyStringButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel1" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
                   <Component id="resultLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -230,9 +249,6 @@
           <Properties>
             <Property name="label" type="java.lang.String" value="Buduj"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Buduj"/>
-          </AccessibilityProperties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -240,6 +256,38 @@
         <Component class="javax.swing.JButton" name="clearIdsButton">
           <Properties>
             <Property name="label" type="java.lang.String" value="Wyczy&#x15b;&#x107;"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="empty string"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="emptyStringTextField">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="emptyStringTextField" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="setEmptyStringButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Wybierz"/>
+            <Property name="name" type="java.lang.String" value="setEmptyStringButton" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="resetEmptyStringButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Resetuj"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="resetEmptyStringButton" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
