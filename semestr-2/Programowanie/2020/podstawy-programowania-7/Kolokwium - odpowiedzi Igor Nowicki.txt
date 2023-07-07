@@ -1,0 +1,285 @@
+Kolokwium składa się z trzech częsci: Testu (75 pytań), Pytania (10 pytań do uzasadanienia), Zadań (5 zadań do napisania kodu)
+
+Plik txt z imieniem i nazwiskiem z rozwiązaniami wysyłamy na e-mail: sioma@wit.edu.pl 
+do końca zajęć.
+
+Imie i Nazwisko: Igor Nowicki
+Grupa: IZ02P03
+Nr Indeksu: 18608
+
+Odpowiedzi:
+
+------------------
+Część 1 Test: (wpisz obok cyfry pytania literę prawidłowej odpowiedzi)
+------------------
+1b
+2b
+3b
+4a
+5b
+6a
+7c
+8c
+9b
+10a
+11c
+12b
+13c
+14c
+15b
+16c
+17c
+18a
+19b
+20b
+21c
+22a
+23b
+24c
+25b
+26a
+27a
+28b
+29c
+30a
+31b
+32a
+33b
+34a
+35a
+36b
+37a
+38b
+39b
+40c
+41b
+42c
+43b
+44d
+45a
+46a (pod warunkiem że &gt; to >. Jeśli to faktycznie &gt; to wtedy nie)
+47b
+48c
+49a
+50b
+51a
+52a
+53b
+54c
+55b
+56c
+57d
+58d
+59a
+60b
+61b
+62a + b
+63b
+64b
+65a
+66b
+67a
+68c
+69c
+70c
+71b
+72b
+73c
+74b
+75c
+
+
+--------------------------------------------------------------
+Część 2 Pytania (odpowiedzi uzasadnij bardzo wyczerpująco odpowiedzi):
+--------------------------------------------------------------
+
+Odpowiedzi (uzasadnienie/omówienie/kod) na PYTANIA:
+
+1. Nie - w drugiej linii jest błąd - po zamknięciu nawiasu warunku if jest stosowany operator logiczny ||, kompilator wyrzuci błąd.
+
+2. Nie - tablica znaków przewiduje tylko jeden element, natomiast string "T" składa się z DWÓCH ELEMENTÓW, bo po literze T jest jeszcze bajt zerowy oznaczający koniec łańcucha znaków.
+
+3.
+
+int tab[40];
+for(int i=0;i<40;i++)tab[i]=2*i;
+
+4. Nic nie otrzymamy, bo w programie jest literówka - zamiast switch jest swich.
+
+5. int suma = 0;for(int i=0;i<400;i++)suma+=t[i];
+
+6. Pętla while wykona się tak długo dopóki i jest większe od 5. Zatrzyma się w momencie gdy i zejdzie do 5. Zatem wyświetlona wartość i to 5.
+
+7. char x; x = 'a';
+
+8. Dla dowolnego j innego niż 2 oraz dla i = -5.
+
+9. Zależnie od typu zmiennej - jeśli jest to bool, uzyskamy wartość false; jeśli a jest typu int, uzyskamy 0.
+
+10. 
+
+int x;
+cin>>x;
+if(x>=-10){
+    cin>>x;
+}
+
+---------------------------------------------------------------
+Część 3 Zadania do napisania - wklej kod pod zadaniem.
+---------------------------------------------------------------
+
+Zadanie 1
+---------
+
+#include <iostream>
+using namespace std;
+int main(){
+    double c;
+    cout<<"Temperatura w Celsjuszach: ";
+    cin>>c;
+    double f = 1.8*c + 32;
+    cout<<"Temperatura w Fahrenheitach: "<<f<<endl;
+}
+
+Zadanie 2
+---------
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    int min, max;
+    bool flag1 = true, flag2 = true;
+    int x;
+    vector<int> tab;
+    int suma = 0;
+    while (cin >> x)
+    {
+        if (x == 0)
+        {
+            break;
+        }
+        tab.push_back(x);
+        suma += x;
+        if (flag1 || x < min)
+        {
+            min = x;
+            flag1 = false;
+        }
+        if (flag2 || x > max)
+        {
+            max = x;
+            flag2 = false;
+        }
+    }
+    double srednia = 1. * suma / tab.size();
+    int licznik = 0;
+    for (int i = 0; i < tab.size(); i++)
+    {
+        if (tab[i] > srednia)
+            licznik++;
+    }
+
+    cout << "Suma min i max: " << min + max << endl;
+    cout << "Średnia: " << srednia << endl;
+    cout << "Liczba wartości większych od średniej: " << licznik << endl;
+}
+Zadanie 3.
+---------
+
+#include <iostream>
+using namespace std;
+int main(){
+    char x;
+    int whitespaces=0,letters=0,vowels=0,sum=0;
+    
+    while(cin>>x){
+        if(x==' ' || x=='\t' || x=='\n' || x=='\r'){
+            whitespaces++;
+        }
+        if((x>='a' && x<='z') || (x>='A' && x<='Z')){
+            letters++;
+        }
+        if(x=='a' || x=='e' || x=='i' || x=='o' || x=='u' || x=='y'){
+            vowels++;
+        }
+        if(x>='0' && x<='9'){
+            sum += (int)(x-'0');
+        }
+    }
+
+        cout<<"Liczba białych znaków: "<<whitespaces<<endl;
+        cout<<"Liczba liter: "<<letters<<endl;
+        cout<<"Liczba samogłosek: "<<vowels<<endl;
+        cout<<"Suma cyfr: "<<sum<<endl;
+}
+
+Zadanie 4.
+---------
+
+int silnia_it(int n){
+    if(n<2)return 1;
+    int s = 1;
+    for(int i=0;i<n;i++){
+s*=i+1;
+    }
+    return s;
+}
+
+int silnia_rek(int n){
+    if (n<2)return 1;
+    return n*silnia_rek(n-1);
+}
+
+
+Zadanie 5.
+---------
+
+ETAP 1:
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    //ETAP 1
+    //deklaracja zmiennych
+    string slowo;
+
+    //pobieranie wartości od gracza
+    cout << "Wpisz słowo: ";
+    cin >> slowo;
+
+    //zapisanie oryginalnego słowa w drugiej zmiennej
+    string slowo2 = slowo;
+
+    //ETAP 2
+    //mieszanie słowa
+    random_shuffle(slowo.begin(), slowo.end());
+
+    //wymazanie ekranu
+    system("cls");
+
+    string answer;
+
+    //ETAP 3
+    //powtarzanie pętli tak długo aż gracz nie zgadnie słowa
+    while (true)
+    {
+        cout << "Pomieszane slowo to: " << slowo << endl;
+        cout << "Podaj poprawną postać słowa:";
+        cin >> answer;
+        if (answer != slowo2)
+        {
+            cout << "Odpowiedź niepoprawna!" << endl;
+        }
+        else
+        {
+            cout << "Poprawna odpowiedź!" << endl;
+            return;
+        }
+    }
+}

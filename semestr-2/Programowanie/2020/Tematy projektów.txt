@@ -1,0 +1,38 @@
+Projekty w c++ mają zawierać Imię i Nazwisko autora, opisy poszczególnych fragmentów kodu, zawierać menu i informację dla użytkowania, mają być intuicyjne, odporne na wpisywanie nie właściwych danych i pozwalać na ile to możliwe ich rozbudowę.
+
+1.	Napisz program na wzór „Koło Fortuny”. Dla jednego lub kilku graczy. Zbiór pytań losuj z zewnętrznych plików. Program napisz tak aby była możliwość dopisywania kolejnych pytań w plikach tekstowych.
+
+2.	Napisz program na wzór gry „Milionerzy”. Zbiór haseł/pytań losuj z zewnętrznych plików. Program napisz tak aby była możliwość dopisywania kolejnych pytań w plikach tekstowych i ich losowania.
+
+3.	Napisz program grę polegającą na zgadywaniu słów/zwrotów/haseł/przysłów dla jednej i dwóch osób. Zgadywanie słów (w przypadku błędu program rysuje szubienice). Zbiór haseł losuj z zewnętrznych plików. Program napisz tak aby była możliwość dopisywania w plikach tekstowych.
+
+4.	Napisz program na grę „Kółko i krzyżyk” w wersji na 3 i 5 dla  jednej i dwóch osób. Zrób odpowiednie menu wyboru i opis sposobu gry.
+
+5.	Napisz program na wzór w „Gry statki” dla jednego\dwóch graczy. Zrób odpowiednie menu wyboru.
+
+6.	Napisz program na wzór gry „Black Jacka”. Zrób odpowiednie menu z opcjami wyboru.
+
+
+7.	Napisz program do nauki pisania na klawiaturze (bezwzrokowego). Jako wzór zobacz program „Mistrz klawiatury”. Losuj z pliku wybrane teksty, słowa. Stwórz menu do obsługi programu. Napisz program tak aby była możliwość dopisywania tekstów, słów do programu.
+
+8.	Napisz program losowania liczb w dużym lotku stwórz rozbudowane menu opracuj metodę chybił trafił dla wybrane dla podanej ilości kuponów, opracuj metodę uwzględnia szczęśliwych liczb podanych przez użytkownika w losowanych liczbach, opracuj metodę uwzględnia szczęśliwych dat w wylosowanych liczbach ( np. data urodzenia, i inne …). Uwzględnij możliwość zapisu do pliku wylosowanych zestawów liczb.
+
+9.	Napisz program na wzór „Gra w pokera” dla wybranej/określanej ilości graczy.
+ 
+10.	Napisz program kalkulatora liczb zespolonych z mnożeniem, dzieleniem, dodawaniem, odejmowaniem, potęgowaniem, ….
+
+11.	Napisz program na kalkulator liczb binarnych i szesnastkowych oraz ósemkowych z mnożeniem, dzieleniem, dodawaniem, odejmowaniem, potęgowaniem oraz zapisem do pamięci i wczytywaniem z pamięci.
+
+12.	Napisz prosty program na wzór gry Pacman.
+
+13.	Napisz program grę „Rosyjska ruletka” dla jednej lub dwóch osób z rozbudowanym menu np. wyborem ilości kul, ponownym tasowaniem bębenka i bez tasowania.
+
+14.	Napisz program losowania liczb w Multilotku stwórz rozbudowane menu opracuj metodę chybił trafił dla podanej ilości kuponów.
+
+15.	Napisz prosty program/grę polegającą na jeździe samochodem, omijającym przeszkody sterownym z klawiatury, przełączającym biegi.
+
+16.	Napisz prosty program/grę polegającą na locie rakietą, omijającą przeszkody sterownym z klawiatury, zbierającą punkty jak się przeleci przez odpowiednie obiekty.
+
+17. Napisz pogram przewidujący długość życia. Polegający na zadawaniu pytań mających wpływ na długość życia np.: o płeć, wagę wzrost, wiek, zawód, narodowość, aktywność, palnie papierosów, sposób odzywania się, miejsce zamieszkania, uprawianie sportów, posiadane choroby np. cukrzyca, gruźlica, żółtaczka i inne pytania ...
+Informacje potrzebne o długości życia w zależność od udzielnych odpowiedzi znajdź w możliwie wiarygodnych źródłach w Internecie na stornach GUS czy Wikipedii i innych. Stwórz algorytm wyliczający przewidywaną długość życia. Program może również podawać przewidywany maksymalny i minimalny czas życia.
+

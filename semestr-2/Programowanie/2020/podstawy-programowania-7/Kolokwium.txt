@@ -1,0 +1,569 @@
+Kolokwium składa się z trzech częsci: Testu (75 pytań), Pytania (10 pytań do dokładnego uzasadanienia), Zadań (5 zadań do napisania kodu)
+Wszystkie odpowiedzi umieszczamy w drugim udostępnionym/przygotowanym specjalnie pliku.
+Można korzystać z kompilatora c++.
+
+------------------
+Część 1 Test:
+------------------
+
+1.	Instrukcja grupująca to inaczej:
+a.	instrukcja przypisania
+b.	instrukcja blokowa
+c.	instrukcja warunkowa
+
+2.	Blok instrukcji jest ciągiem instrukcji ujętych w:
+a.	" " (cudzysłów)
+b.	{  } (nawiasy klamrowe)
+c.	[ ]  (nawiasy prostokątne)
+
+3.	Polecenie IF opisuje:
+a.	instrukcję wyboru
+b.	instrukcję warunkową
+c.	instrukcję blokową
+
+4.	Instrukcje warunkowe można:
+a.	zagnieżdżać
+b.	stopniować
+c.	obie odpowiedzi są prawidłowe
+
+5.	Instrukcja switch:
+a.	jest instrukcją, która wybiera sekwencje instrukcji
+b.	jest instrukcją, która pozwala dokonać wyboru jednej z wielu sekwencji instrukcji
+c.	jest instrukcją, która pozwala dokonać wyboru jednej z wielu zmiennych
+
+6.	Instrukcja pętli, w której blok instrukcji realizowany jest cyklicznie, w przypadku gdy wartość logiczna wyrażenia sterującego pętlą wynosi true (jest różna od zera) to:      
+a.     while
+b.	while to
+c.	for
+
+7.	Pętla do...while jest podobna do pętli while z tą różnicą:
+a.	że warunek sprawdzany w trakcie wykonywania pętli
+b.	że warunek sprawdzany jest przed każdym wykonaniem pętli
+c.	że warunek sprawdzany jest po każdym wykonaniu pętli
+
+8.	Pętla for jest rozwinięciem
+a.	instrukcji wyboru
+b.	instrukcji blokowej
+c.	pętli while
+
+9.	W pętli for zmienna licząca kolejne wykonania ciała pętli nazywa się:      
+a.     indeksem
+b.	iteratorem
+c.	prefiksem
+
+10.	Instrukcję for można przedstawić posługując się instrukcją while w następujący sposób: gdzie: W1 ? ustawienie początkowych wartości (inicjalizacja)zmiennej lub zmiennych sterujących pętlą; W2 - warunek pozostania w pętli; W3 - instrukcja lub instrukcje modyfikacji zmiennych sterujących; I ? blok instrukcji realizowany w ramach pętli
+a.	W1 while (W2) {I W3}
+b.	W1 while {W2, I W3}
+c.	W1 while [W2] [ W3]
+
+11.	Pętla opóźniająca to taka gdzie:
+a.	instrukcje inicjalizujące zmienne są puste
+b.	wartość wyrażenia logicznego jest true
+c.	blok operacji jest pusty
+
+12.	Pętla nieskończona to taka, która:
+a.	nie posiada elementów składowych
+b.	wartość wyrażenia logicznego jest true
+c.	blok operacji jest pusty
+
+13.	Instrukcja break powoduje:
+a.	zakończenie instrukcji switch
+b.	wyjście z pętli for
+c.	obie odpowiedzi są prawidłowe
+
+14.	Instrukcja continue  powoduje:
+a.	w pętli for zakończenie realizacji bieżącej iteracji 
+b.	w pętlach while i do while pominięcie dalszych instrukcji w bloku 
+c.	obie odpowiedzi są prawidłowe
+
+15.	Instrukcję continue można zastąpić:
+a.	instrukcją wyboru
+b.	instrukcją warunkową
+c.	instrukcją blokową
+
+16.	W operacjach wskaźnikowych wykorzystywany jest operator:
+a.	& (and)
+b.	* (gwiazdka)
+c.	obie odpowiedzi są prawidłowe
+
+17.	Zmienna służącą do przechowywania adresu zmiennej dowolnego typu, funkcji to:
+a.	strukturalna
+b.	unia 
+c.	wskaźnik
+
+18.	Zapis int tablica_liczb [5][10]; deklaruje tablicę o:
+a.	5wierszach, 10 kolumnach 
+b.	5kolumnach, 10 wierszach 
+c.	wierszach, 5 kolumnach
+
+19.	Tablice dynamiczne to takie:
+a.	gdzie rozmiar tablicy jest stały
+b.	gdzie rozmiar tablicy może się zmieniać w trakcie wykonywania programu
+c.	żadna z odpowiedzi nie jest prawidłowa
+
+20.	Dostęp do elementów tablicy odbywa się poprzez:
+a.	pola 
+b.	indeks
+c.	kontener
+
+21. Z obiektu jakiej klasy korzystamy chcąc wczytać zawartość pliku w fazie wykonywania programu?
+A. iostream 
+B. ofstream 
+C. ifstream 
+D. fstream 
+
+22. Jakie wartości będą miały zmienne x,y,z po wykonaniu poniższego kodu: int x,y,z; x=y=2+(z=0); x^=2L; y/=3.0; z*=4.0f; ?
+A. x=4, y=0, z=0 
+B. x=0, y=0, z=0 
+C. x=4, y=1, z=0 
+D. x=4, y=0.66666, z=0 
+
+23. Mając podany poniższy kod: class{ pubic: double X; double Y; double Z; void set(int x, int y, int z){ X=x; Y=y; Z=z; } } wybierz trafną odpowiedź:
+A. w definicji klasy znajduje się błąd 
+B. w definicji klasy znajdują się błędy 
+C. jest to poprawna deklaracja 
+D. to jest definicja klasy 
+
+24. Co zostanie wypisane na standardowym wyjściu? int i=13; if (i=17) { std::cout<<i; }else{ std::cout<<i*i; }
+A. 289 
+B. 13 
+C. 169 
+D. 17 
+
+25. Jaka będzie wartość zmiennej x po wykonaniu poniższego fragmentu kodu: int x=2; while(0) while(x--) x*=2; ?
+A. 4 
+B. 2 
+C. 1 
+D. 8 
+
+26. Co będzie wypisane na standardowym wyjściu po "wykonaniu" poniższego fragmentu kodu: int i=0; do{ cout<<( (i<2)?1:0 ); }while(i++) cout<<0; ?
+A. nic, fragment ten się nie skompiluje 
+B. 110 
+C. 0 
+D. 1 
+
+27. Ile razy pętla zostanie wykonana, dla poniższego przykładu: int i=17; while (i/=2) i-=1; ?
+A. 4 
+B. nieskończenie wiele 
+C. 3 
+D. 2 
+
+28. Co zostanie wypisane na standardowym wyjściu? int i=17; if (i-17); { std::cout<<i; } std::cout<<"71";
+A. 1771 
+B. 71 
+C. 17 
+D. 0 
+
+29. Co zostanie wypisane na standardowym wyjściu? int i=2; for(;sizeof(char);) if(i=1){ cout<<i; break; }
+A. 2 
+B. 1 
+C. pętla będzie się wykonywać w nieskończoność 
+D. błąd składniowy, fragment jest "niekompilowalny
+
+30. Co zostanie wyświetlone na standardowym wyjściu? int i=13; if (i-=17) std::cout<<i; else std::cout<<i*i;
+A. -4 
+B. inna wartość 
+C. 13 
+D. 169 
+
+31. Dostęp do elementów tablicy odbywa się poprzez:
+A. pola
+B. indeks
+C. kontener
+
+32. Gdy rozmiar tablicy jest z góry ustalony to jest to:
+A. tablica statyczna
+B. tablica dynamiczna
+C. tablica indeksowana
+
+33. Tablice dynamiczne to takie:
+A. gdzie rozmiar tablicy jest stały
+B. gdzie rozmiar tablicy może się zmieniać w trakcie wykonywania programu
+C. żadna z odpowiedzi nie jest prawidłowa
+
+34. Deklaracja int wektor_liczb[20]; przedstawia tablicę:
+A. jednowymiarową
+B. dwuwymiarową
+C. wielowymiarową
+
+35. Zapis int tablica_liczb [5][10]; deklaruje tablicę o:
+A. 5wierszach, 10 kolumnach
+B. 5kolumnach, 10 wierszach
+C. 15 wierszach, 5 kolumnach
+
+36. Nadpisanie tablicy powoduje:
+A. zwiększenie rozmiaru tablicy
+B. przepełnienie bufora pamięci
+C. dodanie dodatkowych kolumn w tablicy
+
+37. Struktura to:
+A. złożony typ danych grupujący logicznie powiązane ze sobą dane różnego typu w jednym obszarze pamięci
+B. złożony typ danych grupujący logicznie powiązane ze sobą dane tego samego typu w jednym obszarze pamięci
+C. złożony typ danych grupujący logicznie powiązane ze sobą dane różnego typu w różnych obszarach pamięci
+
+38. Struktura sklada się z elementów nazywanych:
+A. indeksami
+B. polami
+C. rekordami
+
+39. Dostęp do pola zmiennej typu strukturalnego realizowany jest z wykorzystaniem operatora:
+A. & (and)
+B. . (kropka)
+C. * (gwiazdka)
+
+40. Elementy pola bitowego mogą być typu:
+A. int
+B. signed
+C. obie odpowiedzi są prawidłowe
+
+41. Zmienna służącą do przechowywania adresu zmiennej dowolnego typu, funkcji to:
+A. strukturalna
+B. unia
+C. wskaźnik
+
+42. W operacjach wskaźnikowych wykorzystywany jest operator:
+A. & (and)
+B. * (gwiazdka)
+C. obie odpowiedzi są prawidłowe
+
+43. Sortowanie bąbelkowe, można stosować tylko dla:
+A. dużej liczby elementów
+B. niewielkiej liczby elementów
+C. zbiorów nieskończonych
+D. średnich zbiorów
+
+
+44. Jak zadeklarować tablicę o nazwie "t" przechowującą liczy całkowite typu int, 
+indeksowaną od 0 do 100 ?
+a. int t[99] 
+b. float t[100] 
+c. long int t[100]
+d. int t[100]
+e. int t[101]
+
+45. Jaka funkcja służy do pobrania wartości zmiennej ?? 
+a. scanf() 
+b. printf() 
+c. Return 0;
+d. Case()
+
+46. Czy w C++ dozwolona jest poniższa instrukcja? if ( 2 &gt; 3 ) { ... }
+A. Tak 
+B. Nie
+
+47. Do czego służy pętla while?
+A. Do zignorowania kodu 
+B. Do powtarzania kodu nie określoną ilość razy 
+C. Do rzucenia wyjątku
+
+48. Ile bitów ( domniemanie ) zajmuje zmienna typu int?
+A. 4 
+B. 16 
+C. 32 
+D. 8 
+
+49. Czy gdy stworzymy obiekt operatorem New to możemy go nazwać?
+A. Tak 
+B. Nie 
+
+50. Czy możliwe jest zdefiniowanie wskaźnika typu void?
+A. Nie 
+B. Tak 
+C. Tak, jeśli nie będzie na nic pokazywał
+
+51. Jak wygląda instrukcja przestrzeni nazw dla std?
+A. using namespace std; 
+B. std; 
+C. using std; 
+D. namespace std;
+ 
+52. Jak zadeklarować funkcję typu void bez żadnych argumentów?
+A. void nazwa(); 
+B. void ( )nazwa (); 
+C. nazwa () void; 
+D. void nazwa; 
+
+53. Jak w języku C++ definiuje się wskaźniki?
+A. wsk 
+B. *wsk 
+C. *wsk* 
+D. wsk* 
+
+54. W języku C++ znakiem "#" rozpoczyna się:
+A. deklaracje typów danych
+B. deklaracje zmiennych globalnych
+C. dyrektywa preprocesora
+
+55. Instrukcja złożona zawarta jest w nawiasach:
+A. ()
+B. {}
+C. []
+
+56. Instrukcje warunkowe można:
+A. Zagnieżdzać
+B. Stopniować
+C. Wszystkie odpowiedzi są prawdziwe
+
+57. Inkrementacja jest oznaczana jest operatorem
+A. --
+B. <<
+C. >>
+D. ++
+E. ==
+
+58. Poprzez wykonanie jakiej instrukcji funkcja zwraca wynik działania?
+A. continue
+B. while
+C. break
+D. return
+
+59. Dyrektywa definiuje:
+A. identyfikator i ciąg znaków
+B. indeks i ciąg znaków
+C. prefiks i ciag znaków
+
+60. Przy stosowaniu dyrektywy #include nazwa pliku źródłowego musi znajdować się w:
+A. cudzysłowiu " "
+B. cudzysłowiu " " i między znkami < >
+C. między znkami < >
+
+61. Zaznacz symbole specjalne języka C++
+A. \r,\a, \?, \d
+B. \r, \a, \\, \?
+C. \d, \r, \\, \e
+
+62. Jaki typ programowania wykorzystuje język C++?
+A. strukturalny
+B. obiektowy
+C. funkcyjny
+
+63. Tablice w C++ są zbiorami elementów:
+a. różnych typów
+b. tego samego typu
+c. obie odpowiedzi są prawidłowe
+
+64. Dostęp do elementów tablicy odbywa się poprzez:
+a. pola
+b. indeks
+c. kontener
+
+65. Gdy rozmiar tablicy jest z góry ustalony to jest to:
+a. tablica statyczna
+b. tablica dynamiczna
+c. tablica indeksowana
+
+66. Tablice dynamiczne to takie:
+a. gdzie rozmiar tablicy jest stały
+b. gdzie rozmiar tablicy może się zmieniać w trakcie wykonywania programu
+c. żadna z odpowiedzi nie jest prawidłowa
+
+67. Deklaracja int wektor_liczb[20]; przedstawia tablicę:
+a. jednowymiarową
+b. dwuwymiarową
+c. wielowymiarową
+
+
+68. Pętla do...while jest podobna do pętli while z tą różnicą:
+A. że warunek sprawdzany w trakcie wykonywania pętli
+B. że warunek sprawdzany jest przed każdym wykonaniem pętli
+C. że warunek sprawdzany jest po każdym wykonaniu pętli
+
+69. Instrukcja break powoduje:
+A. zakończenie instrukcji switch
+B. wyjście z pętli for
+C. obie odpowiedzi są prawidłowe
+
+70. Instrukcja continue powoduje:
+A. w pętli for zakończenie realizacji bieżącej iteracji 
+B. w pętlach while i do while pominięcie dalszych instrukcji w bloku 
+C. obie odpowiedzi są prawidłowe
+
+71.  Instrukcję continue można zastąpić:
+A. instrukcją wyboru
+B. instrukcją warunkową
+C. instrukcją blokową
+
+72. Funkcja wszystkie potrzebne dane do wykonania powinna otrzymywać:
+A. ze zmiennych globalnych
+B. przez listę parametrów
+C. przez deklaracje zmiennych lokalnych
+
+73. W jaki sposób można przekazać parametry do funkcji?
+A. przez wartość
+B. przez adres 
+C. obie odpowiedzi są prawidłowe
+
+74. Zmienna, która jest synonimem innej zmiennej to:
+A. zmienna globalna
+B. zmienna referencyjna
+C. zmienna preferencyjna
+
+75. Poszczególne elementy listy parametrów funkcji oddzielone są od siebie:
+A. ; (średnikiem)
+B. _ (podkreśleniem)
+C. , (przecinkiem)
+
+--------------------------------------------------------------------------
+Część 2 Pytania (odpowiedzi uzasadnij bardzo wyczerpująco odpowiedzi):
+--------------------------------------------------------------------------
+
+PYTANIA:
+
+1.	Czy poniższy fragment programu spowoduje wydruk tekstu „Dzisiaj zaliczamy ćwiczenia”. Uzasadnij odpowiedź. Jakie wartości zmiennych zostaną wyświetlone po wykonaniu instrukcji if. (Omów i zaproponuj ewntualną modyfikację/poptawę kodu).
+
+int z=0; d=0;
+if ((z>0) && (z++)) || (--d) printf(”\n Dzisiaj poprawiamy ćwiczenia”);
+
+2.	Czy poniższa deklaracja jest poprawna ? Odpowiedź uzasadnij.
+
+char znaki[1]=”T”:
+
+3.	Napisz fragment programu, który umieszcza w tablicy kolejno 40 liczb: 0 2 4 6 8… itd. Deklaracje obowiązkowe.
+
+4.	Jaki tekst otrzymamy na ekranie, po wykonaniu fragmentu programu? Odpowiedź uzasadnij.
+
+int nr = 8;
+swich (nr) {
+	case 7 printf(“Jestem w 1“);
+	case 8 printf(“Jestem w 2”);
+	case 9 printf(“Jestem w 3”);
+
+5.	Oblicz sumę ciągu umieszczonego w tablicy t[400]. Deklaracja obowiązkowa. Napisz kod.
+
+6.	Jaka wartość zmiennej i zostanie wyświetlona. Odpowiedź uzasadnij.
+
+i=7;
+while (i>5) i--;
+printf(”%d”,i);
+
+7.	Przypisz zmiennej literę a. Dokonaj niezbędnych deklaracji.
+
+8.	Dla jakich wartości zmiennych i oraz j pętla while się wykonuje ? Odpowiedź uzasadnij.
+
+While (!(i+5) || (j-2)) {…}
+
+9.	Jaką wartość przyjmie zmienna a, po wykonaniu przypisania a=!(10.3); Odpowiedź uzasadnij.
+
+10.	Wczytaj z klawiatury liczbę mniejszą od –10, jeżeli wprowadzona liczba nie spełnia warunków, to wczytaj ją ponownie.
+
+---------------------------------------------------------------
+Część 3 Zadania do napisania
+---------------------------------------------------------------
+
+Zadanie 1
+---------
+Napisać program służący do konwersji wartości temperatury podanej w stopniach Celsjusza na stopnie w skali Fahrenheita (1 stopień Fahrenheita = 1.8 * stopnie Celsjusza + 32.0)
+Podajemy temperaturę w Celsjuszach i otrzymujemy w Fahrenheitach.
+Przykład: 100 stopni C to 212 stopni F; 50 stopni C to 122 stopni F; -20 stopni C to -4 stopni F.
+
+Zadanie 2
+---------
+Napisać program, który pobiera od użytkownika ciąg liczb całkowitych dowolnej długości. Pobieranie danych kończone jest podaniem wartości 0 (nie wliczana do danych). W następnej kolejności program powinien wyświetlić sumę największej oraz najmniejszej z podanych liczb, średnią arytmetyczną wprowadzonych liczb, a także ile z wprowadzonych liczb było jest większych od średniej. 
+Przykład: Użytkownik podał ciąg: 1, -4, 2, 17, 0. 
+Wynik programu: 
+13 // suma min. i maks. 
+4 // średnia 
+1 // ile jest liczb większych od średniej
+
+Zadanie 3.
+---------
+Napisz program, który wczytuje od użytkownika tekst znak po znaku aż do naciśnięcia sekwencji CTRL+Z oznaczającej koniec ciągu (EOF). 
+Program powinien wyświetlić: 
+• liczbę białych znaków w tekście, 
+• liczbę liter w tekście, 
+• liczbę samogłosek w tekście (tylko z alfabetu angielskiego), 
+• sumę wszystkich cyfr w podanym tekście. 
+
+Przykład: 
+Podaj tekst, aby zakończyć naciśnij CTRL+Z (windows) lub CTRL+D (linux): 
+Ala ma 15 rybek i 2 koty. 
+Białe znaki: 6 
+Litery: 15 
+Samogłoski: 8 
+Suma cyfr: 8
+Dodaj menu aby był wybór czy program wczytuje tekst podawany z klawiatury czy tekst zapisany w pliku txt o dowolnej/ustalonej nazwie.
+
+
+Zadanie 4.
+---------
+Napisz funkcję, która zwraca wartość silni dla podanej liczby n. Funkcja powinna być napisana w dwóch wersjach: iteracyjnej i rekurencyjnej.
+Przykład deklaracji funkcji: long silnia(long n); long silniaRekunrencja(long n);
+
+Zadanie 5.
+---------
+Napisz grę, która będzie mieszała litery w słowach i zadaniem gracza będzie odgadnąć, o jakie słowo chodzi.
+
+Przykład:
+Wpisz słowo:  „tajemnica” <– wprowadzone słowo
+
+Co to za słowo?:  jatcemian
+„matejnica”  <- wpisujemy
+ŻLE <- odpowiedź programu
+
+Kolejna próba odgadnięcia (aż do skutku):
+
+Co to za słowo?:  jatcemian
+„tajemnica”  <- wpisujemy
+Brawo! Zgadłeś <- odpowiedź programu
+
+ 
+Gra wymaga odgadnięcia słowa, w którym zostały poprzestawiane litery. Program wymaga wykorzystania wielu konstrukcji i technik:
+•	zmiennych łańcuchowych,
+•	funkcji,
+•	instrukcji sterujących (warunkowych i pętli).
+Zasady naszej gry są następujące:
+1.	Pierwszy gracz wpisuje słowo za pomocą.
+2.	Komputer miesza litery we wpisanym słowie.
+3.	Drugi gracz próbuje odgadnąć, jakie słowo wpisał pierwszy gracz.
+Oto przykładowa rozgrywka w tę grę:
+1.	Pierwszy gracz wpisał słowo „TAJEMNICA”.
+2.	Komputer pomieszał litery tego słowa i poprosił drugiego gracza o odgadnięcie co to za słowo wyświetlając ciąg „ATMJNCAIE”.
+3.	Drugi gracz próbuje odgadnąć oryginalne słowo. Np. próbuje trzy razy. Pierwsze dwie próby są niepoprawne, o czym zostaje poinformowany. Np. za trzecim razem w końcu trafia i otrzymuje pochwałę.
+Wskazówki:
+Podziel program na etapy:
+W omawianym programie można wyróżnić trzy etapy:
+1.	Wpisanie słowa do odgadnięcia
+2.	Pomieszanie liter
+3.	Powtórzenie powyższych czynności w pętli, jeśli nie zostało wpisane odpowiednie słowo
+Każdy z tych etapów jest faktycznie niezależny od pozostałych, więc warto podzielić budowę tego programu na trzy osobne części:
+1.	Etap pierwszy: użytkownik musi wpisać słowo, które program musi zapisać w pamięci w postaci łańcucha.
+2.	Etap drugi: mamy łańcuch zawierający słowo, np. „TAJEMNICA”, i chcemy losowo pomieszać jego litery, aby otrzymać ciąg typu np. „ATMJNCAIE”.
+3.	Etap trzeci: trzeba napisać pętlę proszącą gracza o wpisanie typowanego słowa i porównującą te wpisane słowo z oryginałem. Wyjście z pętli następuje, gdy słowo wpisane przez zgadującego jest identyczne z pierwotnym słowem.
+Opracuj podstawową strukturę programu wg wyznaczonych etapów
+Jak wiesz, każdy program zawiera funkcję main(). Napisz w niej komentarze oddzielające od siebie poszczególne części budowy programu, np.:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+	int main()
+{
+    // 1: Pobranie słowa od gracza
+ 
+    // 2: Wymieszanie liter
+ 
+    // 3: Poproszenie drugiego gracza o odgadnięcie słowa
+ 
+    return 0;
+}
+Aby ją sobie ułatwić, najlepiej będzie gdy zaczniesz od etapu 1., następnie zrobisz 3., a 2. zostawisz sobie na koniec.
+Po wykonaniu etapów 1. i 3. program będzie prosił o podanie słowa, po czym będziesz mógł je wpisać jeszcze raz. Dowiesz się czy napisany kod działa poprawnie. 
+
+Etap 2 związany z mieszaniem liter wykorzystuje generowanie liczb losowych. Na początku programu dołącz nagłówki odpowiednie potrzebne biblioteki, aby móc korzystać z funkcji dotyczących generowania liczb losowych.
+Aby uniknąć wielokrotnego wylosowania tej samej litery, należy każdą wylosowaną literę od razu usuwać. 
+Nie jest to obowiązkowe, ale zamiast umieszczać wszystko w funkcji main() lepiej jest utworzyć kilka funkcji, z których każda będzie wykonywać swoje ściśle określone zadanie. 
+Na przykład cały etap 2., w którym mieszane są litery wpisanego przez gracza słowa doskonale nadaje się do ujęcia w funkcję.
+Jeśli wykonałeś zakres podstawowy gry to następnie
+Dokonaj następujących udoskonaleń:
+•	Dodaj możliwość rozegrania kolejnej partii gry: obecnie gdy drugi gracz odgadnie słowo, następuje koniec gry. Zmodyfikuj program tak, aby zamiast tego wyświetlał pytanie „Czy chcesz zagrać jeszcze raz (t/n)?”. Gdy gracz naciśnie klawisz T, gra powinna rozpocząć się od nowa. Można to zrealizować poprzez zastosowanie pętli do ... while obejmującej wszystkie trzy etapy programu.
+•	Ustaw limit prób odgadnięcia słowa: możesz np. wyświetlać informację typu „Zostało Ci jeszcze 5 prób”. Gdy użytkownik nie zdoła odgadnąć słowa w wyznaczonej liczbie prób, następuje zakończenie gry i pokazanie prawidłowej odpowiedzi.
+•	Wyświetl średnią gracza na koniec gry: po zakończeniu gry wyświetl punktację. Możesz ją obliczyć w dowolny sposób. W trakcie gry wyniki poszczególnych rozgrywek możesz zapisywać w wektorze.
+•	Losuj słowa z pliku zawierającego listę słów: aby można było grać samemu, możesz utworzyć słownik, z którego program będzie losował słowa do odgadnięcia. Oto przykładowa zawartość takiego pliku:
+TAJEMNICA KONTRABAS KIEŁBASA PLUTON MAGIA TELEWIZJA
+Zamiast prosić gracza o wpisanie słowa do odgadnięcia (etap 1), program powinien sam losować słowo ze słownika. 
+•	Ukryj słowo ukryj podał pierwszy gracz: gdy pierwszy gracz wpisze słowo do odgadnięcia, drugi gracz może je zobaczyć. Aby mu to uniemożliwić, zamień wpisywane litery np. na gwiazdki. 

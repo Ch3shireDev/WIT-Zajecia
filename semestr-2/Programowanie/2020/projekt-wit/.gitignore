@@ -1,0 +1,39 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+/src/.vs/projekt-wit/v16
+/src/Debug
+/.vs/projekt-wit/v16
+/x64/Debug
+/Debug
+/Release/projekt-wit.tlog
+/Release

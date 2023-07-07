@@ -1,0 +1,13 @@
+Zapoznaj się z teorią
+
+Zadanie 1
+Napisz program który sortuje bąbelkowo dowolną podaną ilość liczb rzeczywistych. podawanie liczb kończy naciśniecie klawisza „esc”. Posortowane liczby zapisuje do pliku i dodatkowo wyświetla je na ekranie za pomocą printf.
+ 
+Zadanie 2
+Napisz program, który wypisze zawartość tablicy zadeklarowanej w następujący sposób: int a[ ] = {1, 3, 5, 7, 9, 11, 13}; Należy napisać dwie funkcje: wersję zwykłą opartą o indeksowanie tablicy i wersję wskaźnikową. 
+
+Zadanie 3
+Napisać funkcję swap, która zamieni miejscami dwa elementy, typu int, podane jako jej argumenty. Oczywiście argumenty muszą być przekazane przez adres. Uwaga: Choć taka funkcja operująca na danych typu int może wydawać się nieprzydatna. (W podobny sposób można napisać funkcję zamieniającą dwa rekordy – bardzo złożone typy danych).
+ 
+Zadanie 4 
+Napisać funkcję sklej, której parametrami są dwa wskaźniki na tekst s i t. Funkcja ma dopisać do tekstu znajdującego się w tablicy s tekst t. Funkcja ma operować na wskaźnikach do tekstu, a nie na tablicach i indeksowaniu. Funkcja nie może utworzyć trzeciego tekstu - ma dokleić drugi do pierwszego. Uwaga, tablica zawierająca tekst pierwszy musi być wystarczająco duża, by pomieściła dodatkowo znaki tekstu drugiego.

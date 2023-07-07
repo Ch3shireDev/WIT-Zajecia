@@ -1,0 +1,25 @@
+Zadanie 1
+
+Zapoznaj się z teorią z laboratorium.
+
+
+Zadanie 2
+
+Napisz program w którym utworzysz strukturę przechowującą następujące dane:
+Imię 
+Nazwisko
+Adres
+Kod
+Miasto
+Wiek
+Płeć
+Numer_telefonu
+Adres_e-mail
+Program powinien pozwolić użytkownikowi wprowadzić dane do struktury, a następnie wyświetlić te dane.
+
+Zadanie 3
+
+Napisz program, który wypisze zawartość tablicy zadeklarowanej w następujący sposób:
+int a[ ] = {1, 3, 5, 7, 9, 11, 13};
+Należy napisać dwie funkcje: wersję zwykłą opartą o indeksowanie tablicy i wersję wskaźnikową.
+

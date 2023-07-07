@@ -1,0 +1,16 @@
+Zadania do wykonania na laboratorium 2:
+
+Zad 1. Napisz program obliczający średnią arytmetyczną dla dowolnej ilości podanych liczb całkowitych dodatnich x (zastosuj pętlę).
+
+Zad 2. Napisz program liczący sumę kwadratów wszystkich liczb całkowitych dodatnich do podanej liczby x.
+
+Zad 3. Napisz program który podnosi podaną liczbę całkowitą x do kwadratu dopóki nie będzie ona większa niż 10000 i podaje jej wartość. Program ma wypisać wszystkie liczby i ich wyniki na ekranie.
+
+Zad 4. Napisz program wyświetlający po kolei liczby o x większe od podanej liczby y aż do liczby 1000.
+
+Zad 5. Napisz program sprawdzający czy użytkownik wprowadził prawidłowo Imię, Nazwisko, Hasło jeśli tak to przyznaje mu dostęp, jeśli nie to prosi ponownie o podanie ponownie danych. 
+Poprawnie dane: Jan, Kowalski, kowal37
+
+Zad 6. Napisz program obliczający BMI i wyświetlający komunikat o wielkości BMI jak i informacje o stopniu otyłości, nawagi, wadze prawidłowej, niedowadze, itd. ... (napisz go w dwóch wariantach tylko z if i z zastosowaniem case).
+
+Zad 7. Rozbuduj program BMI z zadania 6 aby była możliwość wyboru liczenia w jednostkach kg, m (europejskich) lub (angielskich).	
