@@ -1,0 +1,28 @@
+Zadania z kolokwium, czêsci zadaniowej (jeden z zestawów)z Podst. Progr. Zajecia prowadzil Henryk Potrzebowski 2009/2010
+
+
+zad2
+prosze napisac funkcje umozliwiajaca znakowo rysowanie na monitorze komputera litere X, jak pokazano na rysunkuponi¿ej:
+
+x
+Parametr tej funkcji niech oznacza szerokosc i wysokosc litery (tutaj5)
+
+zad5
+napisz funkcje, ktora by rekurencyjniewypelniala tablice kolejnymi wartosciami silni, np.
+1,1,2,6, 24, 120, 720
+wydrukuj te tabele.
+zad4. Napisz funkcje szukaj(int A[], int n, int x) ktora zwraza indeks pierwszego elementu tablicyA niermniejszego od przekazanego parametru x.
+Jezeli w tablicy A nie ma takeigo elementu funkcja zwraca rozmiar n. Przetestuj zbudowana funkcje.
+zad 3
+dana jest tablica x rozmiaru n liczby typu double, opracuj algorytm sortujacy, ktory elementy
+tablicy x sortuje klastrami w sposob nastepujacy:
+klaster 1 - liczby  <0
+klaster 2 - 0<=liczby<5
+klaster 3 - 5<=liczby
+Przestestuj program testujacy, ktory wydrukuje tablice x przed i po sortowaniu.
+(wariant uproszczony: funkcja nie sortuje, a tylko zwraca licznosc klastrow)
+
+zad 1 
+napisz funkcje, ktora dla stalychn a,b,c i przekazanych funkcji argumentów x, y zwroci wartosc nastepujacego wyrazenia:
+asin(0,2x+PI/5)+b(1,5x-3/4)/(1,5y)+cexp(-0,14x+0,07y)
+Zbuduj program testujacy te funkcje.

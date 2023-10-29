@@ -1,0 +1,19 @@
+Zadania z kolokwium, czêsci zadaniowej (zestaw 2; 2i 3 zadania powtarza³y sie w zestawie 1))z Podst. Progr. Zajecia prowadzil Henryk Potrzebowski 2009/2010
+
+/* zad1Podaj definicj? funkcji typu char * z dwoma argumentami typu const char *, 
+const char* przy czym argument 1 ma posta? dwucz??ciowego napisu z kropk? w ?rodku. 
+Funkcja ma zwraca? pierwszy dwucz??ciowy argument, w kt?rym czesc druga zosta?a
+zamieniona na napis przekazany za pomoc? argumentu 2.
+Zbuduj program, kt?ry testuje opracowana funkcj?.*/
+
+/*zad2 Niech K,L b?d? dwoma listami jednokierunkowymi struktur ST o polach char[15],
+int. 
+Zbuduj funkcj? ST* scal_list(ST*, ST*) kt?ra scali elementy listy K z elementami
+listy L i zwr?ci wska?nik na now? scalona list? M.
+Zbuduj program, kt?ry testuje opracowana funkcj?.*/
+
+/*zad3 Niech A b?dzie tablica struktur P o polach char[12], unsigned int. 
+Zbuduj funkcj? P* scal_tab(P*, unsigned) ktora zwraca tablic? B wszystkich r?znych
+co do nazwy struktur P zA , za? pole liczbowe 
+ka?dej struktury B wype?ni suma odpowiednich warto?ci p?l struktur sk?adowych.
+Zbuduj program, kt?ry testuje opracowana funkcj?.*/

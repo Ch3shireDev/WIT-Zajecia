@@ -1,0 +1,27 @@
+
+lab2
+
+	- roawiaz uklad rownan metoda wyznacznikow
+		a1*x + b1*y = c1	
+		a2*x + b2*y = c2
+
+		mo¿na rozwi¹zaæ obliczaj¹c wyznaczniki tabel (macierzy)
+		zgodnie z przyk³adem:
+
+		W   =  a1 b1  =  a1*b2 - a2*b1 
+		       a2 b2 
+
+		Wx  =  c1 b1  =  c1*b2 - c2*b1 
+		       c2 b2 
+		Wy  =  a1 c1  =  a1*c2 - a2*c1 
+		       a2 c2 
+		W zale¿noœci od wartoœci wyznaczników W, Wx i Wy mo¿na
+		rozpatrywaæ nastêpuj¹ce sytuacje:
+
+		Jeœli W <> 0 to uk³ad  równañ posiada rozwi¹zanie
+			 x = Wx / W i y = Wy / W  
+		Jeœli W = 0 i Wx <> 0 lub Wy <> 0 wtedy uk³ad  
+			nie posiada rozwi¹zañ (uk³ad sprzeczny). 
+		Jeœli W = 0 i Wx = 0 i Wy = 0 to wówczas 
+			uk³ad równañ posiada nieskoñczenie wiele rozwi¹zañ  
+ 

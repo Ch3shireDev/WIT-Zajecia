@@ -1,0 +1,8 @@
+lab4
+
+	- napisa funkcje liczaca najwiekszy wspolny dzielnik
+ile ma rozwiazan
+	- napisac funkcje liczaca liczbe rozwiazan rownania kwadratowego
+"jakie to rozwiazania"
+
+

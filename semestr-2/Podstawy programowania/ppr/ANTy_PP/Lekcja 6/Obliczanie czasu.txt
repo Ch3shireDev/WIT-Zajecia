@@ -1,0 +1,6 @@
+clock_t start,stop;
+
+start=clock();
+stop=clock();
+
+printf("Zrobione w %f s \n",(float)(stop-start)/CLK_TCK);

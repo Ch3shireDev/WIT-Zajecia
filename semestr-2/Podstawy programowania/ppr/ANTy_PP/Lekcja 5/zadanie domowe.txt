@@ -1,0 +1,10 @@
+lab5
+
+	- stworzyc i wylosowac tablice tabA o rozmiarze 2*SIZE
+	- stworzyc i wylosowac tablice tabB1 tabB2 o rozmiarach SIZE
+	- zbadac czas sortowania tabA
+	- zbadac laczny czas sortowania tabB1 tabB2 i scalania
+
+
+
+

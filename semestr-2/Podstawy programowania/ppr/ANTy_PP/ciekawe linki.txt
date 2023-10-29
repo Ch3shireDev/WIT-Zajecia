@@ -1,0 +1,6 @@
+Sortowanie:
+	http://www.i-lo.tarnow.pl/edu/inf/alg/sort/
+
+Liczby pierwsze 
+	http://www.i-lo.tarnow.pl/edu/inf/alg/primes/
+http://www.sciagi.sarnet.pl/modules.php?name=Content&pa=showpage&pid=153

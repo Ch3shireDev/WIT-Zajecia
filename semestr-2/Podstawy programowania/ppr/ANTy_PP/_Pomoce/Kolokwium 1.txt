@@ -1,0 +1,42 @@
+DLa tablic tA, tB i tC o rozmiarzez SIZE
+
+- wypeknij losowo wartosciami z zakresu od Vmin do Vmax;
+- wypisz zawartosc tablic w 'sprytny' sposob 
+
+- znajdz wartosc max w tablicach
+- znormalizuj zawartosc tablic (t[i] = t[i]/max *100)
+- wypisz zawartosc tablic w 'sprytny' sposob 
+- wylicz srednia w tablicach
+
+- policz ile elementow wsplnych maja tablice tA i tB 
+- policz ile elementow roznych maja tablice tA i tC 
+
+- znajdz najdluzszy fragment wspolny w tablicach tA i tB
+
+- posortuj tablice (metoda babelkowa...)
+
+- znajdz liczbe wystapien zadanej wartosci w tA (wykorzystaj binSearch)
+
+Dla tablicy t2D
+- wypelnij tablice zgodnie ze schematem:
+	komorka i,j t2D ma miec wartosc sumy komorki i tA i komorki j tB
+- wypisz 'sprytnie' : jak mala to wszystko jak duza to dupa i glowa
+		1 2 3 4....7 8 9 10
+		1 2 3 4....7 8 9 10
+		1 2 3 4....7 8 9 10
+		...................
+		...................
+		...................
+		1 2 3 4....7 8 9 10
+		1 2 3 4....7 8 9 10
+		1 2 3 4....7 8 9 10
+
+
+srednia wyliczyc
+w a i b
+ile el. a jest w tablicy b.
+ile el. a nie wystepuja w c.
+najdluzszy wspolny fragment
+babelkiem
+znajdz liczbe od jeden do osmiu, czy tu jest liczba 5?
+  

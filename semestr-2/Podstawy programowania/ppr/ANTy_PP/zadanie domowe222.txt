@@ -1,0 +1,24 @@
+Sub JakSieNazywam!
+wyœwietla nazwe u¿ytkownika
+Msg = "czy nazywasz sie " &  _ Application.UserName & " ?"
+Odp = MsgBox(Msg, vbYesNo)
+If Odp = vbNo Then
+                MsgBox  "  szkoda za sie nie zgadza "
+    else
+               MsgBox  " ciesze sie ze sie zgadza "
+   End If 
+end sub
+masz i sie ciesz
+
+
+
+	- wypelnij tablice losowo
+	- wypisz ja
+	- zsumuj wartosci w tabicy
+	- policz parzyste itd.
+
+
+
+konweruj dowolna liczbe na dowolny format
+
+
