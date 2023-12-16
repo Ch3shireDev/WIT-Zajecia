@@ -106,6 +106,10 @@ Trzeba odpoowiednio zmodyfikować linię
 ```J <= J(6 downto 0) & ( not J(7));```
 z poprzedniego projektu.
 ```not J(7)``` zastąpić NAND lub XOR całego J.
+Na początku pliku dodać:
+use ieee.std_logic_misc.all;
+a wyżej wspomniana linijkę:
+J <= J(6 downto 0) & ( not or_reduce(J));
 
 
 # 4. Zmodyfikować punkt 3) tak, aby za pomocą suwaka wybierać pomiędzy
