@@ -31,5 +31,8 @@
 5. Omówić usługę Active Directory.
 6. Czym jest funkcja skrótu? Jakie są jej zastosowania?
 7. Czym się różni procedura składowana od funkcji?
-8. Kategorie języka SQL
+8. Kategorie języka SQL.
 9. Jakie kryterium można przyjąć w poborze usług hostujących SQL Server w chmurze?
+10. Rodzaje czujników stosowanych w tzw. domu inteligentnym.
+11. Sposoby komunikacji między procesami.
+12. Tworzenie i weryfikacja podpisu cyfrowego.
