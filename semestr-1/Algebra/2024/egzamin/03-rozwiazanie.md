@@ -20,11 +20,13 @@ $$C = 2+i$$
 
 (zgodnie z konwencją, że współrzędne $(x,y)$ odpowiadają liczbie $z = x+iy$).
 
-Liczby zespolone mogą być reprezentowane na dwa sposoby. Pierwszy z nich to przedstawiony wyżej $z = x+iy$, czyli współrzędne kartezjańskie. Drugi z nich to współrzędne biegunowe, gdzie liczba zespolona jest reprezentowana jako $z = r(\cos \theta + i\sin \theta)$, gdzie $r$ to odległość od początku układu współrzędnych, a $\theta$ to kąt między osią rzeczywistą a wektorem łączącym punkt z początkiem układu współrzędnych. Współrzędne biegunowe mogą być również zwinięte do wyrażenia 
+Liczby zespolone mogą być reprezentowane na dwa sposoby. Pierwszy z nich to przedstawiony wyżej $z = x+iy$, czyli współrzędne kartezjańskie. Drugi z nich to współrzędne biegunowe, gdzie liczba zespolona jest reprezentowana jako $z = r(\cos \theta + i\sin \theta)$, gdzie $r$ to odległość od początku układu współrzędnych, a $\theta$ to kąt między osią rzeczywistą a wektorem łączącym punkt z początkiem układu współrzędnych.
 
-$$z = r\exp{\phi}$$.
+<img src="complex.png" width="200px">
 
-![](complex.png)
+Współrzędne biegunowe mogą być również zwinięte do wyrażenia 
+
+$$z = r\exp{\phi}.$$
 
 
 
@@ -90,3 +92,30 @@ $$\beta = 26.57^\circ.$$
 $$\alpha + \beta \approx 45^\circ.$$
 
 (zadanie można wykonać jeszcze inaczej, konstruując punkt D będący zbudowany o przekręcenie punktu C względem punktu A o $\alpha$, a następnie obliczając kąt dla liczby zespolonej $D$).
+
+## Alternatywna metoda
+
+Zauważmy, że sumę kątów możemy uzyskać w jeszcze jeden sposób, poprzez pomnożenie dwóch liczb zespolonych, zgodnie ze wzorem:
+
+$$z_1 \cdot z_2 = r_1 \exp{i\phi_1} \cdot r_2 \exp{i\phi_2} = r_1r_2 \exp{i(\phi_1+\phi_2)}.$$
+
+Zatem musimy pomnożyć liczby zespolone $B$ oraz $C$:
+
+$$B = 3+i = \sqrt{10}\exp{i\arccos \frac{3}{\sqrt{10}}},$$
+$$C = 2+i = \sqrt{5}\exp{i\arccos \frac{2}{\sqrt{5}}}.$$
+
+Obliczamy iloczyn:
+
+$$D = B \cdot C = (3+i)(2+i) = 6 + 5i - 1 = 5 + 5i$$
+
+Kąt między $D$ oraz $A$ to:
+
+$$\cos \gamma = \frac{\Re(D \cdot \overline{A})}{|D|\cdot|A|}$$
+
+$$\cos \gamma = \frac{\Re((5+5i)\cdot 3)}{|5+5i||3|}$$
+
+$$\cos \gamma = \frac{\Re(5+5i)}{\sqrt{10}}$$
+
+$$\cos \gamma = \frac{5}{\sqrt{10}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}$$   
+
+$$\gamma = \arccos \frac{\sqrt2}{2} = 45^\circ$$
